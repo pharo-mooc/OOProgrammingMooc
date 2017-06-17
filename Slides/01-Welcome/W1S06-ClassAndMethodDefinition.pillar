@@ -5,8 +5,8 @@
 
 ${slide:title=Class and Method Definitions in Pharo}$
 
-- classes and methods are defined within tools
-- there is no dedicated syntax
+- Classes and methods are defined within tools
+- There is no dedicated syntax for class definition just a message
 
 ${slide:title=Class Definition in Pharo}$
 
@@ -58,7 +58,7 @@ ${slide:title=Presentation Convention}$
 
 +>file://figures/FactorialInBrowser.png|width=80+
 
-In Pharo, the method belongs to the selected class
+In Pharo, the method belongs to the selected class.
 
 ${slide:title=Remember Messages}$
 
