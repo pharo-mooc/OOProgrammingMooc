@@ -99,17 +99,7 @@ Point selectors
 - Returns all the messages the class understands
 
 
-${slide:title=A Little Query}$
 
-- Let us query the system and only filter the unary messages:
-
-[[[
-    Point selectors select: #isUnary  
-    > #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
-]]]
-
-- ==select:== is an iterator (see Iterator lecture)
-- Easy :-)
 
 
 ${slide:title=Binary Messages}$
@@ -178,7 +168,17 @@ ${slide:title=Test Yourself!}$
 - ==point1 x== (unary)
 - ==point1 distanceFrom: point2== (keyword)
 
+${slide:title=A Little Query}$
 
+- Let us query the system and only filter the unary messages:
+
+[[[
+    Point selectors select: #isUnary  
+    > #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
+]]]
+
+- ==select:== is an iterator (see Iterator lecture)
+- Easy :-)
 
 ${slide:title=Example: Message setX:}$
 
