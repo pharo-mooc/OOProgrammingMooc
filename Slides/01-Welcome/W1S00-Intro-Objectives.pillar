@@ -2,10 +2,49 @@
 	"title":"Objectives of the lectures "
 }
 
+${slide:title=Who Am I}$
+
+- Expert in OOP and OOD
+- Wrote several books
+- One for this lecture and for you
+- http://stephane.ducasse.free.fr
+
+
+${slide:title=Process}$
+
+- You do not have to stress if you do not get it the first time
+- Repetition, repetition and repetition
+
+But you should 
+- Do the exercises
+- What the videos
+- Read the book
+- Help yourself on Pharo discord channel
+
+${slide:title=Reflexion on learning}$
+
+- Making mistakes is learning
+- Repeating the same mistakes is idiocy
+- Give a man a fish and you feed him for a day; teach a man to fish and you feed him for a lifetime
+
+${slide:title=Diving}$
+
+- You can go inside Pharo
+- You can break Pharo
+- You can read all the code: it is written with a syntax in one postcard
+
+
+${slide:title=How to interact with people (on discord)}$
+
+- Do not get stuck
+- Be nice
+- Be polite
+- Be precise
+- Do your homework
+- Help each others
 
 
 ${slide:title=Core Objectives}$
-
 - Objects / Classes
 - Messages / Methods
 - self/this and its semantics
@@ -19,8 +58,11 @@ ${slide:title=Objectives}$
 - Message sends are choice (what would be the equivalent to not)
 - Message sends are plans for reuse
 - Polymorphism
+- A Testing Framework
+- Blocks and Iterators
 - The "Don't ask, tell" Principle
 - Some design patterns
+
 
 ${slide:title=Objectives}$
 - Understanding OOP as a Design methodologies
@@ -45,16 +87,14 @@ You will also learn
 
 ${slide:title=Schedule}$
 
-- Welcome and Introduction
-- Syntax
-- Object Essential Concepts: Objects/Classes
-- Essence of OOP
-- A Testing Framework
-- Blocks and Iterators
-- Inheritance
-- Object-Oriented Design Principles
-- Class Methods
-- Debugging and Tools
+- Week 1 Welcome and Introduction
+- Week 2 Syntax
+- Week 3 Object Essential Concepts: Objects/Classes
+- Week 4 Essence of OOP
+- Week 5  Inheritance
+- Week 6 Reuse 
+- Week 7 Debugging 
+- ...
 
 ${slide:title=Books}$
 - Learning OO Programming and Design with TDD in Pharo

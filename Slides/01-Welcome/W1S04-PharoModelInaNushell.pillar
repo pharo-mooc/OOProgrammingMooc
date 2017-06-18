@@ -52,6 +52,22 @@ Example of the cross product of two points:
 (point1 x * point2 y) - (point1 y * point2 x)
 ]]]
 
+${slide:title=Object Creation}$
+
+Sending the messages ==new== and ==new:== to a class
+
+[[[
+Monster new
+> aMonster
+]]]
+
+[[[
+Array new: 6
+> #(nil nil nil nil nil nil)
+]]]
+
+Here we get an array of size 6
+
 ${slide:title=Object Creation: Creating a Point}$
 
 A new object can be created by sending a message to another object
@@ -77,21 +93,9 @@ A new ==String== is created as the concatenation of two strings by:
 - to the string =='Pharo'==
 - with the string ==' is Cool'== as argument
 
-${slide:title=Object Creation}$
 
-Sending the messages ==new== and ==new:== to a class
 
-[[[
-Monster new
-> aMonster
-]]]
 
-[[[
-Array new: 6
-> #(nil nil nil nil nil nil)
-]]]
-
-Here we get an array of size 6
 
 ${slide:title=Object Creation}$
 
