@@ -1,0 +1,70 @@
+{
+	"title":"Objectives of the lectures "
+}
+
+
+
+${slide:title=Core Objectives}$
+
+- Objects / Classes
+- Messages / Methods
+- self/this and its semantics
+- Inheritance
+- super and its semantics
+- Tests are your life ensurance
+
+${slide:title=Objectives}$
+- Class responsibility collaboration
+- Delegation
+- Message sends are choice (what would be the equivalent to not)
+- Message sends are plans for reuse
+- Polymorphism
+- The "Don't ask, tell" Principle
+- Some design patterns
+
+${slide:title=Objectives}$
+- Understanding OOP as a Design methodologies
+- Understand key and essential concepts
+- Being able to develop non trivial examples
+
+${slide:title=Why Pharo?}$
+
+- Smalltalk inspired
+- Pure, minimal syntax
+- Fully interactive
+- Full Mooc available
+- Excellent to get immersed in objectLand
+
+${slide:title=Side Effect}$
+
+You will also learn
+- Understand some requirements, design and implement object-oriented solutions
+- Understand and create some basic UML Diagrams
+- Use test-driven developments
+- See some coding idioms and Design Patterns
+
+${slide:title=Schedule}$
+
+- Welcome and Introduction
+- Syntax
+- Object Essential Concepts: Objects/Classes
+- Essence of OOP
+- A Testing Framework
+- Blocks and Iterators
+- Inheritance
+- Object-Oriented Design Principles
+- Class Methods
+- Debugging and Tools
+
+${slide:title=Books}$
+- Learning OO Programming and Design with TDD in Pharo
+- Pharo by example (http://books.pharo.org)
+- Smalltalk by Example (http://stephane.ducasse.free.fr)
+- Smalltalk with Style (http://stephane.ducasse.free.fr)
+- Best Smalltalk Practices Kent Beck
+-  An Introduction to Object-Oriented Programming, Timothy Budd, Addison-Wesley, 2004.
+
+${slide:title=Exercise}$
+
+- Watch the original Karate Kid first movie
+- Think about it...

@@ -1,0 +1,117 @@
+{
+"title":"First look at Objects, Classes, Methods and  Messages"
+}
+
+${slide:title=An object}$
+
+A little entity with: 
+- state
+- behavior 
+- identity
+
+${slide:title=A turtle object}$
+
+A little entity with: 
+- state: tilt, pen up or down
+- behavior: draw on screen
+- identity: one is different to the other
+
+${slide:title=A file object}$
+
+A little entity with: 
+- state: a path, a contents
+- behavior: show contents, change contents, can be renamed
+- identity: one is different to the other
+
+${slide:title=About identity and equality}$
+
+Enter a pizzeria... order a pizza
+
+- identity you eat the pizza of a client
+- equality you order the same pizza than a client
+
+
+${slide:title=An object reacts to messages}$
+
+[[[
+ aTurtle jumpTo: aLocation
+]]]
+
+[[[
+ aWindow open 
+ aFIle open 
+ aZip open
+]]]
+${slide:title=The object receiver}$
+
+[[[
+aTurtle jumpTo: aLocation
+]]]
+==aTurtle==
+
+[[[
+aWindow open
+]]]
+==aWindow==
+
+[[[
+ aFIle open 
+]]]
+==aFile==
+
+[[[
+ aZip open
+]]]
+aZip
+
+${slide:title=A method specify }$
+
+
+${slide:title=Messages vs. Methods}$
+
+- Message: What to do
+- Methods: How to do it
+
+${slide:title=One message multiple methods}$
+
+One message ==open==
+
+Several methods named ==open==
+- aWindow open 
+- aFIle open 
+- aZip open
+
+
+${slide:title=A class is factory of objects}$
+
+- Define all the variables of all its instances
+- Define all the behavior
+-- no repetition in all the instances
+
+
+${slide:title=Message new creates objects}$
+
+[[[
+Turtle new
+>>> aTurtle
+]]]
+
+[[[
+File new
+>>> aFile
+]]]
+
+${slide:title=Methods are looked up dynamically in the class of the receiver}$
+
+
+
+
+${slide:title=Summary}$
+
+Three kinds of messages: unary, binary and keywords
+- Unary
+-- ==5 factorial==
+- Binary
+-- ==2 + 3==
+- Keywords-based messages
+-- ==2 between: 0 and: 10==
