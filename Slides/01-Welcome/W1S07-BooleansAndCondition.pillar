@@ -7,6 +7,9 @@ ${slide:title=Booleans}$
 
 - ==true== and ==false==
 
+
+${slide:title=Boolean Messages}$
+
 In Pharo, booleans have nothing special
 - & | not
 - or: and: (lazy)
@@ -44,7 +47,7 @@ ${slide:title=Eager and Lazy Logical Operators}$
 
 - the argument ==[1 error: 'crazy']== is not executed because it is not necessary
 
-${slide:title=Conditionals}$
+${slide:title=Conditionals are Messages too}$
 
 In Pharo, traditional conditional (if, else, while) are messages sent to boolean or block objects
 
