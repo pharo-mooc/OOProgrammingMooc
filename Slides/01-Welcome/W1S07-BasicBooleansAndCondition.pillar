@@ -5,7 +5,7 @@
 
 ${slide:title=Booleans}$
 
-- ==true== and ==false==
+==true== and ==false== are two objects!
 
 
 ${slide:title=Boolean Messages}$
@@ -45,7 +45,7 @@ ${slide:title=Eager and Lazy Logical Operators}$
    -> false "no error!"
 ]]]
 
-- the argument ==[1 error: 'crazy']== is not executed because it is not necessary
+- the argument ==[ 1 error: 'crazy' ]== is not executed because it is not necessary
 
 ${slide:title=Conditionals are Messages too}$
 
@@ -62,14 +62,6 @@ Weather isRaining
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
 - Heavily optimised by the compiler
 
-${slide:title=Boolean Implementation}$
-
-- ==true== is the unique instance of the class ==True==
-- ==false== is the unique instance of the class ==False==
-
-+Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=50+
-
-More details in a future lecture (The Essence of Dispatch)
 
 
 ${slide:title=Conditionals: ifTrue: and ifTrue:ifFalse:}$
@@ -108,6 +100,8 @@ self listItems
 
 - Notice that when the receiver is not empty we get it as argument
 - No need to ask it again
+
+
 
 ${slide:title=Summary}$
 
