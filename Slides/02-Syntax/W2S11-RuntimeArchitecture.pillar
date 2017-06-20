@@ -21,7 +21,7 @@ ${slide:title=Virtual Machine}$
 - There are two modes:
 -- from command-line or in interactive (UI) mode
 - It executes compiled code / generates on the fly assembly
-- Compiled code is packaged/stored in an ''image'' (memory snapshot)
+- Compiled code is packaged / stored in an ''image'' (memory snapshot)
 - The virtual machine only needs the ''image'' to execute programs
 
 ${slide:title=Image Files: Memory Snapshots}$
@@ -60,7 +60,7 @@ ${slide:title=Image/Change Files}$
 - Image contains all the objects in binary form. Can be executed without the changes file
 - Changes file simply contains the textual representation of the changes made to the image
 
-+>file://figures/File-VirtualMachineAndImageChange.png|width=85+
++>file://figures/File-VirtualMachineAndImageChange.png|width=80+
 
 ${slide:title=Save your code using a package and version control system}$
 - Change and image are handy to develop
@@ -74,7 +74,7 @@ ${slide:title=About the Source/Changes Files}$
 
 ${columns}$
 
-${column:width=40}$
+${column:width=35}$
 
 ''PharoXX.sources'' 
 - Contains the ''textual'' definition of ""system"" classes and predefined objects
@@ -82,9 +82,9 @@ ${column:width=40}$
 - Created during release of new Pharo versions
 - Shared to all the users (images)
 
-${column:width=60}$
+${column:width=65}$
 
-+>file://figures/File-ImageAtT0.png|width=140+
++>file://figures/File-ImageAtT0.png|width=105+
 
 ${endColumns}$
 
@@ -92,27 +92,27 @@ ${slide:title=When you Define New Classes}$
 
 ${columns}$
 
-${column:width=40}$
+${column:width=35}$
 
 During development or code loading 
 - New objects are compiled in the image
 - New definitions are added to the changes file
 - Still you can browse the definition of the system class (stored in the ''PharoXX.sources'')
 
-${column:width=60}$
+${column:width=65}$
 
-+>file://figures/File-ImageAtT1.png|width=140+
++>file://figures/File-ImageAtT1.png|width=105+
 
 ${endColumns}$
 
 ${slide:title=New Change Management is Coming}$
 
-Pharo change system
+Pharo change logging system
 - Getting improved
--- new recording mechanism
+-- new recording mechanism (Epicea)
 -- better replay
--- new tooling
-- Will integrate better with Git and other modern distributed version control systems
+-- new tooling (Epicea)
+- Integrate better with Git and other modern distributed version control systems
 - Offering new ways to produce images 
 
 ${slide:title=Conclusion}$

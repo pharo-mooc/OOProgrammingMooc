@@ -1,11 +1,14 @@
 {
-	"title":"Class and Method Definitions",
+	"title":"First Look at Class and Method Definitions",
 	"slidesid":"W1S06"
 }
 
 ${slide:title=Class and Method Definitions in Pharo}$
 
-- Classes and methods are defined within tools
+- We will have specific lectures on classes and methods.
+- Now this is just to give you a first impression
+
+- Most of the time you will define classes and methods using tools
 - There is no dedicated syntax for class definition just a message
 
 ${slide:title=Class Definition in Pharo}$

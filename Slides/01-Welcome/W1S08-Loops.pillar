@@ -3,17 +3,16 @@
   "slidesid" : "W2S07"
 }
 
-${slide:title=Loops}$
+${slide:title=Loops: Just Messages sent to Object}$
 
-- Loops are expressed as messages
+- Messages sent to numbers, collections or blocks
 - Many different ones
 -- Plain loops
 -- Conditional loops
-- Messages sent to numbers, collections or blocks
-- Iterators
+-- Iterators
 
 
-${slide:title=Loops: timesRepeat:}$
+${slide:title=Loops: n timesRepeat: anAction}$
 
 To repeat a given number of times an action
 
@@ -22,7 +21,7 @@ To repeat a given number of times an action
 ]]]
 
 
-${slide:title=Loops: to:do:}$
+${slide:title=Loops:  x to: y do: anAction}$
 
 [[[
 1 to: 100 do:
