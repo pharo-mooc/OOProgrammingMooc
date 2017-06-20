@@ -1,0 +1,46 @@
+{
+  "title":"Discovering",
+  "slidesid" : "W5S06"
+}
+
+${slide:title=Looking for hex}$
+
+Spotting for hex is hardly complex.
+
+Shift-Enter hex #im
+
+--> implementors of hex, first one I see is in ByteArray.
+
+
+${slide:title=Looking for hex}$
+
+Shit-Enter hex #se
+
+--> senders of hex. First one is a test in ByteArray
+
+${slide:title=Looking for hex}$
+
+[[[
+testHex
+	"self debug: #testHex"
+	
+	self assert: #[122 43 213 7] hex = '7a2bd507'.
+	self assert: #[151 193 242 221 249 32 153 72 179 41 49 154 48 193 99 134] hex = '97c1f2ddf9209948b329319a30c16386'.
+					
+	self assert: (ByteArray readHexFrom: '7A2BD507') = #[122 43 213 7].
+	self assert: (ByteArray readHexFrom: '7a2bd507') = #[122 43 213 7].
+]]]
+
+${slide:title=Looking for hex}$
+
+From this test, one can spot readHexFrom: which uses lowercase or uppercase for reading.
+
+And asUppercase, Shift-Enter upper, scrolll down as bit, find String>>#asUppercase
+
+
+${slide:title=Summary}$
+
+- Unit tests are easy to create and run
+- Create one test and run it million times!
+- Use them as your life insurance
+- There exists other libraries for Mock (BabyMock) or different styles of testing

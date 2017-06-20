@@ -1,5 +1,5 @@
 {
-  "title":"Basics on Variables",
+  "title":"Variables",
   "slidesid" : "W3S03"
 }
 
@@ -76,8 +76,9 @@ ${slide:title=Special Variables}$
 ${slide:title=Special Variables}$
 
 - ==self== refers to the receiver of the message (==this== in Java)
-- ==super== refers to the receiver of the message (see dedicated Lectures)
+- ==super== refers to the receiver but the method lookup starts in the superclass of the class defining the method (see dedicated Lectures)
 - ==thisContext== refers to the current execution stack (advanced)
+
 
 ${slide:title=Shared or Global Variables start with Uppercase}$
 
@@ -95,6 +96,22 @@ Transcript cr.
 Transcript show: 'hello world'.
 Transcript cr.
 ]]]
+
+
+${slide:title=ClassVariables are Shared Variables}$
+
+- To share information between all the instances of a class and subclasses
+- Use a classVariable
+
+
+[[[
+Object subclass: #CombinedChar
+   instanceVariableNames: 'codes combined'
+   classVariableNames: 'Compositions Decompositions Diacriticals'
+   package: 'Kernel-BasicObjects'
+]]]
+
+- Here ==Compositions== is shared between all the ==CombinedChar== instances and instances of subclasses
 
 
 ${slide:title=Summary}$
