@@ -3,6 +3,27 @@
   "slidesid":"W2S10"
 }
 
+${slide:title= Remember the Cascade (;) }$
+
+A cascade: Sending multiple messages to the same object
+
+[[[
+    Transcript cr.
+    Transcript show: 1.
+    Transcript show: 2
+]]]
+
+is equivalent to:
+
+[[[
+    Transcript
+        cr ;
+        show: 1 ;
+        show: 2
+]]]
+
+- ==;== is called a cascade
+
 
 ${slide:title=A Puzzle and Candidate for Cascade}$
 
@@ -27,7 +48,7 @@ Set >> add: newObject
 
 [[[
 Set new add: 2
-> 2
+>>> 2
 ]]]
 
 ${slide:title=A Verbose Solution}$
@@ -52,7 +73,7 @@ Object >> yourself
 Set new
    add: 2;
    yourself
-> aSet
+>>> aSet
 ]]]
 
 - ==add:== and ==yourself== are sent to the new ==Set==
