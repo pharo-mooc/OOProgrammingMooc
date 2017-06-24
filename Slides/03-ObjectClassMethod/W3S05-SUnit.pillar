@@ -110,7 +110,7 @@ ${slide: setUp and tearDown Messages}$
 - ==setUp== allows us to specify and reuse the context
 - ==tearDown== to clean after
 
-+>file://figures/SetUpTearDown.png+
++>file://figures/SetUpTearDown.png|width=80+
 
 ${slide:title=Defining a setUp Method}$
 
@@ -135,7 +135,7 @@ SetTestCase >> testOccurrences
 
 ${slide:title=SUnit Core}$
 
-+>file://figures/SUnitCore.png|width=90+
++>file://figures/SUnitCore.png|width=60+
 
 ${slide:title=TestSuite, TestCase and TestResult}$
 
