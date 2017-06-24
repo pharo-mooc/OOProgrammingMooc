@@ -3,9 +3,9 @@
   "slidesid":"W6S06"
 }
 
-${slide:title=Execution Model}$
+${slide:title=Pharo's Execution Model}$
 
-Pharo virtual machine (VM) executes compiled code
+Pharo virtual machine (VM) executes compiled code (similar to Java, C\#)
 - The virtual machine and its plugins are platform specific (different versions for different OSes)
 - VMs exist for MacOS, Windows, Linux (different versions), iOS, ARM, Android
 
@@ -28,7 +28,7 @@ ${slide:title=Image Files: Memory Snapshots}$
 
 ${columns}$
 
-${column:width=60}$
+${column:width=40}$
 
 ''.image'' files is a cache of objects:
 - Simple objects (points, strings ...)
@@ -38,13 +38,13 @@ ${column:width=60}$
 - PC (program counter) is also saved and restored 
 -- frozen execution is restarted at launch time
 
-${column:width=50}$
+${column:width=60}$
 
-+>file://figures/File-VirtualMachineAndImages.png|width=160+
++>file://figures/File-VirtualMachineAndImages.png|width=98+
 
 ${endColumns}$
 
-${slide:title=Change Files: Change Tape}$
+${slide:title=Change Files: a Change Tape}$
 
 ''.changes'' file is a tape of all the changes performed to the system
 - Logs class creation/deletion, method addition/removal, actions...
