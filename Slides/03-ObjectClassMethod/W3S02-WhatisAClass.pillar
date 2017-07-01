@@ -55,5 +55,6 @@ ${slide:title=What you should know}$
 - Any object is instance of a class.
 - A class is a factory: it creates instances.
 - All the instances of class execute the same methods in response to the same message.
-- A class creates Instances that share their behavior 
+- A class creates Instances that share their behavior. 
+- A class defines methods that are executed on its instances.
 
