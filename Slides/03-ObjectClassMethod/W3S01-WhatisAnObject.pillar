@@ -1,33 +1,40 @@
 {
-	"title":"What is an Object",
+	"title":"What is an Object?",
 	"slidesid" : "W3S01"
 }
 
-${slide:title=an Object}$
+${slide:title=An object}$
 
-- Computer entity
--- state
--- behavior 
--- identity
+A little computer entity with
+- a specific state
+- a behavior 
+- an identity
 
-- Collaborating with other entities
+Entity collaborating with other entities
 
-${slide:title=Object Example: a Die}$
+${slide:title=Object example: a Die}$
 
 aDie(6) 
 - aDie(6) has a state: 6 faces
 - aDie(6) knows how to roll
 - aDie(6) is part of aDieHandle (2D6 + 2D20)
 
+${slide:title=Object example: a Rectangle}$
+[[[
+(Rectangle width: 10 height: 20)
+]]]
+- has a state: an height and a width
+- knows how to compute its area, edge closest to a point, overlap with other rectangles
+- collaborates with UI redisplay
 
-${slide:title=Object Example: a Contact}$
+${slide:title=Object example: a Contact}$
 
 aContact 
 - aContact has a state: name, firstname, telephone, address
 - aContact knows how to display itself
 - aContact is in relation with a contact book
 
-${slide:title=Object Example: an Item Collector}$
+${slide:title=Object example: an Item Collector}$
 
 - aCollector has a state: lists of items 
 - aCollector knows how to save itself, search its items, modify its items
@@ -47,7 +54,7 @@ ${slide:title=State \+ Behavior \+ Identity}$
 ;Identity
 :an object can be the same (of the same class) than another one but it has still a different identity (location in memory)
 
-${slide:title=About Equality and Identity}$
+${slide:title=About equality and identity}$
 
 I want to eat the pizza that you are eating
 ;Equality
@@ -64,12 +71,65 @@ ${slide:title=Object responsibilities}$
 - The responsibilities are realized by the execution of behavior 
 
 
+${slide:title=An object}$
+
+- Encapsulates data
+- Reacts to messages by executing methods
++>file://figures/anObject.png|width=80+
 
 
-${slide:title=An Object may delegate to another object}$
+
+${slide:title=A method specifies a behavior}$
+
+[[[
+height
+	"Answer the height of the receiver."
+	^corner y - origin y
+]]]
+
+[[[
+area 
+	^ self width * self height
+]]]
+
+[[[
+(Rectangle origin: 10@10 corner: 50@110) area
+>>> 4000
+(Rectangle origin: 10@10 corner: 50@60) area
+>>> 2000
+]]]
+
+${slide:title=A method can use other messages}$
+
+[[[
+topCenter
+	"Answer the point at the center of the receiver's top horizontal line."
+	^ self center x @ self top
+]]]
+
+[[[
+center
+	"Answer the point at the center of the receiver."
+	^ self topLeft + self bottomRight // 2
+]]]
+
+[[[
+top
+	"Answer the position of the receiver's top horizontal line."
+	^ origin y
+]]]
+
+[[[
+(Rectangle origin: 10@10 corner: 50@110) topCenter
+>>> 30@10
+(Rectangle origin: 10@10 corner: 50@60) topCenter
+>>> 2000
+]]]
+
+
+${slide:title=An object may delegate to another object}$
 
 - An object can request another object to perform some tasks for him. 
-
 - The sender does not have to know how the delegatee is actually implementing the reaction to his message.
 
 

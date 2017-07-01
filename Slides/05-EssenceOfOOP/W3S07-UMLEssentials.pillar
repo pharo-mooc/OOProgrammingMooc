@@ -24,7 +24,21 @@ ${slide:title=An object}$
 
 +>file://figures/UML-Object.pdf|width=80+
 
+- Underlined objectId : Class
+- Optionally field values
+
+${slide:title=Classes}$
+
+
+${slide:title=Relationships}$
+
+
+${slide:title=Inheritance}$
+
 ${slide:title=Static Elements}$
+
+
+
 
 ${slide:title=Dynamic Elements}$
 
