@@ -27,6 +27,10 @@ ${slide:title=Reflexion on learning}$
 - Repeating the same mistakes is idiocy
 - Give a man a fish and you feed him for a day; teach a man to fish and you feed him for a lifetime
 
+${slide:title=Reflexion on learning}$
+
++>file://figures/Intro-Swimmers.jpg|width=83+
+
 ${slide:title=Diving}$
 
 - You can go inside Pharo
@@ -91,7 +95,7 @@ ${slide:title=Schedule}$
 - Week 2 Syntax
 - Week 3 Object Essential Concepts: Objects/Classes
 - Week 4 Essence of OOP
-- Week 5  Inheritance
+- Week 5 Inheritance
 - Week 6 Reuse 
 - Week 7 Debugging 
 - ...

@@ -3,7 +3,7 @@
 	"slidesid" : "W3S01"
 }
 
-${slide:title=an object}$
+${slide:title=an Object}$
 
 - Computer entity
 -- state
@@ -16,6 +16,8 @@ ${slide:title=State \+ Behavior \+ Identity}$
 
 +>file://figures/StateBehaviorIdentity.jpg|width=80+
 
+
+
 ${slide:title=State \+ Behavior \+ Identity}$
 
 ;State
@@ -25,10 +27,35 @@ ${slide:title=State \+ Behavior \+ Identity}$
 ;Identity
 :an object can be the same (of the same class) than another one but it has still a different identity (location in memory)
 
-${slide:title=Equality and Identity}$
+${slide:title=About Equality and Identity}$
 
 I want to eat the pizza that you are eating
 ;Equality
 :I want to eat the ""same"" kind of pizza
 ;Identity
 :I eat your pizza
+
+
+
+${slide:title=Object responsibilities}$
+
+- An object has a set of responsibilities that he garantees.
+
+- The responsibilities are realized by the execution of behavior 
+
+
+
+
+
+
+${slide:title=An Object may delegate to another object}$
+
+- An object can request another object to perform some tasks for him. 
+
+- The sender does not have to know how the delegatee is actually implementing the reaction to his message.
+
+
+${slide:title=What you should know}$
+- An object is characterize by a state, a behavior and an identity
+- Objects answer to messages by executing methods
+- An object may delegate to other objects its tasks

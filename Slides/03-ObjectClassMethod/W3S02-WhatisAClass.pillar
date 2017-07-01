@@ -3,16 +3,22 @@
 	"slidesid" : "W3S02"
 }
 
-${slide:title=Class}$
+${slide:title=Class vs. Instances}$
+
+- an object is instance of a class
+- an object has been created by a class
+- all instances of a class react similarly to a message
+- all instances execute the same method in response to a message
 
 
+${slide:title=a Class is a factory of objects}$
 
-${slide:title=Summary}$
+${slide:title=All the instances of a class share the same behavior}$
 
-Three kinds of messages: unary, binary and keywords
-- Unary
--- ==5 factorial==
-- Binary
--- ==2 + 3==
-- Keywords-based messages
--- ==2 between: 0 and: 10==
+${slide:title=What you should know}$
+
+- Any object is instance of a class.
+- A class is a factory: it creates instances.
+- All the instances of class execute the same methods in response to the same message.
+- A class creates Instances that share their behavior 
+

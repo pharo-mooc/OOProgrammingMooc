@@ -1,6 +1,5 @@
 {
-    "title":"Tests",
-    "subtitle":"Why Testing is Important"
+    "title":"Why Testing is Important"
 }
 
 ${slide:title=Goal}$

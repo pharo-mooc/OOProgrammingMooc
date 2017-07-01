@@ -6,8 +6,18 @@
 ${slide:title=Objects, Messages and Closures}$
 
 
+${slide:title=Late binding}$
+
+- The executed behavior depends on the receiver
+
+- Different receivers of the same message may react differently
 
 
+${slide:title=Late binding}$
+
+The executed method depends on the receiver
+
+- Often only know during execution
 
 
 
