@@ -12,10 +12,30 @@ ${slide:title=an Object}$
 
 - Collaborating with other entities
 
+${slide:title=Object Example: a Die}$
+
+aDie(6) 
+- aDie(6) has a state: 6 faces
+- aDie(6) knows how to roll
+- aDie(6) is part of aDieHandle (2D6 + 2D20)
+
+
+${slide:title=Object Example: a Contact}$
+
+aContact 
+- aContact has a state: name, firstname, telephone, address
+- aContact knows how to display itself
+- aContact is in relation with a contact book
+
+${slide:title=Object Example: an Item Collector}$
+
+- aCollector has a state: lists of items 
+- aCollector knows how to save itself, search its items, modify its items
+- aContact is relation with an object loader/saver, UI, list of items
+
 ${slide:title=State \+ Behavior \+ Identity}$
 
 +>file://figures/StateBehaviorIdentity.jpg|width=80+
-
 
 
 ${slide:title=State \+ Behavior \+ Identity}$
@@ -46,14 +66,16 @@ ${slide:title=Object responsibilities}$
 
 
 
-
-
 ${slide:title=An Object may delegate to another object}$
 
 - An object can request another object to perform some tasks for him. 
 
 - The sender does not have to know how the delegatee is actually implementing the reaction to his message.
 
+
+${slide:title=Delegation}$
+
+When an item collector saves its items, its asks each item to save themselves. 
 
 ${slide:title=What you should know}$
 - An object is characterize by a state, a behavior and an identity
