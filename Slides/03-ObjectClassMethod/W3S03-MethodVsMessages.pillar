@@ -3,7 +3,11 @@
 	"slidesid" : "W3S03"
 }
 
-${slide:title=Objects, Messages and Closures}$
+${slide:title=Methods}$
+
+- A class defines methods that are shared by all its instances
+- Methods are executed in reaction to messages
+
 
 
 ${slide:title=Late binding}$
@@ -49,10 +53,10 @@ ${slide:title=Message}$
 
 +>file://figures/EncapsulationWithMessages-message.png|width=75+
 
-${slide:title=Method}$
+${slide:title=A method}$
 
 -Defines how to respond to a message
--Selected via method lookup technique
+-Is dynamically selected via method lookup technique
 -Has name that is the same as message name
 -Is a sequence of executable statements
 -Returns an object as result of execution
@@ -77,9 +81,7 @@ ${slide:title=Encapsulation at Work}$
 +>file://figures/EncapsulationWithMessages-method.png|width=90+
 +>file://figures/EncapsulationWithMessages-methodV2.png|width=90+
 
-
-
-
 ${slide:title=Summary}$
-
+- Messages define what should be done.
+- Methods define how the computation should be performed.
 - Methods are looked up dynamically in the class of the receiver.
