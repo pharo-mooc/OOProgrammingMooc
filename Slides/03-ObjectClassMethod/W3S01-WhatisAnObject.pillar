@@ -10,7 +10,7 @@ A little computer entity with
 - a behavior 
 - an identity
 
-Entity collaborating with other entities
+A entity collaborating with other entities
 
 ${slide:title=Object example: a Die}$
 
@@ -66,7 +66,7 @@ I want to eat the pizza that you are eating
 
 ${slide:title=Object responsibilities}$
 
-- An object has a set of responsibilities that he garantees.
+- An object has a set of responsibilities that he garantees
 
 - The responsibilities are realized by the execution of behavior 
 

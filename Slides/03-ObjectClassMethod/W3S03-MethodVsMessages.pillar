@@ -9,13 +9,48 @@ ${slide:title=Methods}$
 - Methods are executed in reaction to messages
 
 
+[[[
+Rectangle >> center
+	"Answer the point at the center of the receiver."
+	^ self topLeft + self bottomRight // 2
+]]]
 
-${slide:title=Late binding}$
 
-- The executed behavior depends on the receiver
+${slide:title=Methods: How to execute}$
+
+- A class defines methods that are shared by all its instances
+- Methods are executed in reaction to messages
+
+${slide:title=A method}$
+
+- Defines how to respond to a message
+- Is dynamically selected via method lookup technique
+- Has name that is the same as message name
+- Is a sequence of executable statements
+- Returns an object as result of execution
+
++>file://figures/EncapsulationWithMessages-method.png|width=100+
+
+${slide:title=Late binding: The method to be executed depends on the receiver}$
+
+- The executed method depends on the receiver
 
 - Different receivers of the same message may react differently
 
+[[[
+Rectangle >> area 
+	^ self width * self height
+]]]
+
+[[[
+Circle >> area 
+	^ (self radius squared) * Float pi
+]]]
+
+[[[
+Square >> area 
+	^ self side squared
+]]]
 
 ${slide:title=Late binding}$
 
@@ -33,11 +68,10 @@ ${slide:title=Data/Messages/Methods}$
 ${slide:title=What vs. How}$
 
 ;What: Messages
-:Specify what behavior objects are to perform
-:Details of how are left up to the receiver
-:State information only accessed via messages
+:Specify what behavior objects have to perform
+:Details are left to the receiver
 ;How: Methods
-:Specify how operation is to be performed
+:Specify how an operation is to be performed
 :Must have access to (contain or be passed) data
 :Need detailed knowledge of data
 :Can manipulate data directly
@@ -46,42 +80,37 @@ ${slide:title=What vs. How}$
 
 ${slide:title=Message}$
 
--Sent to receiver object: receiver-object message
--A message may include parameters necessary for performing the action
--In Smalltalk, a message-send always returns a result (an object)
--Only way to communicate with an object and have it perform actions
+- Sent to an object: The message receiver
+- A message may include parameters necessary for performing the action
+- Message sends always return a result (an object)
+- Only way to communicate with an object and have it perform actions
 
 +>file://figures/EncapsulationWithMessages-message.png|width=75+
 
-${slide:title=A method}$
-
--Defines how to respond to a message
--Is dynamically selected via method lookup technique
--Has name that is the same as message name
--Is a sequence of executable statements
--Returns an object as result of execution
-
-+>file://figures/EncapsulationWithMessages-method.png|width=100+
-
-${slide:title=Object Encapsulation}$
-
--Technique for
---Creating objects with encapsulated state/behaviour
---Hiding implementation details
---Protecting the state information of objects
---Communicating/accessing via a uniform interface
--Puts objects in control
--Facilitates modularity, code reuse and maintenance
---External perspective  vs. Internal perspective
---What vs. How
---Message vs. Method
 
 ${slide:title=Encapsulation at Work}$
 
 +>file://figures/EncapsulationWithMessages-method.png|width=90+
 +>file://figures/EncapsulationWithMessages-methodV2.png|width=90+
 
+${slide:title=Object Encapsulation}$
+
+- Technique to
+-- Hide implementation details
+-- Protect the state of objects from clients
+-- Communicate/access object via a uniform interface
+- Puts objects in control
+- Facilitates modularity, code reuse and maintenance
+-- External perspective  vs. Internal perspective
+-- What vs. How
+-- Message vs. Method
+
+
+
 ${slide:title=Summary}$
 - Messages define what should be done.
 - Methods define how the computation should be performed.
+- The same message sent to different objects may execute different methods.
+- Methods are selected dynamically based on the receiver. 
 - Methods are looked up dynamically in the class of the receiver.
+

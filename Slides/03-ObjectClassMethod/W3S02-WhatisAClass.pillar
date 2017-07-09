@@ -23,7 +23,7 @@ A class describes the structure and the behavior of its instances
 - Each instances has its own value
 - All instances of class share the same behavior
 
-+>file://Slides/figures/RectangleAndInstances.pdf|width=80+
++>file://Slides/figures/RectangleAndInstances.pdf|width=40+
 
 ${slide:title=An instance has specific properties}$
 
