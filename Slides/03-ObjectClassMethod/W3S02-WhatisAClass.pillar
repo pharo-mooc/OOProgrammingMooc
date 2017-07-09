@@ -46,9 +46,15 @@ ${slide:title=Class vs. Instances}$
 
 ${slide:title=All the instances of a class share the same behavior}$
 
-The class defines the methods that are executed when an instance receives a message.
+A class defines the methods that are executed when an instance receives a message
 
 +>file://Slides/figures/RectangleAndInstancesMessages.pdf|width=80+
+
+
+${slide:title=Methods are looked up in the class of the receiver}$
+
++>file://Slides/figures/RectangleAndInstancesMessages.pdf|width=80+
+
 
 ${slide:title=What you should know}$
 

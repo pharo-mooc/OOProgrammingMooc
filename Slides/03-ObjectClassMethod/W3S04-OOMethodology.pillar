@@ -1,14 +1,6 @@
 {
-	"title":"OOP: a different way to model the world"
+	"title":"A different way to model the world"
 }
-
-${slide:title=Outline}$
-
-- Object-oriented programming 
-- Objects and classes
-
-+ >file://figures/LogoPharo.png|width=30+
-
 
 ${slide:title=Programming is modelling}$
 
@@ -19,13 +11,13 @@ ${slide:title=Object-Orientation}$
 
 - Is a paradigm, not a technology
 - Reflects, simulates the real world
-- Thinks in terms of organization
+- Thinks in terms of decentralized organizations
 - Tries to
 -- handle complexity
 -- enhance reusability
 -- minimize maintenance cost
 
-${slide:title=Evolution}$
+${slide:title=Stepping back: Studying history}$
 
 - Procedures
 - Structured Programming
@@ -33,13 +25,21 @@ ${slide:title=Evolution}$
 - Object-Oriented-Programming
 - (Aspect-Oriented Programming) is more a variation of OOP
 
-${slide:title=Traditional Point of View}$
+${slide:title=Structured/Procedural Programming Point of View}$
 
 - Focuses upon procedures
-- Functionality is vested in procedures
 - Data exists solely to be operated upon by procedures
+- Data accessible from procedures (and client procedures too)
 - Procedures know about the structure of data
+
+
+${slide:title=Structured/Procedural Programming Point of View}$
+
+- No late binding (can be simulated with pointer tables)
 - Requires large number of procedures and procedure names
+- Single namespace for procedures
+- No decoupling between messages and methods: just procedures accessing data
+
 
 ${slide:title=Data and Procedures}$
 
@@ -58,7 +58,7 @@ myPicture add: (Circle x: 12 y: 3 radius: 3).
 myPicture area
 ]]]
 
-${slide:title=Produral way: centralize way (in Java)}$
+${slide:title=Procedural way: centralize way (in Java)}$
 
 [[[
 double area() {
@@ -78,7 +78,7 @@ double area() {
 	    return total; }
 ]]]
 
-${slide:title=Produral way: centralize way (in Java)}$
+${slide:title=Procedural way: a centralized way}$
 
 [[[
 Picture >> area 
@@ -96,27 +96,49 @@ Picture >> area
    ^ total 
 ]]]
 
-${slide:title=OO way}$
+${slide:title=Procedural way: Drawbacks}$
+
+- All the logic is defined in a single place
+-- monolithic 
+- What if we want to add a new shape?
+-- need to recompile the procedure area
+-- need to check for the new shape
+
+
+${slide:title=The OO way: delegate to other entities}$
 
 [[[
 Picture >> area 
 	| total |
 	total := 0.
-	self shapes do [:aShape |
+	self shapes do [ :aShape |
 	   total := total + aShape area ].
 	^ total	
 ]]]
 
 [[[
 Square >> area
- ^ aShape width * aShape width
-
-Rectangle >> area
-	^ aShape width * aShape height 
-
-Circle >> area
- ^  (Float pi * shape radius squared / 2)
+ ^ self side squared
 ]]]
+[[[
+Rectangle >> area
+	^ self width * self height
+]]]
+[[[
+Circle >> area
+ ^  (Float pi * self radius squared / 2)
+]]]
+
+${slide:title=OOP advantages}$
+
+- Adding a new shape 
+-- add a class with the ==area== message
+-- create objects of this class
+
+- Decentralised view of computation
+
+- Each shape class represents its data/logic internally
+
 
 ${slide:title=What is OOP?}$
 
@@ -128,26 +150,33 @@ ${slide:title=What is OOP?}$
 ${slide:title=What is OOP?: Encapsulation/Composition}$
 
 - ""Encapsulation"" 
-Hide and control the internal representation of an object. This will ease further evolution. 
+-- Hide and control the internal representation of an object. This will ease further evolution
+-- Clients do not access object internals
 
 - ""Composition"" 
-An object can be composed of several simpler other objects. 
+-- An object can be composed of several simpler other objects
 
-${slide:title=What is OOP?: Message passing}$
+${slide:title=OOP Cornerstone: Distribution of responsibility}$
 
-- ""Distribution of responsibility and delegation"" 
-Computing a problem is the results of many objects performing (sub) tasks.
+""Distribution of responsibility and delegation"" 
+- Computing a problem is the results of many objects performing (sub) tasks.
 
-- ""Late binding and message passing"" 
-The receiver of a message determines which method will be executed on it. 
+${slide:title=OOP Cornerstone: Late binding}$
+""Late binding and message passing"" 
+- The receiver of a message determines which method will be executed on it. 
 -- what? the message 
 -- how? the method 
+
+${slide:title=OOP Cornerstone: Polymorphism}$
+- ""Polymorphism"" 
+Objects exhibiting the same interface can be substitued and class hierarchy defines families of polymorphic objects
+
+${slide:title=OOP Cornerstone: Reuse via abstraction extension}$
 
 - ""Inheritance"" 
 We define abstractions as conceptual hierarchies and reuse implementation in subclasses 
 
-- ""Polymorphism"" 
-Objects exhibiting the same interface can be substitued and class hierarchy defines families of polymorphic objects
+
 
 %${slide:title=Vocabulary point}$
 %- Encapsulation means that related entities are bundled together, for example, a Shape object encapsulates data and related operations for shapes.
@@ -168,10 +197,12 @@ ${slide:title=Object-Oriented Viewpoint}$
 ${slide:title=Responsibility-Driven Design}$
 
 - Objects are responsible to maintain information and provide services
+- An object should have one main responsibility
 - A good design exhibits:
 -- high cohesion of operations and data within classes 
 -- low coupling between classes and subsystems
-Every method should perform one, well-defined task:
+
+- Every method should perform one, well-defined task:
 -- High level of abstraction
 -- Write to an interface, not an implementation
 
@@ -179,5 +210,16 @@ Every method should perform one, well-defined task:
 
 ${slide:title=Objects}$
 
--Unique identify
--Private state
+- Unique identity
+- Private state
+- Methods to perform computation
+- React to message by selecting method to be executed
+- Polymorphic interface to be able to be substitued for other objects
+
+
+${slide:title=What you should know}$
+
+- OOP describe programs as collaborating entities
+- Objects encapsulate data 
+- Late binding selects methods to be executed in reaction to a message
+- Good design promote polyrmorphism
