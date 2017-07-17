@@ -6,7 +6,7 @@
 ${slide:title=Methods}$
 
 - A class defines methods that are shared by all its instances
-- Methods are executed in reaction to messages
+- ""Methods"" are executed in reaction to ""messages""
 
 
 [[[
@@ -15,26 +15,24 @@ Rectangle >> center
 	^ self topLeft + self bottomRight // 2
 ]]]
 
-
-${slide:title=Methods: How to execute}$
-
-- A class defines methods that are shared by all its instances
-- Methods are executed in reaction to messages
-
 ${slide:title=A method}$
 
-- Defines how to respond to a message
-- Is dynamically selected via method lookup technique
+- Defines ""how"" to respond to a message
 - Has name that is the same as message name
 - Is a sequence of executable statements
+- Is dynamically selected via method lookup technique
 - Returns an object as result of execution
 
 +>file://figures/EncapsulationWithMessages-method.png|width=100+
 
+${slide:title=A method is looked up in the class of the receiver}$
+
++>file://figures/RectangleCircleSquare.pdf|width=100+
+
+
 ${slide:title=Late binding: The method to be executed depends on the receiver}$
 
 - The executed method depends on the receiver
-
 - Different receivers of the same message may react differently
 
 [[[
