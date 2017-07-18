@@ -18,8 +18,8 @@ Rectangle >> center
 ${slide:title=A method}$
 
 - Defines ""how"" to respond to a message
-- Has name that is the same as message name
 - Is a sequence of executable statements
+- Has name that is the same as message name
 - Is dynamically selected via method lookup technique
 - Returns an object as result of execution
 
@@ -86,24 +86,25 @@ ${slide:title=Message}$
 +>file://figures/EncapsulationWithMessages-message.png|width=75+
 
 
-${slide:title=Encapsulation at Work}$
+${slide:title=Object Encapsulation}$
+
+Technique to
+- Hide implementation details
+- Protect the state of objects from clients
+- Communicate/access object via a uniform interface
+
+${slide:title=Object Encapsulation}$
 
 +>file://figures/EncapsulationWithMessages-method.png|width=90+
 +>file://figures/EncapsulationWithMessages-methodV2.png|width=90+
 
 ${slide:title=Object Encapsulation}$
 
-- Technique to
--- Hide implementation details
--- Protect the state of objects from clients
--- Communicate/access object via a uniform interface
 - Puts objects in control
 - Facilitates modularity, code reuse and maintenance
--- External perspective  vs. Internal perspective
+-- External vs. Internal perspective
 -- What vs. How
--- Message vs. Method
-
-
+-- Based on Message vs. Method
 
 ${slide:title=Summary}$
 - Messages define what should be done.
