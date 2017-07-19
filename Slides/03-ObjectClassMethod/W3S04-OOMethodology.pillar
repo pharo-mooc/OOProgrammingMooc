@@ -168,13 +168,17 @@ ${slide:title=OOP Cornerstone: Late binding}$
 -- how? the method 
 
 ${slide:title=OOP Cornerstone: Polymorphism}$
-- ""Polymorphism"" 
-Objects exhibiting the same interface can be substitued and class hierarchy defines families of polymorphic objects
+""Polymorphism"" 
+- Objects exhibiting the same interface can be substitued
+- Class hierarchy defines families of ""polymorphic"" objects
 
 ${slide:title=OOP Cornerstone: Reuse via abstraction extension}$
 
-- ""Inheritance"" 
-We define abstractions as conceptual hierarchies and reuse implementation in subclasses 
+""Inheritance"" 
+- define abstractions as conceptual hierarchies
+-- ==OrderedCollection== is a kind of ==Collection==
+-- ==Array== is a kind of ==Collection==
+- reuse and extend implementation in subclasses
 
 
 
@@ -215,6 +219,14 @@ ${slide:title=Objects}$
 - Methods to perform computation
 - React to message by selecting method to be executed
 - Polymorphic interface to be able to be substitued for other objects
+
+${slide:title=A class is a factory of objects}$
+
+A class describes the structure and the behavior of its instances
+- Each instances has its own value
+- All instances of class share the same behavior
+
++>file://Slides/figures/RectangleAndInstances.pdf|width=40+
 
 
 ${slide:title=What you should know}$
