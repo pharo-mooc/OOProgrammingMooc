@@ -100,6 +100,15 @@ ${slide:title=Schedule}$
 - Week 7 Debugging 
 - ...
 
+${slide:title=Structure}$
+
+Always several levels/parts:
+- Conceptual: Objects, classes....
+- Pharo's application of the concepts: Syntax and libraries
+- Design heuristics
+- Pharo's illustration of the design heuristics
+
+
 ${slide:title=Books}$
 - Learning OO Programming and Design with TDD in Pharo
 - Pharo by example (http://books.pharo.org)
@@ -108,7 +117,7 @@ ${slide:title=Books}$
 - Best Smalltalk Practices Kent Beck
 -  An Introduction to Object-Oriented Programming, Timothy Budd, Addison-Wesley, 2004.
 
-${slide:title=Exercise}$
+${slide:title=Exercises}$
 
 - Watch the original Karate Kid first movie
 - Think about it...

@@ -1,5 +1,6 @@
 {
-	"title":"A different way to model the world"
+	"title":"A different way to model the world",
+	 "slidesid":"W3S04"
 }
 
 ${slide:title=Programming is modelling}$
