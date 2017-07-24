@@ -1,7 +1,7 @@
 {
   "title":"Inheritance and Lookup",
   "subtitle":"2: Lookup",
-  "slidesid" : "W4S02"
+  "slidesid" : "Mooc - W4S02"
 }
 
 ${slide:title=Goal}$
@@ -28,7 +28,7 @@ ${column:width=38}$
 
 ${column:width=62}$
 
-+>file://figures/InheritanceDiagram-sendingMessage.png|width=100+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=75+
 
 ${endColumns}$
 
@@ -45,7 +45,7 @@ The lookup starts in the ""class"" of the ""receiver"" then:
 
 ${column:width=62}$
 
-+>file://figures/InheritanceDiagram-lookupTwoStages.png|width=100+
++>file://figures/InheritanceDiagram-lookupTwoStages.png|width=80+
 
 ${endColumns}$
 
@@ -59,7 +59,7 @@ Sending the message ==color== to ==aColoredRectangle==
 
 ${column:width=53}$
 
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=95+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=65+
 
 ${endColumns}$
 
@@ -73,14 +73,14 @@ Sending the message ==area== to ==aColoredRectangle==
 
 ${column:width=53}$
 
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=95+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=65+
 
 ${endColumns}$
 
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=41+
 
 [[[
 A new foo
@@ -91,7 +91,7 @@ B new foo
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=41+
 
 [[[
 A new foo
@@ -116,7 +116,7 @@ ${slide:title=self/this}$
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=41+
 
 [[[
 A new bar
@@ -127,7 +127,7 @@ B new bar
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=41+
 
 [[[
 A new bar
