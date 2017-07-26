@@ -6,7 +6,7 @@
 ${slide:title=What You Will Learn}$
 
 - What streams are?
-- How to use them
+- How to use them?
 
 ${slide:title=Streams}$
 
@@ -40,16 +40,16 @@ ${slide:title=Reading Elements}$
 stream := #($a $b $c $d $e $f) readStream.
 
 stream next.
-> $a
+>>> $a
 
 stream upTo: $d.
->  #($b $c)
+>>>  #($b $c)
 
 stream position.
-> 4
+>>> 4
 
 stream upToEnd
-> #($e $f)
+>>> #($e $f)
 ]]]
 
 ${slide:title=Writing Elements}$
@@ -61,11 +61,11 @@ stream := (Array new: 6) writeStream.
 
 stream nextPut: 1.
 stream contents.
-> #(1)
+>>> #(1)
 
 stream nextPutAll: #(4 8 2 6 7).
 stream contents.
-> #(1 4 8 2 6 7)
+>>> #(1 4 8 2 6 7)
 ]]]
 
 ${slide:title=Writing to a File}$
@@ -82,10 +82,10 @@ ${slide:title=Reading from a File}$
 stream := 'hello.txt' asFileReference readStream.
 
 stream next.
-> $H
+>>> $H
 
 stream upToEnd.
-> 'ello Pharo!'
+>>> 'ello Pharo!'
 
 stream close
 ]]]
