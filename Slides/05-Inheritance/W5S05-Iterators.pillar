@@ -5,87 +5,56 @@
 
 ${slide:title=What You Will Learn}$
 
+- What is an iterator?
 - Understand the power of iterators
-- Offer an overview of iterators
+- Offer an overview of iterators in Pharo
 
-${slide:title=Pharo code is Compact!}$
 
-[[[language=Java
-ArrayList<String> strings = new ArrayList<String>();
-for(Person person: persons)
-    strings.add(person.name());
-]]]
-is expressed as
+${slide:title=Applying a message and collecting the results}$
+
+For example, image we want to get whether a number is odd or not for a complete collection:
 [[[
-strings := persons collect: [ :person | person name ]
+#(2 -3 4 -35 4) isOddNumbers
+>>> #(false true false true)
 ]]]
 
-- Yes in Java 8.0 it is finally simpler 
+A possible limited solution 
 [[[
-strings = persons.stream().map(person -> person.getName())
+| result aCol|
+aCol := #(2 -3 4 -35 4).
+result := Array new: aCol size.
+1 to: aCol size do:
+    [ :each | result at: each put: (aCol at: each) odd ].
+result
 ]]]
-- But it is like that in Pharo since day one!
-- Iterators are deep into the core of the language and libraries
 
-${slide:title=A First Iterator - collect:}$
+${slide:title=A better solution: Using collect:}$
 
  ==collect:== applies the block to each element and returns a collection (of the same kind than the receiver) with the results
 
-[[[
-  #(2 -3 4 -35 4) collect: [ :each | each abs ]
-  > #(2 3 4 35 4)
-]]]
-
+- Works on any collection (Set, Array, OrderedCollection,...)
 - ==collect:== evaluates the block for each element (using ==value:==)
-- In the block, each element is sent ==abs== (absolute)  
+- In the block, each element is sent ==odd==
 - ==collect:== returns a new collection (of the same kind of the receiver) with all results
 - [Think object] We ask the collection to do something for us
+ 
+[[[
+#(2 -3 4 -35 4) collect: [ :each | each odd]
+>>> #(false true false true)
+]]]
+
 
 ${slide:title=Another collect: Example}$
 
-We want to know if each elements is odd or even
+We want to know the absolute value of each element
 
 [[[
-#(16 11 68 19) collect: [ :i | i odd ]
+#(16 -11 68 19) collect: [ :i | i abs ]
 ]]]
 
 [[[
->  #(false true false true)
+>>> #(16 11 68 19)
 ]]]
-
-
-${slide:title=Choose your camp!}$
-
-[[[
-  #(16 11 68 19) collect: [ :i | i odd ]
-]]]
-
-We can also do it that way! (We copied the definition of ==collect:==)
-[[[
-| result |
-aCol :=  #(16 11 68 19).
-result := aCol species new: aCol size.
-1 to: aCollection size do:
-    [ :each | result at: each put: (aCol at: each) odd ].
-^ result
-]]]
-
-
-${slide:title=Part of the Collection Hierarchy}$
-
-Iterators work polymorphically on the entire collection hierarchy.
-Below a part of the Collection hierarchy.
-
-
-+Part of the Collection hierarchy.>file://figures/CollectionHierarchy.png|width=100+
-
-
-${slide:title=Think objects!}$
-
-- With iterators we ""tell"" the collection to ""iterate on itself""
-- As a client we do not have to know the internal logic of the collection
-- Each collection can implement differently the iterator
-
 
 ${slide:title=Basic Iterators Overview}$
 
@@ -165,6 +134,46 @@ To find the first element that matches else return a value, use ==detect:ifNone:
 > 0
 ]]]
 
+
+
+
+${slide:title=Pharo code is Compact!}$
+
+[[[language=Java
+ArrayList<String> strings = new ArrayList<String>();
+for(Person person: persons)
+    strings.add(person.name());
+]]]
+is expressed as
+[[[
+strings := persons collect: [ :person | person name ]
+]]]
+
+- Yes in Java 8.0 it is finally simpler 
+[[[
+strings = persons.stream().map(person -> person.getName())
+]]]
+- But it is like that in Pharo since day one!
+- Iterators are deep into the core of the language and libraries
+
+
+${slide:title=Part of the Collection Hierarchy}$
+
+Iterators work polymorphically on the entire collection hierarchy.
+Below a part of the Collection hierarchy.
+
+
++Part of the Collection hierarchy.>file://figures/CollectionHierarchy.png|width=80+
+
+
+${slide:title=Think objects!}$
+
+- With iterators we ""tell"" the collection to ""iterate on itself""
+- As a client we do not have to know the internal logic of the collection
+- Each collection can implement differently the iterator
+
+
+
 ${slide:title=Some Powerful Iterators}$
 
 - ==anySatisfy:== (tests if one object is satisfying the criteria)
@@ -187,6 +196,23 @@ To iterate ==with:do:==
 
 ==with:do:== requires two structures of the same length
 
+${slide:title=A little challenge}$
+
+[[[
+#() xxx
+>>> ''
+
+#('a') xxx
+>>> 'a'
+
+#('a' 'b') xxx
+>>> 'a, b'
+
+#('a' 'b' 'c') xxx
+>>> 'a, b, c'
+]]]
+
+
 ${slide:title=Use do:separatedBy:}$
 
 [[[
@@ -195,7 +221,7 @@ String streamContents: [ :s |
         do: [ :each | s << each ]
         separatedBy: [ s << ', ' ]
 ]
-> 'a, b, c'
+>>> 'a, b, c'
 ]]]
 
 ${slide:title=Grouping Elements}$
