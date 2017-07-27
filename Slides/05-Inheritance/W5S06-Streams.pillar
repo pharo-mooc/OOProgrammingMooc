@@ -33,7 +33,7 @@ ${slide:title=API Overview}$
 
 ${slide:title=Reading Elements}$
 
-- ==next==, ==upTo: anObject==, ==upToEnd==
+==next==, ==upTo: anObject==, ==upToEnd==
 
 [[[
 | strean |
@@ -54,7 +54,7 @@ stream upToEnd
 
 ${slide:title=Writing Elements}$
 
-- ==nexPut:==, ==nextPutAll:==
+==nextPut:==, ==nextPutAll:==
 
 [[[
 stream := (Array new: 6) writeStream.
