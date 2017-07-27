@@ -1,6 +1,6 @@
 {
   "title":"Common Errors",
-    "slidesid" : "W5S03"
+    "slidesid" : "Mooc - W5S03"
 }
 
 ${slide:title=What You Will Learn}$
@@ -111,20 +111,22 @@ Dice class >> new
 ${slide:title=A Problem}$
 
 [[[
-Book>>borrow
+Book >> borrow
    inLibrary ifFalse: [ ... ].
    ...
 ]]]
 
 ""Error:"" ==nil== does not understand ==ifFalse:==
 
-${slide:title=A Problem}$
+${slide:title=A Problem: Booleans vs. Boolean classes}$
 
 [[[
-Book>>initialize
+Book >> initialize
    inLibrary := True
+]]]
 
-Book>>borrow
+[[[
+Book >> borrow
    inLibrary ifFalse: [ ... ].
   ...
 ]]]
@@ -135,7 +137,7 @@ ${slide:title=True vs. true}$
 
 Solution
 [[[
-Book>>initialize
+Book >> initialize
    inLibrary := true
 ]]]
 
@@ -207,7 +209,9 @@ Solutions
 [[[
 Dice >> roll
    ^ faces atRandom
+]]]
 
+[[[
 Dice class >> new
    ^ super new
       setFaces: 0;
