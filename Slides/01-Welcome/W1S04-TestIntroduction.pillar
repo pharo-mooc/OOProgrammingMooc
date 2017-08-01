@@ -1,0 +1,85 @@
+{
+  "title":"Tests in a Nutshell",
+  "slidesid" : "W1S04"
+}
+
+
+${slide:title=Why testing}$
+
+- Specify
+- Verify
+- Support evolution
+
+
+${slide:title=A Test}$
+
+In a test, we 
+- Create a context: Create an empty set
+- Send a stimulus: Add twice the same element
+- Check the results: Check that the set contains only one element
+
+${slide:title=Testing set addition}$
+
+[[[
+set1 := Set new.
+set1 add: 1.
+set1 add: 2.
+set1 add: 1.
+set2 size = 2.
+>>> true
+]]]
+
+${slide:title=Set TestCase}$
+
+[[[
+TestCase subclass: # SetTestCase
+    ...
+]]]
+
+[[[
+SetTestCase >> testAdd 
+  | empty |
+  empty := Set new.   "Context"
+  empty add: 1.   "Stimulus"
+  empty add: 2.
+  empty add: 1.
+  self assert: empty size = 2.   "Check"
+
+SetTestCase run: #testAdd
+]]]
+
+${slide:title=In a Subclass of TestCase}$
+
+Each method starting with ==test*==:
+- Represents a test
+- Is automatically executed
+The results of the test are collected in a ==TestResult== object
+
+${slide:title=Why testing is important: Specify}$
+
+Your tests are your first clients
+- Help you to design nice API
+- Make sure that you control your functionality
+
+${slide:title=Why testing is important: Verify}$
+
+Your tests are your insurance (regression testing)
+- When adding a new behavior, control that there is no side effect
+
+${slide:title=Why testing is important: Support evolution}$
+
+Changes are 
+- Inevitable
+- Part of program (represent the world and world is changing)
+- Better be prepared
+
+When you have to change your existing code:
+- identify side effects
+- validate changes do not break more than they should do
+
+${slide:title=Summary}$
+
+- Unit tests are easy to create and run
+- Create one test and run it million times!
+- Use them as your life insurance
+- There exists other libraries for Mock (BabyMock) or different styles of testing
