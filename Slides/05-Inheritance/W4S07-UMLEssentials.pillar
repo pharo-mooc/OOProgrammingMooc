@@ -1,0 +1,49 @@
+{
+	"title":"UML Essentials"
+}
+
+${slide:title=UML}$
+
+- Graphical notation
+- UML is not process
+- A notation does not crash!
+
+${slide:title=Why UML?}$
+
+Represents industry standard
+- more tool support, more people understand your
+- diagrams, less education
+Is reasonably well-defined
+- ... although there are interpretations and dialects
+- stereotypes, tags and constraints to extend basic
+Is open
+- constructs
+- has a meta-meta-model for advanced extensions
+
+${slide:title=An object}$
+
++>file://figures/UML-Object.pdf|width=80+
+
+- Underlined objectId : Class
+- Optionally field values
+
+${slide:title=Classes}$
+
+
+${slide:title=Relationships}$
+
+
+${slide:title=Inheritance}$
+
+${slide:title=Static Elements}$
+
+
+
+
+${slide:title=Dynamic Elements}$
+
+${slide:title=Conclusion}$
+
+-  Mainstream graphical notation to discuss OO design
+- Not a process
+- No garantee that your design is not plain stupid
