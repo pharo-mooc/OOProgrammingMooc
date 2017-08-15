@@ -120,7 +120,7 @@ Object >> perform: aSymbol with: arg
 ${slide:title=Classes Hold Compiled Methods}$
 
 
-+.>file://figures/ClassCompiledMethods.png|width=135+
++.>file://figures/ClassCompiledMethods.png|width=105+
 
 
 
