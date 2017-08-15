@@ -6,7 +6,7 @@
 
 ${slide:title=When No Method is Found}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=100+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=70+
 
 ${slide:title=doesNotUnderstand: is a Message}$
 
@@ -86,7 +86,7 @@ self assert: point + (3@4) = (4@6).
 self assert: point invocationCount = 3.
 ]]]
 
-+>file://figures/TranscriptLogging.png|width=100+
++>file://figures/TranscriptLogging.png|width=80+
 
 
 ${slide:title=Some Limits of such Minimal Objects}$
