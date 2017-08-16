@@ -1,5 +1,6 @@
 {
-	"title":"Objectives of the lectures "
+	"title":"Objectives of the lecture",
+	"subtitles":""
 }
 
 ${slide:title=Who Am I}$
@@ -7,19 +8,25 @@ ${slide:title=Who Am I}$
 - Expert in OOP and OOD
 - Wrote several books
 - One for this lecture and for you
-- http://stephane.ducasse.free.fr
-
+- Love coding and nice design
+- Want to empower you
+-- OO Programming
+-- OO Design
+-- Talking, communicating with other developers
+-- Learn how to find your bugs. 
 
 ${slide:title=Process}$
 
-- You do not have to stress if you do not get it the first time
+- You do not have to stress if you do not get it the first time!
 - Repetition, repetition and repetition
 
 But you should 
 - Do the exercises
-- What the videos
-- Read the book
+- Watch the videos
+- Read the book (if you want)
 - Help yourself on Pharo discord channel
+-- Learn to ask
+-- Be friendly
 
 ${slide:title=Reflexion on learning}$
 
@@ -67,7 +74,6 @@ ${slide:title=Objectives}$
 - The "Don't ask, tell" Principle
 - Some design patterns
 
-
 ${slide:title=Objectives}$
 - Understanding OOP as a Design methodologies
 - Understand key and essential concepts
@@ -76,10 +82,10 @@ ${slide:title=Objectives}$
 ${slide:title=Why Pharo?}$
 
 - Smalltalk inspired
-- Pure, minimal syntax
+- Pure, minimal syntax (yes one postcard still you need to think)
 - Fully interactive
 - Full Mooc available
-- Excellent to get immersed in objectLand
+- Excellent to get immersed in ObjectLand
 
 ${slide:title=Side Effect}$
 
@@ -91,14 +97,12 @@ You will also learn
 
 ${slide:title=Schedule}$
 
-- Week 1 Welcome and Introduction
-- Week 2 Syntax
+- Week 1 Welcome and Introduction to Syntax
+- Week 2 Syntax and Basic Libraries
 - Week 3 Object Essential Concepts: Objects/Classes
 - Week 4 Essence of OOP
 - Week 5 Inheritance
 - Week 6 Reuse 
-- Week 7 Debugging 
-- ...
 
 ${slide:title=Structure}$
 
@@ -108,7 +112,6 @@ Always several levels/parts:
 - Design heuristics
 - Pharo's illustration of the design heuristics
 
-
 ${slide:title=Books}$
 - Learning OO Programming and Design with TDD in Pharo
 - Pharo by example (http://books.pharo.org)
@@ -117,7 +120,21 @@ ${slide:title=Books}$
 - Best Smalltalk Practices Kent Beck
 -  An Introduction to Object-Oriented Programming, Timothy Budd, Addison-Wesley, 2004.
 
-${slide:title=Exercises}$
+${slide:title=First Exercise!}$
 
-- Watch the original Karate Kid first movie
+
+
+
+${columns}$
+
+${column:width=50}$
+
+- Watch the ""original"" Karate Kid first movie
 - Think about it...
+
+${column:width=50}$
+
++>file://figures/KarateKid.png|width=83+
+
+${endColumns}$
+
