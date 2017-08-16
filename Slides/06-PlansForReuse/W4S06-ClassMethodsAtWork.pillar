@@ -1,6 +1,6 @@
 {
   "title":"Class Methods At Work",
-  "slidesid" : "W4S06"
+  "slidesid" : "Mooc - W4S06"
 }
 
 ${slide:title=What You Will Learn}$
@@ -29,9 +29,52 @@ ${slide:title=A Possible Design}$
 -- if they can parse a line (==canParse:==)
 -- how to create instances (==newFromLine:==)
 
+
+${slide:title=A Possible Design: canParse: }$
+
+[[[
+SectionTitle class >> canParse: aLine
+	aLine size > 1 ifFalse: [ ^ false ].
+	^ aLine beginsWith: '!' 
+]]]
+
+[[[
+ListItem class >> canParse: aLine
+	aLine size > 1 ifFalse: [ ^ false ].
+	^ aLine beginsWith: '-' or: [ aLine beginsWith: '--' ]
+]]]
+
+[[[
+Text class >> canParse: aLine
+	^ true 
+]]]
+
+${slide:title=A Possible Design: newFromLine:}$
+
+[[[
+SectionTitle class >> newFromLine: aLine
+	^ self new contents: aLine allButFirst; yourself
+]]]
+
+[[[
+ListItem class >> newFromLine: aLine
+	aLine beginsWith: '-' 
+		ifTrue: [ ^ ListItem new level: 1; contents: aLine allButFirst ].
+	aLine begingsWith: '--'
+		ifTrue: [ ^ ListItem new level: 3; contents: aLine allButFirst: 2]
+]]]
+
+[[[
+Text class >> newFromLine: aLine
+	^ Text new contents: aLine
+]]]
+
+
+
+
 ${slide:title=Parsing Lines}$
 
-+>file://figures/items.png|width=60+
++>file://figures/items.png|width=40+
 
 [[[
 Parser >> documentClasses
@@ -45,6 +88,21 @@ Parser >> parse: line
             ifTrue: [ ^ subclass newFromLine: line ] ]
 ]]]
 
+${slide:title=Stepping back}$
+
+- Class methods are dynamically resolved
+- Classes are used as a dynamic registration system
+- Adding a new class adds a new functionality modularly
+- Can be incrementally defined (in different packages)
+
+${slide:title=About class method lookup}$
+
+- Method lookup is ""exactly"" the same as for all objects:
+-- go to the class of the receiver 
+-- follow inheritance chain
+- In Pharo there is ONLY ONE method lookup. 
+- More during the lecture ''Understanding Metaclasses''
+- Pharo makes it easy to iterate over subclasses
 
 ${slide:title=The Command-Line Handler}$
 
@@ -81,12 +139,12 @@ CommandLineHandler class >> handlersFor: arguments
 
 ${slide:title=Conclusion}$
 
+- Class methods are dynamically resolved
+- Classes are used as a dynamic registration system
+- Adding a new class adds a new functionality modularly
+- Can be incrementally defined (in different packages)
 - Classes are objects and can be sent messages
-- Method lookup is exactly the same as for all objects:
--- go to the class of the receiver 
--- follow inheritance chain
-- More during the lecture ''Understanding Metaclasses''
-- Pharo makes it easy to iterate over subclasses
+
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week4/C019-W4S06-ClassMethodsAtWork.pillar"
