@@ -2,19 +2,31 @@ Mondays: 11h-14:15
 2 * 90 min
 
 -	Two lectures Oct 2nd ***
-		01 Welcome
+		01 Welcome  
+			Presentation
+			Motivation
+			First look at class object methods
+			Test introduction
+		01 b Overview	
+			Syntax in a nutshell
+			Block Conditional
 		
 -	Two lectures Oct 16th
-		02 Syntax
+		02 Syntax 
+		02 b Common libraries
 		
 -	Two lectures Oct 30th *** 
 		03 Object Classes Methods
 		04 Dispatch
 
 -	Two lectures Nov 13th
-		Inheritance 
+		05 Inheritance + UML essentials
 		
 -	Two lectures Nov 27th
-		Inheritance 
-
+		6 Plan for Reuse
+			Plans for reuse
+			Composition vs inheritance
+		7 Deeper Method Lookup
+		
 -	Two lectures Dec 11 th (I was not planning to come but I will try).
+		

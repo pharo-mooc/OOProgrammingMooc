@@ -24,7 +24,7 @@ ${columns}$
 
 ${column:width=80}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=70+
 
 ${column:width=30}$
 
@@ -45,7 +45,7 @@ ${columns}$
 
 ${column:width=80}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=70+
 
 ${column:width=30}$
 
@@ -98,17 +98,18 @@ ${column:width=45}$
 
 ${column:width=55}$
 
-We don't know which ==foo== method ==bar== refers to
+We don't know which ==foo== method ==bar== refers to!
+- It is dynamically resolved!
 
 ${endColumns}$
 
 ${slide:title=self sends are hooks for subclass code}$
 
-+>file://figures/SelfIsDynamic.png|width=100+
++>file://figures/SelfIsDynamic.png|width=40+
 
 ${slide:title=self sends are hooks for subclass code}$
 
-+>file://figures/SelfIsDynamic1.png|width=100+
++>file://figures/SelfIsDynamic1.png|width=40+
 
 
 
@@ -118,7 +119,7 @@ ${columns}$
 
 ${column:width=50}$
 
-+>file://figures/superIsStatic.png|width=90+
++>file://figures/superIsStatic.png|width=70+
 
 ${column:width=50}$
 
