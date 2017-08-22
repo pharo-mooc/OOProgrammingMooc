@@ -1,149 +1,114 @@
 {
-    "title" : "Stone Paper Scissors",
-    "slidesid" : "The Design Corner",
+    "title" : "Adding a Dice and a DiceHandle",
+    "slidesid" : "From The Design Corner",
     "author" : "Stéphane Ducasse"
 }
 
-${slide:title=Stone Paper Scissors via Tests}$
+${slide:title=Remember Dice}$
 
 [[[
-StonePaperScissorsTest >> testPaperIsWinning
-	self assert: (Stone new play: Paper new) = #paper
-]]]
-
-[[[
-StonePaperScissorsTest >> testStoneAgainsStone
-	self assert: (Stone new play: Stone new) = #draw
-]]]
-
-[[[
-StonePaperScissorsTest >> testStoneIsWinning
-	self assert: (Stone new play: Scissors new) = #stone
-]]]
-
-...
-
-${slide:title=Let us start}$
-
-[[[
-StonePaperScissorsTest >> testPaperIsWinning
-	self assert: (Stone new play: Paper new) = #paper
-]]]
-
-[[[
-Stone >> play: anotherTool
-	^ ...
+|handle|
+handle := DieHandle new 
+		addDie: (Die withFaces: 6);
+		addDie: (Die withFaces: 10);
+		yourself.
+handle roll
 ]]]
 
 
-${slide:title= Paper playAgainstStone: }$
+${slide:title=Remember DiceHandle}$
 
 [[[
-StonePaperScissorsTest >> testPaperIsWinning
-	self assert: (Stone new play: Paper new) = #paper
+DieHandleTest >> testSumming
+	| handle |
+	handle := 2 D20 + 3 D10.
+	self assert: handle diceNumber = 5.
+]]]
+
+- We could add dices to a dice handle
+- We could add dice handle to another dice handle
+
+
+${slide:title=New Requirements}$
+
+We want to add two dices together
+
+[[[
+(Die withFaces: 6) + (Die withFaces: 6)
+]]]
+
+Now  we want to be able to add a dice to an dice handle
+
+[[[
+2 D20 + (Die withFaces: 6)
 ]]]
 
 [[[
-Stone >> play: anotherTool
-	^ anotherTool playAgainstStone: self
+ (Die withFaces: 6) + 2 D20
 ]]]
+
+${slide:title=aNewRequirement asTest }$
 
 [[[
-Paper >> playAgainstStone: aStone
-	^ #paper
+DieTest >> testAddTwoDice
+
+	| hd |
+	hd := (Die withFaces: 6) + (Die withFaces: 6).
+	self assert: hd dice size = 2.
 ]]]
 
-
-${slide:title=Other playAgainstStone: }$
 
 [[[
-Scissors >> playAgainstStone: aStone
-	^ #stone
+DieTest >> testAddingADieAndHandle
+	| hd |
+	hd := (Die faces: 6)
+		+
+		(DieHandle new
+			addDie: 6;
+			yourself).
+	self assert: hd dice size equals: 2
 ]]]
 
-[[[
-Stone >> playAgainstStone: aStone
-	^ #draw
+
+${slide:title=Propose a solution!}$
+
+${slide:title=First adding two dice}$
+
+[[[	
+Die >> + aDie
+	
+	^ DieHandle new 
+		addDie: self; 
+		addDie: aDie; 
+		yourself
 ]]]
 
 
-${slide:title=Scissors now }$
+${slide:title=Limits}$
 
-[[[
-StonePaperScissorsTest >> testScissorsIsWinning
-	self assert: (Scissors new play: Paper new) = #scissors
+[[[	
+Die >> + aDie
+	
+	^ DieHandle new 
+		addDie: self; 
+		addDie: aDie; 
+		yourself
 ]]]
 
-[[[
-Scissors >> play: anotherTool
-	^ anotherTool playAgainstScissors: self
-]]]
+aDie can be 
+- a dice
+- a die handle
 
-[[[
-Scissors >> playAganstScissors: aScissors
-	^ #draw
-]]]
 
-[[[
-Paper >> playAgainstScissors: aScissors
-	^ #scissors
-]]]
 
-[[[
-Stone >> playAgainstScissors: aScissors
-	^ #stone
-]]]
 
-${slide:title=Paper now }$
-[[[
-Paper >> play: anotherTool
-	^ anotherTool playAgainstPaper: self
-]]]
 
-[[[
-Scissors >> playAgainstPaper: aPaper
-	^ #scissors
-]]]
 
-[[[
-Paper >> playAgainstPaper: aPaper
-	^ #draw
-]]]
 
-[[[
-Stone >> playAgainstPaper: aPaper
-	^ #paper
-]]]
 
-${slide:title=Overview}$
 
-+An overview of a possible solution using double dispatch.>file://figures/StonePaperScissors.pdf|width=80+
 
-${slide:title=Remark}$
 
-In this example we do not need to pass the argument during the double dispatch
-
-[[[
-Scissors >> playAgainstPaper: aPaper
-	^ #scissors
-]]]
-
-[[[
-Scissors >> playAgainstPaper
-	^ #scissors
-]]]
-
-${slide:title=Thinking more...}$
-
-When we return a token or a number we should check to do something after.
-So passing blocks may be better.
-
-[[[
-Paper new competeWith: Paper new
-	onDraw: [ Game incrementDraw ]
-	onReceiverWin: [ ]
-	onReceiverLose: [ ]
-]]]
 
 ${slide:title=Conclusion}$
 

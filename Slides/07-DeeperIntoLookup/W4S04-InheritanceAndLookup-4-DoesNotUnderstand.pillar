@@ -76,9 +76,10 @@ ${slide:title=doesNotUnderstand: is a Message}$
 ${slide:title=doesNotUnderstand: and the Debugger}$
 
 When no class redefines ==doesNotUnderstand:==
--- ==doesNotUnderstand:== in ==Object== is executed
--- this method raises a ==MessageNotUnderstood== exception
--- when not handled, this exception opens a debugger
+- ==doesNotUnderstand:== in ==Object== is executed
+- this method raises a ==MessageNotUnderstood== exception
+- when not handled (by a try cacth exception), an unhandled exception is raised
+- this unhandled exception opens a debugger
 
 ${slide:title=Catching MessageNotUnderstood Error}$
 

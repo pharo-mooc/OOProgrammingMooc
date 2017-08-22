@@ -6,9 +6,9 @@
 
 ${slide:title=Goal}$
 
-# in Pharo, everything is an object
-# objects can receive messages
-# classes are objects too
+# In Pharo, everything is an object
+# Objects can receive messages
+# Classes are objects too
 
 Classes can receive messages. The mechanism is ""exactly"" the same
 
@@ -24,7 +24,7 @@ The lookup starts in the ""class"" of the ""receiver"" then:
 
 ${column:width=50}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=100+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=95+
 
 ${endColumns}$
 
@@ -37,16 +37,16 @@ Class ==X== is always the unique instance of the class ==X class==:
 - the class of ==Node== is ==Node class==
 - the class ==Node class== is automatically created
 
-+>file://figures/ClassMetaclass.png|width=100+
++>file://figures/ClassMetaclass.png|width=80+
 
 ${slide:title=Superclass Chain}$
 
-+>file://figures/WorkstationMetaclassesWithInheritance.png|width=120+
++>file://figures/WorkstationMetaclassesWithInheritance.png|width=80+
 
 
 ${slide:title=Lookup of Class Methods is No Different}$
 
-+>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=140+
++>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=80+
 
 ${slide:What You Should Know}$
 
@@ -55,7 +55,7 @@ ${slide:What You Should Know}$
 - Method lookup is exactly the same as for all objects:
 -- go to the class of the receiver 
 -- follow inheritance chain
-- More during the lecture ''Understanding Metaclasses''
+- More during the lecture ''Understanding class methods''
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pillar"

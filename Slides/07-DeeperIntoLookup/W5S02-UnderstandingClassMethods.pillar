@@ -28,7 +28,7 @@ Sending a message is a two-step process:
 
 ${column:width=50}$
 
-+>file://figures/LookupEssenceCounter.png|width=120+
++>file://figures/LookupEssenceCounter.png|width=100+
 
 ${endColumns}$
 
@@ -45,7 +45,7 @@ Sending a message to ==Counter== (a class)
 
 ${column:width=60}$
 
-+>file://figures/LookupEssenceWithClassCounter.png|width=100+
++>file://figures/LookupEssenceWithClassCounter.png|width=80+
 
 ${endColumns}$
 
@@ -61,7 +61,7 @@ ${slide:title=Browsing two Classes}$
 
 The browser can edit two classes: a class and its class
 
-+>file://figures/CounterClassMetaclassBrowsing.png|width=100+
++>file://figures/CounterClassMetaclassBrowsing.png|width=90+
 
 ${slide:title=What You Should Know}$
 
