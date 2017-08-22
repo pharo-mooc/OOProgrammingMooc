@@ -15,25 +15,28 @@ ${slide:title=Remember...}$
 
 ${slide:title=The Template Method}$
 
-
 - a template method specifies a skeleton
 - the skeleton has hooks, i.e., places to be customized
 -- hooks may or may not have a default behavior
 
-+>file://figures/hookAndTemplate.png|width=85+
++>file://figures/hookAndTemplate.png|width=75+
 
-${slide:title=printString Template Method}$
+${slide:title=The case of printString }$
 
 [[[
 (Delay forSeconds: 10) printString
 > 'a Delay(10000 msecs)'
 ]]]
 
+${slide:title=printString Template Method}$
+
 [[[
 Object >> printString
    "Answer a String whose characters are a description of the receiver."
    ^ self printStringLimitedTo: 50000
+]]]
 
+[[[
 Object >> printStringLimitedTo: limit
    | limitedString |
    limitedString := String
@@ -118,11 +121,11 @@ Interval >> printOn: aStream
 
 ${slide:title=Another Template Method: Object Copy}$
 
-- copying objects is complex:
+- Copying objects is complex:
 -- graph of connected objects
 -- cycles
--- each class may want a different copy strategy
-- simple solution for simple cases: ==copy==/==postCopy==
+-- Each class may want a different copy strategy
+- Simple solution for simple cases: ==copy==/==postCopy==
 
 ${slide:title=Object Copy}$
 

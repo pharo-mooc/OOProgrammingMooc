@@ -1,5 +1,5 @@
 {
-  "title" : "Did You Really Understand Super?",
+  "title" : "Did you really understand super?",
   "slidesid" : "W6S01"
 }
 
@@ -68,11 +68,11 @@ Dice class >> new
 
 ${slide:title=Sending a Message: Lookup \+ Apply on Receiver}$
 
-+>file://figures/InheritanceDiagram-sendingMessage.png|width=64+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=45+
 
 ${slide:title=Remember: Method Lookup}$
 
-+>file://figures/LookupEssenceWithGeneric.png|width=70+
++>file://figures/LookupEssenceWithGeneric.png|width=50+
 
 
 ${slide:title=Solution}$
@@ -93,7 +93,7 @@ Dice class >> new
 
 ${slide:title=Solution}$
 
-+>file://figures/Workstation-Dice-MetaclassesWithInheritanceWithLookup.png|width=130+
++>file://figures/Workstation-Dice-MetaclassesWithInheritanceWithLookup.png|width=80+
 
 ${slide:title=Summary}$
 

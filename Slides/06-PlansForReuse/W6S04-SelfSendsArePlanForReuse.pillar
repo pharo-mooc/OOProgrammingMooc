@@ -14,18 +14,18 @@ ${slide:title=What You Will Learn}$
 
 - Message sends are hooks for subclasses
 - ''"I like big methods because I can see all the code"'' leads to bad design
-- Why writing small methods is a sign of good design
+- Why writing small methods is a sign of good design?
 
 ${slide:title=Sending A Message Leads to a Choice}$
 
-- a message send leads to a choice
-- a class hierarchy defines the choices
+- A message send leads to a choice
+- A class hierarchy defines the choices
 - ==self== always represents the receiver
-- method lookup starts in the class of the receiver
+- Method lookup starts in the class of the receiver
 
-+>file://figures/Design-FatVsDispatch.png|width=95+
++>file://figures/Design-FatVsDispatch.png|width=80+
 
-${slide:title=An Example}$
+${slide:title=Studying an example}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
@@ -61,8 +61,8 @@ OurSpecificNode >> setWindowWithRatioForDisplay
 
 ${slide:title=Avoid Duplication}$
 
-- in Java-like languages, using ==private== attributes makes duplication in subclasses impossible
-- duplication is not a good practice:
+- In Java-like languages, using ==private== attributes makes duplication in subclasses impossible
+- Duplication is not a good practice:
 -- duplication copies bugs
 -- changing one copy requires changing others
 
@@ -72,14 +72,14 @@ ${columns}$
 
 ${column:width=50}$
 
-- send messages
-- define small methods
+- Send messages
+- Define small methods
 
 Subclasses can override such methods
 
 ${column:width=50}$
 
-+>file://figures/SelfIsDynamic.png|width=85+
++>file://figures/SelfIsDynamic.png|width=70+
 
 ${endColumns}$
 
@@ -105,7 +105,8 @@ Node >> setWindowWithRatioForDisplay
       (UINode new
          with: bandWidth * 55 / defaultWindowSize).
    previousNodeSize := defaultNodeSize.
-
+]]]
+[[[
 Node >> ratio
    ^ mainCoordinate / maximizeViewRatio
 ]]]
@@ -133,7 +134,7 @@ Node >> setWindowWithRatioForDisplay
    defaultNodeSize := self ratio.
    self window add:
       (UINode new
-         with: bandWidth * 55 / defaultWindowSize).
+           with: bandWidth * 55 / defaultWindowSize).
    previousNodeSize := defaultNodeSize.
 ]]]
 
@@ -152,7 +153,7 @@ Node >> setWindowWithRatioForDisplay
 [[[
 Node >> uiNode
    ^ UINode new
-      with: bandWidth * 55 / defaultWindowSize
+         with: bandWidth * 55 / defaultWindowSize
 ]]]
 
 ${slide:title=Do Not Hardcode Class Use}$
@@ -160,7 +161,7 @@ ${slide:title=Do Not Hardcode Class Use}$
 [[[
 Node >> uiNode
    ^ UINode new
-      with: bandWidth * 55 / defaultWindowSize
+         with: bandWidth * 55 / defaultWindowSize
 ]]]
 
 ${slide:title=Define Methods Returning Classes}$
@@ -168,7 +169,7 @@ ${slide:title=Define Methods Returning Classes}$
 [[[
 Node >> uiNode
    ^ self uiNodeClass new
-      with: bandWidth * 55 / defaultWindowSize.
+         with: bandWidth * 55 / defaultWindowSize.
 ]]]
 
 [[[
@@ -201,8 +202,9 @@ ${slide:title=Use a Message Send}$
 [[[
 Node >> uiNode
    ^ self uiNodeClass new
-      with: bandWidth * self averageRatio / defaultWindowSize.
-
+      with: bandWidth * self averageRatio / defaultWindowSize
+]]]
+[[[
 Node >> averageRatio
    ^ 55
 ]]]
@@ -217,8 +219,12 @@ ${slide:title=Use an Instance Variable}$
 [[[
 Node >> averageRatio
    ^ averageRatio ifNil: [ self defaultAverageRatio ]
+]]]
+[[[
 Node >> defaultAverageRatio
    ^ 55
+]]]
+[[[
 Node >> averageRatio: aNumber
    averageRatio := aNumber
 ]]]
@@ -228,7 +234,7 @@ Node >> averageRatio: aNumber
 
 ${slide:title=Gruyere-Oriented Programming}$
 
-+.>file://figures/gruyereWithSlogan|width=95+
++.>file://figures/gruyereWithSlogan|width=90+
 
 ${slide:title=Conclusion}$
 

@@ -1,8 +1,6 @@
 {
-    "title":"Dice new vs. self class new",
+	"title":"Dice new vs. self class new",
 	"slidesid" : "W6S03"
-	
-	
 }
 
 ${slide:title=From the Exercise}$

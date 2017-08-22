@@ -138,9 +138,6 @@ ${slide:title=The Command-Line Handler}$
 CommandLineHandler class >> isResponsibleFor: arguments
    ^ arguments includesSubCommand: self commandName
 
-EvaluateCommandLineHandler class >> commandName
-   ^ 'eval'
-
 CommandLineHandler class >> allHandlers
    ^ self allSubclasses
       reject: [ :handler| handler isAbstract ]
