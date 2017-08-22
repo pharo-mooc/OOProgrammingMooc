@@ -1,41 +1,62 @@
 {
   "title":"Learning how to discover information",
-  "slidesid" : "W5S06"
+  "slidesid" : "W3S06"
 }
 
-${slide:title=Looking for message hex}$
+${slide:title=Looking for implementors}$
 
-Spotting for hex is hardly complex.
-
-Shift-Enter hex #im
-
---> implementors of hex, first one I see is in ByteArray.
+- Look for possible implementations
+- You will get methods and may be one that you can call on (sub)-instances of the class implementing it.
 
 
-${slide:title=Looking for hex}$
+${slide:title=Looking for implementors}$
 
-Shit-Enter hex #se
+- Command-m (for iMpleMentors)
++>file://Slides/figures/ImplementorsLowercase.png|width=90+
 
---> senders of hex. First one is a test in ByteArray
+${slide:title=Looking for implementors (Spotter)}$
+
+-  Shift-Enter hex #im (all methods whose selectors contains ...)
++>file://Slides/figures/SpotterLowercase.png|width=90+
+
+${slide:title=Looking for senders}$
+- Look how a given message is used
+- Always interesting to understand typical arguments to be passed
+
+
+${slide:title=Looking for senders}$
+- Command-n (for seNders)
+There is no senders of lowercase
+
+${slide:title=Looking for senders (Spotter)}$
+
+- Shit-Enter asLowercase #se
++>file://Slides/figures/SpotterSendersAslowercase.png|width=90+
+
+
+
+${slide:title=Looking for class references}$
+
++>file://Slides/figures/PointClassReferences.png|width=90+
+
+${slide:title=Example: copyWithoutAll: implementors}$
+
++>file://Slides/figures/copyWithoutAllImplementors.png|width=90+
+
+${slide:title=Example: copyWithoutAll: senders}$
+
++>file://Slides/figures/copyWithoutAllSenders.png|width=90+
 
 ${slide:title=Looking for hex}$
 
 [[[
-testHex
-	"self debug: #testHex"
-	
-	self assert: #[122 43 213 7] hex = '7a2bd507'.
-	self assert: #[151 193 242 221 249 32 153 72 179 41 49 154 48 193 99 134] hex = '97c1f2ddf9209948b329319a30c16386'.
-					
-	self assert: (ByteArray readHexFrom: '7A2BD507') = #[122 43 213 7].
-	self assert: (ByteArray readHexFrom: '7a2bd507') = #[122 43 213 7].
+testCopyEmptyWithoutAll
+	"self debug: #testCopyEmptyWithoutAll"
+	| res |
+	res := self empty copyWithoutAll: self collectionWithElementsToRemove.
+	self assert: res size = self empty size.
+	self collectionWithElementsToRemove do: [ :each | self deny: (res includes: each) ]
 ]]]
-
-${slide:title=Looking for hex}$
-
-From this test, one can spot ==readHexFrom:== which uses lowercase or uppercase for reading.
-
-And ==asUppercase==, Shift-Enter upper, scrolll down as bit, find ==String>>#asUppercase==
 
 
 ${slide:title=Summary}$
@@ -43,3 +64,4 @@ ${slide:title=Summary}$
 Looking for
 - implementors
 - senders
+- direct references to classes
