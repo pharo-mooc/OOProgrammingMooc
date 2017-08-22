@@ -21,7 +21,7 @@ ${column:width=38}$
 
 ${column:width=62}$
 
-+>file://figures/InheritanceDiagram-sendingMessage.png|width=100+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=75+
 
 ${endColumns}$
 
@@ -37,13 +37,13 @@ ${column:width=40}$
 
 ${column:width=60}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=100+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=75+
 
 ${endColumns}$
 
 ${slide:title=When No Method is Found}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=70+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=45+
 
 
 
@@ -63,7 +63,7 @@ ${column:width=60}$
 
 ${column:width=50}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=120+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=100+
 
 ${endColumns}$
 
@@ -100,7 +100,7 @@ Node >> welcome
 
 ${column:width=40}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=130+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=120+
 
 ${endColumns}$
 
