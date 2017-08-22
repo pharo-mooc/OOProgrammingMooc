@@ -1,6 +1,6 @@
 {
     "title":"Use vs. Inheritance",
-    "slidesid":"From the Design Corner"
+    "slidesid":"The Design Corner"
 }
 
 
@@ -12,12 +12,12 @@ ${slide:title=Outline}$
 - Comparing solutions
  
 
-${slide:title=Exercise Setting Up}$
+${slide:title=Exercise Set Up}$
 
-Imagine ==TextEditor== and  several algorithms
-- ==formatWithTex (t)==
-- ==formatFastColoring (t)==
-- ==formatSlowButPreciseColoring (t)== 
+Imagine the ==TextEditor== class and  several algorithms
+- ==formatWithTex (t TextEditor)==
+- ==formatFastColoring (t TextEditor)==
+- ==formatSlowButPreciseColoring (t TextEditor)== 
 
 How can we create an editor that will format differently texts?
 
@@ -28,7 +28,7 @@ ${slide:title=Next step}$
 - Compare the approaches using such criteria
 
 
-${slide:title=Inheritance}$
+${slide:title=Solution 1: Inheritance}$
 
 [[[
 TextEditor subclass: #SlowFormatingTextEditor
@@ -58,7 +58,7 @@ ${slide:title=Inheritance}$
 +.>file://figures/textEditorHierarchy.pdf|width=100+
 
 
-${slide:title=With conditionals}$
+${slide:title=Solution 2: With conditionals}$
 
 +.>file://figures/textEditorSingle.pdf|width=60+
 
@@ -72,7 +72,7 @@ TextEditor >> format
 ]]]
 
 
-${slide:title=Alternate with Registry and Meta Programmation}$
+${slide:title=Alternate with Registry and Meta Programming}$
 
 [[[
 Object subclass: #TextEditor 
@@ -93,18 +93,24 @@ TextEditor >> format
 	self perform: (formatters at: currentSelection) with: text
 ]]]
 
+${slide:title=Criteria?}$
+What are your criterias to compare these and other solutions?
+
 ${slide:title=Criteria}$
 
 - Yes what are they?
 
 ${slide:title=Criteria}$
 
-- ""Adding a new formatting algo"" - what is the cost to define a new formatting algorithm
-- ""Dynamically use a formatter"" - can I switch dynamically to a new formatting algorithm
-- ""Packaging"" - can I deploy a new formatting algorithm separately from others
+- ""Adding a new formatting algo"" 
+-- what is the cost to define a new formatting algorithm
+- ""Dynamically use a formatter"" 
+-- can I switch dynamically to a new formatting algorithm
+- ""Packaging"" 
+-- can I deploy a new formatting algorithm separately from others
 
 
-${slide:title=Inheritance?}$
+${slide:title=Analysing Solution 1: Inheritance?}$
 
 ""Addition:""
 - we can add a new formatter
@@ -116,29 +122,31 @@ ${slide:title=Inheritance?}$
 - it is difficult to change the policy at run-time.
 -- we do not want to have and reopen the texteditor
 
-${slide:title=Inheritance?}$
+${slide:title=Analysing Solution 1: Inheritance?}$
 
-You can get an explosion of classes bloated with the use of a functionality and the functionalities.
--- we do not want a hierarchy for each text editor features to be ""multiplied"" with previous ones
--- FastColoring
-- API of TextEditor can get large: no clear identification of responsibility
+You can get an explosion of classes bloated with functionalities
+- we do not want a hierarchy for each text editor features to be ""multiplied"" with previous ones
+- ==TextEditor== API can get large: no clear identification of responsibility
 
-+.>file://figures/textEditorHierarchyBloated.pdf|width=60+
++.>file://figures/textEditorHierarchyBloated.pdf|width=50+
 
-${slide:title=Conditionals}$
+${slide:title=Analysing Solution 2: Conditionals}$
 
-""Dynamic use:"" we can use a different formatter dynamically.
+""Dynamic use:"" we can use a different formatter dynamically
 
-But 
 ""Addition:""
 - adding a version requires to edit and ""recompile"" the conditionals
 ""Packaging: ""
 - we cannot package a new algorithm separately
 
+${slide:title=Another solution...}$
+
+Delegating to a formatter
+- Sketch the solution
 
 ${slide:title=Delegating to a formatter}$
 
-+.>file://figures/colorizer.pdf|width=90+
++.>file://figures/colorizer.pdf|width=85+
 
 [[[
 myEditor formatter: FastFormatter new. 
@@ -163,7 +171,7 @@ ${slide:title=Strategy Design Pattern}$
 - Modular
 - Incremental
 
-${slide:title=There is nothing like a free lunch}$
+${slide:title=But there is nothing like a free lunch}$
 
 - The formatter should access the state (i.e. the text, positions... contained in the text editor)
 - Information should flow between the textEditor and the formatter
@@ -178,9 +186,9 @@ Inheritance
 - It can help 
 -- build dynamic solutions
 -- structure abstractions
+- It supports late binding
 
-Delegation 
+Delegation (Use)
 - can bring runtime flexibility
-
-
+- can be combined with inheritance 
 

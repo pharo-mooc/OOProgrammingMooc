@@ -3,19 +3,17 @@
     "slidesid":"From the Design Corner"
 }
 
+${slide:title=What You Will Learn}$
+
+- Thinking about design
+- Comparing design
+- Techniques also applicable to code/design review
 
 ${slide:title=Studying a Sokoban Implementation}$
 
 +.>file://figures/LearnFEx-Sokoban1.png|width=100+
- 
 
-${slide:title=Good decomposition}$
-
-- Model 
-- Views
-- Controllers
-
-${slide:title=Model}$
+${slide:title=Lookng at Model}$
 
 %+.>file://figures/LearnFEx-Model.png|width=50+
 
@@ -37,11 +35,14 @@ ${slide:title=Views}$
 
 +.>file://figures/LearnFEx-View.png|width=50+
 
-${slide:title=Controllers}$
+${slide:title=Views are Decoupled from Model}$
 
-+.>file://figures/LearnFEx-Controllers.png|width=50+
+Good decomposition View/UIs
+- Support multiple views
+- Logic of displaying is encapsulated in different objects
 
-${slide:title=Let us guess about the model}$
+
+${slide:title=Let us Guess the Model}$
 
 ${columns}$
 
@@ -61,7 +62,7 @@ ${column:width=40}$
 ${endColumns}$
 
 
-${slide:title=Let us guess about the model}$
+${slide:title=Comparing Models}$
 
 ${columns}$
 
@@ -72,7 +73,7 @@ ${column:width=60}$
 - Box
 - Robot
 - Target
-- Board
+
 Instead we got 
 - Block
 -- EmptyBlock
@@ -87,13 +88,19 @@ ${column:width=40}$
 ${endColumns}$
 
 
-${slide:title=Let us check the class API}$
+${slide:title=Checking API}$
 
+Type checks and disguided type checks 
+- often violate the "Don't Ask, Tell" principle
+- favor hardcoded conditional design
+
+For example: 
 - isEmptyBlock
 - isWall
+
 Let us check the way this API is used
 
-${slide:title=Too many ifs....}$
+${slide:title=Too Many ifs....}$
 
 [[[
 GameView >> drawBlock: aBlock on: aCanvas
@@ -112,17 +119,22 @@ GameView >> drawBlock: aBlock on: aCanvas
 	]
 ]]]
 
+
+${slide:title=Analysis....}$
+
+- Changing a block is difficult
+- Reuse logic (in another game) is impossible
+- Logic is complex
+
 ${slide:title=Why?}$
 
-Because the model only defines
-- EmptyBlock and 
-- Wall
+- The model only defines
+-- EmptyBlock and 
+-- Wall
+- There is no Player, no Target, no Box abstraction
+- Too much logic is put in EmptyBlock
 
-No Player, no target, no box.
-
-Too much logic is put in EmptyBlock
-
-${slide:title=A better model}$	
+${slide:title=A Better Model}$	
 
 %+.>file://figures/LearnFEx-Model2.png|width=100+
 
@@ -135,7 +147,7 @@ ${slide:title=A better model}$
 -- Wall
 
 
-${slide:title=A possible solution}$	
+${slide:title=A Possible Solution}$	
 
 [[[
 GameView >> drawBlock: aBlock on: aCanvas
@@ -147,18 +159,48 @@ GameView >> drawBlock: aBlock on: aCanvas
 Becomes
 
 [[[
-GameView >> drawBlock: aBlock on: aCanvas
+AthensGameView >> drawBlock: aBlock on: aCanvas
 	aBlock drawOn: aCanvas view: self
+]]]
 
+[[[
 Wall >> drawOn: aCanvas view: aView
 	aView drawWall: aCanvas
+]]]
 
+[[[
 EmptyBlock >> drawOn: aCanvas view: aView
 	aView drawEmptyBlock: aCanvas
 ]]]
 
 
-${slide:title=Back to the model}$
+${slide:title=A Possible Solution: Telling instead of Asking}$	
+
+[[[
+AthensGameView >> drawBlock: aBlock on: aCanvas
+	aBlock drawOn: aCanvas view: self
+]]]
+
+Tells the block that it should be drawn...
+
+[[[
+Wall >> drawOn: aCanvas view: aView
+	aView drawWall: aCanvas
+]]]
+
+The wall tell the canvas that it should be drawn as a wall
+
+${slide:title=A Possible Solution: Telling instead of Asking}$
+
+Analysis
+- The canvas has still the knowledge how to draw but does not ask the object about its kind. 
+- The canvas just ""tells"" a block to draw itself
+- The current block ""tells"" the canvas to draw it accordingly
+(see Lecture on double dispatch)
+
+
+
+${slide:title=Back to the Model}$
 
 What are:
 - MoveResult
@@ -166,17 +208,24 @@ What are:
 --- Push
 -- NoMove
 
-Kind of Command objects
-Good to support Undo
+- Kind of Command objects
+- Good to support Undo
 
-${slide:title=Let us study the API}$
+${slide:title=Studying the API}$
 
 [[[
 MoveResult >> isMove
 	^ false
+]]]
+
+[[[
 MoveResult >> isPush
 	^ false
+]]]
+
+[[[
 MoveResult >> isNoMove
+	^ true
 ]]]
 
 [[[
@@ -196,17 +245,23 @@ ${slide:title=Do not ask tell}$
 GameState >> moveBy: aDirection
 	| moveResult |
 	moveResult := maze moveBy: aDirection.
-	moveResult doWithGameState: self.	
+	moveResult updateGameState: self.	
 	self addMoveResult: moveResult.
+]]]
 
-Move >> doWithGameState: aGameState
+[[[
+Move >> updateGameState: aGameState
 	aGameState incrementMoves
+]]]
 
-Push >> doWithGameState: aGameState
-	super doWithGameState: aGameState.
+[[[
+Push >> updateGameState: aGameState
+	super updateGameState: aGameState.
 	aGameState increasePushes
+]]]
 
-NoMove >> doWithGameState: aGameState 
+[[[
+NoMove >> updateGameState: aGameState 
 	self 
 ]]]
 
@@ -214,5 +269,6 @@ ${slide:title=Conclusion}$
 
 - Messages act as a dispatcher
 - Avoid conditional when possible
+- Tell do not ask objects
 
 
