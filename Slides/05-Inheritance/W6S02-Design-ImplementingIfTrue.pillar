@@ -52,11 +52,12 @@ False >> ifTrue: aTrueBlock ifFalse: aFalseBlock
 ${slide:title=Implementation of ifTrue\:ifFalse\:}$
 
 
-+>file://figures/BooleanIfTrueIfFalse.png|width=110+
++>file://figures/BooleanIfTrueIfFalse.png|width=90+
 
 ${slide:title=Conclusion}$
 
 - Sending a message selects the right method
+- Sending a message acts as a dynamic case
 - Let the receiver decide
 - ==[ ]== freezes computation and ==value== forces execution
 

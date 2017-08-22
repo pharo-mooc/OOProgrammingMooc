@@ -115,6 +115,22 @@ $ pharo Pharo.image eval "10 factorial"
 3628800
 ]]]
 
+${slide:title=The Eval Command-Line Handler}$
+
+[[[
+EvaluateCommandLineHandler class >> commandName
+   ^ 'eval'
+   
+EvaluateCommandLineHandler class >> description
+   ^ 'Directly evaluates passed in one line scripts'   
+...
+
+EvaluateCommandLineHandler >>evaluateArguments
+	| argumentString |
+	argumentString :=  self argumentString.
+	argumentString ifEmpty: [ ^ self ].
+	self evaluate: argumentString
+]]]
 
 ${slide:title=The Command-Line Handler}$
 
@@ -135,7 +151,24 @@ CommandLineHandler class >> handlersFor: arguments
          handlerClass isResponsibleFor: arguments ]
 ]]]
 
+${slide:title=Stepping back}$
 
+To add a new command
+- add a class with 
+-- a command name 
+-- new activation condition
+
+Mechanics:
+- Automatically registered entities
+- Dynamic discovery of services
+- Methods dynamically resolved
+
+${slide:title=In Java}$
+
+- Static methods are not looked up dynamically.
+- Need to implement 
+-- a registration mechanism with one instance of each class
+-- a singleton 
 
 ${slide:title=Conclusion}$
 

@@ -5,15 +5,17 @@
 
 ${slide:title=How to ensure that an instance is well initialized?}$
 
+Possible solution
 - Automatic initialize
 - Lazy initialization
 - Proposing the right interface
 - Providing a default value
 
-${slide:title=Provider Responsibility}$
+${slide:title=Provider responsibility}$
 
-- This is the responsibility of the class to provide well-formed object
+- This is the responsibility of the class to provide well-formed objects
 - A client should not make assumptions or been responsible to send specific sequence of messages to get a working object
+
 
 ${slide:title=A First Implementation of Packet}$
 
@@ -25,21 +27,14 @@ Packet >> printOn: aStream
 	super printOn: aStream.
 	aStream nextPutAll: ' addressed to: '; nextPutAll: self addressee.
 	aStream nextPutAll: ' with contents: '; nextPutAll: self contents
+
 Packet >> addressee
-	^addressee
+	^ addressee
 Packet >> addressee: aSymbol
 	addressee := aSymbol
 ]]]
 
-${slide:title=Packet class Definition}$
-
-Packet class is automatically defined
-[[[
-Packet class
-	instanceVariableNames: ''
-]]]
-
-Example of instance creation
+${slide:title=Example of instance creation}$
 
 [[[
 Packet new
@@ -50,7 +45,7 @@ Packet new
 
 ${slide:title=Fragile Instance Creation}$
 
-- If we do not specify a contents, it breaks!
+If we do not specify a contents, it breaks!
 
 [[[
 | p |
@@ -63,10 +58,9 @@ p printOn: aStream
 ${slide:title=Problems}$
 
 - Responsibility of the instance creation relies on the clients
-- A client can create packet without contents, without address instance variable not initialized
-
+- A client can create packet without contents, without address and the instance variables are not initialized correctly
 - error (for example, printOn:)
-- system fragile
+- Fragile system (printOn: should be robust)
 
 
 ${slide:title=Fragile Instance Creation Solutions}$
@@ -74,16 +68,7 @@ ${slide:title=Fragile Instance Creation Solutions}$
 - Automatic initialization of instance variables
 - Proposing a solid interface for the creation
 - Lazy initialization
-
-
-${slide:title=Instance Initialization}$
-
-How to ensure that an instance is well initialized?
-
--Automatic initialize
--Lazy initialization
--Proposing the right interface
--Providing a default value
+- Providing a default value
 
 ${slide:title=Assuring Instance Variable Initialization}$
 
@@ -96,6 +81,9 @@ Packet >> initialize
 	addressee := #noAd
 ]]]
 
+- Makes sure that contents and addressee have always a value
+
+
 ${slide:title=The New/Initialize Couple}$
 
 [[[
@@ -104,6 +92,7 @@ Object >> initialize
 	^ self
 ]]]
 
+- Acts as a constructor in other languages
 
 
 ${slide:title=Lazy Initialization}$
@@ -121,35 +110,32 @@ A lazy initialization scheme with default value
 [[[
 Packet >> contents
 	contents isNil
-		ifTrue: [contents := 'no contents']
+		ifTrue: [ contents := 'no contents' ]
 	^ contents
 ]]]
 
 - aPacket contents or self contents
 - A lazy initialization scheme with computed value
 [[[
-Dummy>>ratio
+Dummy >> ratio
 	ratio isNil
-		ifTrue: [ratio := self heavyComputation]
+		ifTrue: [ ratio := self heavyComputation ]
 ]]]
 
 ${slide:title=Better}$
 [[[
-Packet>>contents
+Packet >> contents
 	contents isNil
 		ifTrue: [contents := 'no contents']
 	^ contents
 ]]]
 is equivalent to
 [[[
-Packet>>contents
-	^ contents ifNil: [contents := 'no contents]
+Packet >> contents
+	^ contents ifNil: [ contents := 'no contents ]
 ]]]
 
-
-
-
-${slide:title=Strengthen Instance Creation Interface}$
+${slide:title=Strengthen instance creation interface}$
 - Problem: A client can still create aPacket without address.
 - Solution: Force the client to use the class interface creation.
 - Providing an interface for creation and avoiding the use of new: Packet send: 'Hello mac' to: #Mac
@@ -158,7 +144,7 @@ Packet class >> send: aString to: anAddress
 	^ self new contents: aString ; addressee: anAddress ; yourself
 ]]]
 
-${slide:title=Examples of Instance Initialization}$
+${slide:title=Examples of instance initialization}$
 
 - Step 1. SortedCollection sortBlock: [:a :b| a name < b name]
 [[[
@@ -169,7 +155,7 @@ SortedCollection class>>sortBlock: aBlock
 - Step 2. self new => aSortedCollection
 - Step 3. aSortedCollection sortBlock: aBlock
 
-${slide:title=Another Example}$
+${slide:title=Another example}$
 
 - Step 1. OrderedCollection with: 1
 [[[
@@ -178,16 +164,16 @@ Collection class >> with: anObject
 	| newCollection |
 	newCollection := self new.
 	newCollection add: anObject.
-	^newCollection
+	^ newCollection
 ]]]
 
 
-${slide:title=Invoking per Default the Creation Interface}$
+${slide:title=Invoking per default the creation interface}$
 
 [[[
 OrderedCollection class >> new
 	"Answer a new empty instance of OrderedCollection."
-	^self new: 5
+	^ self new: 5
 ]]]
 
 ${slide:title=Forbidding new?}$
@@ -198,7 +184,7 @@ Packet class >> new
 	self error: 'Packet should only be created using send:to:'
 ]]]
 
-${slide:title=Forbidding new Implications}$
+${slide:title=Forbidding new implications}$
 
 But we still have to be able to create instance!
 [[[
@@ -224,6 +210,50 @@ Packet class >> send: aString to: anAddress
 
 Conclusion: Do not override ==basic*== methods else you will not be able to invoke them later
 
+
+${slide:title=Fluid vs. and default creation interface}$
+
+Often a fixed creation interface gets too large
+- Too many possibilities
+- Too many optional cases
+
+${slide:title=Example: Problem with class definition in Pharo}$
+
+[[[
+Object subclass: #Behavior
+	uses: TBehavior
+	instanceVariableNames: 'superclass methodDict format layout'
+	classVariableNames: 'ClassProperties ObsoleteSubclasses'
+	package: 'Kernel-Classes'
+]]]
+
+${slide:title=Example: Problem with class definition in Pharo}$
+[[[
+subclass: s uses: aT instanceVariableNames: names classVariableNames: cvNames category: cat
+subclass: s uses: aT instanceVariableNames: names classVariableNames: cvNames package: cat
+subclass: s instanceVariableNames: names classVariableNames: cvNames poolDictionaries: pools package: cat
+subclass: s uses: aT instanceVariableNames: names classVariableNames: cvNames poolDictionaries: pools category: acat
+...
+...tag:...
+...immediate:...
+...ephemeron:...
+]]]
+
+
+${slide:title=Example of a fluid interface in Seaside}$
+
+[[[
+ScrapBook>>renderContentOn: html
+    html paragraph: 'A plain text paragraph.'.
+    html paragraph: [
+        html render: 'A paragraph with plain text followed by a line break.'.
+        html break.
+        html emphasis: 'Emphasized text '.
+        html render: 'followed by a horizontal rule.'.
+        html horizontalRule.
+        html render: 'An image: '.
+        html image url: 'http://www.seaside.st/styles/logo-plain.png' ]
+]]]
 
 ${slide:title=How to ensure that an instance is well initialized?}$
 

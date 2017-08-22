@@ -41,11 +41,6 @@ ${slide:title=Structured/Procedural Programming Point of View}$
 - Single namespace for procedures
 - No decoupling between messages and methods: just procedures accessing data
 
-
-${slide:title=Data and Procedures}$
-
-+>file://figures/DataAndProcedures.png|width=83+
-
 ${slide:title=Let us compare}$
 
 Problem: compute the total area of a set of geometric shapes
@@ -232,7 +227,8 @@ A class describes the structure and the behavior of its instances
 
 ${slide:title=What you should know}$
 
-- OOP describe programs as collaborating entities
-- Objects encapsulate data 
+- OOP describes programs as collaborating entities
+- Objects encapsulate data and expose API of behavior
 - Late binding selects methods to be executed in reaction to a message
+- Classes reuse (extend, modify their superclass behavior)
 - Good design promote polyrmorphism

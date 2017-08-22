@@ -173,7 +173,7 @@ testRemoveFrom
 
 ${slide:title=Use the debugger to look at the argument}$
 
-+>file://figures/WrongArg.png|width=90+
++>file://figures/WrongArg.png|width=70+
 
 ${slide:title=A problem}$
 
