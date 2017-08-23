@@ -1,5 +1,5 @@
 {
-    "title" : "Adding a Dice and a DiceHandle: A Case of Double Dispatch",
+    "title" : "Adding a Dice and a DieHandle: A Case of Double Dispatch",
     "slidesid" : "From The Design Corner",
     "author" : "Stéphane Ducasse"
 }
@@ -24,7 +24,7 @@ handle roll
 ]]]
 
 
-${slide:title=Remember DiceHandle}$
+${slide:title=Remember DieHandle}$
 
 We add dieHandle together as in role playing games
 
