@@ -86,15 +86,26 @@ DieTest >> testAddingADieAndHandle
 
 ${slide:title=Propose a solution!}$
 
+${slide:title=Our approach}$
+
+- When we add two elements (die or dieHandle) together.
+We always do the same:
+- we tell ""the argument"" that we want to add the receiver
+- we are explicit about the receiver state since we know it
+-- when the receiver is a die we say to the argument that we want to add a die
+-- when the receiver is a die handle we say to the argument that we want to add a die handle
+
+Let us do it now!
+
 ${slide:title=First adding two dice}$
 
 [[[	
 Die >> + aDie
 	
 	^ DieHandle new 
-		addDie: self; 
-		addDie: aDie; 
-		yourself
+			addDie: self; 
+			addDie: aDie; 
+			yourself
 ]]]
 
 
@@ -104,44 +115,49 @@ ${slide:title=Limits}$
 Die >> + aDie
 	
 	^ DieHandle new 
-		addDie: self; 
-		addDie: aDie; 
-		yourself
+			addDie: self; 
+			addDie: aDie; 
+			yourself
 ]]]
 
-aDie can be 
+But aDie can be 
 - a dice
 - a die handle
 
 
 ${slide:title=A first step}$
 
+Adding two dice is usefull, let us keep it and rename it:
 
 [[[
 Die >> sumWithDie: aDie
 
 	^ DieHandle new 
-		addDie: self; 
-		addDie: aDie; yourself
+			addDie: self; 
+			addDie: aDie; yourself
 ]]]
 
+Now we just say to the argument that we want to add a die
 [[[
 Die >> + aDicable	
-	^ aDicable sumWithDie: self
+		^ aDicable sumWithDie: self
 ]]]
 
 
-${slide:title=Adding two dice and ready for more}$
+${slide:title=Adding Two Dice and Ready for More}$
 
-+>file://figures/DieDoubleDispatchPartialArgDie.pdf|width=70+
++>file://figures/DieDoubleDispatchPartialArgDie.pdf|width=100+
 
-${slide:title=Handling DieHandle as argument}$
+${slide:title=Handling DieHandle as Argument}$
 
-+>file://figures/DieDoubleDispatchPartialArgDieHandle.pdf|width=70+
++>file://figures/DieDoubleDispatchPartialArgDieHandle.pdf|width=100+
 
-${slide:title=Handling DieHandle as argument}$
+${slide:title=Sending a Message is Making a Choice}$
 
-+>file://figures/DieDoubleDispatchPartial.pdf|width=70+
++>file://figures/DieDoubleDispatchPartial.pdf|width=80+
+
+
+
 
 ${slide:title=Conclusion}$
 
