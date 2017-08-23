@@ -158,9 +158,43 @@ ${slide:title=Sending a Message is Making a Choice}$
 
 
 
+${slide:title=DieHandle as a receiver}$
+
+We apply the same principle
+
+[[[
+DieHandle >> + aDicable
+	^ aDicable sumWithHandle: self
+]]]
+
+[[[
+DieHandle >> sumWithHandle: aDieHandle
+	| handle |
+	handle := self class new.
+	self dice do: [ :each | handle addDie: each ].
+	aDieHandle dice do: [ :each | handle addDie: each ].
+	^ handle
+]]]
+
+
+${slide:title=Now the argument can be a die }$
+
+[[[
+Die >> sumWithHandle: aDieHandle
+	| handle |
+	handle := DieHandle new.
+	aDieHandle dice do: [ :each | handle addDie: each ].
+	handle addDie: self
+	^ handle
+]]]
+
+${slide:title=Double Dispatch between Die and DieHandle }$
+
++>file://figures/DieDoubleDispatchFull.pdf|width=100+
 
 ${slide:title=Conclusion}$
 
+- Basis for advanced design such as the Visitor Design Pattern
 - Powerful
-- Modular
-- Just sending an extra message to an argument and using late binding
+- Modular (compiler with 70 nodes scales without problems)
+- Just sending an extra message to an argument and using late binding once again
