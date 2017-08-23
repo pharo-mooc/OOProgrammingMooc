@@ -1,10 +1,18 @@
 {
-    "title" : "Adding a Dice and a DiceHandle",
+    "title" : "Adding a Dice and a DiceHandle: A Case of Double Dispatch",
     "slidesid" : "From The Design Corner",
     "author" : "Stéphane Ducasse"
 }
 
+
+${slide:title=What You Will Learn}$
+
+- How conditionals can be turned into extensible design using messages
+- Basis for more complex situation such as the Visitor Design Pattern
+
 ${slide:title=Remember Dice}$
+
+We create a DieHandle and add some die to it
 
 [[[
 |handle|
@@ -17,6 +25,8 @@ handle roll
 
 
 ${slide:title=Remember DiceHandle}$
+
+We add dieHandle together as in role playing games
 
 [[[
 DieHandleTest >> testSumming
@@ -39,13 +49,17 @@ We want to add two dices together
 
 Now  we want to be able to add a dice to an dice handle
 
+
+
+[[[
+(Die withFaces: 6) + 2 D20
+]]]
+
+
 [[[
 2 D20 + (Die withFaces: 6)
 ]]]
 
-[[[
- (Die withFaces: 6) + 2 D20
-]]]
 
 ${slide:title=aNewRequirement asTest }$
 
@@ -100,15 +114,34 @@ aDie can be
 - a die handle
 
 
+${slide:title=A first step}$
 
 
+[[[
+Die >> sumWithDie: aDie
+
+	^ DieHandle new 
+		addDie: self; 
+		addDie: aDie; yourself
+]]]
+
+[[[
+Die >> + aDicable	
+	^ aDicable sumWithDie: self
+]]]
 
 
+${slide:title=Adding two dice and ready for more}$
 
++>file://figures/DieDoubleDispatchPartialArgDie.pdf|width=70+
 
+${slide:title=Handling DieHandle as argument}$
 
++>file://figures/DieDoubleDispatchPartialArgDieHandle.pdf|width=70+
 
+${slide:title=Handling DieHandle as argument}$
 
++>file://figures/DieDoubleDispatchPartial.pdf|width=70+
 
 ${slide:title=Conclusion}$
 
