@@ -1,6 +1,6 @@
 {
-  "title":"Tests in a Nutshell",
-  "slidesid" : "W1S04"
+  "title":"Unit Testing in a Nutshell",
+  "slidesid" : "Concepts - W1S04"
 }
 
 
@@ -29,7 +29,25 @@ set2 size = 2.
 >>> true
 ]]]
 
-${slide:title=Set TestCase}$
+${slide:title=Testing set addition}$
+
+[[[
+set1 := Set new. "Context"
+set1 add: 1. "Stimulus"
+set1 add: 2. "Stimulus"
+set1 add: 1. "Stimulus"
+set2 size = 2. "Verification/Assertion"
+>>> true
+]]]
+
+${slide:title=To provide a frame to define and execute tests}$
+
+With SUnit:
+- You define special class
+- You define special methods
+We will come back later to this. 
+
+${slide:title=(SetTestCase)}$
 
 [[[
 TestCase subclass: # SetTestCase
@@ -48,7 +66,7 @@ SetTestCase >> testAdd
 SetTestCase run: #testAdd
 ]]]
 
-${slide:title=In a Subclass of TestCase}$
+${slide:title=(In a Subclass of TestCase)}$
 
 Each method starting with ==test*==:
 - Represents a test
@@ -64,22 +82,31 @@ Your tests are your first clients
 ${slide:title=Why testing is important: Verify}$
 
 Your tests are your insurance (regression testing)
-- When adding a new behavior, control that there is no side effect
+- When adding a new behavior, control that there is no side effect and bug introduction in existing code
 
 ${slide:title=Why testing is important: Support evolution}$
 
 Changes are 
 - Inevitable
-- Part of program (represent the world and world is changing)
+- Programs represent the world and world is changing!
 - Better be prepared
 
 When you have to change your existing code:
-- identify side effects
-- validate changes do not break more than they should do
+- Identify side effects
+- Validate that changes do not break more than they should do
+
+${slide:title=Unit testing}$
+
+- Simple
+- Focus on one action
+
+There are other testing approach
+- Integration testing 
+- Acceptance testing...
 
 ${slide:title=Summary}$
 
 - Unit tests are easy to create and run
 - Create one test and run it million times!
 - Use them as your life insurance
-- There exists other libraries for Mock (BabyMock) or different styles of testing
+- Libraries exist (BabyMock, Mocketry) for different styles of testing
