@@ -17,6 +17,8 @@ A little entity with:
 - behavior: draw on screen
 - identity: one is different to the other
 
++>file://figures/Bots-TwoDiffTurles.png|width=60+
+
 ${slide:title=A file object}$
 
 A little entity with: 
@@ -28,23 +30,29 @@ ${slide:title=About identity and equality}$
 
 Enter a pizzeria... order a pizza
 
-- identity you eat the pizza of a client
-- equality you order the same pizza than a client
+- identity: you eat the pizza of a client
+- equality: you order the same pizza than a client
 
 
 ${slide:title=An object reacts to messages}$
 
 [[[
- aTurtle jumpTo: aLocation
+  aTurtle jumpTo: aLocation
 ]]]
+
++>file://figures/BotsMessages.png|width=60+
+
 
 [[[
  aWindow open 
  aFIle open 
  aZip open
 ]]]
-${slide:title=The object receiver}$
 
+
+${slide:title=Message Receiver}$
+
+The object receiving the message
 [[[
 aTurtle jumpTo: aLocation
 ]]]
@@ -56,7 +64,7 @@ aWindow open
 ==aWindow==
 
 [[[
- aFIle open 
+ aFile open 
 ]]]
 ==aFile==
 
@@ -65,29 +73,72 @@ aWindow open
 ]]]
 aZip
 
-${slide:title=A method specify }$
+${slide:title=A method }$
+
+Named sequence of instructions that will be executed on the message receiver
+
+makeCrepes
++>file://figures/makeCrepes.png|width=60+
 
 
 ${slide:title=Messages vs. Methods}$
 
-- Message: What to do
-- Methods: How to do it
+Message: What to do?
+[[[
+stef makeCrepes.
+robert makeCrepes.
+peter putJamOnCrepes.
+]]]
 
-${slide:title=One message multiple methods}$
+Methods: How to do it?
++>file://figures/makeCrepes.png|width=30+
+
+
+${slide:title=One message and multiple methods}$
 
 One message ==open==
 
 Several methods named ==open==
-- aWindow open 
-- aFIle open 
-- aZip open
+[[[
+Window >> open 
+     ...
+]]]
+
+[[[
+File >> open 
+    ...
+]]]
+
+[[[
+Zip >>open
+   ...
+]]]
+
+
+
+
 
 
 ${slide:title=A class is factory of objects}$
 
-- Define all the variables of all its instances
-- Define all the behavior
+${columns}$
+
+${column:width=50}$
+
+A class
+- Defines all the variables of all its instances
+- Defines all the behavior
 -- no repetition in all the instances
+- Is an object mould
+
+Each instances is still a separate entity
+- You can create mutiple baths and break one. 
+
+${column:width=50}$
+
++>file://figures/bathMaker.png|width=100+
+
+${endColumns}$
 
 
 ${slide:title=Message new creates objects}$
@@ -97,12 +148,17 @@ Turtle new
 >>> aTurtle
 ]]]
 
++>file://figures/BotsClassCreatingObjects.png|width=80+
+
 [[[
 File new
 >>> aFile
 ]]]
 
 ${slide:title=Methods are looked up dynamically in the class of the receiver}$
+
+
++>file://figures/MethodLookedupWithDiffBehavior.pdf|width=100+
 
 
 
