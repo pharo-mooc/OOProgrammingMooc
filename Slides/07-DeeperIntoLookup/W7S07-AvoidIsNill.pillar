@@ -149,14 +149,30 @@ Be careful to systematically use the lazy accessor and not direct access
 
 ${slide:title=Sometimes you have to check...}$
 
-Sometimes you have to check before doing an action
-- if you can, turn the default case into an object
+- Sometimes you have to check before doing an action
+- Solution: if you can, turn the default case into an object (null object)
+
+
+${slide:title=Example}$
+
+[[[
+SelectionTool >> attachHandles
+    ^ ... something complex...
+]]]
+[[[
+SelectionTool >> detachHandles
+    ^ ... something complex...
+]]]
+
+If tool can be nil, clients have to check! 
 
 [[[
 ToolPalette >> nextAction
    self selectedTool
       ifNotNil: [ :tool | tool attachHandles ]
-
+]]]
+  
+[[[
 ToolPalette >> previousAction
    self selectedTool
       ifNotNil: [ :tool | tool detachHandles ]
@@ -178,7 +194,7 @@ The NullTool does nothing but offers a compatible API!
 
 ${slide:title=Use NullObject}$
 
-+.>file://figures/NullObject.pdf|width=80+
++.>file://figures/NullObject.pdf|width=60+
 
 - a null object proposes a polymorphic API and embeds default actions/values
 - Woolf, Bobby (1998). "Null Object". In Pattern Languages of Program Design 3. Addison-Wesley.
