@@ -1,19 +1,24 @@
 {
 	"title":"Objectives of the lecture",
-	"subtitles":""
+	"subtitles":"Learning Object-Oriented Programming, Design and TDD with Pharo",
+        "slidesid" : "W1S00 - Learning Object-Oriented Programming, Design and TDD with Pharo"
 }
 
 ${slide:title=Who Am I}$
 
 - Expert in OOP and OOD
 - Wrote several books
-- One for this lecture and for you
+- One book written especially for this lecture and for you
 - Love coding and nice design
-- Want to empower you
--- OO Programming
--- OO Design
--- Talking, communicating with other developers
--- Learn how to find your bugs. 
+
+${slide:title=Want to Empower You}$
+- OO Programming
+- OO Design
+- Test driven development
+
+But not only
+- Talking, communicating with other developers
+- Learn how to find your bugs. 
 
 ${slide:title=Process}$
 
@@ -24,35 +29,50 @@ But you should
 - Do the exercises
 - Watch the videos
 - Read the book (if you want)
-- Help yourself on Pharo discord channel
+- Help yourself on mailing-lists or Pharo Discord channel
 -- Learn to ask
 -- Be friendly
 
-${slide:title=Reflexion on learning}$
 
-- Making mistakes is learning
-- Repeating the same mistakes is idiocy
-- Give a man a fish and you feed him for a day; teach a man to fish and you feed him for a lifetime
+
 
 ${slide:title=Reflexion on learning}$
 
 +>file://figures/Intro-Swimmers.jpg|width=83+
 
+${slide:title=Reflexion on learning}$
+
+''Give a man a fish and you feed him for a day; teach a man to fish and you feed him for a lifetime''
+- Making mistakes is learning
+- Repeating the same mistakes is idiocy
+
+
 ${slide:title=Diving}$
 
-- You can go inside Pharo
-- You can break Pharo
-- You can read all the code: it is written with a syntax in one postcard
++.>file://figures/diving.jpg|width=100+
+
+${slide:title=Diving}$
+
+- You can go ""inside"" Pharo
+- You can ""break"" Pharo
+- You can read all the code: it is written with a syntax that fits in one postcard
 
 
-${slide:title=How to interact with people (on discord)}$
 
+
+${slide:title=How to interact with people}$
+
+Learn how to interact with other developers
 - Do not get stuck
 - Be nice
 - Be polite
 - Be precise
 - Do your homework
 - Help each others
+
+${slide:title=Discord}$
+
++.>file://figures/Discord.png|width=100+
 
 
 ${slide:title=Core Objectives}$
@@ -64,6 +84,7 @@ ${slide:title=Core Objectives}$
 - Tests are your life ensurance
 
 ${slide:title=Objectives}$
+
 - Class responsibility collaboration
 - Delegation
 - Message sends are choice (what would be the equivalent to not)
@@ -75,6 +96,7 @@ ${slide:title=Objectives}$
 - Some design patterns
 
 ${slide:title=Objectives}$
+
 - Understanding OOP as a Design methodologies
 - Understand key and essential concepts
 - Being able to develop non trivial examples
@@ -87,6 +109,15 @@ ${slide:title=Why Pharo?}$
 - Full Mooc available
 - Excellent to get immersed in ObjectLand
 
+${slide:title=No Risk!}$
+
+- N. Schaerli: master and PhD in Pharo: Google 
+- L. Renggli: bachelor, master, and PhD in Pharo: Google
+- C. Bruni: bachelor, master, and PhD in Pharo: Google
+- C. Bera: PhD in Pharo Vm (declined Google jobs and others)
+
+Be good and relevant!
+
 ${slide:title=Side Effect}$
 
 You will also learn
@@ -95,46 +126,69 @@ You will also learn
 - Use test-driven developments
 - See some coding idioms and Design Patterns
 
-${slide:title=Schedule}$
+
+
+${slide:title=Conceptual Schedule}$
 
 - Week 1 Welcome and Introduction to Syntax
 - Week 2 Syntax and Basic Libraries
 - Week 3 Object Essential Concepts: Objects/Classes
 - Week 4 Essence of OOP
 - Week 5 Inheritance
-- Week 6 Reuse 
+- Week 6 Reuse
+- Week 7 Advanced Techniques
 
 ${slide:title=Structure}$
 
 Always several levels/parts:
 - Conceptual: Objects, classes....
-- Pharo's application of the concepts: Syntax and libraries
-- Design heuristics
+- Pharo's application of the concepts: Syntax and libraries (tagged Pharo Mooc)
+- Design heuristics (tagged From The Design Corner)
 - Pharo's illustration of the design heuristics
 
-${slide:title=Books}$
-- Learning OO Programming and Design with TDD in Pharo
-- Pharo by example (http://books.pharo.org)
-- Smalltalk by Example (http://stephane.ducasse.free.fr)
-- Smalltalk with Style (http://stephane.ducasse.free.fr)
+${slide:title=Books and Resources}$
+
+Books
+- Learning OO Programming and Design with TDD in Pharo (*https://github.com/SquareBracketAssociates/LearningOOPWithPharo*)
+- Pharo by example (*http://books.pharo.org*)
+- Smalltalk by Example (*http://stephane.ducasse.free.fr*)
+- Smalltalk with Style (*http://stephane.ducasse.free.fr*)
 - Best Smalltalk Practices Kent Beck
--  An Introduction to Object-Oriented Programming, Timothy Budd, Addison-Wesley, 2004.
+- An Introduction to Object-Oriented Programming, Timothy Budd, Addison-Wesley, 2004.
+
+
+Mooc
+- *http://mooc.pharo.org*
+- New run of the Mooc on France Université Numérique *https://www.fun-mooc.fr/courses/course-v1:inria+41010+session02/about*
+
+
+
+${slide:title=Lecture Evaluation}$
+
+|!Activity |! Points (Min Max)
+|practicals activity|5	20
+|semester project|5	40
+|semester project bonus|0	individual
+|practicals total| 19	60
+| |
+|written exam|16	40
+|total| 50 100
+
+
 
 ${slide:title=First Exercise!}$
-
-
-
 
 ${columns}$
 
 ${column:width=50}$
 
 - Watch the ""original"" Karate Kid first movie
-- Think about it...
+- Be geeky
+- Think about the exercises...
 
 ${column:width=50}$
 
-+>file://figures/KarateKid.png|width=83+
++>file://figures/KarateKid.png|width=87+
 
 ${endColumns}$
 
