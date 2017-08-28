@@ -177,6 +177,7 @@ The NullTool does nothing but offers a compatible API!
 
 
 ${slide:title=Use NullObject}$
+
 +.>file://figures/NullObject.pdf|width=80+
 
 - a null object proposes a polymorphic API and embeds default actions/values
@@ -207,7 +208,7 @@ ${slide:title=Conclusion}$
 - Initialize your variables
 - If you can, create objects representing default behavior
 
-+.>file://figures/antifIfCampaign.png|width=60+
++.>file://figures/antifIfCampaign.png|width=40+
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week7/C019-W7S07-AvoidIsNill.pillar"
