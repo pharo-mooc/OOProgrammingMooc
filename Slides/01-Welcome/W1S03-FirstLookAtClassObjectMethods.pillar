@@ -42,17 +42,25 @@ ${slide:title=An object reacts to messages}$
 
 +>file://figures/BotsMessages.png|width=60+
 
+${slide:title=Different objects can understand the same messages}$
 
+Each object may perform a different reaction
 [[[
  aWindow open 
- aFIle open 
+]]]
+
+[[[
+ aFile open 
+]]]
+
+[[[
  aZip open
 ]]]
 
 
 ${slide:title=Message Receiver}$
 
-The object receiving the message
+i.e., the object that receives the message
 [[[
 aTurtle jumpTo: aLocation
 ]]]
@@ -64,20 +72,22 @@ aWindow open
 ==aWindow==
 
 [[[
- aFile open 
+aFile open 
 ]]]
 ==aFile==
 
 [[[
- aZip open
+aZip open
 ]]]
-aZip
+==aZip==
 
 ${slide:title=A method }$
 
 Named sequence of instructions that will be executed on the message receiver
 
-makeCrepes
+[[[
+FrenchPerson >> makeCrepes
+]]]
 +>file://figures/makeCrepes.png|width=60+
 
 
@@ -165,10 +175,11 @@ ${slide:title=Methods are looked up dynamically in the class of the receiver}$
 
 ${slide:title=Summary}$
 
-Three kinds of messages: unary, binary and keywords
-- Unary
--- ==5 factorial==
-- Binary
--- ==2 + 3==
-- Keywords-based messages
--- ==2 between: 0 and: 10==
+- An Object is a unique entity instance of a class.
+- A class specifies the shape and behavior of all its instances.
+- An object receives messages and execute corresponding methods. 
+- A message is: What to do.
+- A method is: How to do it.
+- Different objects can understand the same message and execute different methods. 
+
+But we will see that again in the future lectures!
