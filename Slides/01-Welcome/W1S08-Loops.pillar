@@ -1,9 +1,9 @@
 {
-	"title":"Loops: Simple messages",
-	"slidesid" : "Mooc - W2S07"
+	"title":"Loops: Simple Messages",
+	"slidesid" : "Pharo Mooc - W2S07"
 }
 
-${slide:title=Loops: Just Messages sent to Object}$
+${slide:title=Loops: Just Messages sent to Objects}$
 
 - Messages sent to numbers, collections or blocks
 - Many different ones
@@ -82,7 +82,7 @@ ${slide:title=Loops: do:}$
 
 The block is executed with ==each== taking as value all the elements of ==aCol==
 
-${slide:title=Example: The iterator do:}$
+${slide:title=Example: The do: iterator}$
 
 [[[
 #(15 10 19 68) do:  

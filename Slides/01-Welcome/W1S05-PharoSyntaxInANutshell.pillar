@@ -1,6 +1,6 @@
 {
   "title":"Syntax in a Nutshell",
-  "slidesid":"Mooc - W1S05"
+  "slidesid":"Pharo Mooc - W1S05"
 }
 
 ${slide:title=Getting a Feel About Syntax}$
@@ -12,10 +12,8 @@ Give you the general feel to get started:
 - Overview of block syntax
 
 This lecture is an ""overview""
-
-No stress if you do not get it right now!
-
-We will repeat in future lectures
+- No stress if you do not get it right now!
+- We will repeat in future lectures
 
 ${slide:title=The Complete Syntax on a Postcard}$
 
@@ -45,8 +43,9 @@ ${slide:title=Hello World}$
 'Hello World' asMorph openInWindow
 ]]]
 
-
-We send the message ==asMorph== to a string and obtain a graphical element that we open in a window by sending it the message ==openInWindow==
+Two messages: 
+- We send the message ==asMorph== to a string and obtain a graphical element 
+- We send the message ==openInWindow== to the graphical element to open in a window
 
 
 ${slide:title=Getting the Pharo Logo from the Web}$
@@ -188,7 +187,7 @@ ZnClient new
 ]]]
 
 - ==new== is a unary message sent to a class
-- ==queryAt:put:== is a keyword message
+- ==url:==, ==queryAt:put:== is a keyword message
 - ==get== is a unary message
 - ==;== (called a cascade) sends all messages to the same receiver
 
@@ -204,10 +203,10 @@ ${slide:title=Conditionals are also Message Sends}$
 
 [[[
 factorial
-  "Answer the factorial of the receiver."
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
+    "Answer the factorial of the receiver."
+    self = 0 ifTrue: [ ^ 1 ].
+    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+    self error: 'Not valid for negative integers'
 ]]]
 
 - ==ifTrue:== is sent to an object, a boolean!
@@ -218,7 +217,7 @@ You can read their implementation, this is not magic!
 ${slide:title=Loops are also Message Sends}$
 
 [[[
-1 to: 4 do: [ :i| Transcript << i ]
+1 to: 4 do: [ :i | Transcript << i ]
 > 1
 > 2
 > 3
@@ -300,7 +299,7 @@ ${slide:title=Class Definition within the IDE}$
 
 ${slide:title=Method Definition}$
 
-- Methods are public
+- Methods are public (as soon as you get a reference you can send a message and get it executed)
 - Methods are virtual (''i.e.,'' looked up at runtime)
 - By default return ==self==
 

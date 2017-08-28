@@ -1,5 +1,5 @@
 {
-  "title":"Introduction to Blocks",
+  "title":"Introduction to Blocks (closures)",
   "slidesid":"Pharo Mooc - W2S06"
 }
 
@@ -27,20 +27,20 @@ ${slide:title=Block Definition Does not Execute Code}$
 - Executing code may signal an Error
 [[[
 ( 1 / 0 )
--> Error
+>>> Error
 ]]]
 - But, no error when ""defining"" a block
 -- a block definition does not execute its body
 -- a block definition freezes its body computation
 [[[
 [ 1 / 0 ]
-> [ 1 /0 ]
+>>> [ 1 /0 ]
 ]]]
 
 [[[
 [ 1 / 0 ].
 1 + 2 
-> 3
+>>> 3
 ]]]
 
 ${slide:title=Executing a Block}$
@@ -48,12 +48,12 @@ ${slide:title=Executing a Block}$
 Executing a block is done ""explicitly"" through ==value==
 [[[
 [ 2 + 6 ] value
-> 8
+>>> 8
 ]]]
 
 [[[
 [ 1 / 0 ] value
-> Error
+>>> Error
 ]]]
 
 
@@ -71,7 +71,7 @@ A block can take arguments (just like methods)
 
 [[[
 [ :x | x + 2 ] value: 5
-> 7
+>>> 7
 ]]]
 
 - ==value: 5== executes the block with 5 as argument
@@ -84,7 +84,7 @@ Block execution returns the value of the last expression
 [ :x |
   x + 33.
   x + 2 ] value: 5
-> 7
+>>> 7
 ]]]
 
 ${slide:title=Blocks can be Stored into Variables}$
@@ -97,10 +97,10 @@ ${slide:title=Blocks can be Stored into Variables}$
 add2 := [ :x | x + 2 ].
 
 add2 value: 5.
-> 7
+>>> 7
 
 add2 value: 33
-> 35
+>>> 35
 ]]]
 
 ${slide:title=Defining a Block with 2 Arguments}$
@@ -116,33 +116,20 @@ ${slide:title=How to execute a block with 2 arguments?}$
 
 [[[
 [ :x :y | x + y ] ??? 5 7
-> 12
+>>> 12
 ]]]
 
-${slide:title=Executing a Block with 2 Arguments}$
+Use  message ==value:value:==
 
 [[[
 [ :x :y | x + y ] value: 5 value: 7
-> 12
+>>> 12
 ]]]
 
 - ==value: 5 value: 7== executes the block with 5 and 7
 -- ==x== is 5 and ==y== is 7 during the block execution
 
-${slide:title=A Block can define Temporary Variables}$
 
-Blocks can define temp. variables (just like methods)
-[[[
-Collection >> affect: anObject when: aBoolean
-  self do: [ :index | | args |
-    args := ....
-    aBoolean
-      ifTrue: [ anObject do: args ]
-      ifFalse: [ anObject doDifferently: args ] ].
-]]]
-
-- ==| args | == defines a temporary variable named ==args==
-- ==args== exists only during block evaluation
 
 ${slide:title=Returning from a Block Returns from the Method}$
 
@@ -150,19 +137,19 @@ When a return ==^== is executed in a block, computation exits the method definin
 
 [[[
 Integer >> factorial
-  "Answer the factorial of the receiver."
-  
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
+    "Answer the factorial of the receiver."
+   
+    self = 0 ifTrue: [ ^ 1 ].
+    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+    self error: 'Not valid for negative integers'
 ]]]
 
 [[[
 0 factorial
->1
+>>> 1
 
 42 factorial
->1405006117752879898543142606244511569936384000000000
+>>> 1405006117752879898543142606244511569936384000000000
 ]]]
 
 ${slide:title=A Design Advice}$

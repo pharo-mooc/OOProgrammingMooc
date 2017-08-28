@@ -1,14 +1,16 @@
 {
-  "title":"Blocks - the Friends of Conditionals and Loops"
+  "title":"Blocks - the Friends of Conditionals and Loops",
+  "slidesid" : "Concepts - W1S07"
 }
 
 
 ${slide:title=Remember: A Block Definition Freezes its Body}$
 
 - Defining a block does ""not"" execute its body 
+- E block definition returns a block
 [[[
 [ 2 + 6 ] 
-> [ 2 + 6 ] 
+>>> [ 2 + 6 ] 
 ]]]
 
 ${slide:title=Remember: Block Execution}$
@@ -17,7 +19,7 @@ ${slide:title=Remember: Block Execution}$
 
 [[[
 [ 2 + 6 ] value
-> 8 
+>>> 8 
 ]]]
 
 - and repeatable
@@ -26,9 +28,9 @@ ${slide:title=Remember: Block Execution}$
 | b |
 b := [ 2 + 6 ].
 b value.
-> 8
+>>> 8
 b value
-> 8 
+>>> 8 
 ]]]
 
 ${slide:title=Blocks are Used to Express Conditions}$
@@ -38,8 +40,8 @@ max: anObject
   "Answer the receiver or the argument, whichever has the greater anObject."
 
   ^ self > anObject
-      ifTrue: [ self ]
-      ifFalse: [ anObject ]
+        ifTrue: [ self ]
+        ifFalse: [ anObject ]
 ]]]
 
 Yes this is a message ==ifTrue:ifFalse:== sent to a Boolean
@@ -93,8 +95,8 @@ ${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
 
 [[[
 Weather isRaining
-    ifTrue: [ self takeMyUmbrella ]
-    ifFalse: [ self takeMySunglasses ]
+     ifTrue: [ self takeMyUmbrella ]
+     ifFalse: [ self takeMySunglasses ]
 ]]]
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
@@ -115,59 +117,3 @@ ${slide:title=Summary}$
 -- loops / iterators
 -- exceptions (see Mooc lectures)
 -- concurrence 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

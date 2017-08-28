@@ -1,6 +1,6 @@
 {
 	"title":"First Look at Class and Method Definitions",
-	"slidesid":"Mooc - W1S06"
+	"slidesid":"Pharo Mooc - W1S06"
 }
 
 ${slide:title=Class and Method Definitions in Pharo}$
@@ -34,10 +34,10 @@ ${slide:title=Method Definition in Pharo}$
 
 [[[
 factorial
-  "Answer the factorial of the receiver."
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
+    "Answer the factorial of the receiver."
+    self = 0 ifTrue: [ ^ 1 ].
+    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+    self error: 'Not valid for negative integers'
 ]]]
 
 In which class is ==factorial== defined?
@@ -48,10 +48,10 @@ In this lecture, a method will be displayed as
 
 [[[
 Integer >> factorial
-  "Answer the factorial of the receiver."
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
+    "Answer the factorial of the receiver."
+    self = 0 ifTrue: [ ^ 1 ].
+    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+    self error: 'Not valid for negative integers'
 ]]]
 
 - ""Integer >>"" is not part of the syntax
@@ -67,11 +67,11 @@ ${slide:title=Remember Messages}$
 
 [[[
 Integer >> factorial
-  "Answer the factorial of the receiver."
+    "Answer the factorial of the receiver."
 
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
+    self = 0 ifTrue: [ ^ 1 ].
+    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+    self error: 'Not valid for negative integers'
 ]]]
 
 - ==factorial== is the method name
@@ -85,19 +85,19 @@ ${slide:title=A Method Returns self by Default}$
 
 [[[
 Game >> initializePlayers
-  self players
-    at: 'tileAction'
-    put: ( MITileAction director: self )
+    self players
+      at: 'tileAction'
+      put: ( MITileAction director: self )
 ]]]
 
 is equivalent to
 
 [[[
 Game >> initializePlayers
-  self players
-    at: 'tileAction'
-    put: ( MITileAction director: self ).
-  ^ self       "<-- optional"
+    self players
+      at: 'tileAction'
+      put: ( MITileAction director: self ).
+    ^ self       "<-- optional"
 ]]]
 
 ${slide:title=Class Methods}$
@@ -117,9 +117,9 @@ ${endColumns}$
 
 [[[
 Point class >> x: xInteger y: yInteger 
-  "Answer an instance of me with coordinates xInteger and yInteger."
+    "Answer an instance of me with coordinates xInteger and yInteger."
 
-  ^ self basicNew setX: xInteger setY: yInteger
+    ^ self basicNew setX: xInteger setY: yInteger
 ]]]
 
 ${slide:title=What You Should Know}$
