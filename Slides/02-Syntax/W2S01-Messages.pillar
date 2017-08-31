@@ -1,6 +1,6 @@
 {
 "title":"Understanding Messages",
-"slidesid" : "Mooc - W2S01"
+"slidesid" : "Pharo Mooc - W2S01"
 }
 
 ${slide:title=Objects, Messages and Closures}$
@@ -17,12 +17,17 @@ ${slide:title=Syntax}$
 
 ${slide:title=Example}$
 
+Opening the pharo logo fetched from the web
 [[[
-(ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/12/8.png') 
+(ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
     asMorph openInWindow
 ]]]
 
-${slide:title=Three Kinds of Messages to Minimize Parentheses}$
+- One keyword messages
+- Two unary messages
+
+
+${slide:title=Summary: Three Kinds of Messages to Minimize Parentheses}$
 
 - Unary message: ==receiver selector==
 -- ==9 squared==, ==Date today==
@@ -32,7 +37,7 @@ ${slide:title=Three Kinds of Messages to Minimize Parentheses}$
 - Keyword message: ==receiver key1: arg1 key2: arg2==
 -- ==2 between: 10 and: 20==
 
-${slide:title=Message Precedence}$
+${slide:title=Summary: Message Precedence}$
 
 (Msg) \> Unary \> Binary \> Keywords
 
@@ -42,9 +47,6 @@ ${slide:title=Message Precedence}$
 This order minimizes ==()== needs
 
 But let us start with messages
-
-
-
 
 
 ${slide:title=Unary Message Examples}$
@@ -184,7 +186,7 @@ ${slide:title=Example: Message setX:}$
 
 [[[
 10@20 setX: 2
-> 2@20
+>>> 2@20
 ]]]
 
 - We change the x value of the receiver (a point)
@@ -195,7 +197,7 @@ ${slide:title=Example: Message at:put:}$
 
 [[[
 #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
-> #('Calvin' 'loves' 'Suzie')
+>>> #('Calvin' 'loves' 'Suzie')
 ]]]
 
 - ==#(...)== creates an array
@@ -207,7 +209,7 @@ ${slide:title=Example: Message between:and:}$
 
 [[[
 12 between: 10 and: 20
-> true
+>>> true
 ]]]
 
 - The message ==between:and:== is sent to an integer
@@ -222,3 +224,5 @@ Three kinds of messages: unary, binary and keywords
 -- ==2 + 3==
 - Keywords-based messages
 -- ==2 between: 0 and: 10==
+- First we execute ==()==
+- Then unary, then binary and finally keyword messages
