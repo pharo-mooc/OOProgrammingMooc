@@ -1,9 +1,9 @@
 {
     "title":"Messages for Java Programmers",
-    "slidesid" : "Mooc - W2S02"
+    "slidesid" : "Pharo Mooc - W2S02"
 }
 
-${slide:title=Only Objects and Messages}$
+${slide:title=Only Objects, Messages and Closures}$
 
 - code in Pharo ""only"" manipulates objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
 - messages and assignments are the only way to do something
