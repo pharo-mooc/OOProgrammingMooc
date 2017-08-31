@@ -6,8 +6,8 @@
 
 ${slide:title= ( ) vs. [ ]}$
 
-- ==( )== just changes the priority of an execution but the program is executed
-- ==[ ]== blocks program execution: the program is NOT executed
+- ==( ... expression ... )== just changes the priority of an execution but the expression is ""executed""
+- ==[ ... expression ... ]== blocks program execution: the expression is ""NOT"" executed
 
 ${slide:title= Use [ ] for 'Unknown' Execution Occurrence}$
 
@@ -63,5 +63,5 @@ x ifEmpty: [ self doSomething ]
 
 ${slide:title=Summary|label=squareBracketQuiz}$
 
-- ==( ) == is about changing the order of a computation
+- ==( )== is about changing the order of a computation
 - ==[ ]== is freezing the computation and controlling it
