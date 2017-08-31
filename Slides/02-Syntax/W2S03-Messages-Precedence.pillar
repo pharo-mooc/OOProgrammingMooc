@@ -1,6 +1,6 @@
 {
   "title":"Messages: Composition and Precedence",
-  "slidesid":"Mooc - W2S03"
+  "slidesid":"Pharo Mooc - W2S03"
 }
 
 
@@ -31,8 +31,8 @@ ${slide:title=Precedence Example}$
 
 [[[
 2 + 3 squared
-> 2 + 9
-> 11
+>>> 2 + 9
+>>> 11
 ]]]
 
 - unary (squared) first 
@@ -42,8 +42,8 @@ ${slide:title=Precedence Example}$
 
 [[[
 2 raisedTo: 3 + 2
-> 2 raisedTo: 5
-> 32
+>>> 2 raisedTo: 5
+>>> 32
 ]]]
 
 - binary (==+==) first 
@@ -53,9 +53,9 @@ ${slide:title=Precedence Example}$
 
 [[[
 Color gray - Color white = Color black
-> aGray - aWhite = aBlack
-> aBlack = aBlack
-> true
+>>> aGray - aWhite = aBlack
+>>> aBlack = aBlack
+>>> true
 ]]]
 
 - unary messages
@@ -65,23 +65,28 @@ ${slide:title=Precedence Example}$
 
 [[[
 1 class maxVal + 1 
-> 1073741824
+>>> 1073741824
 ]]]
 
 - unary, unary and binary
 
 [[[
 1 class
-> SmallInteger
+>>> SmallInteger
+]]]
 
+[[[
 1 class maxVal
-> 1073741823
-	
+>>> 1073741823
+]]]
+[[[
 1 class maxVal + 1
-> 1073741824
-	
+>>> 1073741824
+]]]
+
+[[[
 (1 class maxVal + 1) class
-> LargePositiveInteger
+>>> LargePositiveInteger
 ]]]
 
 
@@ -89,16 +94,16 @@ ${slide:title=Parentheses take Precedence!}$
 
 [[[
 0@0 extent: 100@100 bottomRight
-> Message not understood
-> 100 does not understand bottomRight
+>>> Message not understood
+>>> 100 does not understand bottomRight
 ]]]
 
 Should use ==()==
 [[[
 (0@0 extent: 100@100) bottomRight
-> (aPoint extent: anotherPoint) bottomRight
-> aRectangle bottomRight
-> 100@100
+>>> (aPoint extent: anotherPoint) bottomRight
+>>> aRectangle bottomRight
+>>> 100@100
 ]]]
 
 
@@ -116,28 +121,28 @@ ${slide:title=No Mathematical Precedence}$
 
 [[[
 3 + 2 * 10
-> 5 * 10
-> 50
+>>> 5 * 10
+>>> 50
 ]]]
 
 - should be rewritten using parentheses
 [[[
 3 + (2 * 10)
-> 3 + 20
-> 23
+>>> 3 + 20
+>>> 23
 ]]]
 
 ${slide:title=No Mathematical Precedence}$
 
 [[[
 1/3 + 2/3
-> 7/3 /3
-> 7/9
+>>> 7/3 /3
+>>> 7/9
 ]]]
 - should be rewritten using parentheses
 [[[l
 (1/3) + (2/3)
-> 1
+>>> 1
 ]]]
 
 ${slide:title=Summary}$
