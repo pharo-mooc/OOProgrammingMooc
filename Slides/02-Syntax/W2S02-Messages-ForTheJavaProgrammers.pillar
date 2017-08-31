@@ -145,10 +145,10 @@ In Pharo
     postman send: mail to: recipient
 ]]]
 
-- the message
--- is named ==send:to:==
--- is sent to ==postman==
--- includes two arguments (==mail== and ==recipient==)
+The message
+- is named ==send:to:==
+- is sent to ==postman==
+- includes two arguments (==mail== and ==recipient==)
 
 ${slide:title=Conditionals are Just Messages}$
 
