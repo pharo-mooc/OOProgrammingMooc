@@ -30,7 +30,7 @@ ${slide:title=A Puzzle and Candidate for Cascade}$
 We add 2 to a set
 [[[
 Set new add: 2
-> 2
+>>> 2
 ]]]
 
 We get 2 and not the set!
