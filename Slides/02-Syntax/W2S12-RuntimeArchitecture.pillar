@@ -1,6 +1,7 @@
 {
   "title":"Runtime Architecture",
-  "slidesid":"Mooc - W6S06"
+  "pharomoocslidesid":"Pharo Mooc - W6S06",
+  "slidesid":"W2S12"
 }
 
 ${slide:title=Pharo's Execution Model}$
@@ -105,7 +106,7 @@ ${column:width=65}$
 
 ${endColumns}$
 
-${slide:title=New Change Management is Coming}$
+${slide:title=New Change Management is in Pharo 60}$
 
 Pharo change logging system
 - Getting improved
@@ -114,6 +115,12 @@ Pharo change logging system
 -- new tooling (Epicea)
 - Integrate better with Git and other modern distributed version control systems
 - Offering new ways to produce images 
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W6S06 Videos
+- Pharo by Example *http://books.pharo.org*
+
 
 ${slide:title=Conclusion}$
 

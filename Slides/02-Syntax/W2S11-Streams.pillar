@@ -1,6 +1,7 @@
 {
-  "title":"Stream Overview",
-    "slidesid" : "Mooc - W3S10"
+   "title":"Stream Overview",
+   "pharomoocslidesid" : "Mooc - W3S10",
+    "slidesid" : "W2S11"
 }
 
 ${slide:title=What You Will Learn}$
@@ -107,6 +108,12 @@ OrderedCollection
 ]]]
 
 Both scripts return a collection with number 1 inside.
+
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S10 Videos
+- Pharo by Example *http://books.pharo.org*
 
 ${slide:title=What You Should Know}$
 
