@@ -1,6 +1,6 @@
 {
   "title":"Characters, Strings and Symbols",
-  "slidesid":"W6S07"
+  "slidesid":"Pharo Mooc W6S07"
 }
 
 ${slide:title=What You Will Learn}$
@@ -26,19 +26,19 @@ Delimited by =='==
 
 [[[
 'eclair au chocolat' size
-> 18
+>>> 18
 ]]]
  
 [[[
 Character space split: 'eclair au chocolat' 
-> an OrderedCollection('eclair' 'au' 'chocolat')	
+>>> an OrderedCollection('eclair' 'au' 'chocolat')	
 ]]]
 
 ${slide:title=A String: a Collection of Characters}$
 
 [[[
 'eclair au chocolat' at: 1
-> $e
+>>> $e
 ]]]
 
 [[[
@@ -55,10 +55,10 @@ ${slide:title=Quote in Strings}$
 - Pay attention there is only one element 
 [[[
 'L''eclair au chocolat' at: 2
-> $'
+>>> $'
 
 'L''eclair au chocolat' at: 3
-> $e
+>>> $e
 ]]]
 
 ${slide:title=Getting the Last Char}$
@@ -67,26 +67,27 @@ ${slide:title=Getting the Last Char}$
 | str |
 str := 'Tiramisu'.
 str at: str size
-> $u
+>>> $u
 
 str last
-> $u
+>> $u
 ]]]
 
 ${slide:title=Ways to Obtain a String}$
 
 [[[
 #mac asString
-> 'mac'
+>>> 'mac'
 ]]]
 
 [[[
 12 printString
->'12'
+>>>'12'
 ]]]
 
 [[[
 String with: $A
+>>> 'A'
 ]]]
 
 
@@ -94,7 +95,7 @@ ${slide:title=For Concatenation Use ,}$
 
 [[[
 'Calvin' , ' & ', 'Hobbes'
-> 'Calvin & Hobbes'
+>>> 'Calvin & Hobbes'
 ]]]
 
 
@@ -104,7 +105,7 @@ Message comma ==#,== copies strings so multiple concatenations can generate usel
 
 [[[
 'Calvin' , ' & ', 'Hobbes'
-> 'Calvin & Hobbes'
+>>> 'Calvin & Hobbes'
 ]]]
 
 - Benchmark it
@@ -133,7 +134,7 @@ Two  symbols with the same representation points to the same object
  
 [[[
 #calvin == #calvin
-> true 
+>>> true 
 ]]]
 
 Two strings with the same representation may be different objects depending on compiler optimisations
