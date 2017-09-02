@@ -1,6 +1,7 @@
 {
-  "title":"SUnit: Unit Tests in Pharo",
-  "slidesid" : "Mooc - W5S06"
+    "title":"SUnit: Unit Tests in Pharo",
+    "pharomoocslidesid" : "Mooc - W5S06",
+    "slidesid" : "W3S05"
 }
 
 ${slide:title=Agile Programming}$
@@ -86,7 +87,7 @@ SetTestCase >> removeElementNotInSet
     raise: NotFound
 ]]]
 
-${slide:title=Duplicating the Context}$
+${slide:title=Duplicated Context}$
 
 [[[
 SetTestCase >> testOccurrences
