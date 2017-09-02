@@ -1,0 +1,17 @@
+{
+	"title":"Some projects",
+        "slidesid" : ""
+}
+
+${slide:title=Project One}$
+
+
+${slide:title=Project: Sokoban in Bloc}$
+- Check the MemoryGame tutorial
+- Implement Sokoban
+
+
+${slide:title=Project: Game Collector}$
+- 
+-
+- add a simple web server to find

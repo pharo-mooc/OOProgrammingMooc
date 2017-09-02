@@ -8,7 +8,6 @@ ${slide:title=Looking for implementors}$
 - Look for possible implementations
 - You will get methods and may be one that you can call on (sub)-instances of the class implementing it.
 
-
 ${slide:title=Looking for implementors}$
 
 - Command-m (for iMpleMentors)
@@ -58,6 +57,42 @@ testCopyEmptyWithoutAll
 	self collectionWithElementsToRemove do: [ :each | self deny: (res includes: each) ]
 ]]]
 
+${slide:title=Grabing instances and asking them}$
+
+Too often we try to imagine objects
+- Grab one as early as possible and 
+- Send message to this object
+- Inspect it, talk to it
+
+
+${slide:title=All the folders...}$
+
+Find all the folder of this lectures containing pillar files
+[[[
+FileSystem workingDirectory / 'Slides'
+]]]
+
+[[[
+(FileSystem workingDirectory / 'Slides') inspect
+]]]
+
+${slide:title=All the folders...}$
+
+[[[
+(FileSystem workingDirectory / 'Slides') directories
+]]]
+
+[[[
+(FileSystem workingDirectory / 'Slides') directories
+	first children inspect
+]]]
+
+${slide:title=All the folders...}$
+
+[[[
+(FileSystem workingDirectory / 'Slides') directories
+    select: [ :each | each children anySatisfy: [ :achil | achil extension = 'pillar']]
+]]]
 
 ${slide:title=Summary}$
 

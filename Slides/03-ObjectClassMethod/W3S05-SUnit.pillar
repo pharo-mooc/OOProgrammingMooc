@@ -157,6 +157,13 @@ ${slide:title=What You Should Know}$
 - How to write simple tests
 - Reuse a bit the context by defining ==setUp== methods
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W5S06 Videos
+- Pharo by Example *http://books.pharo.org*
+
+
+
 ${slide:title=Summary}$
 
 - Unit tests are easy to create and run
