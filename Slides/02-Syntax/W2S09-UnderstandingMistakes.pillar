@@ -6,6 +6,8 @@
 ${slide:title=What You Will Learn}$
 
 Find and fix common mistakes faster
+- An expert does mistakes
+- But identifies and fixes them fast!
 
 ${slide:title=A Problem}$
 
@@ -17,7 +19,7 @@ anArray at: 2 put: false.
 anArray
 ]]]
 
-- An instance of SmallInteger did not understand ==anArray==
+Message: An instance of SmallInteger did not understand ==anArray==
 
 +>file://figures/smallDNU.png|width=90+
 
@@ -43,7 +45,7 @@ aStream
    contents
 ]]]
 
-- An instance of SmallInteger did not understand ==writeStream==
+Message: An instance of SmallInteger did not understand ==writeStream==
 
 ${slide:title=Missing Parenthesis}$
 
@@ -66,7 +68,7 @@ CounterTest >> testCountIsSetAndRead
 	c assert: c count = 7
 ]]]
 
-- An instance of Counter did not understand ==assert:==
+Message: An instance of Counter did not understand ==assert:==
 
 ${slide:title=Assert: is a testcase message}$
 
@@ -79,30 +81,30 @@ CounterTest >> testCountIsSetAndRead
 ]]]
 
 
-
-
 ${slide:title=A Problem}$
 
 [[[
-CounterTest >> testIncrement |c|
+CounterTest >> testIncrement 
+	|c|
 	c := Counter new.
 	c count: 0 ; increment; increment.
 	self assert: self count = 2
 ]]]
 
-- An instance of CounterTest did not understand ==count==
+Message: An instance of CounterTest did not understand ==count==
 
 
 ${slide:title=Identify the object under test API}$
 
 [[[
-CounterTest >> testIncrement |c|
+CounterTest >> testIncrement 
+	|c|
 	c := Counter new.
 	c count: 0 ; increment; increment.
 	self assert: self count = 2
 ]]]
 
-- An instance of CounterTest did not understand ==count==
+Message:  An instance of CounterTest did not understand ==count==
 
 
 ${slide:title=A Problem}$
@@ -153,9 +155,9 @@ MyExampleSetTest >> testAddTwice
    self assert: s size equals: 1.
 ]]]
 
-- ==assert:equals:==  is a message with two arguments:
--- the actual value
--- the expected value
+==assert:equals:==  is a message with two arguments:
+- the actual value
+- the expected value
 
 ${slide:title=Check the argument of a message}$
 
@@ -197,7 +199,8 @@ TemperatureLogger >> average
 
 ${slide:title=What happened?}$
 
-Bty default a method always returns the receiver ==self==
+By default a method always returns the receiver ==self==
+
 [[[
 TemperatureLogger >> average
    | sum |
@@ -207,8 +210,8 @@ TemperatureLogger >> average
 ]]]
 
 is equivalent to 
-[[[
-	
+
+[[[	
 TemperatureLogger >> average
    | sum |
    sum := 0.

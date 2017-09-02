@@ -1,6 +1,8 @@
 {
   "title":"Iterators",
-  "slidesid" : "Mooc - W3S09"
+  "subtitle":"a Key Concept",
+  "pharomoocslidesid" : "Pharo Mooc - W3S09",
+   "slidesid" : "W2S10"
 }
 
 ${slide:title=What You Will Learn}$
@@ -14,7 +16,7 @@ ${slide:title=Applying a message and collecting the results}$
 
 For example, image we want to get whether a number is odd or not for a complete collection:
 [[[
-#(2 -3 4 -35 4) isOddNumbers
+#(2 -3 4 -35 4) areOddNumbers
 >>> #(false true false true)
 ]]]
 
@@ -267,6 +269,12 @@ ${slide:title=Analysis}$
 - All the collections support them
 - New ones are defined
 - Missing controlled navigation as in the Iterator design pattern
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S09 Videos
+- Pharo by Example *http://books.pharo.org*
+
 
 ${slide:title=Summary}$
 - Iterators are your best friends
