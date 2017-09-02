@@ -1,6 +1,7 @@
 {
 "title":"An Overview of Essential Collections",
-"slidesid" : "Mooc - W3S07"
+"slidesid":"W2S08",
+"pharomoocslidesid" : "Pharo Mooc - W3S07"
 }
 
 ${slide:title=What You Will Learn}$
@@ -26,7 +27,7 @@ ${slide:title=Most Common Collections}$
 
 ${slide:title=Essential Collection In a Nutshell}$
 
-+>file://figures/CollectionHierarchyForIntroChapter.png|width=110+
++>file://figures/CollectionHierarchyForIntroChapter.png|width=95+
 
 
 ${slide:title=Common API Overview}$
@@ -53,7 +54,7 @@ Array new: 4
 
 [[[
 Array new: 2
-> #(nil nil)
+>>> #(nil nil)
 ]]]
 
 [[[  
@@ -64,12 +65,12 @@ ${slide:title=With Specific Elements}$
 
 [[[  
 OrderedCollection withAll: #(7 7 3 13)
-> an OrderedCollection(7 7 3 13)
+>>> an OrderedCollection(7 7 3 13)
 ]]]
 
 [[[  
 Set withAll: #(7 7 3 13)
-> a Set( 7 3 13)
+>>> a Set( 7 3 13)
 ]]]
 Remember: no duplicate in Sets
 
@@ -77,7 +78,7 @@ ${slide:title=Creation  with Default Value}$
 
 [[[
 OrderedCollection new: 5 withAll: 'a' 
-> an OrderedCollection('a' 'a' 'a' 'a' 'a')
+>>> an OrderedCollection('a' 'a' 'a' 'a' 'a')
 ]]]
 
 
@@ -85,10 +86,10 @@ ${slide:title=First Element Starts At 1}$
 
 [[[
 #('Calvin' 'hates' 'Suzie') at: 2
-> 'hates'
+>>> 'hates'
 
 #('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2 
-> 'hates'
+>>> 'hates'
 ]]]
 
 ${slide:title=Collections can be Heterogenous |label=arrays}$
@@ -97,7 +98,7 @@ Collections can contain any sort of objects
 
 [[[
 #('calvin' (1 2 3))
-> #('calvin' #(1 2 3))
+>>> #('calvin' #(1 2 3))
 ]]]
 - An array composed of a string and an array
 
@@ -108,7 +109,7 @@ s add: Set new;
     add: 1;
     add: 2.
 s asArray 
-> an Array(1 2 a Set())
+>>> an Array(1 2 a Set())
 ]]]
 - A set containing an empty set and some numbers
 
@@ -133,7 +134,7 @@ ${slide:title=Arrays}$
 
 [[[
 #('Calvin' 'hates' 'Suzie') size
-> 3
+>>> 3
 ]]]
 
 is equivalent to 
@@ -143,7 +144,7 @@ is equivalent to
     at: 1 put: 'Calvin'; 
     at: 2 put: 'hates'; 
     at: 3 put: 'Suzie') size
-> 3
+>>> 3
 ]]]
 
 
@@ -153,13 +154,13 @@ ${slide:title=Accessing Elements}$
 Getting the size of a collection
 [[[
 #('Calvin' 'hates' 'Suzie') size
-> 3
+>>> 3
 ]]]
 
 Accessing the 2nd element using ==at: anIndex==
 [[[
 #('Calvin' 'hates' 'Suzie') at: 2
-> 'hates'
+>>> 'hates'
 ]]]
 
 Remember collection index starts at 1
@@ -168,7 +169,7 @@ ${slide:title=Accessing Out of Bounds Elements}$
 
 [[[
 #('Calvin' 'hates' 'Suzie') at: 55
-> SubscriptOutOfBounds Error
+>>> SubscriptOutOfBounds Error
 ]]]
 
 
@@ -179,7 +180,7 @@ Use the message ==at: anIndex put: anObject==
 Modifying the second element of the receiver
 [[[
 #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
-> #('Calvin' 'loves' 'Suzie')
+>>> #('Calvin' 'loves' 'Suzie')
 ]]]
 
 
@@ -189,14 +190,14 @@ Literal arrays contain objects that have a textual (literal) representation: num
 
 [[[
 #(45 'milou' 1300 true #tintin)
-> #(45 'milou' 1300 true #tintin)
+>>> #(45 'milou' 1300 true #tintin)
 ]]]
 
 They are instances of the class ==Array==
 
 [[[
 #(45 38 1300 8) class
-> Array
+>>> Array
 ]]]
 
 
@@ -208,13 +209,13 @@ Literal arrays are equivalent to a dynamic version
 A literal array
 [[[
 #(45 38 'milou' 8) 
-> #(45 38 'milou' 8) 
+>>> #(45 38 'milou' 8) 
 ]]]
 
 An array
 [[[
 Array with: 45 with: 38 with: 'milou' with: 8
-> #(45 38 'milou' 8) 
+>>> #(45 38 'milou' 8) 
 ]]]
 
 
@@ -229,17 +230,17 @@ ${slide:title=OrderedCollection}$
 ordCol := OrderedCollection new.
 ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
 ordCol 
-> an OrderedCollection('Pharo' 'Reef' 'Pharo')
+>>> an OrderedCollection('Pharo' 'Reef' 'Pharo')
 ordCol add: 'Seaside'.
 ordCol
-> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Seaside')
+>>> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Seaside')
 ]]]
 
 ${slide:title=Conversion}$
 
 [[[
 #('Pharo' 'Reef' 'Pharo' 'Pharo') asOrderedCollection
-> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Pharo')
+>>> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Pharo')
 ]]]
 
 ${slide:title=Set}$
@@ -250,11 +251,12 @@ ${slide:title=Set}$
 - Can contain any object including other Sets
 [[[
 #('Pharo' 'Reef' 'Pharo' 'Pharo') asSet
-> a Set('Pharo' 'Reef')
+>>> a Set('Pharo' 'Reef')
 ]]]
 
 [[[
 Set with: (Set with: 1) with: (Set with: 2)
+>>> a Set(a Set(1) aSet(2))
 ]]]
 
 ${slide:title=Conversion}$
@@ -311,12 +313,12 @@ ${slide:title=Pairs}$
 
 [[[
 (#January -> 31) key 
-> #January
+>>> #January
 ]]]
 
 [[[
 (#January -> 31) value
-> 31
+>>> 31
 ]]]
 
 ${slide:title=Dictionary Access}$
@@ -331,14 +333,14 @@ ${slide:title=Dictionary Access}$
 
 
 [[[
-  days at: #January 
-  > 31 
+days at: #January 
+>>> 31 
 
-  days at: #NoMonth
-  > KeyNotFound Error
+days at: #NoMonth
+>>> KeyNotFound Error
 
-  days at: #NoMonth ifAbsent: [0]
-  > 0 
+days at: #NoMonth ifAbsent: [0]
+>>> 0 
 ]]]
 
 
@@ -360,14 +362,14 @@ Because
 [[[
 Dictionary >> do: aBlock
 
-  ^self valuesDo: aBlock
+    ^ self valuesDo: aBlock
 ]]]
 
 ${slide:title=Keys and Values Iteration}$
 
 [[[
 days keysAndValuesDo: 
-  [ :k :v | Transcript show: k asString, ' has ',  v printString, ' days' ; cr ] 
+   [ :k :v | Transcript show: k asString, ' has ',  v printString, ' days' ; cr ] 
 ]]]
 
 shows: 
@@ -377,7 +379,10 @@ shows:
   March has 31 days
 ]]]
 
+${slide:title=Resources}$
 
+- Pharo Mooc - W3S07 Videos
+- Pharo by Example
 
 ${slide:title=Summary}$
 

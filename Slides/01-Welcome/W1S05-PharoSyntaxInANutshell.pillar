@@ -1,6 +1,7 @@
 {
   "title":"Syntax in a Nutshell",
-  "slidesid":"Pharo Mooc - W1S05"
+  "slidesid":"W1S05",
+  "pharomoocslidesid":"Pharo Mooc - W1S05"
 }
 
 ${slide:title=Getting a Feel About Syntax}$
@@ -315,6 +316,11 @@ ${slide:title=Method Definition Example}$
 
 +>file://figures/FactorialInBrowser.png|width=98+
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W1S05 Videos
+- Pharo by Example *http://books.pharo.org*
+
 ${slide:title=Messages Summary}$
 
 3 kinds of messages:
@@ -325,6 +331,7 @@ ${slide:title=Messages Summary}$
 Message Priority:
 - (Msg) > unary > binary > keyword
 - Same-level messages: from left to right
+
 
 ${slide:title=Conclusion}$
 

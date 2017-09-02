@@ -1,6 +1,7 @@
 {
 	"title":"First Look at Class and Method Definitions",
-	"slidesid":"Pharo Mooc - W1S06"
+	"slidesid":"W1S10",
+	"pharomoocslidesid":"Pharo Mooc - W1S06"
 }
 
 ${slide:title=Class and Method Definitions in Pharo}$
@@ -121,6 +122,12 @@ Point class >> x: xInteger y: yInteger
 
     ^ self basicNew setX: xInteger setY: yInteger
 ]]]
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W1S06 Videos
+- Pharo by Example *http://books.pharo.org*
+
 
 ${slide:title=What You Should Know}$
 

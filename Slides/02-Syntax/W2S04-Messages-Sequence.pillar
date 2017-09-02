@@ -73,6 +73,10 @@ is equivalent to:
 - ==add: 2== is sent to the receiver of message ==add: 1==
 - this receiver is the instance of ==OrderedCollection==
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S04 Videos
+- Pharo by Example *http://books.pharo.org*
 
 ${slide:title=What You Should Know}$
 

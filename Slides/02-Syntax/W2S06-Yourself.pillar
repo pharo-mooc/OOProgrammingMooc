@@ -103,6 +103,12 @@ Set class >> with: anObject
 
 Using ==yourself== makes sure the code returns the new instance
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S07 Videos
+- Pharo by Example *http://books.pharo.org*
+
+
 ${slide:title=What You Should Know}$
 
 - Some simple methods are powerful

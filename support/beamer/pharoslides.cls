@@ -20,6 +20,13 @@
 \fi
 }
 
+\newcommand\@pharomoocslidesid{{\color{red}WXSYY}}
+\newcommand\pharomoocslidesid[1]{
+\def\temp{#1}\ifx\temp\empty
+\else
+\renewcommand\@pharomoocslidesid{#1}
+\fi
+}
 
 %-------------------------------------------------------------------------------
 %                Class options

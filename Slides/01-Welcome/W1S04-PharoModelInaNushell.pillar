@@ -1,7 +1,8 @@
 {
     "title":"Pharo Object Model in a Nutshell",
     "subtitle":"Elegance and Simplicity",
-    "slidesid":"Pharo Mooc - W1S04"
+    "pharomoocslidesid":"W1S04",
+     "slidesid":"W1S04" 
 }
 
 ${slide:title=Only Objects, Messages, ...}$
@@ -118,6 +119,12 @@ ${slide:title=Less is More :)}$
 - No parametrized types
 - No boxing/unboxing
 - still ""really"" powerful :)
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W1S04 Videos
+- Pharo by Example *http://books.pharo.org*
+- Deep into Pharo *http://books.pharo.org*
 
 
 ${slide:title=Summary}$

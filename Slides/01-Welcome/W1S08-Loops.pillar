@@ -1,6 +1,7 @@
 {
 	"title":"Loops: Simple Messages",
-	"slidesid" : "Pharo Mooc - W2S07"
+	"pharomoocslidesid" : "Pharo Mooc - W2S07",
+	"slidesid" : "W1S08"
 }
 
 ${slide:title=Loops: Just Messages sent to Objects}$
@@ -115,6 +116,12 @@ Executes the receiver, as long as its value is true
 ]]]
 
 Equivalent with ==whileFalse== and ==whileFalse:==
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S07 Videos
+- Pharo by Example *http://books.pharo.org*
+
 
 ${slide:title=Summary}$
 

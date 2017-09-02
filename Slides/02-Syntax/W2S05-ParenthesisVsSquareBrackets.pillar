@@ -1,6 +1,7 @@
 {
   "title":"Parentheses Vs. Square Brackets",
-  "slidesid" : "Pharo Mooc - W2S09"
+  "slidesid":"W2S05",
+  "pharomoocslidesid" : "Pharo Mooc - W2S09"
 }
 
 
@@ -60,6 +61,12 @@ ${slide:title=Quiz|label=squareBracketQuiz}$
 [[[
 x ifEmpty: [ self doSomething ]
 ]]]
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S09 Videos
+- Pharo by Example *http://books.pharo.org*
+
 
 ${slide:title=Summary|label=squareBracketQuiz}$
 

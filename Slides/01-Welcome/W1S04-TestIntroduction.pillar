@@ -104,6 +104,12 @@ There are other testing approach
 - Integration testing 
 - Acceptance testing...
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W5S06 Videos
+- Pharo by Example *http://books.pharo.org*
+
+
 ${slide:title=Summary}$
 
 - Unit tests are easy to create and run

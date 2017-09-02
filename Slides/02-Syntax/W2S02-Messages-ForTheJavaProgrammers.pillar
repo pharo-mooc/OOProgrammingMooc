@@ -1,6 +1,7 @@
 {
     "title":"Messages for Java Programmers",
-    "slidesid" : "Pharo Mooc - W2S02"
+    "pharomoocslidesid" : "Pharo Mooc - W2S02",
+    "slidesid" : "W2S02"
 }
 
 ${slide:title=Only Objects, Messages and Closures}$
@@ -179,6 +180,13 @@ ${slide:title=Loops are Just Messages}$
 [[[
 aCollection do: [ :each | ... ]
 ]]]
+
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S02 Videos
+- Pharo by Example *http://books.pharo.org*
+
 
 ${slide:title=Summary}$
 

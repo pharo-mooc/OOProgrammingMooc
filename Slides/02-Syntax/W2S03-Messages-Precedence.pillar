@@ -1,6 +1,7 @@
 {
   "title":"Messages: Composition and Precedence",
-  "slidesid":"Pharo Mooc - W2S03"
+  "pharmoocslidesid":"Pharo Mooc - W2S03",
+  "slidesid":"W2S03"
 }
 
 
@@ -144,6 +145,12 @@ ${slide:title=No Mathematical Precedence}$
 (1/3) + (2/3)
 >>> 1
 ]]]
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S03 Videos
+- Pharo by Example *http://books.pharo.org*
+
 
 ${slide:title=Summary}$
 

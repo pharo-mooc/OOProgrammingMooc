@@ -1,6 +1,7 @@
 {
   "title":"Characters, Strings and Symbols",
-  "slidesid":"Pharo Mooc W6S07"
+  "slidesid":"W2S07",
+  "pharomoocslidesid":"Pharo Mooc - W6S07"
 }
 
 ${slide:title=What You Will Learn}$
@@ -145,6 +146,12 @@ ${slide:title=Symbols vs. Strings}$
 - A string is a mutable object (for now)
 - Symbols are used as method selectors
 - Symbols are good candidates for identity based dictionaries (==IdentityDictionary==)
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W6S07 Videos
+- Pharo by Example *http://books.pharo.org*
+
 
 ${slide:title=What You Should Know}$
 

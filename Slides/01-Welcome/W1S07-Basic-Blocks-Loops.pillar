@@ -109,6 +109,13 @@ ${slide:title=Implementation Note}$
 - But you can implement your own conditional methods and debug to see that sending a message is dispatching to the right object
 - Implement your own control structure such as ==siAlors:sinon:== (in French) and try it
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S06 Videos
+- Pharo by Example *http://books.pharo.org*
+- Deep into Pharo *http://books.pharo.org*
+
+
 ${slide:title=Summary}$
 
 - Blocks freeze and control computation 

@@ -1,6 +1,7 @@
 {
   "title":"Introduction to Blocks (closures)",
-  "slidesid":"Pharo Mooc - W2S06"
+  "slidesid":"W1S06",
+  "pharomoocslidesid":"Pharo Mooc - W2S06"
 }
 
 ${slide:title=Blocks}$
@@ -158,6 +159,13 @@ ${slide:title=A Design Advice}$
 - Define a class instead of a block for more arguments
 - A block encapsulates only 1 computation
 -- it cannot define more facets (e.g., printing)
+
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S06 Videos
+- Pharo by Example *http://books.pharo.org*
+- Deep into Pharo *http://books.pharo.org*
 
 ${slide:title=Summary on Blocks}$
 

@@ -1,6 +1,7 @@
 {
   "title":"Basics on Variables",
-  "slidesid" : "Pharo Mooc - W3S03"
+   "pharomoocslidesid" : "Pharo Mooc - W3S03",
+   "slidesid" : "W2S03"
 }
 
 ${slide:title=In a Nutshell}$
@@ -96,6 +97,10 @@ Transcript show: 'hello world'.
 Transcript cr.
 ]]]
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S03 Videos
+- Pharo by Example *http://books.pharo.org*
 
 ${slide:title=Summary}$
 
