@@ -1,19 +1,22 @@
 {
 	"title" : "Methods and Messages",
+	"subtitle":"How vs. What",
 	"slidesid" : "W3S03"
 }
 
-${slide:title=Methods}$
 
-- A class defines methods that are shared by all its instances
-- ""Methods"" are executed in reaction to ""messages""
+${slide:title=Instances Share the Same Behavior}$
+
+- All the instances of a class share the same behavior
+- A class defines the methods that are executed when an instance receives a message
+
++>file://Slides/figures/RectangleAndInstancesMessages.pdf|width=70+
+
+${slide:title=Methods are looked up dynamically in the class of the receiver}$
 
 
-[[[
-Rectangle >> center
-	"Answer the point at the center of the receiver."
-	^ self topLeft + self bottomRight // 2
-]]]
++>file://figures/MethodLookedupWithDiffBehavior.pdf|width=100+
+
 
 ${slide:title=A method}$
 
@@ -24,6 +27,32 @@ ${slide:title=A method}$
 - Returns an object as result of execution
 
 +>file://figures/EncapsulationWithMessages-method.png|width=100+
+
+${slide:title=A method }$
+
+Named sequence of instructions that will be executed on the message receiver
+
+[[[
+FrenchPerson >> makeCrepes
+]]]
++>file://figures/makeCrepes.png|width=60+
+
+
+${slide:title=Messages vs. Methods}$
+
+Message: What to do?
+[[[
+stef makeCrepes.
+robert makeCrepes.
+peter putJamOnCrepes.
+]]]
+
+Methods: How to do it?
++>file://figures/makeCrepes.png|width=30+
+
+
+
+
 
 ${slide:title=A method is looked up in the class of the receiver}$
 

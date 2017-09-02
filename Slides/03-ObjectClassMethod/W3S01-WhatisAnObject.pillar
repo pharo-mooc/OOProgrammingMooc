@@ -1,5 +1,6 @@
 {
 	"title":"What is an Object?",
+	"subtitle":"a software entity holding state and reacting to messages",
 	"slidesid" : "W3S01"
 }
 
@@ -10,16 +11,16 @@ A little computer entity with
 - a behavior 
 - an identity
 
-A entity collaborating with other entities
+An entity collaborating with other entities
 
-${slide:title=Object example: a Die}$
+${slide:title=Object Example: a Die}$
 
 aDie(6) 
 - aDie(6) has a state: 6 faces
 - aDie(6) knows how to roll
 - aDie(6) is part of aDieHandle (2D6 + 2D20)
 
-${slide:title=Object example: a Rectangle}$
+${slide:title=Object Example: a Rectangle}$
 [[[
 (Rectangle width: 10 height: 20)
 ]]]
@@ -27,14 +28,14 @@ ${slide:title=Object example: a Rectangle}$
 - knows how to compute its area, edge closest to a point, overlap with other rectangles
 - collaborates with UI redisplay
 
-${slide:title=Object example: a Contact}$
+${slide:title=Object Example: a Contact}$
 
 aContact 
 - aContact has a state: name, firstname, telephone, address
 - aContact knows how to display itself
 - aContact is in relation with a contact book
 
-${slide:title=Object example: an Item Collector}$
+${slide:title=Object Example: an Item Collector}$
 
 - aCollector has a state: lists of items 
 - aCollector knows how to save itself, search its items, modify its items
@@ -47,16 +48,17 @@ ${slide:title=State \+ Behavior \+ Identity}$
 
 ${slide:title=State \+ Behavior \+ Identity}$
 
-;State
-:Objects it contains or refers to (ex: point location)
-;Behavior
-:an object understands a given set of messages
-;Identity
-:an object can be the same (of the same class) than another one but it has still a different identity (location in memory)
+- State:
+-- Objects it contains or refers to (ex: point location)
+- Behavior:
+-- On object understands a given set of messages
+- Identity:
+-- On object can be the same (of the same class) than another one but it has still a different identity (location in memory)
 
-${slide:title=About equality and identity}$
+${slide:title=About Equality and Identity}$
 
 I want to eat the pizza that you are eating
+
 ;Equality
 :I want to eat the ""same"" kind of pizza
 ;Identity
@@ -64,22 +66,44 @@ I want to eat the pizza that you are eating
 
 
 
-${slide:title=Object responsibilities}$
+${slide:title=Object Responsibilities}$
 
-- An object has a set of responsibilities that he garantees
+- An object has a set of responsibilities that he offers and maintains
 
 - The responsibilities are realized by the execution of behavior 
 
 
-${slide:title=An object}$
+${slide:title=An Object}$
 
 - Encapsulates data
 - Reacts to messages by executing methods
 +>file://figures/anObject.png|width=80+
 
+${slide:title=An Object Reacts to Messages}$
+
+[[[
+  aTurtle jumpTo: aLocation
+]]]
+
++>file://figures/BotsMessages.png|width=60+
+
+${slide:title=Different Objects can Understand the Same Messages}$
+
+Each object may perform a different reaction
+[[[
+ aWindow open 
+]]]
+
+[[[
+ aFile open 
+]]]
+
+[[[
+ aZip open
+]]]
 
 
-${slide:title=A method specifies a behavior}$
+${slide:title=A Method Specifies a Behavior}$
 
 [[[
 height
@@ -99,7 +123,7 @@ area
 >>> 2000
 ]]]
 
-${slide:title=A method can use other messages}$
+${slide:title=A Method Can Send  Other Messages}$
 
 [[[
 topCenter
@@ -127,15 +151,23 @@ top
 ]]]
 
 
-${slide:title=An object may delegate to another object}$
+
+
+
+
+
+${slide:title=Delegating to Another Object}$
+
+An object may delegate to another object
 
 - An object can request another object to perform some tasks for him. 
 - The sender does not have to know how the delegatee is actually implementing the reaction to his message.
 
 
-${slide:title=Delegation}$
+${slide:title=Delegation Example}$
 
-When an item collector saves its items, its asks each item to save themselves. 
+- An item collector asks each of its items to save themselves.
+- An item collector asks an object serialisation system to save itself.
 
 ${slide:title=What you should know}$
 - An object is characterize by a state, a behavior and an identity

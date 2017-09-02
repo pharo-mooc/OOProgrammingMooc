@@ -1,12 +1,15 @@
 {
 	"title":"What is a class?",
+	"subtitle":"a factory of objects",
 	"slidesid" : "W3S02"
 }
 
-${slide:title=A class factorises object properties}$
 
-- State: All rectangles have an origin and an extent (certainly of different values) 
-- Behavior: Computing the top of a rectangle can be
+
+${slide:title=A Class Factorises Object Properties}$
+
+- ""State"": All rectangles have an origin and an extent (containing different values) 
+- ""Behavior"": Computing the top of a rectangle can be
 -- defined once in the class
 -- applied to all rectangles
 
@@ -17,7 +20,7 @@ Rectangle >> top
 ]]]
 
 
-${slide:title=A class is a factory of objects}$
+${slide:title=A Class is a Factory of Objects}$
 
 A class describes the structure and the behavior of its instances
 - Each instances has its own value
@@ -25,7 +28,30 @@ A class describes the structure and the behavior of its instances
 
 +>file://Slides/figures/RectangleAndInstances.pdf|width=40+
 
-${slide:title=An instance has specific properties}$
+
+${slide:title=A Class is Factory of Objects}$
+
+${columns}$
+
+${column:width=50}$
+
+A class
+- Defines all the variables of all its instances
+- Defines all the behavior
+-- no repetition in all the instances
+- Is an object mould
+
+Each instance is still a separate entity
+- You can create mutiple baths and break one. 
+
+${column:width=50}$
+
++>file://figures/bathMaker.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=An Instance has Specific Properties}$
 
 - A class defines the structure of all its objects
 - Instances of a class have ""specific"" for the properties (state) defined by the class
@@ -37,6 +63,7 @@ ${slide:title=An instance has specific properties}$
 >>> 40@50
 ]]]
 
+
 ${slide:title=Class vs. Instances}$
 
 - An object is instance of a class
@@ -44,16 +71,24 @@ ${slide:title=Class vs. Instances}$
 - All instances of a class react similarly to a message
 - All instances execute the same method in response to a message
 
-${slide:title=All the instances of a class share the same behavior}$
+${slide:title=Instances Share the Same Behavior}$
 
-A class defines the methods that are executed when an instance receives a message
+- All the instances of a class share the same behavior
+- A class defines the methods that are executed when an instance receives a message
 
-+>file://Slides/figures/RectangleAndInstancesMessages.pdf|width=80+
++>file://Slides/figures/RectangleAndInstancesMessages.pdf|width=70+
 
 
-${slide:title=Methods are looked up in the class of the receiver}$
+${slide:title=Methods are Looked up in the Class of the Receiver}$
 
-+>file://Slides/figures/RectangleAndInstancesMessages.pdf|width=80+
++>file://Slides/figures/RectangleAndInstancesMessages.pdf|width=70+
+
+${slide:title=Methods are looked up dynamically in the class of the receiver}$
+
+
++>file://figures/MethodLookedupWithDiffBehavior.pdf|width=100+
+
+
 
 
 ${slide:title=What you should know}$

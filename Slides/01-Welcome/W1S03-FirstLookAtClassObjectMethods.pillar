@@ -10,7 +10,7 @@ A little entity with:
 - behavior 
 - identity
 
-${slide:title=A turtle object}$
+${slide:title=Example: A turtle object}$
 
 A little entity with: 
 - state: tilt, pen up or down
@@ -19,14 +19,14 @@ A little entity with:
 
 +>file://figures/Bots-TwoDiffTurles.png|width=60+
 
-${slide:title=A file object}$
+${slide:title=Example: A file object}$
 
 A little entity with: 
 - state: a path, a contents
 - behavior: show contents, change contents, can be renamed
 - identity: one is different to the other
 
-${slide:title=About identity and equality}$
+${slide:title=About Identity and Equality}$
 
 Enter a pizzeria... order a pizza
 
@@ -34,7 +34,7 @@ Enter a pizzeria... order a pizza
 - equality: you order the same pizza than a client
 
 
-${slide:title=An object reacts to messages}$
+${slide:title=An Object Reacts to Messages}$
 
 [[[
   aTurtle jumpTo: aLocation
@@ -104,7 +104,7 @@ Methods: How to do it?
 +>file://figures/makeCrepes.png|width=30+
 
 
-${slide:title=One message and multiple methods}$
+${slide:title=One Message and Multiple methods}$
 
 One message ==open==
 
@@ -129,7 +129,7 @@ Zip >>open
 
 
 
-${slide:title=A class is factory of objects}$
+${slide:title=A class is Factory of Objects}$
 
 ${columns}$
 
