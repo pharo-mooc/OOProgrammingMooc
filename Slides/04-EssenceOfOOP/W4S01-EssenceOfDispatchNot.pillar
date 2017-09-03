@@ -1,7 +1,8 @@
 {
   "title":"Essence of Dispatch",
   "subtitle":"Taking Pharo Booleans as Example",
-  "slidesid" : "W3S01"
+  "slidesid":"W4S01",
+  "pharomoocslidesid" : "W3S01"
 }
 
 ${slide:title=Objectives}$
@@ -33,27 +34,29 @@ Propose an implementation of Not in a world where:
 - How would you implement the message ==not==?
 
 [[[
-   false not
-   -> true
+false not
+>>> true
+]]]
 
-   true not
-   -> false
+[[[
+true not
+>>> false
 ]]]
 
 ${slide:title=Hint 1: No conditionals}$
 
 The solution does not use conditionals (i.e., no ==if==)
 
-${slide:title=Hint 2: With Three Classes}$
+${slide:title=Hint 2: With Two (Three) Classes}$
 
 - The solution uses three classes:
--- ==Boolean== (abstract), ==True== and ==False==
+-- ==True== and ==False== (and ==Boolean== abstract superclass but not mandatory)
 - ==true== is the singleton instance of ==True==
 - ==false== is the singleton instance of ==False==
 
-${slide:title=Hint 2: Three Classes}$
+${slide:title=Hint 2: Two (Three) Classes}$
 
-+Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=60+
++Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=50+
 
 ${slide:title=Hint 3: How do We Express Choice in OOP?}$
 
@@ -86,26 +89,32 @@ True >> not
 
 ${slide:title=Implementation Hierarchy}$
 
-+Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=70+
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=80+
 
 
 ${slide:title=Message Lookup is Choosing the Right Method}$
 
-+Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=70+
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=80+
 
 
-${slide:title=Boolean Implementation}$
+${slide:title=Boolean Class}$
 
-- ==Boolean== is abstract
-- Subclasses are ==True== and ==False== and implement
--- logical operations ==&==, ==not==
--- control structures ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
+- ==Boolean== is abstract 
+-- does not create instances
+-- specify abstract methods that subclasses should implement
+-- specifiy concrete method that subclass instances may use
 
 [[[
 Boolean>>not
    "Abstract method. Negation: Answer true if the receiver is false, answer false if the receiver is true."
    self subclassResponsibility
 ]]]
+
+
+- Subclasses are ==True== and ==False== and implement
+-- logical operations ==&==, ==not==
+-- control structures ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
+
 
 ${slide:title=Behavior of Or}$
 
@@ -179,6 +188,13 @@ True >> | aBoolean
 ${slide:title=Or Implementation in Two Methods}$
 
 +Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=70+
+
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S01 Videos
+- Pharo by Example *http://books.pharo.org*
+- Learning Object-Oriented Programming, Design and TDD with Pharo
 
 
 ${slide:title=Summary}$
