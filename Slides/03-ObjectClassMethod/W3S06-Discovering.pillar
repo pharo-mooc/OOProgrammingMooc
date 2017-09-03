@@ -76,10 +76,19 @@ FileSystem workingDirectory / 'Slides'
 (FileSystem workingDirectory / 'Slides') inspect
 ]]]
 
++>file://Slides/figures/inspectingFiles.png|width=90+
+
 ${slide:title=All the folders...}$
 
 [[[
 (FileSystem workingDirectory / 'Slides') directories
+]]]
+
+
+
+[[[
+(FileSystem workingDirectory / 'Slides') directories 
+	first children first
 ]]]
 
 [[[
