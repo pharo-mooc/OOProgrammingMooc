@@ -8,8 +8,7 @@
 ${slide:title=Objectives}$
 
 - Understanding of message passing (late binding)
--- the heart of OOP
--- more an OOP lecture than a Pharo one
+- The heart of OOP
 - Insight at how beautiful Pharo's implementation is
 
 ${slide:title=Context: Booleans}$
@@ -187,7 +186,7 @@ True >> | aBoolean
 
 ${slide:title=Or Implementation in Two Methods}$
 
-+Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=70+
++Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=80+
 
 
 ${slide:title=Resources}$
