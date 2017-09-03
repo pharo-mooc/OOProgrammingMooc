@@ -3,10 +3,15 @@
 	 "slidesid":"W3S04"
 }
 
-${slide:title=Programming is modelling}$
+${slide:title=Model of a the World}$
 
 - There is not one single model of the world
 - There are multiple ways to capture a model of the world
+-- Data driven (often used with relational database)
+-- Object-Oriented Design
+-- Functional modeling
+-- Reactive programming
+- A program models the world
 
 ${slide:title=Object-Orientation}$
 
@@ -28,11 +33,10 @@ ${slide:title=Stepping back: Studying history}$
 
 ${slide:title=Structured/Procedural Programming Point of View}$
 
-- Focuses upon procedures
-- Data exists solely to be operated upon by procedures
+- Focuses upon structures and procedures
+- Data is shared between procedures
 - Data accessible from procedures (and client procedures too)
 - Procedures know about the structure of data
-
 
 ${slide:title=Structured/Procedural Programming Point of View}$
 
@@ -41,7 +45,7 @@ ${slide:title=Structured/Procedural Programming Point of View}$
 - Single namespace for procedures
 - No decoupling between messages and methods: just procedures accessing data
 
-${slide:title=Let us compare}$
+${slide:title=Let us Compare}$
 
 Problem: compute the total area of a set of geometric shapes
 
@@ -80,7 +84,7 @@ ${slide:title=Procedural way: a centralized way}$
 Picture >> area 
 	| total |
 	total := 0.
-	self shapes do [:aShape |
+	self shapes do [ :aShape |
 	   aShape kind == #SQUARE
 	   		 ifTrue: [ total := total + aShape width * aShape width ]
 	        ifFalse: [
@@ -89,7 +93,7 @@ Picture >> area
 						total := aShape width * aShape height ]
 					ifFalse: [
 	       		 	total := total + (Float pi * shape radius squared / 2) ]
-   ^ total 
+   ^ total
 ]]]
 
 ${slide:title=Procedural way: Drawbacks}$
@@ -97,9 +101,8 @@ ${slide:title=Procedural way: Drawbacks}$
 - All the logic is defined in a single place
 -- monolithic 
 - What if we want to add a new shape?
--- need to recompile the procedure area
+-- need to recompile the ==area== procedure
 -- need to check for the new shape
-
 
 ${slide:title=The OO way: delegate to other entities}$
 
@@ -116,16 +119,18 @@ Picture >> area
 Square >> area
  ^ self side squared
 ]]]
+
 [[[
 Rectangle >> area
 	^ self width * self height
 ]]]
+
 [[[
 Circle >> area
  ^  (Float pi * self radius squared / 2)
 ]]]
 
-${slide:title=OOP advantages}$
+${slide:title=OOP Advantages}$
 
 - Adding a new shape 
 -- add a class with the ==area== message
@@ -135,22 +140,62 @@ ${slide:title=OOP advantages}$
 
 - Each shape class represents its data/logic internally
 
-
 ${slide:title=What is OOP?}$
 
-- An application is a collection of interacting entities (objects)
-- Objects are characterized by behavior and state
-- Inter-object behavior needs to be coordinated
-- Inter-object communication is the key to coordination
+- An application or system is a collection of interacting entities (objects).
+- Objects are characterized by behavior and state.
+- Inter-object communication is done via messages.
+- Message passing late bound the selection of the method to be executed.
 
-${slide:title=What is OOP?: Encapsulation/Composition}$
+${slide:title=Object-Oriented Viewpoint}$
 
-- ""Encapsulation"" 
--- Hide and control the internal representation of an object. This will ease further evolution
--- Clients do not access object internals
+- An application is a set of objects interacting by sending messages
+- The functionality of an object is described by its methods, its data are stored in private variables
+- An object’s functionality can be invoked by sending a message
+- Ideally everything is an object
 
-- ""Composition"" 
--- An object can be composed of several simpler other objects
+${slide:title=Objects}$
+
+- Unique identity
+- Private state
+- Methods to perform computation
+- React to message by selecting method to be executed
+- Polymorphic interface to be able to be substitued for other objects
+
+${slide:title=A class is a Factory of Objects}$
+
+A class describes the structure and the behavior of its instances
+- Each instances has its own value
+- All instances of class share the same behavior
+
++>file://Slides/figures/RectangleAndInstances.pdf|width=40+
+
+
+${slide:title=Responsibility-Driven Design}$
+
+- Objects are responsible to maintain information and provide services
+- An object should have one main responsibility
+- A good design exhibits:
+-- high cohesion of operations and data within classes 
+-- low coupling between classes and subsystems
+
+${slide:title=Method at Right Level of Abstraction}$
+
+Every method should perform one, well-defined task:
+- High level of abstraction
+- Write to an interface, not an implementation 
+-- Avoid hardcoding class references
+-- Provide/use polymorphic API 
+
+
+${slide:title=OOP Cornerstone: Encapsulation/Composition}$
+
+""Encapsulation"" 
+- Hide and control the internal representation of an object. This will ease further evolution
+- Clients do not access object internals
+
+""Composition"" 
+- An object can be composed of several simpler other objects
 
 ${slide:title=OOP Cornerstone: Distribution of responsibility}$
 
@@ -160,21 +205,20 @@ ${slide:title=OOP Cornerstone: Distribution of responsibility}$
 ${slide:title=OOP Cornerstone: Late binding}$
 ""Late binding and message passing"" 
 - The receiver of a message determines which method will be executed on it. 
--- what? the message 
--- how? the method 
+-- What to perform? the message 
+-- How to perform? the method 
 
 ${slide:title=OOP Cornerstone: Polymorphism}$
 ""Polymorphism"" 
 - Objects exhibiting the same interface can be substitued
-- Class hierarchy defines families of ""polymorphic"" objects
+- Class hierarchy defines families of ""polymorphic"" (kind of substituable) objects
 
 ${slide:title=OOP Cornerstone: Reuse via abstraction extension}$
 
-""Inheritance"" 
-- define abstractions as conceptual hierarchies
--- ==OrderedCollection== is a kind of ==Collection==
--- ==Array== is a kind of ==Collection==
-- reuse and extend implementation in subclasses
+""Inheritance"" structures abstractions as conceptual hierarchies
+- ==OrderedCollection== is a kind of ==Collection==
+- ==Array== is a kind of ==Collection==
+""Inheritance"" supports reuse and extensions in subclasses
 
 
 
@@ -186,49 +230,11 @@ ${slide:title=OOP Cornerstone: Reuse via abstraction extension}$
 
 
 
-${slide:title=Object-Oriented Viewpoint}$
-
-- An application is a set of objects interacting by sending messages
-- The functionality of an object is described by its methods, its data are stored in private variables
-- An object’s functionality can be invoked by sending a message
-- Everything is an object
-
-
-${slide:title=Responsibility-Driven Design}$
-
-- Objects are responsible to maintain information and provide services
-- An object should have one main responsibility
-- A good design exhibits:
--- high cohesion of operations and data within classes 
--- low coupling between classes and subsystems
-
-- Every method should perform one, well-defined task:
--- High level of abstraction
--- Write to an interface, not an implementation
-
-
-
-${slide:title=Objects}$
-
-- Unique identity
-- Private state
-- Methods to perform computation
-- React to message by selecting method to be executed
-- Polymorphic interface to be able to be substitued for other objects
-
-${slide:title=A class is a factory of objects}$
-
-A class describes the structure and the behavior of its instances
-- Each instances has its own value
-- All instances of class share the same behavior
-
-+>file://Slides/figures/RectangleAndInstances.pdf|width=40+
-
 
 ${slide:title=What you should know}$
 
 - OOP describes programs as collaborating entities
 - Objects encapsulate data and expose API of behavior
-- Late binding selects methods to be executed in reaction to a message
+- Late binding selects the method to be executed in reaction to a message
 - Classes reuse (extend, modify their superclass behavior)
 - Good design promote polyrmorphism
