@@ -7,7 +7,7 @@
 
 ${slide:title=Remember: Implementing not in Two Methods}$
 
-+Not implementation>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=95+
++Not implementation>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=75+
 
 ${slide:title=Stepping Back}$
 - Let the receiver decide
@@ -44,12 +44,12 @@ Compare the solution with one class vs. a hierarchy
 - You only focus on one class at a time
 
 
-+One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=80+
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=70+
 
 
 ${slide:title=Advantages of Class Hierarchy}$
 
-+One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatchWithPackages.png|width=90+
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatchWithPackages.png|width=80+
 
 More modular: We can package different classes in different packages
 
