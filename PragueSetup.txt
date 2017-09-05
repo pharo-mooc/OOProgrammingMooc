@@ -10,23 +10,42 @@ Mondays: 11h-14:15
 		01 b Overview	
 			Syntax in a nutshell
 			Block Conditional
+			=> need JavaPharo mapping
+
+	Exercises			
+		Messages
+		Counter	
+			
 		
 -	Two lectures Oct 16th
 		02 Syntax 
 		02 b Common libraries
+
+		Exercise: 
+			redo counter coding in the debugger
+			Gram?
+			Tamagotchi
+
 		
 -	Two lectures Oct 30th *** 
 		03 Object Classes Methods
 		04 Dispatch
 
+		Exercise: Dice 
+
+
 -	Two lectures Nov 13th
-		05 Inheritance + UML essentials
+		05 Inheritance 
+
+		Exercise: 
+			Expression 
 		
 -	Two lectures Nov 27th
 		6 Plan for Reuse
 			Plans for reuse
 			Composition vs inheritance
 		7 Deeper Method Lookup
+			double dispatch
 		
 -	Two lectures Dec 11 th (I was not planning to come but I will try).
 		

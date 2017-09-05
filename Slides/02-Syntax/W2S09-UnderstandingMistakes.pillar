@@ -176,6 +176,20 @@ ${slide:title=Use the debugger to look at the argument}$
 
 +>file://figures/WrongArg.png|width=70+
 
+${slide:title=Check the argument of a message}$
+
+Often we pass wrong information as argument
+
+[[[
+testRemoveFrom
+	| item |
+	collector := GameCollector smallCollection.
+	item := (collector collectionNamed: #owned) anyOne.
+	collector remove: item from: #owned.
+	self assert: (collector collectionNamed: #owned) size equals: 1
+]]]
+
+
 ${slide:title=A problem}$
 
 [[[
