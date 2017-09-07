@@ -1,11 +1,12 @@
 {
-  "title":"Common Errors",
-    "slidesid" : "Mooc - W5S03"
+    "title":"Common Errors",
+    "slidesid" : "W4S05",
+    "pharomoocslidesid" : "Mooc - W5S03"
 }
 
 ${slide:title=What You Will Learn}$
 
-Find and fix common mistakes faster
+Find and fix common mistakes faster!
 
 ${slide:title=A Problem}$
 
@@ -38,6 +39,15 @@ x includes: 33
 
 ""Error:"" Message ==includes:ifTrue:== does not exist
 
+${slide:title=A Solution}$
+
+[[[
+(x includes: 33)
+   ifTrue: [ self do something ]
+]]]
+
+${slide:title=A Problem}$
+
 [[[
 self assert: players includes: aPlayer
 ]]]
@@ -51,9 +61,9 @@ Solution
 self assert: (players includes: aPlayer)
 ]]]
 
-- keyword messages are built out of fragments
-- the message is the longuest sequence of fragments
-- use parentheses to delimit multiple keyword messages
+- Keyword-based messages are built out of fragments
+- The message is the longuest sequence of fragments
+- Use parentheses to delimit multiple keyword messages
 
 ${slide:title=A Problem}$
 
@@ -64,15 +74,7 @@ numbers := OrderedCollection new
 
 ""Error:"" ==numbers== is the number 35 and not a collection
 
-[[[
-Dice >> setFaces: aNumber
-   ^ faces := aNumber
 
-Dice class >> new
-   ^ super new setFaces: 6
-]]]
-
-""Error:"" ==Dice new== returns 6 instead of a dice
 
 ${slide:title=Forgotten yourself}$
 
@@ -91,14 +93,19 @@ numbers add: 35.
 numbers
 ]]]
 
-${slide:title=Forgotten yourself}$
 
-Solutions
+${slide:title=A Problem}$
+
 [[[
-numbers := OrderedCollection new
-             add: 35;
-             yourself
+Dice >> setFaces: aNumber
+   ^ faces := aNumber
+
+Dice class >> new
+   ^ super new setFaces: 6
 ]]]
+
+""Error:"" ==Dice new== returns 6 instead of a dice
+
 
 [[[
 Dice class >> new
@@ -106,7 +113,7 @@ Dice class >> new
 ]]]
 
 - ==add:== and ==setFaces:== return their argument, not the receiver
-- send ==yourself== after a sequence of messages if you want the receiver
+- Send ==yourself== after a sequence of messages if you want the receiver
 
 ${slide:title=A Problem}$
 
@@ -243,6 +250,13 @@ Dice class >> new
 ]]]
 
 - use ==super== in overridden methods
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W5S03: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
+
+
 
 ${slide:title=What You Should Know}$
 
