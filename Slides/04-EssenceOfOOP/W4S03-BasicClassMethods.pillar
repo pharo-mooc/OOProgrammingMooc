@@ -1,13 +1,14 @@
 {
   "title":"Class Methods in Pharo",
-  "slidesid" : "Mooc - W3S06"
+    "slidesid" : "W4S03",
+    "pharomoocslidesid" : "Mooc - W3S06"
 }
 
 ${slide:title=Class Methods}$
 
-# in Pharo, everything is an object
-# objects can receive messages
-# classes are objects too
+# In Pharo, everything is an object
+# Objects can receive messages
+# Classes are objects too
 
 Classes can receive messages
 
@@ -15,14 +16,14 @@ ${slide:title=Examples}$
 
 [[[
 Time now
-> 9:18:36.304688 pm
+>>> 9:18:36.304688 pm
 ]]]
 
 The message ==now== is sent to the class ==Time==
 
 [[[
 Date today
-> 29 July 2015
+>>> 29 July 2015
 ]]]
 The message ==today== is sent to the class ==Date==
 
@@ -44,7 +45,7 @@ ${slide:title=Class Methods are Defined on Class Side}$
 
 Note the ==Class== button pressed!
 
-+>file://figures/ClassMethodDateToday.png|width=90+
++>file://figures/ClassMethodDateToday.png|width=80+
 
 ${slide:title=Common Mistake}$
 
@@ -86,6 +87,11 @@ Counter class >> withValue: anInteger
       value: anInteger;
       yourself
 ]]]
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W3S06: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
 
 ${slide:title=Summary}$
 

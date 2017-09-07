@@ -35,3 +35,17 @@ ${slide:title=Project: OpenPonk}$
 
 
 ${slide:title=Project: Pillar Renderer?}$
+
+${slide:title=Project: Snake Competition}$
+
+- *https://stembolthq.github.io/battle_snake/*
+- serveur
+- clients
+
+
+
+${slide:title=Project: Elevator Competition}$
+
+- ask Christophe
+- client
+- serveur
