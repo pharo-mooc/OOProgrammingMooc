@@ -8,12 +8,12 @@ ${slide:title=What You Will Learn}$
 
 Find and fix common mistakes faster!
 
-${slide:title=A Problem}$
+${slide:title=Problem: aDie does not understand self}$
 
 [[[
-DiceHandle >> + aDiceHandle
+DieHandle >> + aDieHandle
    | res |
-   res := DiceHandle new
+   res := DieHandle new
    self dices do: [ :each | ... ].
 ]]]
 
@@ -22,15 +22,15 @@ DiceHandle >> + aDiceHandle
 ${slide:title=Missing Period}$
 
 [[[
-DiceHandle >> + aDiceHandle
+DieHandle >> + aDieHandle
    | res |
-   res := DiceHandle new.
+   res := DieHandle new.
    self dices do: [ :each | ... ].
 ]]]
 
 - Separate instructions with period (==.==)
 
-${slide:title=A Problem}$
+${slide:title=Problem: Message includes:ifTrue: does not exist}$
 
 [[[
 x includes: 33
@@ -39,14 +39,14 @@ x includes: 33
 
 ""Error:"" Message ==includes:ifTrue:== does not exist
 
-${slide:title=A Solution}$
+${slide:title=Solution: Disambiguate Messages Using Parenthesis}$
 
 [[[
 (x includes: 33)
    ifTrue: [ self do something ]
 ]]]
 
-${slide:title=A Problem}$
+${slide:title=Problem: Message assert:includes: does not exist}$
 
 [[[
 self assert: players includes: aPlayer
@@ -65,7 +65,7 @@ self assert: (players includes: aPlayer)
 - The message is the longuest sequence of fragments
 - Use parentheses to delimit multiple keyword messages
 
-${slide:title=A Problem}$
+${slide:title=Problem: Got an element insted of the collection}$
 
 [[[
 numbers := OrderedCollection new
@@ -94,28 +94,29 @@ numbers
 ]]]
 
 
-${slide:title=A Problem}$
+${slide:title=Problem: Got 6 instead a Die}$
 
 [[[
-Dice >> setFaces: aNumber
-   ^ faces := aNumber
+Die >> setFaces: aNumber
+   faces := aNumber
 
-Dice class >> new
+Die class >> new
    ^ super new setFaces: 6
 ]]]
 
-""Error:"" ==Dice new== returns 6 instead of a dice
+""Error:"" ==Die new== returns 6 instead of a dice
 
+${slide:title=Access the receiver of the message with yourself}$
 
 [[[
-Dice class >> new
+Die class >> new
    ^ super new setFaces: 6; yourself
 ]]]
 
 - ==add:== and ==setFaces:== return their argument, not the receiver
 - Send ==yourself== after a sequence of messages if you want the receiver
 
-${slide:title=A Problem}$
+${slide:title=Problem: nil does not understand ifFalse:}$
 
 [[[
 Book >> borrow
@@ -125,7 +126,16 @@ Book >> borrow
 
 ""Error:"" ==nil== does not understand ==ifFalse:==
 
-${slide:title=A Problem: Booleans vs. Boolean classes}$
+${slide:title=Solution: initialize your objects!}$
+
+[[[
+Book >> initialize
+   inLibrary := false
+   ...
+]]]
+
+
+${slide:title=Problem: Booleans vs. Boolean classes}$
 
 [[[
 Book >> initialize
@@ -152,45 +162,55 @@ Book >> initialize
 - ==true== is the unique instance of the class ==True==
 - Class names start with an uppercase letter
 
-${slide:title=A Problem}$
+${slide:title=Problem returns aDie instead of a number}$
 
 [[[
-Dice >> roll
+Die >> roll
    faces atRandom
 ]]]
 
-""Error:"" ==aDice roll== returns ==aDice== instead of a number
+""Error:"" ==aDie roll== returns ==aDie== instead of a number
 
-${slide:title=A Problem}$
+${slide:title=Problem Analysis}$
 
 [[[
-Dice >> roll
+Die >> roll
    faces atRandom
 ]]]
 
 is equivalent to
 
 [[[
-Dice >> roll
+Die >> roll
    faces atRandom.
    ^ self
 ]]]
 
+
+${slide:title=Do not forget to return result}$
+
+[[[
+Die >> roll
+   ^ faces atRandom
+]]]
+
+
+
 ${slide:title=A Problem}$
 
 [[[
-Dice class >> new
+Die class >> new
    super new
       setFaces: 0;
       yourself
 ]]]
 
-""Error:"" ==Dice new== returns the class instead of the new instance
+""Error:"" ==Die new== returns the class instead of the new instance
 
-${slide:title=A Problem}$
+${slide:title=Problem Analysis}$
 
 [[[
-Dice class >> new
+Die class >> new
    super new
       setFaces: 0;
       yourself
@@ -199,7 +219,7 @@ Dice class >> new
 is equivalent to
 
 [[[
-Dice class >> new
+Die class >> new
    super new
       setFaces: 0;
       yourself.
@@ -207,19 +227,13 @@ Dice class >> new
 ]]]
 
 - ==new== is sent to a class
-- ==self== is the class ==Dice==
-- returns ==Dice== and not its newly created instance
+- ==self== is the class ==Die==
+- returns ==Die== and not its newly created instance
 
 ${slide:title=Forgetting to Return the Result}$
 
-Solutions
 [[[
-Dice >> roll
-   ^ faces atRandom
-]]]
-
-[[[
-Dice class >> new
+Die class >> new
    ^ super new
       setFaces: 0;
       yourself
@@ -231,7 +245,7 @@ Dice class >> new
 ${slide:title=A Problem}$
 
 [[[
-Dice class >> new
+Die class >> new
    ^ self new
       setFaces: 0;
       yourself
@@ -243,7 +257,7 @@ ${slide:title=Infinite Loops in Overridden Methods}$
 
 Solution
 [[[
-Dice class >> new
+Die class >> new
    ^ super new
       setFaces: 0;
       yourself

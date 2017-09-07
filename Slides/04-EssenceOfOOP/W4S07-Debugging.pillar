@@ -17,11 +17,12 @@ ${slide:title=Debugging}$
 
 - Closing the debugger does not solve bugs
 - The debugger is your best friend
--- communicate with objects of the context
--- check state
--- send messages to specific objects
--- compile code on the fly
--- continue without restarting from scratch
+- The debugger
+-- communicates with objects of the context
+-- checks state
+-- sends messages to specific objects
+-- compiles code on the fly
+-- continues without restarting from scratch
 
 Watch the videos and practice
 
@@ -31,9 +32,9 @@ ${slide:title=Simple Trace}$
 Transcript show: 'x = ', x printString
 ]]]
 
-- used when you don't have tools
-- often inefficient
-- we can do better
+- Used when you don't have tools
+- Often inefficient
+- We can do better
 
 ${slide:title=Defining a Breakpoint}$
 
@@ -43,8 +44,8 @@ ${slide:title=Defining a Breakpoint}$
 ]]]
 
 ==Halt now== (or ==self halt==)
-- pause the program
-- invoke the debugger
+- pauses the program
+- invokes the debugger
 
 ${slide:title=Single-Shot Halt}$
 
@@ -78,7 +79,7 @@ ${slide:title=Conditional Halt}$
 ==faces== will stop only when invoked from ==printString==
 
 [[[
-Dice >> faces
+Die >> faces
   ...
   Halt if: #printString
 ]]]
@@ -88,7 +89,7 @@ ${slide:title=Conditional Halt}$
 The parameter passed to ==if:== can be a test name too:
 
 [[[
-Dice >> faces
+Die >> faces
   ...
   Halt if: #testLargeDice
 ]]]
@@ -106,8 +107,9 @@ Halt class >> between: minTime and: maxTime
       between: minTime asTime
       and: maxTime asTime)
          ifTrue: [ self signal ]
-
-Dice >> faces
+]]]
+[[[
+Die >> faces
    ...
    Halt between: '00:00' and: '02:00'
 ]]]
