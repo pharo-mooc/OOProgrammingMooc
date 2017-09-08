@@ -1,6 +1,7 @@
 {
   "title":"Class Methods At Work",
-  "slidesid" : "Mooc - W4S06"
+  "pharomoocslidesid": "Pharo Mooc - W4S06",
+  "slidesid" : "W6S03"
 }
 
 ${slide:title=What You Will Learn}$
@@ -166,6 +167,14 @@ ${slide:title=In Java}$
 - Need to implement 
 -- a registration mechanism with one instance of each class
 -- a singleton 
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W4S06: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
+
+
+
 
 ${slide:title=Conclusion}$
 

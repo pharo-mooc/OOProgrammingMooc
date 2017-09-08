@@ -1,6 +1,7 @@
 {
   "title":"Variables",
-  "slidesid" : "W3S03"
+  "pharomoocslidesid" : "Pharo Mooc W3S03",
+  "slideid":"W5S05"
 }
 
 ${slide:title=In a Nutshell}$
@@ -112,6 +113,11 @@ Object subclass: #CombinedChar
 ]]]
 
 - Here ==Compositions== is shared between all the ==CombinedChar== instances and instances of subclasses
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W3S03: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
 
 
 ${slide:title=Summary}$

@@ -1,38 +1,38 @@
 {
-    "title":"Why Testing is Important"
+    "title":"About Testing",
+    "slidesid":"W4S06"
 }
 
-${slide:title=Goal}$
+${slide:title=Goal of the Lecture}$
 
--why tests are important?
--what are their advantages?
--what are the techniques to write good tests?
+- Why tests are important?
+- What are their advantages?
+- What are the techniques to write good tests?
 
 ${slide:title=Pros}$
 
--Finding problems
--Understanding code
--Increase trust
-
--Collateral pros
+- Specifying expected behavior and results
+- Finding problems
+- Understanding code
+- Increase trust
 
 ${slide:title=Finding Problems: Pros}$
 
--find bugs when they appear
--improve customer trust
--reproduce complex scenari
--check contracts of super types
--guarantee old bugs won't come back
--isolate the problem
+- Find bugs when they appear
+- Improve customer trust
+- Reproduce complex scenari
+- Check contracts of super types
+- Guarantee old bugs won't come back
+- Isolate the problem
 
 ${slide:title=Finding Problems: Characteristics of a Good Test Suite}$
 
--check extreme cases (e.g., null, 0 and empty)
--check complex cases (e.g., exceptions, network pbs)
--1 test for each bug (at least)
--good coverage
--check abstractions
--check units independently
+- Check extreme cases (e.g., null, 0 and empty)
+- Check complex cases (e.g., exceptions, network pbs)
+- 1 test for each bug (at least)
+- Good coverage
+- Check abstractions
+- Check units independently
 
 ${slide:title=Understanding Code}$
 
@@ -92,40 +92,40 @@ testShiftOneLeftThenRight
 
 ${slide:title=Understanding Code: Pros}$
 
--give simple and reproducible examples
--explain an API
--give up-to-date documentation
--check conformity of new code
--offer a first client to new code
--force a modular design
+- Give simple and reproducible examples
+- Explain an API
+- Give up-to-date documentation
+- Check conformity of new code
+- Offer a first client to new code
+- Force a modular design
 
 ${slide:title=Understanding Code: Characteristics of a Good Test Suite}$
 
--deterministic
--automatic
--self-explained
--simple
--unit
+- Deterministic
+- Automatic
+- Self-explained
+- Simple
+- Unit
 
 ${slide:title=Increasing Trust: Pros}$
 
--accelerate bug detection
--accelerate new code checking
--ease refactorings
--prevent regressions
+- Accelerate bug detection
+- Accelerate new code checking
+- Ease refactorings
+- Prevent regressions
 
 ${slide:title=Increasing Trust: Characteristics of a Good Test Suite}$
 
--change less frequently than the rest
--good code coverage
--deterministic
+- Change less frequently than the rest
+- Good code coverage
+- Deterministic
 
 ${slide:title=Collateral Pros}$
 
--improve feeling of customers who care
--allow for automatic bug fixing
--improve type inference
--provide examples to variable values
+- Improve feeling of customers who care
+- Allow for automatic bug fixing
+- Improve type inference
+- Provide examples to variable values
 
 ${slide:title=Testing Abstractions}$
 
@@ -159,9 +159,9 @@ testOnlyOneValidStateAtEachMoment
 
 ${slide:title=Testing Abstractions}$
 
--parallel hierarchies
--test must be in the highest abstraction
--factory method
+- Parallel hierarchies
+- Test must be in the highest abstraction
+- Factory method
 
 +file://figures/tests-actions-parallel-hierarchies.png|width=80+
 
@@ -198,8 +198,8 @@ ${slide:title=Mocking}$
 
 +file://figures/tests-questionnaire-mocks.png|width=100+
 
--mocks are reusable across tests
--mocks can be generated with mocking frameworks
+- Mocks are reusable across tests
+- Mocks can be generated with mocking frameworks
 
 ${slide:title=Different Testing Levels}$
 
