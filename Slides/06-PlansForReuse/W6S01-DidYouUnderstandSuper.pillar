@@ -1,6 +1,7 @@
 {
   "title" : "Did you really understand super?",
-  "slidesid" : "W6S01"
+  "slidesid" : "W6S01",
+  "pharomoocslideid":"Pharo Mooc W6S10"
 }
 
 ${slide:title=What You Will Learn}$
@@ -93,7 +94,7 @@ Dice class >> new
 
 ${slide:title=Solution}$
 
-+>file://figures/Workstation-Dice-MetaclassesWithInheritanceWithLookup.png|width=80+
++>file://figures/Workstation-Dice-MetaclassesWithInheritanceWithLookup.png|width=100+
 
 ${slide:title=Summary}$
 
@@ -113,3 +114,12 @@ A >> foo
 ]]]
 
 What is the result of ==A new foo== and why?
+
+
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W6S01: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
+
+

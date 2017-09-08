@@ -1,6 +1,6 @@
 {
     "title" : "About Double Dispatch",
-    "slidesid" : "From The Design Corner",
+    "slidesid" : "W8S02",
     "author" : "Stéphane Ducasse"
 }
 
@@ -23,14 +23,19 @@ ${slide:title=Adding Integer and Float}$
 
 [[[
 	1 + 2
-	> 3
+	>>> 3
+]]]
+[[[
 	1.1 + 2
-	> 3.1
+	>>> 3.1
+]]]
+[[[
 	2 + 1.3
-	> 
-	3.3
+	>>> 3.3
+]]]
+[[[
 	1.1 + 2.2 
-	> 3.3
+	>>> 3.3
 ]]]
 
 Implement ==\+== 
@@ -39,10 +44,10 @@ But with
 - Not a single explicit conditional
 - No static type support
 
-${slide:title=A first hint}$
+${slide:title=A First Hint}$
 - Two classes Integer and Float
 
-${slide:title=Let us see}$
+${slide:title=Let Us See}$
 
 [[[
 Integer >> + aNumber
@@ -59,18 +64,18 @@ Float >> + aNumber
 ]]]
 
 
-${slide:title=Another key hint}$
+${slide:title=Another Key Hint}$
 
 When you execute a method you know that the receiver is from the class of the method!
 
-${slide:title=Even more hints}$
+${slide:title=Even More Hints}$
 
 - Remember the Boolean implementation
 
 - Sending a message to an object is a choice operator
 
 
-${slide:title=Let us get started}$
+${slide:title=Let Us Get Started}$
 
 Imagine that we add one method ==sumWithInteger: anInteger==
 
@@ -90,7 +95,7 @@ Imagine that we add one method ==sumWithInteger: anInteger==
 	"fill me up :)"
 ]]]
 
-${slide:title=Look like an easy definition}$
+${slide:title=Look Like An Easy Definition}$
 
 [[[
 	Integer >> + aNumber
@@ -105,7 +110,7 @@ ${slide:title=Look like an easy definition}$
 ]]]
 
 
-${slide:title=How do we connect them?}$
+${slide:title=How Do We Connect Them?}$
 
 [[[
 	Integer >> + aNumber
@@ -123,7 +128,7 @@ ${slide:title=How do we connect them?}$
 
 
 
-${slide:title=On Float too}$
+${slide:title=On Float Too}$
 
 [[[
 	Integer >> + aNumber
@@ -143,7 +148,7 @@ ${slide:title=On Float too}$
 
 
 
-${slide:title=On Float too}$
+${slide:title=On Float Too}$
 
 [[[
 	Integer >> + aNumber
@@ -201,7 +206,7 @@ ${slide:title=Supporting 1.2 \+ 2}$
 ]]]
 
 
-${slide:title=Ok now relax}$
+${slide:title=Ok now Relax!}$
 
 - Take a pen and follow the calls to the following expressions
 - Follow with your fingers if necessary :)
@@ -213,7 +218,7 @@ ${slide:title=Ok now relax}$
 	1.1 + 2.2 
 ]]]
 
-${slide:title=Key point}$
+${slide:title=Key Point}$
 
 [[[
 Integer >> + aNumber
@@ -224,17 +229,17 @@ Two choices/messages:
 - one for \+
 - one for sumWithInteger:
 
-${slide:title=Exercise2: How to add Fraction?}$
+${slide:title=Exercise2: How to Add Fraction?}$
 
 [[[
 f := Fraction num: 1 denum: 2.
 
 f num 
-> 1
+>>> 1
 f denum 
-> 2 
+>>> 2 
 f asFloat
-> 0.5
+>>> 0.5
 ]]]
 
 [[[
@@ -272,7 +277,7 @@ ${slide:title=Introducing Fraction}$
 	...
 ]]]
 
-${slide:title=Taking care of Integer and Float}$
+${slide:title=Taking Care of Integer and Float}$
 
 [[[
 	Fraction >> + aNumber
@@ -305,7 +310,7 @@ ${slide:title=Introducing Fraction }$
 		^ addf(self, aFrac asFloat)
 ]]]
 
-${slide:title=Full code for Fraction }$
+${slide:title=Full Code for Fraction }$
 
 [[[
 	Fraction >> + aNumber
@@ -323,7 +328,7 @@ ${slide:title=Full code for Fraction }$
 		^ addf(self, aFrac asFloat)
 ]]]
 
-${slide:title=Ok now relax}$
+${slide:title=Ok Now Relax}$
 
 - Take a pen and follow the calls to the following expressions
 - Follow with your fingers if necessary :)
@@ -335,7 +340,7 @@ ${slide:title=Ok now relax}$
 	1/3 + 4/3
 ]]]
 
-${slide:title=Stepping back}$
+${slide:title=Stepping Back}$
 
 - We can add Fraction without changing any previous method 
 - Another example of "Sending a message is making a choice"
@@ -354,14 +359,13 @@ ${slide:title=Double Dispatch}$
 
 ${slide:title=When not using Double Dispatch}$
 
-- No class to dispatch on
-- We need an different instance of dispatch to 
+- No class to dispatch on!
+- We need an different instance of dispatch to
 
-${slide:title=What about overloading}$
+${slide:title=What about Overloading}$
 
 - Double dispatch is also useful in statically typed languages
-- Avoid overloading for double dispatch - some type systems do not work well (see other lectures on Overloading problem)
-
+- Avoid overloading for double dispatch - some type systems do not work well
 
 ${slide:title=Conclusion}$
 

@@ -1,6 +1,6 @@
 {
-    "title" : "Adding a Dice and a DieHandle: A Case of Double Dispatch",
-    "slidesid" : "From The Design Corner",
+    "title" : "Adding a Die and a DieHandle: A Case of Double Dispatch",
+    "slidesid" : "W8S01",
     "author" : "Stéphane Ducasse"
 }
 
@@ -10,12 +10,12 @@ ${slide:title=What You Will Learn}$
 - How conditionals can be turned into extensible design using messages
 - Basis for more complex situation such as the Visitor Design Pattern
 
-${slide:title=Remember Dice}$
+${slide:title=Remember Die and DieHandle}$
 
-We create a DieHandle and add some die to it
+We create a die handle and add some die to it
 
 [[[
-|handle|
+| handle |
 handle := DieHandle new 
 		addDie: (Die withFaces: 6);
 		addDie: (Die withFaces: 10);

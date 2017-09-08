@@ -10,7 +10,7 @@ ${slide:title=In a Nutshell}$
 - ""Shared"" variables start with ""uppercase"" (class, class variables)
 
 ${slide:title=Local Variables Start with Lowercase}$
-
+ 
 
 ""Temporary variables"" are local to the method
 

@@ -1,6 +1,7 @@
 {
   "title":"Avoid Null Checks",
-  "slidesid":"From the Design Corner - based on Pharo Mooc W7S07"
+  "slidesid":"W7S07",
+  "pharomoocslidesis":"Pharo mooc W7S07"
 }
 
 ${slide:title=What You Will Learn}$
@@ -13,11 +14,11 @@ ${slide:title=Anti If Campaign}$
 
 [[[
 Main >> showHappiness: animal
-   animal isDog
-      ifTrue: [ animal shakeTail ].
-   animal isDuck
-      ifTrue: [ animal quack ].
-   animal isCat ifTrue: [ ... ].
+    animal isDog
+       ifTrue: [ animal shakeTail ].
+    animal isDuck
+       ifTrue: [ animal quack ].
+    animal isCat ifTrue: [ ... ].
 ]]]
 
 Branching (with ==if==) based on the type of an object is bad:
@@ -32,11 +33,11 @@ ${slide:title=Anti If Campaign}$
 
 [[[
 Dog >> showHappiness
-   self shakeTail
+    self shakeTail
 ]]]
 [[[
 Duck >> showHappiness
-   self quack
+    self quack
 ]]]
 [[[
 Cat >> showHappiness
@@ -56,22 +57,20 @@ ${slide:title=How to Avoid nil?}$
 - When possible, do not return nil!
 - When possible, apply NullObject Design Pattern
 
-
-
 ${slide:title=Example: Do Not Return Nil}$
 
 [[[
 Inferencer >> rulesForFact: aFact
-    self noRule ifTrue: [ ^ nil ]
-    ^ self rulesAppliedTo: aFact
+     self noRule ifTrue: [ ^ nil ]
+     ^ self rulesAppliedTo: aFact
 ]]]
 
 ==ifTrue: [ ^ nil ]== forces every client to check for ==nil==!
 
 [[[
 (inferencer rulesForFact: 'a')
-    ifNotNil: [ :rules |
-       rules do: [ :each | ... ]
+     ifNotNil: [ :rules |
+        rules do: [ :each | ... ]
 ]]]
 
 ${slide:title=Return Polymorphic Objects}$
@@ -84,8 +83,8 @@ ${slide:title=Example: Return Polymorphic an Empty Collection}$
 
 [[[
 Inferencer >> rulesForFact: aFact
-    self noRule ifTrue: [ ^ #() ]
-    ^ self rulesAppliedTo: aFact
+     self noRule ifTrue: [ ^ #() ]
+     ^ self rulesAppliedTo: aFact
 ]]]
 
 Advantages:
@@ -168,8 +167,8 @@ If tool can be nil, clients have to check!
 
 [[[
 ToolPalette >> nextAction
-   self selectedTool
-      ifNotNil: [ :tool | tool attachHandles ]
+    self selectedTool
+       ifNotNil: [ :tool | tool attachHandles ]
 ]]]
   
 [[[
@@ -182,11 +181,11 @@ ${slide:title=Use NullObject}$
 
 [[[
 NoTool >> attachHandles
-    ^ self
+     ^ self
 ]]]
 [[[
 NoTool >> detachHandles
-    ^ self
+     ^ self
 ]]]
 
 The NullTool does nothing but offers a compatible API!
@@ -203,19 +202,21 @@ ${slide:title=Use NullObject}$
 ${slide:title=Clients do not have to check anymore}$
 [[[
 ToolPalette >> initialize
-    self selectedTool: NoTool new
+     self selectedTool: NoTool new
 ]]]
 
 [[[
 ToolPalette >> nextAction
-    self selectedTool attachHandles
+     self selectedTool attachHandles
 ]]]
 [[[
 ToolPalette >> previousAction
     self selectedTool detachHandles
-]]]
+]]] 
 
 
+${slide:title=Resources}$
+- Pharo mooc - Videos W7S07: *http://mooc.pharo.org* 
 
 ${slide:title=Conclusion}$
 
@@ -226,6 +227,4 @@ ${slide:title=Conclusion}$
 
 +.>file://figures/antifIfCampaign.png|width=40+
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week7/C019-W7S07-AvoidIsNill.pillar"
-% End:
+

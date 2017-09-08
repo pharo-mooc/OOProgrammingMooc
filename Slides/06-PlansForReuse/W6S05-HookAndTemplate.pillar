@@ -1,7 +1,8 @@
 {
   "title":"Hooks and Templates",
   "subtitle":"An application of self-sends are plans for reuse",
-  "slidesid":"W6S05"
+  "slidesid":"W6S05",
+   "pharomoocslidesid":"W6S05"
 }
 
 
@@ -174,6 +175,12 @@ Dictionary >> postCopy
    array := array collect: [ :association |
       association ifNotNil: [ association copy ] ]
 ]]]
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W6S05: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
+
 
 ${slide:title=Conclusion}$
 

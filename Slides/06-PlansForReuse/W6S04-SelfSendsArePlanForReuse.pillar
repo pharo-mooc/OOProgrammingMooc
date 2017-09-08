@@ -1,6 +1,7 @@
 {
   "title" : "Message Sends are Plans for Reuse",
-  "slidesid" : "W6S04"
+  "slidesid" : "W6S04",
+  "pharomoocslidesid" : "W6S04"
 }
 
 ${slide:title=About This Lecture}$
@@ -235,6 +236,11 @@ Node >> averageRatio: aNumber
 ${slide:title=Gruyere-Oriented Programming}$
 
 +.>file://figures/gruyereWithSlogan|width=90+
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W6S04: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
 
 ${slide:title=Conclusion}$
 
