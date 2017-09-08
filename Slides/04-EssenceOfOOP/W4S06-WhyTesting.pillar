@@ -11,7 +11,7 @@ ${slide:title=Goal of the Lecture}$
 
 ${slide:title=Pros}$
 
-- Specifying expected behavior and results
+- Specifying expected behavior and results (see previous lectures)
 - Finding problems
 - Understanding code
 - Increase trust
@@ -34,20 +34,6 @@ ${slide:title=Finding Problems: Characteristics of a Good Test Suite}$
 - Check abstractions
 - Check units independently
 
-${slide:title=Understanding Code}$
-
-[[[
-convert
-   | s |
-   s := '#000000' copy.
-   s at: 2 put: (Character digitValue: ((rgb bitShift: -6 - RedShift) bitAnd: 15)).
-   s at: 3 put: (Character digitValue: ((rgb bitShift: -2 - RedShift) bitAnd: 15)).
-   s at: 4 put: (Character digitValue: ((rgb bitShift: -6 - GreenShift) bitAnd: 15)).
-   s at: 5 put: (Character digitValue: ((rgb bitShift: -2 - GreenShift) bitAnd: 15)).
-   s at: 6 put: (Character digitValue: ((rgb bitShift: -6 - BlueShift) bitAnd: 15)).
-   s at: 7 put: (Character digitValue: ((rgb bitShift: -2 - BlueShift) bitAnd: 15)).
-   ^ s
-]]]
 
 ${slide:title=Understanding Code}$
 
@@ -84,7 +70,8 @@ ${slide:title=Understanding Code}$
 testBitShift
    self assert: (2r11 bitShift: 2) equals: 2r1100.
    self assert: (2r1011 bitShift: -2) equals: 2r10.
-
+]]]
+[[[
 testShiftOneLeftThenRight
    "Shift 1 bit left then right and test for 1"
    1 to: 100 do: [:i | self assert: ((1 bitShift: i) bitShift: i negated) = 1].
@@ -94,7 +81,7 @@ ${slide:title=Understanding Code: Pros}$
 
 - Give simple and reproducible examples
 - Explain an API
-- Give up-to-date documentation
+- Offer up-to-date 'documentation'
 - Check conformity of new code
 - Offer a first client to new code
 - Force a modular design
@@ -201,8 +188,7 @@ ${slide:title=Mocking}$
 - Mocks are reusable across tests
 - Mocks can be generated with mocking frameworks
 
-${slide:title=Different Testing Levels}$
+${slide:title=Conclusion}$
 
-+file://figures/tests-pyramid.png|width=60+
-
-*http://martinfowler.com/bliki/TestPyramid.html*
+- Talking about tests is good
+- Implementing tests and feeling their power is better!

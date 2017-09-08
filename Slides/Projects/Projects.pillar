@@ -7,7 +7,7 @@
 
 
 ${slide:title=Project: Sokoban in Bloc}$
-- Check the MemoryGame tutorial
+- Check the MemoryGame tutorial from *http://books.pharo.org*
 - Implement Sokoban
 
 
@@ -27,20 +27,36 @@ ${slide:title=Project: Improve TinyChat}$
 
 ${slide:title=Project: Bomberman}$
 
+- Use Bloc
+- Check the MemoryGame tutorial from *http://books.pharo.org*
+- Test
+- Define a model
+- Load levels
+- Define a UI
 
 ${slide:title=Project: Multiplayer Bomberman}$
-
+- Check the MemoryGame tutorial from *http://books.pharo.org*
 
 ${slide:title=Project: OpenPonk}$
 
 
 ${slide:title=Project: Pillar Renderer?}$
 
+Pillar is a document generator. 
+- Check chapter in Deep into Pharo
+
+Goal of the project: 
+- use bloc
+- Check the MemoryGame tutorial from *http://books.pharo.org*
+- produce renderer (by defining a visitor see the first simple try in Renderer package)
+- produce a render with double click goes back to the editor. 
+
 ${slide:title=Project: Snake Competition}$
 
 - *https://stembolthq.github.io/battle_snake/*
 - serveur
-- clients
+- client
+- contact Jerry Kott jkott@cincom.com
 
 
 
@@ -52,4 +68,8 @@ ${slide:title=Project: Elevator Competition}$
 
 ${slide:title=Project: Wizard Battle Arena}$
 
+-???
 
+${slide:title=Project: Enhance Ecstatic}$
+
+-???
