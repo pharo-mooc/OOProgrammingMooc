@@ -1,10 +1,11 @@
 {
   "title":"Inheritance and Lookup",
   "subtitle":"3: super",
-  "slidesid" : "W4S03"
+  "slidesid":"W5S03",
+  "pharomoocslidesid" : "W4S03"
 }
 
-${slide:title=Goal}$
+${slide:title=Goal of the Lecture}$
 
 - Sending a message
 - Method lookup
@@ -29,12 +30,16 @@ ${column:width=80}$
 ${column:width=30}$
 
 [[[
-    A new bar
-    > ...
-    B new bar
-    > ...
-    C new bar
-    > ...
+A new bar
+>>> ...
+]]]
+[[[
+B new bar
+>>> ...
+]]]
+[[[
+C new bar
+>>> ...
 ]]]
 
 ${endColumns}$
@@ -50,12 +55,15 @@ ${column:width=80}$
 ${column:width=30}$
 
 [[[
-    A new bar
-    > 10
-    B new bar
-    > 20
-    C new bar
-    > 100
+A new bar
+>>> 10
+]]]
+[[[    B new bar
+>>> 20
+]]]
+[[[
+C new bar
+>>> 100
 ]]]
 
 ${endColumns}$
@@ -105,11 +113,11 @@ ${endColumns}$
 
 ${slide:title=self sends are hooks for subclass code}$
 
-+>file://figures/SelfIsDynamic.png|width=40+
++>file://figures/SelfIsDynamic.png|width=35+
 
 ${slide:title=self sends are hooks for subclass code}$
 
-+>file://figures/SelfIsDynamic1.png|width=0+
++>file://figures/SelfIsDynamic1.png|width=38+
 
 
 
@@ -137,6 +145,8 @@ ${slide:title=Even Some Books Got it Wrong}$
 
 In reality it ""does not"" loop, the definition is wrong
 
+
+
 ${slide:title=What You Should Know}$
 
 - ==self== always represents the receiver
@@ -145,6 +155,7 @@ ${slide:title=What You Should Know}$
 -- a super send starts the lookup in the class above it
 - self sends act as a hook: code of subclasses may be invoked
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S03-InheritanceAndLookup-3-Super.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W4S03: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*

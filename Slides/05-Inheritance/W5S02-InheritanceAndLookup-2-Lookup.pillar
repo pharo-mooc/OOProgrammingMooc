@@ -222,10 +222,6 @@ C new bar
 
 ${endColumns}$
 
-${slide:title=Resources}$
-
-- Pharo mooc - Videos W4S02: *http://mooc.pharo.org* 
-- Pharo by Example: *http://books.pharo.org*
 
 
 ${slide:title=What You Should Know}$
@@ -238,4 +234,9 @@ ${slide:title=What You Should Know}$
 - Method lookup maps a message to a method
 - Method lookup starts in the class of the receiver
 -- ...and goes up in the hierarchy
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W4S02: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
 
