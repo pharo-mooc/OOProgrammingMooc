@@ -176,10 +176,7 @@ Dictionary >> postCopy
       association ifNotNil: [ association copy ] ]
 ]]]
 
-${slide:title=Resources}$
 
-- Pharo mooc - Videos W6S05: *http://mooc.pharo.org* 
-- Pharo by Example: *http://books.pharo.org*
 
 
 ${slide:title=Conclusion}$
@@ -188,6 +185,7 @@ ${slide:title=Conclusion}$
 - Sending a message defines a hook
 - Sending a message increases potential reuse
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week6/C019-W6S05-HookAndTemplate.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W6S05: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*

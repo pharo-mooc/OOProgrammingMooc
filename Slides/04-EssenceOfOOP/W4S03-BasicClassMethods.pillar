@@ -88,10 +88,6 @@ Counter class >> withValue: anInteger
       yourself
 ]]]
 
-${slide:title=Resources}$
-
-- Pharo mooc - Videos W3S06: *http://mooc.pharo.org* 
-- Pharo by Example: *http://books.pharo.org*
 
 ${slide:title=Summary}$
 
@@ -101,6 +97,8 @@ ${slide:title=Summary}$
 - Most class-side methods create new instances
 - To define a class-side method, press the ==class== button
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019-W3S06-BasicClassMethods.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W3S06: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
+

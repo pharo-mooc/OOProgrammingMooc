@@ -168,10 +168,6 @@ ${slide:title=In Java}$
 -- a registration mechanism with one instance of each class
 -- a singleton 
 
-${slide:title=Resources}$
-
-- Pharo mooc - Videos W4S06: *http://mooc.pharo.org* 
-- Pharo by Example: *http://books.pharo.org*
 
 
 
@@ -185,6 +181,8 @@ ${slide:title=Conclusion}$
 - Classes are objects and can be sent messages
 
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week4/C019-W4S06-ClassMethodsAtWork.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W4S06: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
+

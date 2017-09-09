@@ -72,3 +72,10 @@ ${slide:title=Summary: Cornerstone of OOP}$
 - Message sends act as potential dynamic conditionals
 - Class hierarchy: a skeleton for dynamic dispatch
 - Avoid conditionals
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S02 Videos *htpp://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*
+- Learning Object-Oriented Programming, Design and TDD with Pharo
+

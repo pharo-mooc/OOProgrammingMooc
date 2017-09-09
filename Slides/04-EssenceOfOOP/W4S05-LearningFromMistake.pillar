@@ -265,10 +265,7 @@ Die class >> new
 
 - use ==super== in overridden methods
 
-${slide:title=Resources}$
 
-- Pharo mooc - Videos W5S03: *http://mooc.pharo.org* 
-- Pharo by Example: *http://books.pharo.org*
 
 
 
@@ -281,6 +278,7 @@ ${slide:title=What You Should Know}$
 - Check ==yourself==
 - Use the debugger to understand the problem
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S03-LearningFromMistake.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W5S03: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*

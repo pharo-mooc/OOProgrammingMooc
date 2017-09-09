@@ -189,11 +189,6 @@ ${slide:title=Or Implementation in Two Methods}$
 +Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=80+
 
 
-${slide:title=Resources}$
-
-- Pharo Mooc - W3S01 Videos
-- Pharo by Example *http://books.pharo.org*
-- Learning Object-Oriented Programming, Design and TDD with Pharo
 
 
 ${slide:title=Summary}$
@@ -202,6 +197,8 @@ ${slide:title=Summary}$
 -- lets the receiver decide
 - Do not ask, tell
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatchNot.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S01 Videos
+- Pharo by Example *http://books.pharo.org*
+- Learning Object-Oriented Programming, Design and TDD with Pharo

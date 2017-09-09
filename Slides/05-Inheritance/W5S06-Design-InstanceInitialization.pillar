@@ -1,6 +1,6 @@
 {
   "title":"About Instance Initialization",
-  "slidesid" : "W3S03"
+  "slidesid" : "W5S06"
 }
 
 ${slide:title=How to ensure that an instance is well initialized?}$
@@ -203,9 +203,9 @@ ${slide:title=Forbidding new}$
 Solution: use ==basicNew== and ==basicNew:==
 [[[
 Packet class >> send: aString to: anAddress
-	^ self basicNew
-		contents: aString ;
-		addressee: anAddress
+  	^ self basicNew
+  		contents: aString ;
+  		addressee: anAddress
 ]]]
 
 Conclusion: Do not override ==basic*== methods else you will not be able to invoke them later

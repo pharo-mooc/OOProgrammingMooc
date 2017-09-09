@@ -237,10 +237,7 @@ ${slide:title=Gruyere-Oriented Programming}$
 
 +.>file://figures/gruyereWithSlogan|width=90+
 
-${slide:title=Resources}$
 
-- Pharo mooc - Videos W6S04: *http://mooc.pharo.org* 
-- Pharo by Example: *http://books.pharo.org*
 
 ${slide:title=Conclusion}$
 
@@ -251,6 +248,7 @@ ${slide:title=Conclusion}$
 -- this gives names to expressions
 -- this gives freedom to subclasses
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week6/C019-W6S04-SelfSendsArePlanForReuse.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W6S04: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*

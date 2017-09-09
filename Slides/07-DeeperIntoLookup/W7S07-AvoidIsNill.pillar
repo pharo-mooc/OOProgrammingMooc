@@ -215,9 +215,6 @@ ToolPalette >> previousAction
 ]]] 
 
 
-${slide:title=Resources}$
-- Pharo mooc - Videos W7S07: *http://mooc.pharo.org* 
-
 ${slide:title=Conclusion}$
 
 - A message acts as a better ==if==
@@ -227,4 +224,7 @@ ${slide:title=Conclusion}$
 
 +.>file://figures/antifIfCampaign.png|width=40+
 
+
+${slide:title=Resources}$
+- Pharo mooc - Videos W7S07: *http://mooc.pharo.org* 
 
