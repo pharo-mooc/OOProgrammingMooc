@@ -1,7 +1,8 @@
 {
   "title":"Inheritance and Lookup",
   "subtitle":"5: Lookup in metaclasses",  
-  "slidesid" : "W4S05"
+  "pharomoocslidesid" : "W4S05",
+  "slidesid":"W7S02"
 }
 
 ${slide:title=Goal}$
@@ -46,7 +47,7 @@ ${slide:title=Superclass Chain}$
 
 ${slide:title=Lookup of Class Methods is No Different}$
 
-+>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=80+
++>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=90+
 
 ${slide:What You Should Know}$
 
@@ -57,6 +58,7 @@ ${slide:What You Should Know}$
 -- follow inheritance chain
 - More during the lecture ''Understanding class methods''
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W4S05: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*

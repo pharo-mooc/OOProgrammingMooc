@@ -1,7 +1,8 @@
 {
   "title" : "Inheritance and Lookup",
   "subtitle" : "4: doesNotUnderstand: aMessage",
-  "slidesid" : "W4S04"
+  "pharomoocslidesid" : "W4S04",
+  "slidesid":"W7S01"
 }
 
 ${slide:title=Goal}$
@@ -111,6 +112,8 @@ ${slide:What You Should Know}$
 -Each class can implement this method
 -The default implementation of ==doesNotUnderstand:== raises an exception that can be handled
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S04-InheritanceAndLookup-4-DoesNotUnderstand.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W4S04: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
+

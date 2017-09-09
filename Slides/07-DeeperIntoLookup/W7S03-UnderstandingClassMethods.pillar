@@ -1,5 +1,6 @@
 {
 	"title":"Really Understanding Class Methods",
+	"pharomoocslidesid" : "Pharo Mooc W5S02",
 	"slidesid" : "W5S02"
 }
 
@@ -71,6 +72,7 @@ ${slide:title=What You Should Know}$
 - Method lookup works the same
 - More during the lecture ''Understanding Metaclasses''
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S02-UnderstandingClassMethods.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W5S02: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*

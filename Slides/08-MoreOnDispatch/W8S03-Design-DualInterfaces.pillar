@@ -1,6 +1,6 @@
 {
-    "title" : "The Two Interfaces in OOP",
-    "slidesid" : "From the Design Corner",
+    "title" : "The Two Interfaces of OOP",
+    "slidesid" : "W8S03",
     "author" : "Stéphane Ducasse"
 }
 
@@ -54,7 +54,7 @@ ${slide:title=Benefits}$
 - And your subclasses are empowered
 -- A subclass can extend/refine the behavior of the superclass
 
-+.>file://figures/DualInterfaces2.png|width=50+
++.>file://figures/DualInterfaces2.png|width=35+
 
 ${slide:title=OOP is about encapsulation AND extension}$
 
