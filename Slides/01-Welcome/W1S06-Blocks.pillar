@@ -161,11 +161,7 @@ ${slide:title=A Design Advice}$
 -- it cannot define more facets (e.g., printing)
 
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W2S06 Videos
-- Pharo by Example *http://books.pharo.org*
-- Deep into Pharo *http://books.pharo.org*
 
 ${slide:title=Summary on Blocks}$
 
@@ -180,6 +176,8 @@ ${slide:title=Summary on Blocks}$
 - Basis of conditionals, loops and iterators (see companion lectures)
 - Further readings: *http://deepintopharo.org*
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S07-Blocks.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S06 Videos
+- Pharo by Example *http://books.pharo.org*
+- Deep into Pharo *http://books.pharo.org*

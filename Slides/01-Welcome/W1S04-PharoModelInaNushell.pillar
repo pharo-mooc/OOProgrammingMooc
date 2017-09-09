@@ -120,11 +120,7 @@ ${slide:title=Less is More :)}$
 - No boxing/unboxing
 - still ""really"" powerful :)
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W1S04 Videos
-- Pharo by Example *http://books.pharo.org*
-- Deep into Pharo *http://books.pharo.org*
 
 
 ${slide:title=Summary}$
@@ -135,6 +131,8 @@ ${slide:title=Summary}$
 - Blocks are kind of anonymous methods
 - Instances are created by sending messages to other objects, or classes
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/4-Done/Intro-ModelInaNushell.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo Mooc - W1S04 Videos
+- Pharo by Example *http://books.pharo.org*
+- Deep into Pharo *http://books.pharo.org*

@@ -241,7 +241,3 @@ ${slide:title=What You Should Know}$
 - Check parentheses ==(== and ==)==
 - Check carets ==^==
 - Use the debugger to understand the problem
-
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S03-LearningFromMistake.pillar"
-% End:

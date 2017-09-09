@@ -146,10 +146,7 @@ ${slide:title=No Mathematical Precedence}$
 >>> 1
 ]]]
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W2S03 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=Summary}$
@@ -161,3 +158,7 @@ ${slide:title=Summary}$
 - Arguments are placed inside message structure: 
 -- 2 between: 0 and: 5 (the message is ==between:and:==)
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S03 Videos *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

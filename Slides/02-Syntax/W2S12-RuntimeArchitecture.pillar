@@ -116,10 +116,6 @@ Pharo change logging system
 - Integrate better with Git and other modern distributed version control systems
 - Offering new ways to produce images 
 
-${slide:title=Resources}$
-
-- Pharo Mooc - W6S06 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=Conclusion}$
@@ -128,3 +124,8 @@ ${slide:title=Conclusion}$
 - Fast boot-time
 - Support micro commits
 - Will use modern version control
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W6S06 Videos  *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

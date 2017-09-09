@@ -102,13 +102,15 @@ self listItems
 - Notice that when the receiver is not empty we get it as argument
 - No need to ask it again
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W2S08 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=Summary}$
 
 - Booleans are real objects
 - Some conditionals are messages sent to Booleans
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S08 Videos
+- Pharo by Example *http://books.pharo.org*

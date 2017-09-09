@@ -316,10 +316,7 @@ ${slide:title=Method Definition Example}$
 
 +>file://figures/FactorialInBrowser.png|width=98+
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W1S05 Videos
-- Pharo by Example *http://books.pharo.org*
 
 ${slide:title=Messages Summary}$
 
@@ -342,6 +339,8 @@ ${slide:title=Conclusion}$
 - Support for Domain Specific Languages
 
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/4-Done/Intro-SyntaxInANutshell.pillar"
-% End:
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W1S05 Videos
+- Pharo by Example *http://books.pharo.org*

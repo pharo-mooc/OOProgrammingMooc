@@ -216,10 +216,7 @@ ${slide:title=Example: Message between:and:}$
 - The message ==between:and:== is sent to an integer
 - Takes two arguments ==10== and ==20==
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W2S01 Videos
-- Pharo by Example
 
 
 ${slide:title=Summary}$
@@ -233,3 +230,8 @@ Three kinds of messages: unary, binary and keywords
 -- ==2 between: 0 and: 10==
 - First we execute ==()==
 - Then unary, then binary and finally keyword messages
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S01 Videos *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

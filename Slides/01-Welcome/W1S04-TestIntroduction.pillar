@@ -104,10 +104,7 @@ There are other testing approach
 - Integration testing 
 - Acceptance testing...
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W5S06 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=Summary}$
@@ -116,3 +113,8 @@ ${slide:title=Summary}$
 - Create one test and run it million times!
 - Use them as your life insurance
 - Libraries exist (BabyMock, Mocketry) for different styles of testing
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W5S06 Videos
+- Pharo by Example *http://books.pharo.org*

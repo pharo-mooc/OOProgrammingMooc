@@ -147,13 +147,15 @@ ${slide:title=Symbols vs. Strings}$
 - Symbols are used as method selectors
 - Symbols are good candidates for identity based dictionaries (==IdentityDictionary==)
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W6S07 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=What You Should Know}$
 
 - Strings are collections of characters
 - Symbols are unique immutable strings
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W6S07 Videos  *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

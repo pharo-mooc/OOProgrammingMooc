@@ -62,13 +62,15 @@ ${slide:title=Quiz|label=squareBracketQuiz}$
 x ifEmpty: [ self doSomething ]
 ]]]
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W2S09 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=Summary|label=squareBracketQuiz}$
 
 - ==( )== is about changing the order of a computation
 - ==[ ]== is freezing the computation and controlling it
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S09 Videos *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

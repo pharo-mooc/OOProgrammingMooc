@@ -110,10 +110,7 @@ teapot
 -- ==:request== is an argument
 -- ==at:== is a message accepting one argument
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W3S04 Videos
-- Web Perspective *http://books.pharo.org*
 
 
 ${slide:title=Conclusion}$
@@ -122,3 +119,7 @@ ${slide:title=Conclusion}$
 - A web server in one page
 - Based on Zinc a really strong and well designed HTTP client/server
 
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S04 Videos  *http://mooc.pharo.org*
+- Web Perspective *http://books.pharo.org*

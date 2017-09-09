@@ -182,10 +182,6 @@ aCollection do: [ :each | ... ]
 ]]]
 
 
-${slide:title=Resources}$
-
-- Pharo Mooc - W2S02 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=Summary}$
@@ -195,6 +191,7 @@ ${slide:title=Summary}$
 - Conditionals are messages
 - Loops too
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile1Slide.sh Slides/Week2/C019-W2S02-Messages-ForTheJavaProgrammers.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S02 Videos *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

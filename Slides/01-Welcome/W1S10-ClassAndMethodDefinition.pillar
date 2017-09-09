@@ -123,10 +123,7 @@ Point class >> x: xInteger y: yInteger
     ^ self basicNew setX: xInteger setY: yInteger
 ]]]
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W1S06 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=What You Should Know}$
@@ -137,6 +134,7 @@ ${slide:title=What You Should Know}$
 - By default a method returns the receiver, ==self==
 - Class methods are just methods of the class side
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week1/C019-W1S06-ClassAndMethodDefinition.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo Mooc - W1S06 Videos
+- Pharo by Example *http://books.pharo.org*

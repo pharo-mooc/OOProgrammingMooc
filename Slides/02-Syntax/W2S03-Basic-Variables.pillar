@@ -97,12 +97,14 @@ Transcript show: 'hello world'.
 Transcript cr.
 ]]]
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W2S03 Videos
-- Pharo by Example *http://books.pharo.org*
 
 ${slide:title=Summary}$
 
 - Lowercase are used for local/private/temporary variables
 - Uppercase are used for shared or global variables
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S03 Videos *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

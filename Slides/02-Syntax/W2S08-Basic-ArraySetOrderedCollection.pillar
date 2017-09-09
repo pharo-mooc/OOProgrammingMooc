@@ -379,10 +379,7 @@ shows:
   March has 31 days
 ]]]
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W3S07 Videos
-- Pharo by Example
 
 ${slide:title=Summary}$
 
@@ -390,3 +387,8 @@ ${slide:title=Summary}$
 - Common vocabulary
 - Simple conversion between them
 - Easy to discover!
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S07 Videos  *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

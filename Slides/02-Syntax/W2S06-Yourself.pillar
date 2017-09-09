@@ -103,10 +103,7 @@ Set class >> with: anObject
 
 Using ==yourself== makes sure the code returns the new instance
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W3S07 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=What You Should Know}$
@@ -115,6 +112,7 @@ ${slide:title=What You Should Know}$
 - Cascade ==;== and ==yourself== often go together
 
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019-W2S10-Yourself.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S07 Videos  *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

@@ -50,6 +50,3 @@ ${slide:title=Exercise 3: Why These Exercises?}$
 - You are never going to implement Booleans in your life
 - So why do we think these exercises are so important?
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pillar"
-% End:

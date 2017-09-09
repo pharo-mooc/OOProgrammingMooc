@@ -73,10 +73,7 @@ is equivalent to:
 - ==add: 2== is sent to the receiver of message ==add: 1==
 - this receiver is the instance of ==OrderedCollection==
 
-${slide:title=Resources}$
 
-- Pharo Mooc - W2S04 Videos
-- Pharo by Example *http://books.pharo.org*
 
 ${slide:title=What You Should Know}$
 
@@ -84,6 +81,7 @@ ${slide:title=What You Should Know}$
 - ==;== (cascade) is useful to avoid repeating the receiver
 - the cascade returns the last message returned value
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S04-Messages-Sequence.pillar"
-% End:
+${slide:title=Resources}$
+
+- Pharo Mooc - W2S04 Videos *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*

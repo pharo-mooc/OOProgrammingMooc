@@ -157,10 +157,6 @@ ${slide:title=What You Should Know}$
 - How to write simple tests
 - Reuse a bit the context by defining ==setUp== methods
 
-${slide:title=Resources}$
-
-- Pharo Mooc - W5S06 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 
@@ -170,3 +166,10 @@ ${slide:title=Summary}$
 - Create one test and run it million times!
 - Use them as your life insurance
 - There exists other libraries for Mock (BabyMock) or different styles of testing
+
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W5S06 Videos  *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*
+

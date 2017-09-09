@@ -270,13 +270,14 @@ ${slide:title=Analysis}$
 - New ones are defined
 - Missing controlled navigation as in the Iterator design pattern
 
-${slide:title=Resources}$
-
-- Pharo Mooc - W3S09 Videos
-- Pharo by Example *http://books.pharo.org*
 
 
 ${slide:title=Summary}$
 - Iterators are your best friends
 - Simple and powerful
 - Enforce encapsulation of collections and containers
+
+${slide:title=Resources}$
+
+- Pharo Mooc - W3S09 Videos  *http://mooc.pharo.org*
+- Pharo by Example *http://books.pharo.org*
