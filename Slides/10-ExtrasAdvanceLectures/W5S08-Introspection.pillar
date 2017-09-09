@@ -48,10 +48,10 @@ ${slide:title=Accessing/Setting State Example}$
 [[[
 pt := 10@3.
 pt instVarNamed: 'x'.
-> 10 
+>>> 10 
 pt instVarNamed: 'x' put: 33.
 pt
-> 33@3
+>>> 33@3
 ]]]
 
 - Violates encapsulation 
