@@ -1,7 +1,8 @@
 {
   "title":"Inheritance and Lookup",
   "subtitle":"2: Lookup",
-  "slidesid" : "Mooc - W4S02"
+  "pharomoocslidesid" : "Mooc - W4S02",
+  "slidesid" : "W5S02"
 }
 
 ${slide:title=Goal}$
@@ -9,9 +10,9 @@ ${slide:title=Goal}$
 - Understanding
 -- message sending
 -- method lookup
--- semantics of ==self==
+-- semantics of ==self==(==this==)
 
-${slide:title=Inheritance}$
+${slide:title=Remember...}$
 
 - Inheritance of state is static
 - Inheritance of behavior is dynamic
@@ -84,9 +85,11 @@ ${slide:title=self Always Represents the Receiver}$
 
 [[[
 A new foo
-> ...
+>>> ...
+]]]
+[[[
 B new foo
-> ...
+>>> ...
 ]]]
 
 ${slide:title=self Always Represents the Receiver}$
@@ -95,9 +98,11 @@ ${slide:title=self Always Represents the Receiver}$
 
 [[[
 A new foo
-> 10
+>>> 10
+]]]
+[[[
 B new foo
-> 50
+>>> 50
 ]]]
 
 ${slide:title=What is self/this?}$
@@ -120,9 +125,11 @@ ${slide:title=self Always Represents the Receiver}$
 
 [[[
 A new bar
-> ...
+>>> ...
+]]]
+[[[
 B new bar
-> ...
+>>> ...
 ]]]
 
 ${slide:title=self Always Represents the Receiver}$
@@ -131,9 +138,11 @@ ${slide:title=self Always Represents the Receiver}$
 
 [[[
 A new bar
-> 10
+>>> 10
+]]]
+[[[
 B new bar
-> 50
+>>> 50
 ]]]
 
 ${slide:title=self Always Represents the Receiver}$
@@ -145,8 +154,8 @@ ${column:width=35}$
 +>file://figures/LookupWithSelfInSuperclassMethod.png|width=110+
 
 [[[
-    B new bar
-    > 50
+B new bar
+>>> 50
 ]]]
 
 ${column:width=65}$
@@ -174,12 +183,16 @@ ${column:width=60}$
 ${column:width=40}$
 
 [[[
-    A new bar
-    > ...
-    B new bar
-    > ...
-    C new bar
-    > ...
+A new bar
+>>> ...
+]]]
+[[[
+B new bar
+>>> ...
+]]]
+[[[
+C new bar
+>>> ...
 ]]]
 
 ${endColumns}$
@@ -195,15 +208,25 @@ ${column:width=60}$
 ${column:width=40}$
 
 [[[
-    A new bar
-    > 10
-    B new bar
-    > 10
-    C new bar
-    > 50
+A new bar
+>>> 10
+]]]
+[[[
+B new bar
+>>> 10
+]]]
+[[[
+C new bar
+>>> 50
 ]]]
 
 ${endColumns}$
+
+${slide:title=Resources}$
+
+- Pharo mooc - Videos W4S02: *http://mooc.pharo.org* 
+- Pharo by Example: *http://books.pharo.org*
+
 
 ${slide:title=What You Should Know}$
 
@@ -216,6 +239,3 @@ ${slide:title=What You Should Know}$
 - Method lookup starts in the class of the receiver
 -- ...and goes up in the hierarchy
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S02-InheritanceAndLookup-2-Lookup.pillar"
-% End:
