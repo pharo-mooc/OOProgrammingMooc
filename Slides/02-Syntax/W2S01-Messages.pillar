@@ -1,7 +1,7 @@
 {
 "title":"Understanding Messages",
 "slidesid" : "W2S01",
-"pharomoocslidesid" : "Pharo Mooc - W2S01"
+"pharomoocslidesid" : "W2S01"
 }
 
 ${slide:title=Objects, Messages and Closures}$
