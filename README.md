@@ -1,11 +1,10 @@
 # Welcome
 
-This repository is the lecture associated with the book "Learning Object-Oriented Programming and Design with TDD in Pharo" by Stéphane Ducasse. You can find the PDF on the github repository 
+This repository is the lecture entitled: "Learning Object-Oriented Programming and Design" associated with the book "Learning Object-Oriented Programming, Design and TDD with Pharo" by Stéphane Ducasse. You can find the PDF on the github repository 
 [https://github.com/SquareBracketAssociates/LearningOOPWithPharo](https://github.com/SquareBracketAssociates/LearningOOPWithPharo).
 
-# Web
+# Website of the OOP Mooc
 The web page of the lecture is available at [https://squarebracketassociates.github.io/OOProgrammingMooc/](https://squarebracketassociates.github.io/OOProgrammingMooc/)
-
 
 # Slides
 You can use all the slides in your own lecture.
