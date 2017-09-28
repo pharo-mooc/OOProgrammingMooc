@@ -40,16 +40,41 @@ FrenchPerson >> makeCrepes
 
 ${slide:title=Messages vs. Methods}$
 
-Message: What to do?
+""Message:"" What to do?
 [[[
 stef makeCrepes.
 robert makeCrepes.
 peter putJamOnCrepes.
 ]]]
 
-Methods: How to do it?
+""Methods:"" How to do it?
 +>file://figures/makeCrepes.png|width=30+
 
+
+
+
+${slide:title=What vs. How}$
+
+;What: Messages
+:Specify what behavior objects have to perform
+:Details are left to the receiver
+;How: Methods
+:Specify how an operation is to be performed
+:Must have access to (contain or be passed) data
+:Need detailed knowledge of data
+:Can manipulate data directly
+
++>file://figures/EncapsulationWithMessages.png|width=30+
+
+
+${slide:title=Message}$
+
+- Sent to an object: The message receiver
+- A message may include parameters necessary for performing the action
+- Message sends always return a result (an object)
+- Only way to communicate with an object and have it perform actions
+
++>file://figures/EncapsulationWithMessages-message.png|width=75+
 
 
 
@@ -81,39 +106,13 @@ Square >> area
 
 ${slide:title=Late binding}$
 
-The executed method depends on the receiver
-
-- Often only know during execution
-
-
+- The executed method depends on the receiver at runtime
+- The receiver is often only known during execution
 
 
 ${slide:title=Data/Messages/Methods}$
 
 +>file://figures/EncapsulationWithMessages.png|width=52+
-
-${slide:title=What vs. How}$
-
-;What: Messages
-:Specify what behavior objects have to perform
-:Details are left to the receiver
-;How: Methods
-:Specify how an operation is to be performed
-:Must have access to (contain or be passed) data
-:Need detailed knowledge of data
-:Can manipulate data directly
-
-+>file://figures/EncapsulationWithMessages.png|width=30+
-
-${slide:title=Message}$
-
-- Sent to an object: The message receiver
-- A message may include parameters necessary for performing the action
-- Message sends always return a result (an object)
-- Only way to communicate with an object and have it perform actions
-
-+>file://figures/EncapsulationWithMessages-message.png|width=75+
-
 
 ${slide:title=Object Encapsulation}$
 
@@ -139,6 +138,6 @@ ${slide:title=Summary}$
 - Messages define what should be done.
 - Methods define how the computation should be performed.
 - The same message sent to different objects may execute different methods.
-- Methods are selected dynamically based on the receiver. 
+- Methods are selected dynamically (during execution) based on the receiver. 
 - Methods are looked up dynamically in the class of the receiver.
 
