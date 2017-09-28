@@ -82,12 +82,12 @@ ${slide:title=An Object}$
 ${slide:title=An Object Reacts to Messages}$
 
 [[[
-  aTurtle jumpTo: aLocation
+  aTurtle go: 200
 ]]]
 
 +>file://figures/BotsMessages.png|width=60+
 
-${slide:title=Different Objects can Understand the Same Messages}$
+${slide:title=Different Objects can Understand the Same Message}$
 
 Each object may perform a different reaction
 [[[

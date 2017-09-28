@@ -5,6 +5,16 @@
 }
 
 
+${slide:title=A method }$
+
+Named sequence of instructions that will be executed on the message receiver
+
+[[[
+FrenchPerson >> makeCrepes
+]]]
++>file://figures/makeCrepes.png|width=60+
+
+
 ${slide:title=Instances Share the Same Behavior}$
 
 - All the instances of a class share the same behavior
@@ -12,10 +22,6 @@ ${slide:title=Instances Share the Same Behavior}$
 
 +>file://Slides/figures/RectangleAndInstancesMessages.pdf|width=70+
 
-${slide:title=Methods are looked up dynamically in the class of the receiver}$
-
-
-+>file://figures/MethodLookedupWithDiffBehavior.pdf|width=100+
 
 
 ${slide:title=A method}$
@@ -28,14 +34,7 @@ ${slide:title=A method}$
 
 +>file://figures/EncapsulationWithMessages-method.png|width=100+
 
-${slide:title=A method }$
 
-Named sequence of instructions that will be executed on the message receiver
-
-[[[
-FrenchPerson >> makeCrepes
-]]]
-+>file://figures/makeCrepes.png|width=60+
 
 
 ${slide:title=Messages vs. Methods}$
@@ -55,14 +54,14 @@ peter putJamOnCrepes.
 
 ${slide:title=What vs. How}$
 
-;What: Messages
-:Specify what behavior objects have to perform
-:Details are left to the receiver
-;How: Methods
-:Specify how an operation is to be performed
-:Must have access to (contain or be passed) data
-:Need detailed knowledge of data
-:Can manipulate data directly
+""What"": Messages
+- Specify what behavior objects have to perform
+- Details are left to the receiver
+""How"": Methods
+-Specify how an operation is to be performed
+-Must have access to data
+-Need detailed knowledge of data
+-Can manipulate data directly
 
 +>file://figures/EncapsulationWithMessages.png|width=30+
 
@@ -77,9 +76,13 @@ ${slide:title=Message}$
 +>file://figures/EncapsulationWithMessages-message.png|width=75+
 
 
+${slide:title=Methods are looked up dynamically in the class of the receiver}$
 
 
-${slide:title=A method is looked up in the class of the receiver}$
++>file://figures/MethodLookedupWithDiffBehavior.pdf|width=100+
+
+
+${slide:title=Methods are looked up dynamically in the class of the receiver}$
 
 +>file://figures/RectangleCircleSquare.pdf|width=100+
 

@@ -9,7 +9,7 @@ ${slide:title=Model of a the World}$
 - There are multiple ways to capture a model of the world
 -- Data driven (often used with relational database)
 -- Object-Oriented Design
--- Functional modeling
+-- Procedural modeling
 -- Reactive programming
 - A program models the world
 
@@ -17,19 +17,16 @@ ${slide:title=Object-Orientation}$
 
 - Is a paradigm, not a technology
 - Reflects, simulates the real world
-- Thinks in terms of decentralized organizations
+- Organized in terms of decentralized organizations
 - Tries to
 -- handle complexity
 -- enhance reusability
 -- minimize maintenance cost
 
-${slide:title=Stepping back: Studying history}$
+${slide:title=Comparing}$
 
-- Procedures
-- Structured Programming
-- Fourth Generation Languages
-- Object-Oriented-Programming
-- (Aspect-Oriented Programming) is more a variation of OOP
+- Procedural 
+- Object-Oriented Design
 
 ${slide:title=Structured/Procedural Programming Point of View}$
 
@@ -58,10 +55,10 @@ myPicture add: (Circle x: 12 y: 3 radius: 3).
 myPicture area
 ]]]
 
-${slide:title=Procedural way: centralize way (in Java)}$
+${slide:title=Procedural Way: Centralized Way (in Java)}$
 
 [[[
-double area() {
+double pictureArea() {
 	double total = 0;
 	    for (Shape shape : shapes) {
 	       switch (shape.kind()) {
@@ -78,10 +75,10 @@ double area() {
 	    return total; }
 ]]]
 
-${slide:title=Procedural way: a centralized way}$
+${slide:title=Procedural Way: a Centralized Way (in Pharo)}$
 
 [[[
-Picture >> area 
+pictureArea
 	| total |
 	total := 0.
 	self shapes do [ :aShape |
@@ -96,15 +93,16 @@ Picture >> area
    ^ total
 ]]]
 
-${slide:title=Procedural way: Drawbacks}$
+${slide:title=Procedural Way: Drawbacks}$
 
 - All the logic is defined in a single place
 -- monolithic 
+- No reuse of the main function pictureArea
 - What if we want to add a new shape?
 -- need to recompile the ==area== procedure
 -- need to check for the new shape
 
-${slide:title=The OO way: delegate to other entities}$
+${slide:title=The OO Way: Delegate to Other Entities}$
 
 [[[
 Picture >> area 
@@ -136,56 +134,36 @@ ${slide:title=OOP Advantages}$
 -- add a class with the ==area== message
 -- create objects of this class
 
+- Reuse of the Picture >> area
+- Reuse of the definition of the shapes
 - Decentralised view of computation
 
 - Each shape class represents its data/logic internally
 
+${slide:title=There is a catch}$
+
+To be able to reuse the code in Picture >> area and add new shape
+- It is important that all the shapes can all answer the message ==area==
+- Polymorphism: different objects answering the same messages with different execution
+
+
+
 ${slide:title=What is OOP?}$
 
-- An application or system is a collection of interacting entities (objects).
-- Objects are characterized by behavior and state.
-- Inter-object communication is done via messages.
-- Message passing late bound the selection of the method to be executed.
-
-${slide:title=Object-Oriented Viewpoint}$
-
-- An application is a set of objects interacting by sending messages
-- The functionality of an object is described by its methods, its data are stored in private variables
-- An object’s functionality can be invoked by sending a message
+- An application is a collection of interacting entities (objects).
+- Objects are characterized by ""behavior"" and ""state"".
+- Objects are described by ""methods"", ""data"" are stored in ""private"" variables.
+- Objects  communicates by exchanging messages.
+- Message passing late bound the selection of the method to be executed in response to messages.
 - Ideally everything is an object
 
 ${slide:title=Objects}$
 
 - Unique identity
 - Private state
-- Methods to perform computation
 - React to message by selecting method to be executed
-- Polymorphic interface to be able to be substitued for other objects
-
-${slide:title=A class is a Factory of Objects}$
-
-A class describes the structure and the behavior of its instances
-- Each instances has its own value
-- All instances of class share the same behavior
-
-+>file://Slides/figures/RectangleAndInstances.pdf|width=40+
-
-
-${slide:title=Responsibility-Driven Design}$
-
-- Objects are responsible to maintain information and provide services
-- An object should have one main responsibility
-- A good design exhibits:
--- high cohesion of operations and data within classes 
--- low coupling between classes and subsystems
-
-${slide:title=Method at Right Level of Abstraction}$
-
-Every method should perform one, well-defined task:
-- High level of abstraction
-- Write to an interface, not an implementation 
--- Avoid hardcoding class references
--- Provide/use polymorphic API 
+- Methods to perform computation
+- Objects expose polymorphic interface to be able to be substitued for other objects
 
 
 ${slide:title=OOP Cornerstone: Encapsulation/Composition}$
@@ -219,15 +197,6 @@ ${slide:title=OOP Cornerstone: Reuse via abstraction extension}$
 - ==OrderedCollection== is a kind of ==Collection==
 - ==Array== is a kind of ==Collection==
 ""Inheritance"" supports reuse and extensions in subclasses
-
-
-
-%${slide:title=Vocabulary point}$
-%- Encapsulation means that related entities are bundled together, for example, a Shape object encapsulates data and related operations for shapes.
-%- Abstraction means that we ignore irrelevant details, for example, we abstract from the details of a Shape object and just use its interface (i.e., its operations).
-%- Information hiding means that we hide (forbid access to) the representation behind an abstraction, for example, you may not directly access the state of a Shape but must access it only through its interface.
-
-
 
 
 

@@ -36,12 +36,12 @@ Enter a pizzeria... order a pizza
 ${slide:title=An Object Reacts to Messages}$
 
 [[[
-  aTurtle jumpTo: aLocation
+  aTurtle go: 200
 ]]]
 
 +>file://figures/BotsMessages.png|width=70+
 
-${slide:title=Different objects can understand the same messages}$
+${slide:title=Different objects can understand the same message}$
 
 Each object may perform a different reaction
 [[[
