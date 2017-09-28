@@ -1,6 +1,6 @@
 {
 	"title":"What is an Object?",
-	"subtitle":"a software entity holding state and reacting to messages",
+	"subtitle":"entity with state and reacting to messages",
 	"slidesid" : "W3S01"
 }
 
@@ -26,7 +26,7 @@ ${slide:title=Object Example: a Rectangle}$
 ]]]
 - has a state: an height and a width
 - knows how to compute its area, edge closest to a point, overlap with other rectangles
-- collaborates with UI redisplay
+- UI uses rectangles to redisplay
 
 ${slide:title=Object Example: a Contact}$
 
@@ -48,21 +48,19 @@ ${slide:title=State \+ Behavior \+ Identity}$
 
 ${slide:title=State \+ Behavior \+ Identity}$
 
-- State:
+- ""State"":
 -- Objects it contains or refers to (ex: point location)
-- Behavior:
+- ""Behavior"":
 -- On object understands a given set of messages
-- Identity:
+- ""Identity"":
 -- On object can be the same (of the same class) than another one but it has still a different identity (location in memory)
 
 ${slide:title=About Equality and Identity}$
 
-I want to eat the pizza that you are eating
+You enter a pizzeria and order a pizza
 
-;Equality
-:I want to eat the ""same"" kind of pizza
-;Identity
-:I eat your pizza
+-""Equality"" I want to eat the ""same"" kind of pizza
+- ""Identity""  eat your pizza
 
 
 
@@ -72,6 +70,8 @@ ${slide:title=Object Responsibilities}$
 
 - The responsibilities are realized by the execution of behavior 
 
+- Example
+-- a turtle draws line, jumps, changes directions
 
 ${slide:title=An Object}$
 
@@ -106,13 +106,13 @@ Each object may perform a different reaction
 ${slide:title=A Method Specifies a Behavior}$
 
 [[[
-height
+Rectangle >> height
 	"Answer the height of the receiver."
 	^corner y - origin y
 ]]]
 
 [[[
-area 
+Rectangle >> area 
 	^ self width * self height
 ]]]
 
@@ -126,19 +126,19 @@ area
 ${slide:title=A Method Can Send  Other Messages}$
 
 [[[
-topCenter
+Rectangle >> topCenter
 	"Answer the point at the center of the receiver's top horizontal line."
 	^ self center x @ self top
 ]]]
 
 [[[
-center
+Rectangle >> center
 	"Answer the point at the center of the receiver."
 	^ self topLeft + self bottomRight // 2
 ]]]
 
 [[[
-top
+Rectangle >> top
 	"Answer the position of the receiver's top horizontal line."
 	^ origin y
 ]]]
@@ -156,9 +156,9 @@ top
 
 
 
-${slide:title=Delegating to Another Object}$
+${slide:title=Delegating to Other Objects}$
 
-An object may delegate to another object
+An object may delegate to other objects
 
 - An object can request another object to perform some tasks for him. 
 - The sender does not have to know how the delegatee is actually implementing the reaction to his message.
