@@ -97,9 +97,21 @@ ${slide:title=Objectives}$
 
 ${slide:title=Objectives}$
 
-- Understanding OOP as a Design methodologies
+- Understanding OOP as a Design methodology
 - Understand key and essential concepts
 - Being able to develop non trivial examples
+
+
+${slide:title=Grow software}$
+
+No complex system fall from the sky!
+
+- Tests, 
+- Code,
+- Break tests,
+- Fix tests,
+- New requirements,
+- Refactor and loop over
 
 ${slide:title=Why Pharo?}$
 
@@ -117,6 +129,16 @@ ${slide:title=No Risk!}$
 - C. Bera: PhD in Pharo Vm (declined Google jobs and others)
 
 Be good and relevant!
+
+
+${slide:title=No Risk!}$
+
+- Have a look at pharo.org/success
+Then 
+- JPMorgan the largest bank in the world is using Smalltalk
+- 30% of worldwide shipping is managed via a Smalltalk system
+- Probably half of your mobile phone components have been created by a robot controlled by Smalltalk
+- Global Foundrie: AMD 64 bits - robots and Smalltalk to drive them
 
 ${slide:title=Side Effect}$
 
