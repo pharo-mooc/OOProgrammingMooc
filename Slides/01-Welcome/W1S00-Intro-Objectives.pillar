@@ -6,10 +6,23 @@
 
 ${slide:title=Who Am I}$
 
+*http://stephane.ducasse.free.fr*
 - Expert in OOP and OOD
-- Wrote several books
-- One book written especially for this lecture and for you
+- Wrote several books (web, reengineering, pharo,...) 
+-- *http://stephane.ducasse.free.fr/Books.html*
+-- *http://books.pharo.org*
 - Love coding and nice design
+-- *http://moosetechnology.org*
+-- *http://pharo.org*
+- Created a company: Synectique
+- Consultant on software evolution: Siemens, Thales, Generali...
+
+${slide:title=This lecture}$
+
+Web site
+- *https://squarebracketassociates.github.io/OOProgrammingMooc/*
+New book
+- *Learning Object-Oriented Programming and Design with TDD in Pharo>http://files.pharo.org/books/learning-oop/*
 
 ${slide:title=Want to Empower You}$
 - OO Programming
@@ -18,7 +31,7 @@ ${slide:title=Want to Empower You}$
 
 But not only
 - Talking, communicating with other developers
-- Learn how to find your bugs. 
+- Learn how to find your bugs 
 
 ${slide:title=Process}$
 
