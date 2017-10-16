@@ -15,8 +15,7 @@ Mondays: 11h-14:15
 	Exercises			
 		Messages
 		Counter	
-			
-		
+	
 -	Two lectures Oct 16th
 		02 Syntax 
 		02 b Common libraries
@@ -48,4 +47,5 @@ Mondays: 11h-14:15
 			double dispatch
 		
 -	Two lectures Dec 11 th (I was not planning to come but I will try).
+		double dispatch
 		
