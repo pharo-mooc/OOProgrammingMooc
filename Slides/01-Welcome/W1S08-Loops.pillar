@@ -18,7 +18,7 @@ ${slide:title=Loops: n timesRepeat: anAction}$
 To repeat a given number of times an action
 
 [[[
-	4 timesRepeat: [ self doSomething ]
+4 timesRepeat: [ self doSomething ]
 ]]]
 
 
@@ -46,7 +46,7 @@ The block is executed with the temporary ==i== taking values from 1 to 100
 ${slide:title=Loops: to:by:do:}$
 
 [[[
-    0 to: 100 by: 3 do: [ :i | ... i ... ]
+0 to: 100 by: 3 do: [ :i | ... i ... ]
 ]]]
 
 ==to:by:do:== is also a method defined on ==Number==
@@ -78,7 +78,7 @@ ${slide:title=Basic Iterators Overview}$
 ${slide:title=Loops: do:}$
 
 [[[
-    aCol do: [ :each | ... ]
+aCol do: [ :each | ... ]
 ]]]
 
 The block is executed with ==each== taking as value all the elements of ==aCol==
@@ -93,7 +93,7 @@ ${slide:title=Example: The do: iterator}$
 ${slide:title=Loops: whileTrue:}$
 
 [[[
-    [ ... ] whileTrue: [ ... ]
+[ ... ] whileTrue: [ ... ]
 ]]]
 
 Executes the argument, ==aBlock==, as long as the value of the receiver is true 
@@ -112,7 +112,7 @@ ${slide:title=Loops: whileTrue}$
 Executes the receiver, as long as its value is true
 
 [[[
-    [ ... ] whileTrue
+[ ... ] whileTrue
 ]]]
 
 Equivalent with ==whileFalse== and ==whileFalse:==

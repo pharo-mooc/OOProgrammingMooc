@@ -110,8 +110,6 @@ ${slide:title=Implementation Note}$
 - Implement your own control structure such as ==siAlors:sinon:== (in French) and try it
 
 
-
-
 ${slide:title=Summary}$
 
 - Blocks freeze and control computation 

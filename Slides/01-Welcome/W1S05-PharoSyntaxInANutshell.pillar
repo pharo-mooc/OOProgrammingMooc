@@ -87,7 +87,7 @@ ${slide:title=Essential Constructs}$
 - Block (lexical closures, a.k.a anonymous method)
 [[[
 [ :x | x + 2 ] value: 5
-> 7 
+>>> 7 
 ]]]
 
 ${slide:title=Essence of Pharo Computation}$
@@ -337,8 +337,6 @@ ${slide:title=Conclusion}$
 - Mainly messages and closures
 - Three kinds of messages
 - Support for Domain Specific Languages
-
-
 
 ${slide:title=Resources}$
 

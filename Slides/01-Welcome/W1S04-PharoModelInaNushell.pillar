@@ -59,12 +59,12 @@ Sending the messages ==new== and ==new:== to a class
 
 [[[
 Monster new
-> aMonster
+>>> aMonster
 ]]]
 
 [[[
 Array new: 6
-> #(nil nil nil nil nil nil)
+>>> #(nil nil nil nil nil nil)
 ]]]
 
 Here we get an array of size 6
@@ -86,7 +86,7 @@ ${slide:title=Object Creation: Creating a String}$
 
 [[[
 'Pharo', ' is Cool'
-> 'Pharo is Cool'
+>>> 'Pharo is Cool'
 ]]]
 
 A new ==String== is created as the concatenation of two strings by:
