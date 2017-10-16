@@ -59,22 +59,22 @@ anObject aSelector
 
 [[[
 1 class
-> SmallInteger
+>>> SmallInteger
 ]]]
 
 [[[
 false not
-> true
+>>> true
 ]]]
 
 [[[
 Date today
-> 24 May 2009
+>>> 24 May 2009
 ]]]
 
 [[[
 Float pi
-> 3.141592653589793
+>>> 3.141592653589793
 ]]]
 
 ${slide:title=Did you notice?}$
@@ -84,26 +84,22 @@ ${slide:title=Did you notice?}$
 
 [[[
 1 class
-> SmallInteger
+>>> SmallInteger
 ]]]
 
 [[[
 Date today
-> 27 June 2015
+>>> 27 June 2015
 ]]]
 
 ${slide:title=A Bit of Introspection}$
 
 [[[
 Point selectors
-> #(#x #theta #quadrantOf: #onLineFrom:to:within: #bitShiftPoint: #< #scaleFrom:to: #sideOf: #'\\' #scaleTo: #grid: #'//' #asIntegerPoint #directionToLineFrom:to: ...) 
+>>> #(#x #theta #quadrantOf: #onLineFrom:to:within: #bitShiftPoint: #< #scaleFrom:to: #sideOf: #'\\' #scaleTo: #grid: #'//' #asIntegerPoint #directionToLineFrom:to: ...) 
 ]]]
 
 - Returns all the messages the class understands
-
-
-
-
 
 ${slide:title=Binary Messages}$
 
@@ -120,22 +116,22 @@ ${slide:title=Binary Message Examples}$
 
 [[[
 1 + 2
-> 3
+>>> 3
 ]]]
 
 [[[
 2 > 3
-> false
+>>> false
 ]]]
 
 [[[
 10@200 
-> 10@200
+>>> 10@200
 ]]]
 
 [[[
 'Black chocolate' , ' is good'
-> 'Black chocolate is good'
+>>> 'Black chocolate is good'
 ]]]
 
 
@@ -176,8 +172,8 @@ ${slide:title=A Little Query}$
 - Let us query the system and only filter the unary messages:
 
 [[[
-    Point selectors select: #isUnary  
-    > #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
+Point selectors select: #isUnary  
+>>> #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
 ]]]
 
 - ==select:== is an iterator (see Iterator lecture)

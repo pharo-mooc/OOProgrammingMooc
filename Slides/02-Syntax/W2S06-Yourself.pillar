@@ -103,9 +103,6 @@ Set class >> with: anObject
 
 Using ==yourself== makes sure the code returns the new instance
 
-
-
-
 ${slide:title=What You Should Know}$
 
 - Some simple methods are powerful

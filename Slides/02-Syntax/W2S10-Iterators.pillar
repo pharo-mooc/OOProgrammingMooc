@@ -16,14 +16,14 @@ ${slide:title=Applying a message and collecting the results}$
 
 For example, image we want to get whether a number is odd or not for a complete collection:
 [[[
-#(2 -3 4 -35 4) areOddNumbers
->>> #(false true false true)
+#(2 -34 -35 4) areOddNumbers
+>>> #(false false false true)
 ]]]
 
 A possible limited solution 
 [[[
 | result aCol|
-aCol := #(2 -3 4 -35 4).
+aCol := #(2 -34 -35 4).
 result := Array new: aCol size.
 1 to: aCol size do:
     [ :each | result at: each put: (aCol at: each) odd ].
@@ -34,16 +34,21 @@ ${slide:title=A better solution: Using collect:}$
 
  ==collect:== applies the block to each element and returns a collection (of the same kind than the receiver) with the results
 
+ [[[
+ #(2 -3 4 -35 4) collect: [ :each | each odd]
+ >>> #(false true false true)
+ ]]]
+ 
+ - In the block, each element is sent ==odd==
+ 
+ ${slide:title= Advantages of using collect:}$
+ 
 - Works on any collection (Set, Array, OrderedCollection,...)
 - ==collect:== evaluates the block for each element (using ==value:==)
-- In the block, each element is sent ==odd==
 - ==collect:== returns a new collection (of the same kind of the receiver) with all results
 - [Think object] We ask the collection to do something for us
  
-[[[
-#(2 -3 4 -35 4) collect: [ :each | each odd]
->>> #(false true false true)
-]]]
+
 
 
 ${slide:title=Another collect: Example}$
@@ -89,8 +94,8 @@ ${slide:title=select: Elements Matching a Criteria}$
 To select some elements, use ==select:==
 
 [[[
-  #(16 11 68 19) select: [ :i | i odd ]
-  > #(11 19)
+#(16 11 68 19) select: [ :i | i odd ]
+>>> #(11 19)
 ]]]
 
 ${slide:title=With Unary Messages, No Block Needed}$
@@ -113,7 +118,7 @@ To filter some elements, use ==reject:==
 
 [[[
 #(16 11 68 19) reject:  [ :i | i odd ]
-> #(16 68)
+>>> #(16 68)
 ]]]
 
 
@@ -123,7 +128,7 @@ To find the first element that matches, use ==detect:==
 
 [[[
 #(16 11 68 19) detect:  [ :i | i odd ]
-> 11
+>>> 11
 ]]]
 
 
@@ -133,7 +138,7 @@ To find the first element that matches else return a value, use ==detect:ifNone:
 
 [[[
 #(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ]
-> 0
+>>> 0
 ]]]
 
 
@@ -232,7 +237,7 @@ To group elements according to a grouping function: ==groupedBy:==
 
 [[[
 #(1 2 3 4 5 6 7) groupedBy: #even
-> a PluggableDictionary(false->#(1 3 5 7) true->#(2 4 6) )
+>>> a PluggableDictionary(false->#(1 3 5 7) true->#(2 4 6) )
 ]]]
 
 
@@ -242,12 +247,12 @@ How to remove one level of nesting in a collection? Use ==flatCollect:==
 
 [[[
 #( #(1 2) #(3) #(4) #(5 6)) collect: [ :each | each ]
-> #(#(1 2) #(3) #(4) #(5 6)))
+>>> #(#(1 2) #(3) #(4) #(5 6)))
 ]]]
 
 [[[
 #( #(1 2) #(3) #(4) #(5 6)) flatCollect: [ :each | each ]
-> #(1 2 3 4 5 6 )
+>>> #(1 2 3 4 5 6 )
 ]]]
 
 ${slide:title=Opening The Box}$
@@ -269,7 +274,6 @@ ${slide:title=Analysis}$
 - All the collections support them
 - New ones are defined
 - Missing controlled navigation as in the Iterator design pattern
-
 
 
 ${slide:title=Summary}$

@@ -101,7 +101,7 @@ CounterTest >> testIncrement
 	|c|
 	c := Counter new.
 	c count: 0 ; increment; increment.
-	self assert: self count = 2
+	self assert: c count = 2
 ]]]
 
 Message:  An instance of CounterTest did not understand ==count==

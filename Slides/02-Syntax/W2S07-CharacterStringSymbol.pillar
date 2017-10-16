@@ -71,7 +71,7 @@ str at: str size
 >>> $u
 
 str last
->> $u
+>>> $u
 ]]]
 
 ${slide:title=Ways to Obtain a String}$

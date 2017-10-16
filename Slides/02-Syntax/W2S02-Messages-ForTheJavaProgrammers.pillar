@@ -14,7 +14,7 @@ ${slide:title=Equivalence}$
 
 In Java
 [[[
-    ArrayList<String> strings = new ArrayList<String>();
+ArrayList<String> strings = new ArrayList<String>();
 ]]]
 
 In Pharo
@@ -180,8 +180,6 @@ ${slide:title=Loops are Just Messages}$
 [[[
 aCollection do: [ :each | ... ]
 ]]]
-
-
 
 
 ${slide:title=Summary}$
