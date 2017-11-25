@@ -134,7 +134,8 @@ ${slide:title=OOP Advantages}$
 -- add a class with the ==area== message
 -- create objects of this class
 
-- Reuse of the Picture >> area
+- Reuse of the ==Picture >> area==
+-- we do not have to modify it each time a shape is added/removed
 - Reuse of the definition of the shapes
 - Decentralised view of computation
 
@@ -142,31 +143,29 @@ ${slide:title=OOP Advantages}$
 
 ${slide:title=There is a catch}$
 
-To be able to reuse the code in Picture >> area and add new shape
-- It is important that all the shapes can all answer the message ==area==
+To be able to reuse the code in ==Picture >> area== and add new shapes
+- It is important that all the shapes can answer to the message ==area==
 - Polymorphism: different objects answering the same messages with different execution
 
+${slide:title=Thinking about names}$
 
+Naming ==Picture >> area== the same way than Shape methods (==area==)
+- support that picture can be used as a shape 
+- Composite design pattern
+- Possibility to rethink/refactor change area logic independently from clients
 
-${slide:title=What is OOP?}$
+${slide:title=Stepping back: What is OOP?}$
 
 - An application is a collection of interacting entities (objects).
 - Objects are characterized by ""behavior"" and ""state"".
 - Objects are described by ""methods"", ""data"" are stored in ""private"" variables.
 - Objects  communicates by exchanging messages.
+- Objects expose polymorphic interface to be able to be substituted for other objects.
 - Message passing late bound the selection of the method to be executed in response to messages.
 - Ideally everything is an object
 
-${slide:title=Objects}$
 
-- Unique identity
-- Private state
-- React to message by selecting method to be executed
-- Methods to perform computation
-- Objects expose polymorphic interface to be able to be substitued for other objects
-
-
-${slide:title=OOP Cornerstone: Encapsulation/Composition}$
+${slide:title=OOP Cornerstones: Encapsulation/Composition}$
 
 ""Encapsulation"" 
 - Hide and control the internal representation of an object. This will ease further evolution
@@ -175,7 +174,7 @@ ${slide:title=OOP Cornerstone: Encapsulation/Composition}$
 ""Composition"" 
 - An object can be composed of several simpler other objects
 
-${slide:title=OOP Cornerstone: Distribution of responsibility}$
+${slide:title=OOP Cornerstones: Distribution of responsibility}$
 
 ""Distribution of responsibility and delegation"" 
 - Computing a problem is the results of many objects performing (sub) tasks.
@@ -186,12 +185,12 @@ ${slide:title=OOP Cornerstone: Late binding}$
 -- What to perform? the message 
 -- How to perform? the method 
 
-${slide:title=OOP Cornerstone: Polymorphism}$
+${slide:title=OOP Cornerstones: Polymorphism}$
 ""Polymorphism"" 
 - Objects exhibiting the same interface can be substitued
 - Class hierarchy defines families of ""polymorphic"" (kind of substituable) objects
 
-${slide:title=OOP Cornerstone: Reuse via abstraction extension}$
+${slide:title=OOP Cornerstones: Reuse via abstraction extension}$
 
 ""Inheritance"" structures abstractions as conceptual hierarchies
 - ==OrderedCollection== is a kind of ==Collection==
