@@ -1,5 +1,5 @@
 {
-  "title":"OOP languages",
+  "title":"Comparing some OOP Languages",
   "slidesid":"W8S05"
 }
 
@@ -147,6 +147,13 @@ It can simply break dynamic dispatch
 - For example in Visitor your visit method is not invoked!
 
 
+${slide:title=About primitive types}$
+
+- There is no need for primitives types. 
+- In Pharo Integer are objects but specially treated ones!
+- A variable pointing to a normal object points to an object header which knows its class and its garbage collector info.
+- A variable pointing to smallinteger does not point to an object header
+- The variable is the object header itself
 
 
 
