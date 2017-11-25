@@ -3,40 +3,69 @@
   "slidesid" : "W3S06"
 }
 
+${slide:title=Goals}$
+
+- Patterns pro developers use daily
+- Use the system itself to learn from it
+- Applicable in any language 
+
 ${slide:title=Looking for implementors}$
 
+What are the methods that may be executed in response to a message?
 - Look for possible implementations
 - You will get methods and may be one that you can call on (sub)-instances of the class implementing it.
 
-${slide:title=Looking for implementors}$
+${slide:title=Implementors in Pharo}$
 
+- Select a message
 - Command-m (for iMpleMentors)
-+>file://Slides/figures/ImplementorsLowercase.png|width=90+
++>file://Slides/figures/ImplementorsLowercase.png|width=80+
 
 ${slide:title=Looking for implementors (Spotter)}$
 
--  Shift-Enter hex #im (all methods whose selectors contains ...)
+-  Shift-Enter hex #im (or #implementors)
+- all methods whose selectors contains hex
 +>file://Slides/figures/SpotterLowercase.png|width=90+
 
 ${slide:title=Looking for senders}$
+
 - Look how a given message is used
-- Always interesting to understand typical arguments to be passed
+-- receiver
+-- arguments
+- Always interesting to understand how typical arguments are passed
+- May be useful to set a break point to see actual objects
 
 
-${slide:title=Looking for senders}$
+${slide:title=Senders in Pharo}$
 - Command-n (for seNders)
-There is no senders of lowercase
+
+- There is no sender of ==lowercase==
+- But 139 of ==asLowercase==
++>file://Slides/figures/asLowercaseSenders.png|width=80+
 
 ${slide:title=Looking for senders (Spotter)}$
 
-- Shit-Enter asLowercase #se
+- Shit-Enter asLowercase #se (or #senders)
 +>file://Slides/figures/SpotterSendersAslowercase.png|width=90+
-
-
 
 ${slide:title=Looking for class references}$
 
-+>file://Slides/figures/PointClassReferences.png|width=90+
+- How to create instances?
+- How a class is used?
+-- class methods
+-- default values
+
+${slide:title=Class references in Pharo}$
+
+- Command-N 
+
++>file://Slides/figures/PointClassReferences.png|width=75+
+
+${slide:title=Class references (Spotter)}$
+
+- Shift-Enter Point
++>file://Slides/figures/SpotterPoint.png|width=90+
+
 
 ${slide:title=Example: copyWithoutAll: implementors}$
 
@@ -46,16 +75,6 @@ ${slide:title=Example: copyWithoutAll: senders}$
 
 +>file://Slides/figures/copyWithoutAllSenders.png|width=90+
 
-${slide:title=Looking for hex}$
-
-[[[
-testCopyEmptyWithoutAll
-	"self debug: #testCopyEmptyWithoutAll"
-	| res |
-	res := self empty copyWithoutAll: self collectionWithElementsToRemove.
-	self assert: res size = self empty size.
-	self collectionWithElementsToRemove do: [ :each | self deny: (res includes: each) ]
-]]]
 
 ${slide:title=Grabing instances and asking them}$
 
@@ -65,9 +84,11 @@ Too often we try to imagine objects
 - Inspect it, talk to it
 
 
-${slide:title=All the folders...}$
+${slide:title=All the folders that...}$
 
 Find all the folder of this lectures containing pillar files
+
+${slide:title=Let us start with the slides folder object}$
 [[[
 FileSystem workingDirectory / 'Slides'
 ]]]
@@ -78,13 +99,13 @@ FileSystem workingDirectory / 'Slides'
 
 +>file://Slides/figures/inspectingFiles.png|width=90+
 
-${slide:title=All the folders...}$
+${slide:title=What are the subfolders}$
 
 [[[
 (FileSystem workingDirectory / 'Slides') directories
 ]]]
 
-
+${slide:title=Navigate subfolders}$
 
 [[[
 (FileSystem workingDirectory / 'Slides') directories 
@@ -105,7 +126,11 @@ ${slide:title=All the folders...}$
 
 ${slide:title=Summary}$
 
-Looking for
-- implementors
-- senders
-- direct references to classes
+''A programmer becomes good not when he knows the syntax but when he knows
+how to find information.''
+
+- Look for
+-- implementors
+-- senders
+-- direct references to classes
+-- grab an object and talk to it
