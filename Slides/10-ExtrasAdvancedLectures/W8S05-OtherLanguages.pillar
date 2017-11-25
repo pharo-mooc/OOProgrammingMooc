@@ -1,0 +1,153 @@
+{
+  "title":"OOP languages",
+  "slidesid":"W8S05"
+}
+
+
+${slide:title=Some language map}$
+
++>file://figures/languagemap.png|width=70+
+
+${slide:title=Java}$
+
+Object programming with a taste of imperative design
+- class based privacy
+- static methods
+- public fields!
+- primitive types vs. objects
+- Overloading considered evil!
+
+${slide:title=Class-based encapsulation}$
+
+- In Java, the model is struct-oriented.
+- No instance-based encapsulation.
+- Class-based encapsulation
+-- You can read my bank account because we are both instance of Person class!
+
+- In Pharo, encapsulation is ""instance""-based.
+-- You cannot access data of another object.
+
+${slide:title=Static methods are not lookup}$
+
+- A static method is not a class method.
+- There is ""no"" method lookup (statically bound)
+- No possibility to perform simple registration mechanisms
+- Need factory and singleton 
+
+${slide:title=Remember: Parsing Lines}$
+
++>file://figures/items.png|width=40+
+
+[[[
+Parser >> documentClasses
+   ^ DocumentItem allSubclasses
+      sorted: [ :class1 :class2 | class1 priority < class2 priority ]
+
+Parser >> parse: line
+   self documentClasses
+      detect: [ :subclass |
+         (subclass canParse: aLine)
+            ifTrue: [ ^ subclass newFromLine: line ] ]
+]]]
+
+${slide:title=Public fields}$
+
+- You can have public fields!
+- Don't use them.
+- Bad concept
+
+
+${slide:title=Private Methods}$
+
+
+[[[
+class A {
+	public void m() { this.p(); }
+	private void p() { println("A.p()"); }
+}
+class B extends A {
+	private void p() { println("B.p()"); }
+}
+]]]
+
+Which is called? ==A.p()== or ==B.p()==?
+[[[
+A b = new B();
+b.m();
+]]]
+
+Check separate lecture
+
+${slide:title=Private Methods}$
+
+Are private methods inherited? 
+
+[[[
+class A {
+	public void m() { this.p(); }
+	private void p() { println("A.p()"); }
+}
+class B extends A {
+	private void p() { println("B.p()"); }
+}
+]]]
+
+Which is called? A.p() or B.p()?
+[[[
+A b = new B();
+b.m();
+]]]
+
+[[[
+A.p()
+]]]
+
+Because private methods are statically bound in Java
+
+${slide:title=Private Methods in C++}$
+
+- In C++ private can also be virtual
+
+${slide:title=Private Methods in Ruby}$
+
+In Ruby private methods are dynamically bound :)
+
+
+${slide:title=Private Methods in Ruby}$
+
+[[[
+class C
+	def fooAccessingX; x; end
+	private
+	def x; return 1; end
+end
+class D < C
+	public
+	def x; return 2; end
+end
+]]]
+Results:
+[[[
+C.new.fooAccessingX ==> 1 
+D.new.fooAccessingX ==> 2
+]]]
+
+- The private method ==x== is publicly redefined in a subclass
+- Template superclass senders invoke the overriden method ==x==
+
+
+${slide:title=About overloading}$
+
+Distinguish method based on their argument types
+- Look nice at first
+- But turns to be really ugly: Breaks late binding!!!
+- Check separate lecture
+
+It can simply break dynamic dispatch
+- For example in Visitor your visit method is not invoked!
+
+
+
+
+
+
