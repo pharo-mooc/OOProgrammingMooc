@@ -45,7 +45,7 @@ ${slide:title=Senders in Pharo}$
 
 ${slide:title=Looking for senders (Spotter)}$
 
-- Shit-Enter asLowercase #se (or #senders)
+- Shift-Enter asLowercase #se (or #senders)
 +>file://Slides/figures/SpotterSendersAslowercase.png|width=90+
 
 ${slide:title=Looking for class references}$
