@@ -15,16 +15,16 @@ ${slide:title=Inheritance In a Nutshell}$
 - With inheritance: A class can extend/reuse/refine the state/behavior of another class 
 - When a class inherits from a another one (superclass):
 -- its instances can execute methods of the superclass
--- its instances have the state of the superclass in addition to the ones of the superclass
+-- its instances have the state of the superclass in addition to the ones defined locally
 
 ${slide:title=Pharo, Java and others}$
 
 Pharo treats inheritance the same way as Java/C\#:
 - Single inheritance between classes
-- Static inheritnance instance variables (at compile-time)
+- Static inheritance instance variables (at compile-time)
 - Dynamic for methods (at runtime)
 
-${slide:title=The Basics}$
+${slide:title=The Basics: Inheritance is Delta Operation}$
 
 ${columns}$
 
@@ -61,14 +61,14 @@ ${column:width=40}$
 ${endColumns}$
 
 
-${slide:title=Adding State and Behavior}$
+${slide:title=Add State and Behavior}$
 
 ${columns}$
 
 ${column:width=60}$
 
 A subclass can add specific state and behavior:
--- ==color==, ==borderColor==, ...
+- ==color==, ==borderColor==, ...
 
 ${column:width=40}$
 
@@ -84,7 +84,7 @@ ${columns}$
 ${column:width=60}$
 
 A subclass can use superclass behavior and state
-- saving a ColoredRectangle will use methods of the superclass to get information
+- a ColoredRectangle will use methods of the superclass to reuse behavior logic
 
 ${column:width=40}$
 
@@ -117,7 +117,7 @@ ${columns}$
 ${column:width=70}$
 
 - ==Object== is the root of most classes
-- ==ProtoObject== (==Object=='s superclass) is for special purposes (like raising a many as errors as possible)...
+- ==ProtoObject== (==Object=='s superclass) is for special purposes (like raising as many as errors as possible)...
 -- ...but we will ignore it as it is not important
 
 ${column:width=30}$
@@ -128,9 +128,10 @@ ${endColumns}$
 
 ${slide:title=The Basics}$
 
-Inheritance is
-- Static for state (i.e., during class creation)
-- Dynamic for behavior (i.e., during execution)
+- Inheritance is an incremental definition mechanism
+- Inheritance is
+-- Static for state (i.e., during class creation)
+-- Dynamic for behavior (i.e., during execution)
 
 ${slide:title=Inheritance of Instance Variables}$
 
@@ -139,7 +140,7 @@ ${columns}$
 ${column:width=65}$
 
 - Happens during class definition compilation
-- computed from
+- Computed from
 -- the class own instance variables
 -- the ones of its superclasses
 - ==ColoredRectangle== instances will be characterized by ==width==, ==height==, ==color==, ==borderColor== instance variables
