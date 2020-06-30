@@ -78,6 +78,15 @@ ${column:width=53}$
 
 ${endColumns}$
 
+${slide:title=What is self/this?}$
+
+Take 5 min and write the definition of ==self== (==this== in Java).
+
+- your definition should have two points:
+-- what does ==self== represent?
+-- how is a method looked up when a message is sent to ==self==?
+
+
 
 ${slide:title=self Always Represents the Receiver}$
 
@@ -105,13 +114,6 @@ B new foo
 >>> 50
 ]]]
 
-${slide:title=What is self/this?}$
-
-Take 5 min and write the definition of ==self== (==this== in Java).
-
-- your definition should have two points:
--- what does ==self== represent?
--- how is a method looked up when a message is sent to ==self==?
 
 ${slide:title=self/this}$
 
