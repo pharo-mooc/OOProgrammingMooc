@@ -55,28 +55,28 @@ ${slide:title=Tests}$
 
 ${slide:title=Good test suite}$
 
--􏰀 check extreme cases (e.g., null, 0 and empty)
--􏰀 check complex cases (e.g., exceptions)
--􏰀 1 test for each bug (at least)
-􏰀- good coverage
-􏰀- check abstractions
-􏰀- check units independently
+- check extreme cases (e.g. null 0 and empty)
+- check complex cases(e.g. exceptions)
+- 1 test for each bug (at least)
+- good coverage
+- check abstractions
+- check units independently
 
 ${slide:title=Tests support understanding}$
 
 [[[
 testConvert
-   self assert: Color white convert = ’#FFFFFF’. 
-   self assert: Color red convert = ’#FF0000’. 
-   self assert: Color black convert = ’#000000’
+   self assert: Color white convert = '#FFFFFF'. 
+   self assert: Color red convert = '#FF0000'. 
+   self assert: Color black convert = '#000000'
 ]]]
 
 ${slide:title=Tests support understanding}$
 
 [[[
 testBitShift
-    self assert: (2r11 bitShift: 2) equals: 2r1100. 
-    self assert: (2r1011 bitShift: −2) equals: 2r10.
+    self assert: (2r11 bitShift: 2) equals: 2r1100.
+    self assert: (2r1011 bitShift: - 2) equals: 2r10.
 ]]]
 
 [[[
@@ -117,8 +117,8 @@ ${slide:title=For Increasing Trust}$
 Good Unit tests are:
 
 - change less frequently than the rest
-- 􏰀 good code coverage
--  deterministic
+- good code coverage
+- deterministic
 
 ${slide:title=Colateral advantages}$
 
