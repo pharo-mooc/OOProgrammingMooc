@@ -149,6 +149,19 @@ ${slide:title=Testing Tips: Mocks}$
 - JMock
 - "Growing Object-Oriented Software Guided by Tests"
 
+${slide:title= Three excellent testing practices}$
+- During dev, write tests first
+-- Specify what you want
+-- You are done when the tests run
+- When you redesign/improve your software
+-- refactor in small steps and 
+-- run the tests to stop any regression
+-- fix what is broken (get the bar green)
+- During debugging
+-- write a test that demonstrates the bug
+-- then fix it.
+
+
 ${slide:title=Conclusion}$
 
 - Tests are important
