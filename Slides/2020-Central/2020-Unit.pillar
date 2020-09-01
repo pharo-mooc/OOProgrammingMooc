@@ -8,17 +8,17 @@
 ${slide:title=Objectives}$
 
 - Examples of Unit tests
-- Unit testing is super simple
-- In Java and Pharo
-- Looking at the frameworks
+- Core concepts 
+- In Java, C#, PHP and Pharo
 
 Thanks Alexandre Bergel for parts of the materials used in this lecture!
 
-${slide:title=SUnit}$
+${slide:title= SUnit -> JUnit3}$
 
-- Extremely simple (4 classes)
 - Originally developed by K. Beck (agile programming father)
+- Extremely simple (4 classes)
 - Got copied all over the places: JUnit3.x, PHPUnit,...
+
 
 ${slide:title=A Test}$
 
@@ -30,20 +30,61 @@ In a test, we
 ${slide:title=Set TestCase}$
 
 [[[
-TestCase subclass: # SetTestCase
+TestCase subclass: # SetTest
     ...
 ]]]
 
 [[[
-SetTestCase >> testAdd 
+SetTest >> testAdd 
   | empty |
   empty := Set new.   "Context"
   empty add: 5.   "Stimulus"
   empty add: 5.
   self assert: empty size = 1.   "Check"
-
-SetTestCase run: #testAdd
 ]]]
+
+${slide:title=Another example: CounterTest}$
+
+[[[
+TestCase subclass: # CounterTest
+    ...
+]]]
+
+[[[
+CounterTest >> testIncrement 
+  | counter |
+  counter := Counter new.   "Context"
+  counter value: 22. 
+  counter increment.   "Stimulus"
+  counter increment.
+  self assert: count value equals: 24.   "Verification"
+]]]
+
+${slide:title=JCounter }$
+
+[[[
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class CounterTest {
+
+  @Test
+  public void testConstructorIsInitializing()  {
+      assertEquals(new Counter().value(), 0);
+  }
+
+  @Test
+  public void testIncrement() {
+       Counter count = new Counter();
+       count.setValue(22);
+       count.increment();
+       count.increment();
+       assertEquals(count.value(),24 );
+   }
+}
+]]]
+
+
 
 ${slide:title=Success, Failures and Errors}$
 
@@ -52,6 +93,7 @@ ${slide:title=Success, Failures and Errors}$
 - An error is a condition you didn’t check for, i.e., a runtime error.
 
 ${slide:title=Concepts}$
+
 +>file://figures/Junit3.png|width=80+
 
 
@@ -104,7 +146,7 @@ class MoneyTest extends PHPUnit_Framework_TestCase
 }
 ]]]
 
-${slide:title=In Ruby}$
+
 ${slide:title=In Ruby}$
 [[[
 # File:  tc_simple_number2.rb
@@ -140,10 +182,9 @@ ${slide:title=JUnit 4 based on annotations}$
 
 ${slide:title=JUnit 4.x}$
 
-- Annotations for marking methods as tests
-- Annotations for marking methods that setting up and cleaning up test data (“fixtures”) 
-- methods for making assertions 
-- textual and graphical tools for running tests
+- Annotations for marking methods as tests (@Test)
+- Annotations for marking methods that setting up and cleaning up “fixtures” (@Before) 
+- methods for making assertions assertEquals()
 
 ${slide:title=JUnit 4.x Example Code}$
 
@@ -154,11 +195,12 @@ public class MoneyTest {
 	private Money f12CHF;
 	private Money f14CHF;
 
-	@Before public void setUp() {	// create the test data
-		f12CHF = new Money(12, "CHF");      // - the fixture
+	@Before public void setUp() {	// the fixture
+		f12CHF = new Money(12, "CHF");      
 		f14CHF = new Money(14, "CHF");
 	}
-	@Test public void add() {			// create the test data
+	
+	@Test public void add() {
 		Money expected = new Money(26, “CHF”);
 		assertEquals(“amount not equal”,
                      expected,f12CHF.add(f14CHF));
