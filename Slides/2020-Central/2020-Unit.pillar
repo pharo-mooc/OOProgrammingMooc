@@ -20,14 +20,14 @@ ${slide:title= SUnit -> JUnit3}$
 - Got copied all over the places: JUnit3.x, PHPUnit,...
 
 
-${slide:title=A Test}$
+${slide:title=First: Looking at a Test}$
 
 In a test, we 
 - Create a context: Create an empty set
 - Send a stimulus: Add twice the same element
-- Check the results: Check that the set contains only one element
+- Check results: Check that the set contains only one element
 
-${slide:title=Set TestCase}$
+${slide:title=Set TestCase In Pharo}$
 
 [[[
 TestCase subclass: # SetTest
@@ -60,7 +60,7 @@ CounterTest >> testIncrement
   self assert: count value equals: 24.   "Verification"
 ]]]
 
-${slide:title=JCounter }$
+${slide:title=Counter in Java (JUnit 40) }$
 
 [[[
 import org.junit.jupiter.api.Test;
@@ -84,7 +84,12 @@ class CounterTest {
 }
 ]]]
 
+${slide:title=A Test}$
 
+In a test, we 
+- Create a context
+- Send a stimulus
+- Check results
 
 ${slide:title=Success, Failures and Errors}$
 
@@ -92,15 +97,78 @@ ${slide:title=Success, Failures and Errors}$
 - A failure is a failed assertion, i.e., an anticipated problem that you test.
 - An error is a condition you didn’t check for, i.e., a runtime error.
 
-${slide:title=Concepts}$
+${slide: setUp and tearDown Messages}$
 
-+>file://figures/Junit3.png|width=80+
+Executed systematically before and after each test run
+- ==setUp== allows us to specify and reuse the context
+- ==tearDown== to clean after
+
++>file://figures/SetUpTearDown.png+
+
+${slide:title=Defining a setUp Method}$
+
+[[[
+SetTestCase >> setUp
+  empty := Set new
+]]]
+
+ ==setUp== is executed for you before any test execution
+
+[[[
+SetTestCase >> testOccurrences
+  self
+    assert: (empty occurrencesOf: 0)
+    equals: 0.
+  empty add: 5; add: 5.
+  self
+    assert: (empty occurrencesOf: 5)
+    equals: 1
+]]]
 
 
 ${slide:title=Unit Frameworks}$
 
-- JUnit is based on SUnit 
-- Test-Driven Development, by Kent Beck
+- JUnit3.0 is based on SUnit 
+- TestCase: a single test
+- TestSuite: a groupe of tests
+- TestResult
+- TestResources: how to set up a context for a complete suite
+
+${slide:title=Graphically}$
+
++>file://figures/Junit3.png|width=80+
+
+${slide: setUp and tearDown Messages}$
+- Executed systematically before and after each test run
+- ==setUp== allows us to specify and reuse the context
+- ==tearDown== to clean after
+
++>file://figures/SetUpTearDown.png+
+
+${slide:title=Defining a setUp Method in Pharo}$
+
+[[[
+SetTestCase >> setUp
+  empty := Set new
+]]]
+
+ ==setUp== is executed for you before any test execution
+
+ ${slide:title=Defining a setUp Method in Java}$
+
+ [[[
+ SetTestCase >> setUp
+   empty := Set new
+ ]]]
+
+  ==setUp== is executed for you before any test execution
+
+
+
+
+
+
+${slide:title=Looking at variations}$
 
 
 ${slide:title=JUnit 3.x is similar to Pharo 3.0}$
@@ -116,15 +184,37 @@ ${slide:title=JUnit 3.x is similar to Pharo 3.0}$
 			f14CHF = new Money(14, "CHF");
 		}
 	   public void testAdd() {				// create the test data
-			Money expected = new Money(26, “CHF”);
-			assertEquals(“amount not equal”,
+			Money expected = new Money(26, "CHF");
+			assertEquals("amount not equal",
 	                     expected, f12CHF.add(f14CHF));
 		}
 		...
 	}
 ]]]
 
-${slide:title=PHPUnit is closed to JUnit 3/Pharo}$
+${slide:title=JUnit 3.x is similar to Pharo 3.0}$
+
+Define a subclass of TestCase \+ setUp \+ testAdd method
+[[[
+	import junit.framework.*;
+	public class MoneyTest extends TestCase {
+		private Money f12CHF;			// fixtures
+		private Money f14CHF;
+
+		protected void setUp() {		// create the test data
+			f12CHF = new Money(12, "CHF");
+			f14CHF = new Money(14, "CHF");
+		}
+	   public void testAdd() {				// create the test data
+			Money expected = new Money(26, "CHF");
+			assertEquals("amount not equal",
+	                     expected, f12CHF.add(f14CHF));
+		}
+		...
+	}
+]]]
+
+${slide:title=PHPUnit is close to JUnit 3/Pharo}$
 
 [[[
 <?php
@@ -164,17 +254,13 @@ class TestSimpleNumber < Test::Unit::TestCase
   def test_typecheck
     assert_raise( RuntimeError ) { SimpleNumber.new('a') }
   end
- 
-  def test_failure
-    assert_equal(3, SimpleNumber.new(2).add(2), "Adding doesn't work" )
-  end
 
 end
 ]]]
 
 ${slide:title=JUnit 4 based on annotations}$
 
-- J2SE 5 introduces the Metadata feature (data about data)
+- J2SE 5 introduced the Metadata feature
 - Annotations allow you to add decorations to your code (remember javadoc tags: @author ) 
 - Annotations are used for code documentation, compiler processing (@Deprecated ), code generation, runtime processing
 *http://java.sun.com/docs/books/tutorial/java/javaOO/annotations.html*
@@ -201,43 +287,46 @@ public class MoneyTest {
 	}
 	
 	@Test public void add() {
-		Money expected = new Money(26, “CHF”);
-		assertEquals(“amount not equal”,
+		Money expected = new Money(26, "CHF");
+		assertEquals("amount not equal",
                      expected,f12CHF.add(f14CHF));
 	}
 	...
 }
 ]]]
 
-${slide:title=In C#}$
+${slide:title=In CSharp similar idea}$
 
 [[[
 [TestMethod]
 public void Withdraw_ValidAmount_ChangesBalance()
 {
-    // arrange
-    double currentBalance = 10.0;
+    double currentBalance = 10.0;	// fixture
     double withdrawal = 1.0;
     double expected = 9.0;
     var account = new CheckingAccount("JohnDoe", currentBalance);
-    // act
+    // stimulus
     account.Withdraw(withdrawal);
     double actual = account.Balance;
-    // assert
+    // assertions
     Assert.AreEqual(expected, actual);
 }
 
-[TestMethod]
-[ExpectedException(typeof(ArgumentException))]
-public void Withdraw_AmountMoreThanBalance_Throws()
-{
-    // arrange
-    var account = new CheckingAccount("John Doe", 10.0);
-    // act
-    account.Withdraw(1.0);
-    // assert is handled by the ExpectedException
-}
 ]]]
+
+${slide:title=JUnit 5 :): the same but different}$
+
+- Before -> BeforeEach , Ignore -> Disabled, BeforeClass -> BeforeAll
+- JUnit 4 has everything bundled into single jar file.
+- JUnit 5 is composed of 3 sub-projects
+-- JUnit Platform. It defines the TestEngine API for developing new testing frameworks that runs on the platform.
+-- JUnit Jupiter. has all new junit annotations and TestEngine implementation to run tests written with these annotations.
+-- JUnit Vintage, To support running JUnit 3 and JUnit 4 written tests on the JUnit 5 platform.
+
+The testing framework is not that importan, the tests are...
+Eagerly wanting for new old super exciting features :). 
+
+
 
 
 ${slide:title=3 Testing practices}$
@@ -251,3 +340,10 @@ ${slide:title=3 Testing practices}$
 - During debugging
 -- write a test that demonstrates the bug
 -- then fix it.
+
+${slide:title=What you should know}$
+
+- What is a unit test
+- Writing a test
+- What is pass, failed, errors
+- Tests are your best friends against bugs and evolution
