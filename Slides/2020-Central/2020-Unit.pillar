@@ -156,10 +156,10 @@ SetTestCase >> setUp
 
  ${slide:title=Defining a setUp Method in Java}$
 
- [[[
+[[[
  SetTestCase >> setUp
    empty := Set new
- ]]]
+]]]
 
   ==setUp== is executed for you before any test execution
 

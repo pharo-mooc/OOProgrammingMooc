@@ -1,0 +1,30 @@
+{
+	"title":"Some type aspects of Java",
+	"slidesid":"",
+	"author":"S. Ducasse"
+}
+
+
+${slide:title=Objectives}$
+
+- Understanding dynamic and static
+- 
+
+${slide:title=What we will not cover}$
+
+- Java is gigantic
+- Full of conceptual glitches (public fields, strange protected...)
+- Do not cover packaging
+- Will provide some extras slides on more advanced topics
+
+${slide:title=Graphically}$
+
++>file://figures/SetUpTearDown.png+
+
+
+${slide:title=What you should know}$
+
+- What is a unit test
+- Writing a test
+- What is pass, failed, errors
+- Tests are your best friends against bugs and evolution
