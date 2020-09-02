@@ -11,9 +11,57 @@ ${slide:title=Objectives}$
 - And the cost of all of it
 
 
-${slide:title=What you should know}$
 
-- What is a unit test
-- Writing a test
-- What is pass, failed, errors
-- Tests are your best friends against bugs and evolution
+
+${slide:title=Protected in Pharo/CPP}$
+
+- Protected attributes are not accessible from outside the class and its subclasses.
+- Subclasses can access instance variables and invoke/override methods.
+
+
+${slide:title=Visibility in Java}$
+
+
+Two levels
+- Top level (e.g., class): public or package-private (no explicit modifier)
+- Member level: public, private, protected, package-private (no explicit modifier)
+
+Top level
+- A public class is visible to all the classes everywhere.
+- A package-private class is only to its own package
+
+
+
+
+
+${slide:title=Member Level Visibility in Java}$
+
+Default = "package private"
+- Inside a package you can access to protected methods of any classes
+- Protected: can only be accessed within its own package and by subclasses in another package
+
++.>file://figures/JavaVisibility-image.png+
+
+
+
+${slide:title=About private in Java}$
+
+- A method in a subclass can be made "more" private
+- Else instances of subclasses could not be used in place of instance of superclass
+
+
+
+
+${slide:title=About Final}$
+
+- Pay attention because you are not the kwisatz Harach
+- You cannot correctly predict the future
+
+${slide:title=Final in Java}$
+
+- To a class: cannot be extended
+- To a method: cannot be redefined
+- To an initialized variable: cannot be changed
+
+
+${slide:title=What you should know}$
