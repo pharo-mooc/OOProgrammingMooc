@@ -1,5 +1,5 @@
 {
-	"title":"About class methods",
+	"title":"About visibility",
 	"slidesid":"",
 	"author":"S. Ducasse"
 }
@@ -7,11 +7,8 @@
 
 ${slide:title=Objectives}$
 
-- What is a class methods?
-- What are the possible semantics
-- Comparing static Java methods and Pharo class methods
-
-
+- Private protected in different language
+- And the cost of all of it
 
 
 ${slide:title=What you should know}$

@@ -10,16 +10,72 @@ ${slide:title=Objectives}$
 - Understanding dynamic and static
 - 
 
-${slide:title=What we will not cover}$
+${slide:title=Static vs. Dynamic Types}$
 
-- Java is gigantic
-- Full of conceptual glitches (public fields, strange protected...)
-- Do not cover packaging
-- Will provide some extras slides on more advanced topics
+Consider:
+A a = new B();
+The static type of variable a is A  i.e., the statically declared class to which it belongs.
+The static type never changes.
 
-${slide:title=Graphically}$
+The dynamic type of a is B  i.e., the class of the object currently bound to a.
+The dynamic type may change throughout the program.
 
-+>file://figures/SetUpTearDown.png+
+a = new A();
+Now the dynamic type is also A!
+
+
+${slide:title=Excercice about overloading...}$
+
+[[[
+class A {
+  public void f(A a) { print("A.f(A)"); }
+}
+class B extends A {
+  public void f(A a) { print("B.f(A)"); }
+  public void f(B b) { print("B.f(B)"); }
+}
+A a = new B();
+B b = new B();
+a.f(a);      a.f(b);
+b.f(a);      b.f(b);
+]]]
+
+[[[
+class A { ...
+}
+class B extends A {
+  ...
+}
+]]]
+
+[[[
+A x = (A) new B();
+B y = (B) new A();
+B z = (A) new B();
+]]]
+
+${slide:title=About Casts}$
+
+- Casts never change program execution
+- Casts are only useful to indicate to the compiler that a reference to a supertype (think Train) is an instance of a wellknow subtype (TGV)
+- Cast to a super type are useless because a subtype is a subtype (if we expect Train we can get TGV already)
+
+${slide:title=Kind of Summary}$
+
+- Static types are known by the compiler. 
+- Dynamic types are the variable values known at execution.
+
+
+${slide:title=Method lookup}$
+
+- The compiler choses one signature (with static types)
+- The runtime uses dynamic types and looks for a method compatible with the signature
+
+${slide:title=Avoid overloading}$
+Overloading: multiple methods with the same name but different types is a recipe to disaster.
+
+- Overloading makes your code difficult to understand in presence of subtyping
+- Overloading makes code less extensible
 
 
 ${slide:title=What you should know}$
