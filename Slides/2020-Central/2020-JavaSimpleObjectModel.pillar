@@ -16,12 +16,117 @@ ${slide:title=What we will not cover}$
 
 - Java is gigantic
 - Full of conceptual glitches (public fields, strange protected...)
-- Do not cover packaging
-- Will provide some extras slides on more advanced topics
+- Lecture will not cover packaging
+- Provide some extras slides on more advanced topics
 
-${slide:title=Graphically}$
+${slide:title=Class}$
 
-+>file://figures/SetUpTearDown.png+
+${slide:title=Instance variables}$
+
+${slide:title=Methods}$
+
+${slide:title=Constructor}$
+
+- Class() is the default constructeur
+- 
+- 
+
+${slide:title=Example Rectangle}$
+
+[[[
+class Rectangle{ 
+	Point origin, corner;
+
+}
+]]]
+
+${slide:title=Inheritance}$
+
+
+
+${slide:title=Lookup}$
+
+[[[
+class A {
+    public int f() { return g();}
+    public int g() {
+        System.out.println("A");
+        return 1;
+    }
+}
+class B extends A {
+    public int g() {
+        System.out.println("B");
+        return 2;
+    }
+}
+
+class Runner {
+    public static void main(String[] args) {
+        A a = new A();
+        B b = new B();
+        a.f();
+        b.f();
+    }
+}
+]]]
+
+
+${slide:title=Lookup with Super}$
+
+[[[
+class A {
+  public void f() { g(); }
+  public void g() { print("A"); }
+}
+class B extends A {
+  public void f() { super.f(); }
+  public void g() { print("B"); }
+}
+]]]
+[[[
+(new A()).f();
+(new B()).f();
+]]]
+
+
+
+${slide:title=Static variables or methodes }$
+
+- Modifier 'static'
+- Linked to the class
+- No lookup for static methods
+- Variable unique and shared between all instances of the class
+- Kind of global since the class is a global too
+
+[[[
+class Circle {
+	static double PI = 3.14159265; 
+	double rayon; //instance level
+	double circonference() {
+		return 2*PI*rayon; // or Circle.PI
+		}
+	}
+]]]
+
+
+
+
+
+${slide:title=About main and command line}$
+
+- one single parameter: a table of strings
+- argv.length 
+[[[
+public class Echo {
+	public static void main(String[] argv) { 
+		for (int i=0; i<argv.length; i++)
+			System.out.print(argv[i]+" ");
+			System.out.println(); }
+	}
+>>>java Echo OOP is COOL Java less
+>>>OOP is COOL Java less
+]]]
 
 
 ${slide:title=What you should know}$
