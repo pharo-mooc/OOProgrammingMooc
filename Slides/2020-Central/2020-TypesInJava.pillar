@@ -1,6 +1,6 @@
 {
-	"title":"Some type aspects of Java",
-	"slidesid":"",
+	"title":"Type aspects of Java",
+	"slidesid":"Core",
 	"author":"S. Ducasse"
 }
 
@@ -16,10 +16,10 @@ ${slide:title=Static vs. Dynamic Types}$
 A a = new B();
 ]]]
 
-- The static type of variable a is A  i.e., the statically declared class to which it belongs.
+- The static type of variable ==a== is ==A==  i.e., the statically declared class to which it belongs.
 -- The static type never changes.
 
-- The dynamic type of a is B  i.e., the class of the object currently bound to a.
+- The dynamic type of ==a== is ==B==  i.e., the class of the object currently bound to a.
 -- The dynamic type may change throughout the program.
 
 [[[
@@ -31,18 +31,27 @@ Now the dynamic type is also A!
 ${slide:title=Static vs. Dynamic Types}$
 
 This works too with method signature
-
 [[[
-	myMethod(A a){
-	
-	}
-	
-	myMethod(new B());
-	myMethod(new A());
+public class A { }
+public class B extends A { }
 ]]]
 
+[[[
+	public class Main {
+	    public static void main(String[] args) {
+	        dynclassOutput (new B());
+	        dynclassOutput (new A());
+	    }
+	    public static void dynclassOutput (A a) {
+	        System.out.println(a.getClass().getName());
+	    }
+	}
+]]]
 
-${slide:title=Overloading...}$
+What is the static / dynamic type of ==a== there?
+
+
+${slide:title=Overloading is a bad idea}$
 
 You can have multiple methods with the same name and types argument
 [[[
@@ -53,23 +62,128 @@ You can have multiple methods with the same name and types argument
 	visit (SequenceNode n) {}
 ]]]
 
-- Avoid it as much as possible
-
-
-${slide:title=Avoid overloading}$
-Overloading: multiple methods with the same name but different types is a recipe to disaster.
-
+- Avoid it as much as possible... it makes code less extensible
 - Overloading makes your code difficult to understand in presence of subtyping
 - Programming in OOP is using subtyping 
-- Overloading makes code less extensible
 - Check other lectures
 
 
+
+
+%${slide:title=About Casts}$
+%
+%- Casts are only useful to indicate to the compiler that a reference to a supertype (think Train) is an instance of a well known subtype (TGV)
+%- Cast to a super type are useless because a subtype is a subtype (if we expect Train we can get TGV already)
+%
+%[[[
+%public static void casting(){
+%   A a = (A) new B(); // We declare a Train and we convert a TGV into a Train
+%   // but the dynamic type of a is still a B.
+%   dynclassOutput (a);
+%   // B aa = (B) new A(); // Impossible We declare a TGV but we cannot convert a Train into a TGV
+%   // dynclassOutput (aa);
+%   // B aaa = (A) new B(); //Impossible
+%   // We declare a TGV and we indicate to the compiler that we want to put a Train
+%   // java: incompatible types: someClasses.A cannot be converted to someClasses.B
+%   // dynclassOutput (aaa);
+%}
+%]]]
+
+
+%[[[
+%B b = new B();
+%A upcasted = (A) b;  <=== this is the "upcast"
+%B downcasted = (B) upcasted; <=== this is the downcast
+%]]]
+
+%[[[
+%A upcasted = new A();
+%B downcasted = (B) upcasted; <=== this is an invalid downcast that compiles but does not run
+%]]]
+
+%- but it does not run
+%- because at runtime it checks "is the object a B?" NO => boom
+% the compiler has to emit a runtime check
+%%
+% you cannot downcast to a type lower than the runtime type of the instance.
+
+%we have a variable of a type "high" in a hierachie and that I want to call a specific method  which is lower in the hierarchie (for example a method only defined on B), and which is compatible with the type of your instance (your instance has B in it's inheritance tree a way or another), you need to cast to make it "visible" to the compiler (even if it often reflect a bad design).
+%That explain the classical disgusting pattern 
+%[[[
+%if (x instanceof B) {
+%    B b = (B)x;
+%}
+%]]]
+
+%${slide:title=The case of equals }$
+%In the case of equals, it's to compare this with the parameter. The signature says the parameter that represents the other object that you will %compare yourself against is an instance of Object, then in your equals, if  you need to compare specific result of methods (or fields), you need to %downcast
+% imagine you have A >> foo , B >> foo and B >> bar
+% to be able to access to bar in equals( Object anObject)
+%if (x instanceof B) {
+%    B b = (B)x;
+%}
+
 ${slide:title=About Casts}$
 
-- Casts never change program execution
-- Casts are only useful to indicate to the compiler that a reference to a supertype (think Train) is an instance of a wellknow subtype (TGV)
-- Cast to a super type are useless because a subtype is a subtype (if we expect Train we can get TGV already)
+- Tell the compiler that the type of the object is another one... 
+- you cannot downcast to a type lower than the runtime type of the instance.
+
+[[[
+B b = new B();
+A upcasted = (A) b;  <=== this is the "upcast"
+B downcasted = (B) upcasted; <=== this is the downcast
+]]]
+
+
+${slide:title=About Casts: the runtime errors}$
+
+[[[
+A upcasted = new A();
+B downcasted = (B) upcasted; <=== this is an invalid downcast that compiles but does not run
+]]]
+- but it does not run
+- because at runtime it checks "is the object a B?" NO => boom
+- a runtime check is necessary
+- You cannot downcast to a lower type than the object dynamic type
+
+${slide:title=The case of equals }$
+
+The only place where you should use a downcast is ==equals(Object o)==
+[[[
+public class Person
+{
+    String firstName;
+    String lastName;
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+	
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof Person)
+            return isSamePerson((Person)o);
+        return false;
+    }
+   public  boolean isSamePerson(Person o) {
+        return firstName.equals(o.firstName) && lastName.equals(o.lastName);
+    }
+}
+]]]
+
+
+${slide:title=The case of equals }$
+
+In the case of equals, it's to compare this with the parameter. The signature says the parameter that represents the other object that you will compare yourself against is an instance of Object, then in your equals, if  you need to compare specific result of methods (or fields), you need to downcast
+
+[[[
+Class B {
+	public boolean equals(Object o) {
+	  if (this == o) return true;
+	  if (! (o instanceof B)) return false;
+	  B other = (B) o;
+	  // Do stuffs with other and this to compare getter/fields...etc 
+}
+]]]
+
 
 ${slide:title=Kind of Summary}$
 
@@ -83,11 +197,7 @@ ${slide:title=Method lookup}$
 - The runtime uses dynamic types and looks for a method compatible with the signature
 
 
-
-
 ${slide:title=What you should know}$
 
-- What is a unit test
-- Writing a test
-- What is pass, failed, errors
-- Tests are your best friends against bugs and evolution
+- Dynamic / static types
+- ==equals(Object o)==

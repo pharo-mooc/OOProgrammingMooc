@@ -1,0 +1,198 @@
+{
+	"title":"First look at Objects, Classes, Methods and  Messages",
+	"slidesid":"W1S03"
+}
+
+${slide:title=An object}$
+
+A little entity with: 
+- state
+- behavior 
+- identity
+
+${slide:title=Example: A turtle object}$
+
+A little entity with: 
+- ""state"": tilt, pen up or down
+- ""behavior"": draw on screen
+- ""identity"": one is different to the other
++>file://figures/Bots-TwoDiffTurles.png|width=45+
+
+${slide:title=Example: A file object}$
+
+A little entity with: 
+- ""state"": a path, a contents
+- ""behavior"": show contents, change contents, can be renamed
+- ""identity"": one is different to the other
+
+${slide:title=About Identity and Equality}$
+
+Enter a pizzeria... order a pizza
+
+- ""identity"": you eat the pizza of a client
+- ""equality"": you order the same pizza than a client
+
+
+${slide:title=An Object Reacts to Messages}$
+
+[[[
+  aTurtle go: 200
+]]]
+
++>file://figures/BotsMessages.png|width=70+
+
+${slide:title=Different objects can understand the same message}$
+
+Each object may perform a different reaction
+[[[
+ aWindow open 
+]]]
+
+[[[
+ aFile open 
+]]]
+
+[[[
+ aZip open
+]]]
+
+
+${slide:title=Message Receiver}$
+
+i.e., the object that receives the message
+[[[
+aTurtle jumpTo: aLocation
+"receiver is aTurtle"
+]]]
+
+
+[[[
+aWindow open
+"receiver is aWindow"
+]]]
+
+
+[[[
+aFile open 
+"receiver is aFile"
+]]]
+
+
+${slide:title=A method }$
+
+Named sequence of instructions that will be executed on the message receiver
+
+[[[
+FrenchPerson >> makeCrepes
+]]]
++>file://figures/makeCrepes.png|width=60+
+
+
+${slide:title=Messages vs. Methods}$
+
+""Message:"" What to do?
+[[[
+stef makeCrepes.
+robert makeCrepes.
+peter putJamOnCrepes.
+
+]]]
+
+""Methods:"" How to do it?
++>file://figures/makeCrepes.png|width=30+
+
+
+${slide:title=One Message and Multiple methods}$
+
+One ""message"" ==open==
+
+Several ""methods"" named ==open==
+[[[
+Window >> open 
+     ...
+]]]
+
+[[[
+File >> open 
+    ...
+]]]
+
+[[[
+Zip >>open
+   ...
+]]]
+
+
+
+
+
+${slide:title=A class is Factory of Objects}$
+
+${columns}$
+
+${column:width=50}$
+
+- A class is an object mould
+-- A class creates many instances
+
+- Each instances is still a separate entity
+-- You can create mutiple baths and break one. 
+
+${column:width=50}$
+
++>file://figures/bathMaker.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=A class is Factory of Objects}$
+
+${columns}$
+
+${column:width=50}$
+
+A class
+- Defines all the variables of all its instances
+- Defines all the behavior of its instances
+-- no repetition in all the instances
+
+
+${column:width=50}$
+
++>file://figures/bathMaker.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=Message new creates objects}$
+
+[[[
+Turtle new
+>>> aTurtle
+]]]
+
++>file://figures/BotsClassCreatingObjects.png|width=80+
+
+[[[
+File new
+>>> aFile
+]]]
+
+${slide:title=Methods are looked up dynamically in the class of the receiver}$
+
+
++>file://figures/MethodLookedupWithDiffBehavior.pdf|width=100+
+
+
+
+
+${slide:title=Summary}$
+
+- An object is a unique entity instance of a class.
+- A class specifies the shape and behavior of all its instances.
+- An object receives messages and executes corresponding methods. 
+- A message is: What to do.
+- A method is: How to do it.
+- Different objects can understand the same message and execute different methods. 
+
+But we will see that again in the future lectures!
