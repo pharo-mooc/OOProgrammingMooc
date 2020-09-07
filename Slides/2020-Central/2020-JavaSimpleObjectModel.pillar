@@ -16,7 +16,7 @@ ${slide:title=What we will not cover}$
 
 - Java is gigantic and even more...
 - Full of conceptual glitches (public fields, strange protected...)
-- This lecture will not cover packaging, lambdas, generics, synchronised, meta data, 
+- This lecture will not cover packaging, lambdas, generics, inner classes,  synchronised, meta data, 
 - Provide some extras slides on more advanced topics
 
 ${slide:title=Java}$
@@ -163,8 +163,12 @@ public JButton(String text, Icon icon) {
         init(text, icon);
     }
 ]]]
-- Constructor smay invoke each other. 
+- Constructors may invoke each other. 
 -- The keyword this is used for that purpose. Note that this ==this==, used in to invoke constructor, has nothing to do with the ==this== pseudo variable used in method.
+
+
+
+
 
 ${slide:title=Constructor III}$
 
@@ -236,31 +240,105 @@ ${slide:title=Constructors}$
 
 [[[
 class Rectangle {
-	   protected double length;
-	   protected double width;
+	   protected double length; protected double width;
 	   public Rectangle(){
 	      length = 0;
-	      width = 0;
-	   }
+	      width = 0; }
 	   public Rectangle(double length, double width) {
 	         this.length = length;
-	         this.width = width;
-	      }
-}
+	         this.width = width; }
 ]]]
 
 [[[
 class Box extends Rectangle {
 	   protected double height;
 	   public Box() { 
-	   		super();
-	       height = 0;
+	       super();
+	       height = 0; 
 	   }
 	   public Box(double length, double width, double height) {
 	         super(length, width);
-	         this.height = height;
-	      }
+	         this.height = height; 
+		}
+]]]
+
+${slide:title=super in constructors}$
+
+- means look in superclass and invoke the constructor with the same signature as the super call
+
+[[[
+public Meal {
+    public Meal(String flavour) {
+       this.flavour = flavour;
+    }
 }
+]]]
+
+[[[
+public Crisps(String flavour, int quantity) {
+    super(flavour); // send flavour to the super class constructor
+    this.quantity = quantity;
+}
+]]]
+
+${slide:title=super in constructor: II }$
+
+[[[
+public Meal {
+	public void setFlavour(String flavour) {
+	    this.flavour = flavour;
+	}
+]]]
+
+[[[
+public Crisps(String flavour, int quantity) {
+    this.quantity = quantity;
+    super.setFlavour(flavour);
+}
+]]]
+
+${slide:title=About implicit constructor invocation}$
+
+[[[
+class Super {
+    String s;
+    public Super(){ System.out.println("Super"); }
+}
+ 
+public class Sub extends Super { 
+    public Sub(){ 
+		super (); // implicitly added if not present
+		System.out.println("Sub"); }
+    public static void main(String[] args){
+    	Sub s = new Sub(); }
+}
+
+>>> Super
+>>> Sub
+]]]
+
+- If a constructor does not explicitly invoke a superclass constructor, the Java compiler automatically inserts a call to the no-argument constructor of the superclass. 
+- If the super class does not have a no-argument constructor, you will get a compile-time error. Object does have such a constructor, so if Object is the only superclass, there is no problem.
+- The rules is: subclass constructor has to invoke super class constructor, either explicitly by programmer or implicitly by compiler. For either way, the invoked super constructor has to be defined.
+
+${slide:title=Example of missing super constructor }$
+
+"Implicit super constructor is undefined for default constructor. Must define an explicit constructor"
+
+[[[
+class Super {
+    String s;
+    public Super(String s) { this.s = s; }
+}
+
+public class Sub extends Super { 
+    public Sub(){ 
+		System.out.println("Sub"); }
+
+    public static void main(String[] args){
+    	Sub s = new Sub(); }
+}
+
 ]]]
 
 ${slide:title=Static variables or methodes }$
@@ -296,6 +374,42 @@ public class Echo {
 >>>java Echo OOP is COOL, Java less
 >>>OOP is COOL, Java less
 ]]]
+
+
+${slide:title=Super well which one...}$
+Java is confusing at wish:
+
+- super in accessing super same named superclass fields (Duh! Ugly)
+- super in method to invoke overridden super method (super is the receiver see Lecture)
+- super in constructor 
+-- first line represents the superclass and looks for constructor function based on argument
+-- in any for the other line, represents the newly created object but changes lookup and in plain method.
+
+${slide:title=Super : accessing super same named superclass fields}$
+
+
+[[[
+class Vehicle { 
+    int maxSpeed = 120; 
+} 
+
+class Car extends Vehicle { 
+    int maxSpeed = 180; 
+  
+    void display() { 
+        System.out.println("Maximum Speed: " + super.maxSpeed); 
+    } 
+}
+class Test { 
+    public static void main(String[] args) { 
+        Car small = new Car(); 
+        small.display(); 
+    } 
+} 
+>>> 120  
+]]]
+- Do not redefine fields in subclass with the same name... 
+- The language should not let you do that!
 
 
 ${slide:title=What you should know}$
