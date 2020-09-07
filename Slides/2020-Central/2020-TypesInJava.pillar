@@ -8,51 +8,62 @@
 ${slide:title=Objectives}$
 
 - Understanding dynamic and static
-- 
+- Casts 
 
 ${slide:title=Static vs. Dynamic Types}$
 
-Consider:
+[[[
 A a = new B();
-The static type of variable a is A  i.e., the statically declared class to which it belongs.
-The static type never changes.
+]]]
 
-The dynamic type of a is B  i.e., the class of the object currently bound to a.
-The dynamic type may change throughout the program.
+- The static type of variable a is A  i.e., the statically declared class to which it belongs.
+-- The static type never changes.
 
+- The dynamic type of a is B  i.e., the class of the object currently bound to a.
+-- The dynamic type may change throughout the program.
+
+[[[
 a = new A();
+]]]
+
 Now the dynamic type is also A!
 
+${slide:title=Static vs. Dynamic Types}$
 
-${slide:title=Excercice about overloading...}$
-
-[[[
-class A {
-  public void f(A a) { print("A.f(A)"); }
-}
-class B extends A {
-  public void f(A a) { print("B.f(A)"); }
-  public void f(B b) { print("B.f(B)"); }
-}
-A a = new B();
-B b = new B();
-a.f(a);      a.f(b);
-b.f(a);      b.f(b);
-]]]
+This works too with method signature
 
 [[[
-class A { ...
-}
-class B extends A {
-  ...
-}
+	myMethod(A a){
+	
+	}
+	
+	myMethod(new B());
+	myMethod(new A());
 ]]]
 
+
+${slide:title=Overloading...}$
+
+You can have multiple methods with the same name and types argument
 [[[
-A x = (A) new B();
-B y = (B) new A();
-B z = (A) new B();
+	visit (ProgramNode n) {}
+
+	visit (Assignment n) {}
+	
+	visit (SequenceNode n) {}
 ]]]
+
+- Avoid it as much as possible
+
+
+${slide:title=Avoid overloading}$
+Overloading: multiple methods with the same name but different types is a recipe to disaster.
+
+- Overloading makes your code difficult to understand in presence of subtyping
+- Programming in OOP is using subtyping 
+- Overloading makes code less extensible
+- Check other lectures
+
 
 ${slide:title=About Casts}$
 
@@ -71,11 +82,7 @@ ${slide:title=Method lookup}$
 - The compiler choses one signature (with static types)
 - The runtime uses dynamic types and looks for a method compatible with the signature
 
-${slide:title=Avoid overloading}$
-Overloading: multiple methods with the same name but different types is a recipe to disaster.
 
-- Overloading makes your code difficult to understand in presence of subtyping
-- Overloading makes code less extensible
 
 
 ${slide:title=What you should know}$
