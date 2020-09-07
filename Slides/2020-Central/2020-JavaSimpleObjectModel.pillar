@@ -8,27 +8,75 @@
 ${slide:title=Objectives}$
 
 - Illustrate key OO concepts
-- In Java but limited as much as possible
+- In Java but limited as much as possible to the essential points
 
 Thanks Alexandre Bergel for parts of the materials used in this lecture!
 
 ${slide:title=What we will not cover}$
 
-- Java is gigantic
+- Java is gigantic and even more...
 - Full of conceptual glitches (public fields, strange protected...)
-- Lecture will not cover packaging
+- This lecture will not cover packaging, lambdas, generics, synchronised, meta data, 
 - Provide some extras slides on more advanced topics
+
+${slide:title=Java}$
+
+Not pure object-oriented programming language
+- Static methods are not looked up
+- Primitive types are not objects
+- Classes are not really accessible objects
+- Methods 
+
+
+${slide:title=Objects}$
+
+Created using ==new== construct
+
+[[[
+new Tomagotchi()
+]]]
+
+Now 
+
+[[[
+Tomagotchi t = new Tomagotchi()
+]]]
+
 
 ${slide:title=Class}$
 
+[[[
+
+
+]]]
+
+${slide:title=Class}$
+
+- One public class per file
+- File name should have the name of the public class
+
+
+
+
 ${slide:title=Instance variables}$
+
+
+
 
 ${slide:title=Methods}$
 
-${slide:title=Constructor}$
+==this== represents the receiver
 
-- Class() is the default constructeur
-- 
+
+${slide:title=Constructor I}$
+- Responsible to properly initialize an object 
+
+[[[
+new JButton("Ok")
+]]]
+- Allocate and initialize a button
+
+- ==<Class>()== is the default constructeur
 - 
 
 ${slide:title=Example Rectangle}$
@@ -71,6 +119,7 @@ class Runner {
 }
 ]]]
 
+We will revisit
 
 ${slide:title=Lookup with Super}$
 
@@ -91,6 +140,129 @@ class B extends A {
 
 
 
+${slide:title=Constructor II}$
+
+[[[
+public JButton() {
+        this(null, null);
+}
+]]]
+
+
+[[[
+public JButton(String text) {
+        this(text, null);
+]]]
+
+
+[[[
+public JButton(String text, Icon icon) {
+        // Create the model
+        setModel(new DefaultButtonModel());
+        // initialize
+        init(text, icon);
+    }
+]]]
+- Constructor smay invoke each other. 
+-- The keyword this is used for that purpose. Note that this ==this==, used in to invoke constructor, has nothing to do with the ==this== pseudo variable used in method.
+
+${slide:title=Constructor III}$
+
+Example here
+
+- Superclass constructors are sequentially executed
+
+${slide:title=Constructors are not inherited}$
+
+
+${columns}$
+
+${column:width=50}$
+
+[[[
+new Point()
+new Point(2, 3)
+=> Okay
+]]]
+
+[[[
+new ColorPoint()
+=> Okay (because of the 
+default constructor)
+
+new ColorPoint(2, 3)
+=> Does not compile
+]]]
+
+${column:width=50}$
+
++>file://figures/PointInheritance.png|width=86+
+
+${endColumns}$
+
+
+${slide:title=Missing default constructor}$
+
+
+${columns}$
+
+${column:width=50}$
+
+[[[
+new Point()
+new Point(2, 3)
+=> Okay
+]]]
+
+[[[
+new ColorPoint()
+=> Does not compile 
+(because there is no 
+default constructor)
+
+new ColorPoint(2, 3)
+=> Okay
+]]]
+
+${column:width=50}$
+
++>file://figures/PointInhMissingDefault.png|width=86+
+
+${endColumns}$
+
+
+
+${slide:title=Constructors}$
+
+[[[
+class Rectangle {
+	   protected double length;
+	   protected double width;
+	   public Rectangle(){
+	      length = 0;
+	      width = 0;
+	   }
+	   public Rectangle(double length, double width) {
+	         this.length = length;
+	         this.width = width;
+	      }
+}
+]]]
+
+[[[
+class Box extends Rectangle {
+	   protected double height;
+	   public Box() { 
+	   		super();
+	       height = 0;
+	   }
+	   public Box(double length, double width, double height) {
+	         super(length, width);
+	         this.height = height;
+	      }
+}
+]]]
+
 ${slide:title=Static variables or methodes }$
 
 - Modifier 'static'
@@ -110,9 +282,6 @@ class Circle {
 ]]]
 
 
-
-
-
 ${slide:title=About main and command line}$
 
 - one single parameter: a table of strings
@@ -124,8 +293,8 @@ public class Echo {
 			System.out.print(argv[i]+" ");
 			System.out.println(); }
 	}
->>>java Echo OOP is COOL Java less
->>>OOP is COOL Java less
+>>>java Echo OOP is COOL, Java less
+>>>OOP is COOL, Java less
 ]]]
 
 
