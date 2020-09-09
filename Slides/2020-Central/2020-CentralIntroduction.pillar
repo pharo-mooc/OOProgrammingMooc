@@ -30,23 +30,41 @@ ${slide:title=About this lectures}$
 - It is not enough just to write code that works
 - ''Design starts when the program compiles''
 
+${slide:title=Give some solid foundation for ANY OOP language}$
+
+The world is complex, there are many languages
+- Give you a key survival guide
+- Concepts available in any languages
+
+
 ${slide:title=What is design?}$
 
 - You learned so far how to code: writing functions, algorithms, structure ideas
 - Making extensible, maintainable, readbable code
 -- Tests
+-- Design nice and beautiful objects
 -- Some simple design patterns
 
 ${slide:title=Difficulties}$
 
-- Some of you already know Java 
+- Some of you already 'know' (got exposed to) Java 
 - Some never really programmed in OOP
+- Java is complex and ugly (it polluted the essence of objects)
 
+${slide:title=Solution: Exposing yourself to beauty}$
+
+We do not grow Chefs by feeding them with mcDonald 
+
+- Showing Java
+-- explaining some selected points 
+- Comparing with Pharo
+
+- Provide core and more advanced lectures (free access/consumption)
 
 ${slide:title=Solution: A la carte}$
 
 - Everybody should know a bit of Java at the end
-- If you know Java or if you want to take the risk not knowing it
+- If you know Java
 -- follow the Pharo Mooc: *http://mooc.pharo.org* and do the exercises there
 -- You will get +4 on exam for your investment
 - if you want to learn more you can do both :)

@@ -1,0 +1,149 @@
+{
+	"title":"Point as Object",
+	"subtitle":"",
+	"slidesid" : "Core"
+}
+
+${slide:title=Objectives}$
+
+- Looking at two concrete implementations of Point
+- Understanding the impact of strong API 
+
+${slide:title=Points in Java}$
+
+- boolean	equals(Object obj) Determines whether or not two points are equal.
+- Point	getLocation() Returns the location of this point.
+- double	getX() Returns the X coordinate of this Point2D in double precision.
+- double	getY() Returns the Y coordinate of this Point2D in double precision.
+- void	move(int x, int y) Moves this point to the specified location in the (x,y) coordinate plane.
+- void	setLocation(double x, double y) Sets the location of this point to the specified double coordinates.
+- void	setLocation(int x, int y) Changes the point to have the specified location.
+- void	setLocation(Point p) Sets the location of the point to the specified location.
+- String	toString() Returns a string representation of this point and its location in the (x,y) coordinate space.
+- void	translate(int dx, int dy) Translates this point, at location (x,y), by dx along the x axis and dy along the y axis so that it now represents the point (x\+dx,y\+dy).
+
+
+${slide:title=Example}$
+[[[
+public class Bot {
+  int direction = 0;
+  Point position = new Point(0,0);
+]]]
+
+[[[
+  public void go(int distance){
+    position = (new Point((Math.round(Math.cos(Math.toRadians(direction))) * distance + position.x()),
+          (Math.round(Math.sin(Math.toRadians(direction)) * distance + position.y())))) ;
+    }
+}
+]]]
+
+${slide:title=Points in Pharo}$
+
+[[[
+Point selectors
+]]]
+
+-  r setR:degrees: normalized onLineFrom:to: angleWith: angle dist: onLineFrom:to:within: rotateBy:about: normal degrees rotateBy:centerAt: theta bearingToPoint: distanceTo:
+- ''>='' > ''<='' min:max: min: < closeTo: closeTo:precision: hash max: =
+- negated translateBy: adhereTo: scaleBy: scaleTo: scaleFrom:to:
+- x y
+- triangleArea:with: to:intersects:to: to:sideOf: isInsideCircle:with:with: sideOf:
+- ==\\== \- ==\*== reciprocal / ==\+== min ==//== abs max
+- rectangle: extent: corner:
+- (roundUpTo: ceiling truncated truncateTo: roundTo: floor roundDownTo: rounded
+- quadrantOf: leftRotated fourNeighbors grid: eightNeighbors nearestPointAlongLineFrom:to: sortsBefore: flipBy:centerAt: crossProduct: nearestPointOnLineFrom:to: dotProduct: squaredDistanceTo: insideTriangle:with:with: fourDirections directionToLineFrom:to: transposed reflectedAbout: sign octantOf: rightRotated
+
+${slide:title=Simple example}$ 
+
+[[[
+Point >> abs
+	"Answer a Point whose x and y are the absolute values of the receiver's x and y."
+
+	^ x abs @ y abs
+]]]
+
+
+${slide:title=Simple example}$ 
+
+[[[
+< aPoint 
+	"Answer whether the receiver is above and to the left of aPoint."
+	"((100@200) < (330@400)) >>> true"
+	"((100@200) < (330@100)) >>> false"
+	
+	^ x < aPoint x and: [y < aPoint y]
+]]]
+
+
+${slide:title=Example}$ 
+
+[[[
+Point >> crossProduct: aPoint
+	"Answer a number that is the cross product of the receiver and the 
+	argument, aPoint."
+		^ (x * aPoint y) - (y * aPoint x)
+]]]
+
+
+${slide:title=Polymorphic}$
+
+[[[
+Point >> asPoint
+	"Answer the receiver itself."
+
+	^ self
+]]]
+
+[[[	
+Object >> asPoint
+	"Answer a Point with the receiver as both coordinates; often used to 
+	supply the same value in two dimensions, as with symmetrical gridding 
+	or scaling."
+
+	^ self @ self
+]]]
+
+- This way we can manage list of objects and easily convert them to point
+
+[[[
+{ 1 . 2 . 3 . 33@33 . 4} collect: [:a | a asPoint]
+>> {1@1 . 2@2 . 3@3 . 33@33 . 4@4} 
+]]]
+
+	
+${slide:title=Analysis}$
+
+- In Pharo Point are more than a data structure
+- They embed behavior and hide the logic
+- Functionality is pushed from clients to Point
+- Point offers behavior (reuse here)
+
+
+${slide:title=Analysis}$
+[[[
+public class Bot {
+    int direction = 0;
+    Point position = new Point(0,0);
+]]]
+
+[[[
+    public void go(int distance){
+        position = (new Point((Math.round(Math.cos(Math.toRadians(direction))) * distance + position.x()),
+                (Math.round(Math.sin(Math.toRadians(direction)) * distance + position.y ())))) ;
+    }
+}
+]]]
+to 
+[[[
+Bot >> go: aDistance 
+	"Return the point that is at a distance aDistance in the direction pointed by the receiver"
+	
+	position := position + (direction degreeCos @ direction degreeSin * aDistance) rounded
+]]]
+
+
+${slide:title=What you should know}$
+- An object is characterize by a state, a behavior and an identity
+- Objects answer to messages by executing methods
+- An object may delegate to other objects its tasks

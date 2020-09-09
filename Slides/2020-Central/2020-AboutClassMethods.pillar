@@ -11,6 +11,11 @@ ${slide:title=Objectives}$
 - What are the possible semantics
 - Comparing static Java methods and Pharo class methods
 
+${slide:title=In Java}$
+
+A static method is just a function
+- there is no lookup
+- you cannot specialize them
 
 
 
