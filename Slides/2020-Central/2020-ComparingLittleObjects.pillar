@@ -111,6 +111,18 @@ Object >> asPoint
 >> {1@1 . 2@2 . 3@3 . 33@33 . 4@4} 
 ]]]
 
+${slide:title=Point Arimethic}$
+
+- Points know how to \*, \+, divide, substract themselves
+- We can mix points, rectanges and number.
+[[[
+drawString: aString at: aPoint font: aFontOrNil color: aColor
+	self
+		drawString: aString
+		in: (origin + aPoint extent: self clipRect extent)
+		font: aFontOrNil
+		color: aColor
+]]]
 	
 ${slide:title=Analysis}$
 
