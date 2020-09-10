@@ -90,7 +90,12 @@ class Rectangle{
 
 ${slide:title=Inheritance}$
 
+[[[
+class Box extends Rectangle{ 
+	int height;
 
+}
+]]]
 
 ${slide:title=Lookup}$
 

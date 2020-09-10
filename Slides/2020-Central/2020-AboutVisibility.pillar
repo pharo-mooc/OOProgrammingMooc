@@ -43,6 +43,14 @@ Default = "package private"
 +.>file://figures/JavaVisibility-image.png+
 
 
+${slide:title=Member Level Visibility in C\#}$
+
+- public: accessed by any other elements of any (assembly)
+- private: accessed only by code in the ""same"" class/struct 
+- protected: accessed only by code in the same ""class or subclasses"" (derived)
+- internal: accessed any code in the ""same package"" (assembly)
+- protected internal: accessed by any code in the package in which it's declared, or from within a subclass in another package
+- private protected: accessed only its declaring assembly, by code in the same class or in a type that is derived from that class
 
 ${slide:title=About private in Java}$
 

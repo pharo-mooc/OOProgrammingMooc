@@ -1,5 +1,5 @@
 {
-	"title":"Point as Object",
+	"title":"Points as (real) Objects",
 	"subtitle":"",
 	"slidesid" : "Core"
 }
@@ -128,8 +128,8 @@ ${slide:title=Analysis}$
 
 - In Pharo Point are more than a data structure
 - They embed behavior and hide the logic
-- Functionality is pushed from clients to Point
-- Point offers behavior (reuse here)
+- Functionality is pushed from clients to ==Point==
+- Point ""offers"" behavior (reuse here)
 
 
 ${slide:title=Analysis}$

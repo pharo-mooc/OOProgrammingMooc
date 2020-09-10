@@ -1,5 +1,5 @@
 {
-	"title":"About class methods",
+	"title":"DRAFT: About class methods",
 	"slidesid":"Advanced",
 	"author":"S. Ducasse"
 }
@@ -8,7 +8,7 @@
 ${slide:title=Objectives}$
 
 - What is a class methods?
-- What are the possible semantics
+- What are the possible semantics?
 - Comparing static Java methods and Pharo class methods
 
 ${slide:title=In Java}$
