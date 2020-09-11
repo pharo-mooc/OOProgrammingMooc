@@ -1,26 +1,23 @@
 {
 	"title":"About visibility",
-	"slidesid":"Advanced",
+	"slidesid":"Extra",
 	"author":"S. Ducasse"
 }
 
 
 ${slide:title=Objectives}$
 
-- Private protected in different language
+- Private/protected... in different languages
 - And the cost of all of it
 
 
-
-
-${slide:title=Protected in Pharo/CPP}$
+${slide:title=Protected in Pharo/CPP/CSharp}$
 
 - Protected attributes are not accessible from outside the class and its subclasses.
 - Subclasses can access instance variables and invoke/override methods.
 
 
 ${slide:title=Visibility in Java}$
-
 
 Two levels
 - Top level (e.g., class): public or package-private (no explicit modifier)
@@ -30,20 +27,21 @@ Top level
 - A public class is visible to all the classes everywhere.
 - A package-private class is only to its own package
 
+${slide:title=package-private in Java}$
 
+default or package-private means that the elements are only accessible from the classes in the exact same package.
 
+${slide:title=Protected in Java}$
 
+- Inside a package you can access to protected methods of any class
+- Protected: can only be accessed within its own package and by subclasses defined in another packages
 
 ${slide:title=Member Level Visibility in Java}$
-
-Default = "package private"
-- Inside a package you can access to protected methods of any classes
-- Protected: can only be accessed within its own package and by subclasses in another package
 
 +.>file://figures/JavaVisibility-image.png+
 
 
-${slide:title=Member Level Visibility in C\#}$
+${slide:title=Member Level Visibility in CSharp}$
 
 - public: accessed by any other elements of any (assembly)
 - private: accessed only by code in the ""same"" class/struct 
@@ -52,24 +50,28 @@ ${slide:title=Member Level Visibility in C\#}$
 - protected internal: accessed by any code in the package in which it's declared, or from within a subclass in another package
 - private protected: accessed only its declaring assembly, by code in the same class or in a type that is derived from that class
 
+
 ${slide:title=About private in Java}$
 
 - A method in a subclass can be made "more" private
-- Else instances of subclasses could not be used in place of instance of superclass
-
-
-
-
-${slide:title=About Final}$
-
-- Pay attention because you are not the kwisatz Harach
-- You cannot correctly predict the future
+- Instances of subclasses could not be used in place of instance of superclass
 
 ${slide:title=Final in Java}$
 
 - To a class: cannot be extended
 - To a method: cannot be redefined
 - To an initialized variable: cannot be changed
+
+${slide:title=About Final}$
+
+- Pay attention because you are not the Kwisatz Harach
+- You cannot correctly predict the future
+
+${slide:title=You do not know the future}$
+
+Avoid premature decisions
+- Remember an application average timelife is 15 to 20 years
+- 
 
 
 ${slide:title=What you should know}$
