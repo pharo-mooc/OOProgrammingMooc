@@ -11,19 +11,30 @@ ${slide:title=Objectives}$
 
 ${slide:title=Points in Java}$
 
-- boolean	equals(Object obj) Determines whether or not two points are equal.
-- Point	getLocation() Returns the location of this point.
-- double	getX() Returns the X coordinate of this Point2D in double precision.
-- double	getY() Returns the Y coordinate of this Point2D in double precision.
-- void	move(int x, int y) Moves this point to the specified location in the (x,y) coordinate plane.
-- void	setLocation(double x, double y) Sets the location of this point to the specified double coordinates.
-- void	setLocation(int x, int y) Changes the point to have the specified location.
-- void	setLocation(Point p) Sets the location of the point to the specified location.
-- String	toString() Returns a string representation of this point and its location in the (x,y) coordinate space.
-- void	translate(int dx, int dy) Translates this point, at location (x,y), by dx along the x axis and dy along the y axis so that it now represents the point (x\+dx,y\+dy).
+Without getters and setters:
+- ==boolean equals(Object obj)== Determines whether or not two points are equal.
 
+- ==void move(int x, int y)== Moves this point to the specified location in the (x,y) coordinate plane.
+- ==String toString()== Returns a string representation of this point and its location in the (x,y) coordinate space.
+- ==void translate(int dx, int dy)== Translates this point, at location (x,y), by dx along the x axis and dy along the y axis so that it now represents the point (x\+dx,y\+dy).
+
+Inherited from Point2D
+- ==distance== and ==clone==
+
+${slide:title=Points in Java}$
+
+Getters and setters:
+- ==Point	getLocation()== Returns the location of this point. (well this is to be polymorphic with Component - A location is just a point)
+- ==void setLocation(double x, double y)== Sets the location of this point to the specified double coordinates.
+- ==void setLocation(int x, int y)== Changes the point to have the specified location.
+- ==void setLocation(Point p)== Sets the location of the point to the specified location.
+- ==double getX()== Returns the X coordinate of this Point2D in double precision.
+- ==double getY()== Returns the Y coordinate of this Point2D in double precision.
 
 ${slide:title=Example}$
+
+How to make our robot walks from distance in its current direction (in degree).
+
 [[[
 public class Bot {
   int direction = 0;
@@ -38,20 +49,47 @@ public class Bot {
 }
 ]]]
 
+${slide:title=Analysis}$
+
+- A poor data structure, not an object
+- Arithmetic of Points is defined outside of them!
+-- Points cannot sum themselves
+-- Points cannot shape themselves (rounded, normal, reciprocal,...)
+- When an object exposes a shallow API, it favors logic duplication in clients!
+
+
+${slide:title=Go in Pharo}$
+
+[[[
+public void go(int distance){
+    position = (new Point((Math.round(Math.cos(Math.toRadians(direction))) * distance + position.x()),
+           (Math.round(Math.sin(Math.toRadians(direction)) * distance + position.y ())))) ;
+    }
+}
+]]]
+
+to 
+
+[[[
+Bot >> go: aDistance 
+	"Return the point that is at a distance aDistance in the direction pointed by the receiver"
+	position := position + (direction degreeCos @ direction degreeSin * aDistance) rounded
+]]]
+
+
 ${slide:title=Points in Pharo}$
 
 [[[
 Point selectors
 ]]]
 
--  r setR:degrees: normalized onLineFrom:to: angleWith: angle dist: onLineFrom:to:within: rotateBy:about: normal degrees rotateBy:centerAt: theta bearingToPoint: distanceTo:
+-  ==r setR:degrees:==, ==normalized==, ==onLineFrom:to:==, ==angleWith:==, ==angle==,  ==onLineFrom:to:within:==, ==rotateBy:about:==, ==normal==, ==degrees==, ==rotateBy:centerAt:==, ==theta==, ==bearingToPoint:==, ==distanceTo:==
 - ''>='' > ''<='' min:max: min: < closeTo: closeTo:precision: hash max: =
-- negated translateBy: adhereTo: scaleBy: scaleTo: scaleFrom:to:
-- x y
+- ==negated==, ==translateBy:==, ==adhereTo:==, ==scaleBy:==, ==scaleTo:==, ==scaleFrom:to:==
 - triangleArea:with: to:intersects:to: to:sideOf: isInsideCircle:with:with: sideOf:
 - ==\\== \- ==\*== reciprocal / ==\+== min ==//== abs max
-- rectangle: extent: corner:
-- (roundUpTo: ceiling truncated truncateTo: roundTo: floor roundDownTo: rounded
+- ==rectangle:==, ==extent:==, ==corner:==
+- roundUpTo: ceiling truncated truncateTo: roundTo: floor roundDownTo: rounded
 - quadrantOf: leftRotated fourNeighbors grid: eightNeighbors nearestPointAlongLineFrom:to: sortsBefore: flipBy:centerAt: crossProduct: nearestPointOnLineFrom:to: dotProduct: squaredDistanceTo: insideTriangle:with:with: fourDirections directionToLineFrom:to: transposed reflectedAbout: sign octantOf: rightRotated
 
 ${slide:title=Simple example}$ 
@@ -85,6 +123,27 @@ Point >> crossProduct: aPoint
 		^ (x * aPoint y) - (y * aPoint x)
 ]]]
 
+${slide:title=Example}$ 
+
+[[[
+Point >> degrees
+	"Answer the angle the receiver makes with origin in degrees. right is 0; down is 90."
+	| tan theta |
+	^ x = 0 
+		ifTrue: 
+			[ y >= 0 
+				ifTrue: [ 90.0 ]
+				ifFalse: [ 270.0 ] ]
+		ifFalse: 
+			[ tan := y asFloat / x asFloat.
+			theta := tan arcTan.
+			x >= 0 
+				ifTrue: 
+					[ y >= 0 
+						ifTrue: [ theta radiansToDegrees ]
+						ifFalse: [ 360.0 + theta radiansToDegrees ] ]
+				ifFalse: [ 180.0 + theta radiansToDegrees ] ]
+]]]
 
 ${slide:title=Polymorphic}$
 
@@ -114,7 +173,8 @@ Object >> asPoint
 ${slide:title=Point Arimethic}$
 
 - Points know how to \*, \+, divide, substract themselves
-- We can mix points, rectanges and number.
+- We can mix points, rectangles and number.
+
 [[[
 drawString: aString at: aPoint font: aFontOrNil color: aColor
 	self
@@ -126,36 +186,14 @@ drawString: aString at: aPoint font: aFontOrNil color: aColor
 	
 ${slide:title=Analysis}$
 
-- In Pharo Point are more than a data structure
+- In Pharo ==Point==s are more than a data structure
 - They embed behavior and hide the logic
 - Functionality is pushed from clients to ==Point==
-- Point ""offers"" behavior (reuse here)
+- Point ""offers"" behavior: reuse here!
 
-
-${slide:title=Analysis}$
-[[[
-public class Bot {
-    int direction = 0;
-    Point position = new Point(0,0);
-]]]
-
-[[[
-    public void go(int distance){
-        position = (new Point((Math.round(Math.cos(Math.toRadians(direction))) * distance + position.x()),
-                (Math.round(Math.sin(Math.toRadians(direction)) * distance + position.y ())))) ;
-    }
-}
-]]]
-to 
-[[[
-Bot >> go: aDistance 
-	"Return the point that is at a distance aDistance in the direction pointed by the receiver"
-	
-	position := position + (direction degreeCos @ direction degreeSin * aDistance) rounded
-]]]
 
 
 ${slide:title=What you should know}$
-- An object is characterize by a state, a behavior and an identity
-- Objects answer to messages by executing methods
-- An object may delegate to other objects its tasks
+
+- Objects are not data structures
+- An object should encapsulate logic and lets its client reuse such logic!
