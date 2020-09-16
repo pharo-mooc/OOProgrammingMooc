@@ -1,23 +1,18 @@
 {
 	"title":"Unit testing",
-	"slidesid":"",
+	"slidesid":"Testing",
 	"author":"S. Ducasse"
 }
 
 
 ${slide:title=Objectives}$
 
-- Examples of Unit tests
 - Core concepts 
+- Examples of Unit tests
 - In Java, C#, PHP and Pharo
 
 Thanks Alexandre Bergel for parts of the materials used in this lecture!
 
-${slide:title= SUnit -> JUnit3}$
-
-- Originally developed by K. Beck (agile programming father)
-- Extremely simple (4 classes)
-- Got copied all over the places: JUnit3.x, PHPUnit,...
 
 
 ${slide:title=First: Looking at a Test}$
@@ -40,13 +35,33 @@ SetTest >> testAdd
   empty := Set new.   "Context"
   empty add: 5.   "Stimulus"
   empty add: 5.
-  self assert: empty size = 1.   "Check"
+  self assert: empty size equals: 1.   "Check"
 ]]]
+
+
+${slide:title=Counter in Java (JUnit 40) }$
+
+[[[
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class SetTest {
+
+  @Test
+  public void testAdd() {
+       Set empty = new Counter(); //Context
+       empty.add(5); //Stimulus
+       empty.add(5);
+       assertEquals(empty.size(),1); //Check
+   }
+}
+]]]
+
 
 ${slide:title=Another example: CounterTest}$
 
 [[[
-TestCase subclass: # CounterTest
+TestCase subclass: #CounterTest
     ...
 ]]]
 
@@ -69,11 +84,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CounterTest {
 
   @Test
-  public void testConstructorIsInitializing()  {
-      assertEquals(new Counter().value(), 0);
-  }
-
-  @Test
   public void testIncrement() {
        Counter count = new Counter();
        count.setValue(22);
@@ -84,12 +94,13 @@ class CounterTest {
 }
 ]]]
 
-${slide:title=A Test}$
+${slide:title=Summary: A Test}$
 
 In a test, we 
 - Create a context
 - Send a stimulus
 - Check results
+
 
 ${slide:title=Success, Failures and Errors}$
 
@@ -103,7 +114,7 @@ Executed systematically before and after each test run
 - ==setUp== allows us to specify and reuse the context
 - ==tearDown== to clean after
 
-+>file://figures/SetUpTearDown.png+
++>file://figures/SetUpTearDown.png|width=80+
 
 ${slide:title=Defining a setUp Method}$
 
@@ -126,73 +137,58 @@ SetTestCase >> testOccurrences
 ]]]
 
 
-${slide:title=Unit Frameworks}$
-
-- JUnit3.0 is based on SUnit 
-- TestCase: a single test
-- TestSuite: a groupe of tests
-- TestResult
-- TestResources: how to set up a context for a complete suite
-
-${slide:title=Graphically}$
-
-+>file://figures/Junit3.png|width=80+
-
-${slide: setUp and tearDown Messages}$
-- Executed systematically before and after each test run
-- ==setUp== allows us to specify and reuse the context
-- ==tearDown== to clean after
-
-+>file://figures/SetUpTearDown.png+
-
-${slide:title=Defining a setUp Method in Pharo}$
+${slide:title=setUp in Java}$
 
 [[[
-SetTestCase >> setUp
-  empty := Set new
+@Before
+public void setUp(){
+	empty = new Set();
+	}
 ]]]
 
  ==setUp== is executed for you before any test execution
 
- ${slide:title=Defining a setUp Method in Java}$
-
 [[[
- SetTestCase >> setUp
-   empty := Set new
+class CounterTest {
+
+  @Test
+  public void testOccurrences() {
+     assertEquals(count.occurrencesOf(0), 0);
+     empty.add(5);
+     empty.add(5); 
+     assertEquals(count.occurrencesOf(5), 1);
+}
 ]]]
 
-  ==setUp== is executed for you before any test execution
+
+${slide:title=Core framework graphically}$
+
+- ==TestCase==: a single test
+- ==TestSuite==: a groupe of tests
+- ==TestResult==: to represent
+- (==TestResources==: how to set up a context for a complete suite)
+
++>file://figures/Junit3.png|width=60+
 
 
+${slide:title=Looking at Unit Framework variations}$
+
+- All the frameworks are coming from SUnit
+- Same concepts
+-- ==TestCase==
+-- ==TestSuite==
+-- ==setUp==/==tearDown==
+- Passing, failures, errors
 
 
+${slide:title= SUnit -> JUnit3}$
+
+- Originally developed by K. Beck (agile programming father)
+- Extremely simple (4 classes)
+- Got copied all over the places: JUnit3.x, PHPUnit,...
 
 
-${slide:title=Looking at variations}$
-
-
-${slide:title=JUnit 3.x is similar to Pharo 3.0}$
-
-[[[
-	import junit.framework.*;
-	public class MoneyTest extends TestCase {
-		private Money f12CHF;			// fixtures
-		private Money f14CHF;
-
-		protected void setUp() {		// create the test data
-			f12CHF = new Money(12, "CHF");
-			f14CHF = new Money(14, "CHF");
-		}
-	   public void testAdd() {				// create the test data
-			Money expected = new Money(26, "CHF");
-			assertEquals("amount not equal",
-	                     expected, f12CHF.add(f14CHF));
-		}
-		...
-	}
-]]]
-
-${slide:title=JUnit 3.x is similar to Pharo 3.0}$
+${slide:title=JUnit 3.x is similar to SUnit 3.0/Pharo}$
 
 Define a subclass of TestCase \+ setUp \+ testAdd method
 [[[
@@ -258,7 +254,7 @@ class TestSimpleNumber < Test::Unit::TestCase
 end
 ]]]
 
-${slide:title=JUnit 4 based on annotations}$
+${slide:title=JUnit 4 is based on annotations}$
 
 - J2SE 5 introduced the Metadata feature
 - Annotations allow you to add decorations to your code (remember javadoc tags: @author ) 
