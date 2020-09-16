@@ -12,32 +12,53 @@ ${slide:title=Objectives}$
 
 Thanks Alexandre Bergel for parts of the materials used in this lecture!
 
+${slide:title=Quotes of the day}$
+
+"Perfection is attained, not when no more can be added, but when no more can be removed." Antoine de Saint-Exupéry
+
+"I invented the term 'Object-Oriented', and I can tell you I did not have C\+\+ in mind." Alan Kay
+(nor Java :))
+
+
 ${slide:title=What we will not cover}$
 
-- Java is gigantic and even more...
-- Full of conceptual glitches (public fields, strange protected...)
-- This lecture will not cover packaging, lambdas, generics, inner classes, modules, synchronised, meta data, primitives vs. boxed....
+- Java is gigantic and even more... (looks more and more like an old verbose language)
+- Full of conceptual glitches (public fields, strange protected semantics, overloading...)
+- This lecture will not cover packaging, enums, lambdas, generics, inner classes, modules, synchronised, meta data, primitives vs. boxed....
+- Java mixes physical representation (files) with concepts 
+-- there is not need to have files to have classes
+-- class definitions can be saved in databases
 - But we will provide extras slides on more advanced topics
 
 ${slide:title=Java}$
 
 Not pure object-oriented programming language
 - Static methods are not looked up
-- Primitive types are not objects
+- Primitive types are not objects: int and Integer....
 - Classes are not really accessible objects
-- Methods 
+- Methods
 
 
-${slide:title=Objects}$
+${slide:title=Outline}$
 
-Created using ==new== construct
+- Instances, instance creation
+- Classes
+- Methods
+- Inheritance (single)
+- 
+
+
+
+${slide:title=Instances}$
+
+- Created using ==new== construct
+- Remember: one state, identity, behavior
 
 [[[
 new Tomagotchi()
 ]]]
 
-Now 
-
+Often 
 [[[
 Tomagotchi t = new Tomagotchi()
 ]]]
@@ -45,25 +66,46 @@ Tomagotchi t = new Tomagotchi()
 
 ${slide:title=Class}$
 
+- Mold/Generators of instances
 [[[
+public class Rectangle
+	{
+	    protected double length;
+	    protected double width;
+		...
+]]]
 
-
+[[[
+public class Box extends Rectangle {
+	    protected double height;
+}
 ]]]
 
 ${slide:title=Class}$
 
 - One public class per file
 - File name should have the name of the public class
-
-
+- Class import packages (group of classes)
 
 
 ${slide:title=Instance variables}$
 
+- Describe instance structure
+- Have a visibility: Avoid public, private and final :)
+- Better use protected (see companion extra lectures)
 
+[[[
+public class Rectangle
+	{
+	    protected double length;
+	    protected double width;
+		...
+]]]
 
+- Accessible by method of the class and subclasses
 
 ${slide:title=Methods}$
+
 
 ==this== represents the receiver
 
@@ -74,28 +116,39 @@ ${slide:title=Constructor I}$
 [[[
 new JButton("Ok")
 ]]]
-- Allocate and initialize a button
 
+- Allocate and initialize a button
 - ==<Class>()== is the default constructeur
+
+${slide:title=Rectangle Constructors}$
+
+[[[
+	public Rectangle() {
+       length = 0;
+       width = 0;
+    }
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+]]]
+
+
+
+${slide:title=Lookup}$
+
+- Lookup of a method always starts in the class of the receiver
 - 
 
-${slide:title=Example Rectangle}$
 
-[[[
-class Rectangle{ 
-	Point origin, corner;
 
-}
-]]]
 
-${slide:title=Inheritance}$
 
-[[[
-class Box extends Rectangle{ 
-	int height;
+There is no lookup for private method.
 
-}
-]]]
+
+
 
 ${slide:title=Lookup}$
 
@@ -124,7 +177,19 @@ class Runner {
 }
 ]]]
 
-We will revisit
+We will revisit it in the self (this)/super lecture...
+
+
+
+
+
+
+
+
+
+
+
+
 
 ${slide:title=Lookup with Super}$
 
@@ -143,6 +208,47 @@ class B extends A {
 (new B()).f();
 ]]]
 
+${slide:title=super in super.myMethod(); }$
+
+- super refers to the object the receiver of the message
+-- super \=\= this
+- super changes the method lookup to start in the superclass of the class using super. 
+- super does not start lookup in the superclass of the class of the receiver
+
+
+
+${slide:title=Inheritance}$
+
+[[[
+class Box extends Rectangle{ 
+	protected double height;
+
+}
+]]]
+
+${slide:title=Box constructors}$
+
+[[[
+	public Box(){
+        super();
+        height = 0;
+    }
+]]]
+
+[[[
+    public Box(double length, double width, double height) {
+        super(length, width);
+        this.height = height;
+	}
+]]]
+
+${slide:title=Constructors and inheritance}$
+
+- Each subclass should call its superclass constructor explicitly 
+-- as a first line of the constructor
+- The call to the default constructor can be omitted (but the compiler does it for you)
+- ==super== in that case indicate the superclass.
+- There is NO LOOKUP/Inheritance of constructor
 
 
 ${slide:title=Constructor II}$
@@ -162,24 +268,20 @@ public JButton(String text) {
 
 [[[
 public JButton(String text, Icon icon) {
-        // Create the model
         setModel(new DefaultButtonModel());
-        // initialize
         init(text, icon);
     }
 ]]]
+
 - Constructors may invoke each other. 
--- The keyword this is used for that purpose. Note that this ==this==, used in to invoke constructor, has nothing to do with the ==this== pseudo variable used in method.
-
-
-
+- The keyword this is used for that purpose. 
+Note that this ==this==, used in to invoke constructor, has nothing to do with the ==this== pseudo variable used in method.
 
 
 ${slide:title=Constructor III}$
 
 Example here
 
-- Superclass constructors are sequentially executed
 
 ${slide:title=Constructors are not inherited}$
 
@@ -267,40 +369,6 @@ class Box extends Rectangle {
 		}
 ]]]
 
-${slide:title=super in constructors}$
-
-- means look in superclass and invoke the constructor with the same signature as the super call
-
-[[[
-public Meal {
-    public Meal(String flavour) {
-       this.flavour = flavour;
-    }
-}
-]]]
-
-[[[
-public Crisps(String flavour, int quantity) {
-    super(flavour); // send flavour to the super class constructor
-    this.quantity = quantity;
-}
-]]]
-
-${slide:title=super in constructor: II }$
-
-[[[
-public Meal {
-	public void setFlavour(String flavour) {
-	    this.flavour = flavour;
-	}
-]]]
-
-[[[
-public Crisps(String flavour, int quantity) {
-    this.quantity = quantity;
-    super.setFlavour(flavour);
-}
-]]]
 
 ${slide:title=About implicit constructor invocation}$
 
@@ -343,10 +411,10 @@ public class Sub extends Super {
     public static void main(String[] args){
     	Sub s = new Sub(); }
 }
-
 ]]]
 
-${slide:title=Static variables or methodes }$
+
+${slide:title=Static variables or methods }$
 
 - Modifier 'static'
 - Linked to the class
@@ -365,33 +433,96 @@ class Circle {
 ]]]
 
 
-${slide:title=About main and command line}$
 
-- one single parameter: a table of strings
-- argv.length 
+
+
+${slide:title=Interfaces}$
+
+- Group of method signatures
+- Used by the type checker 
+- Support the manipulation of instances of classes not in subtype relation (i.e. not in the same hierachy)
+
 [[[
-public class Echo {
-	public static void main(String[] argv) { 
-		for (int i=0; i<argv.length; i++)
-			System.out.print(argv[i]+" ");
-			System.out.println(); }
-	}
->>>java Echo OOP is COOL, Java less
->>>OOP is COOL, Java less
+interface {
+	//methods
+}
 ]]]
 
+
+
+${slide:title=Example}$
+
+All methods are implicitly public and all fields are public static final.
+[[[
+interface Polygon {
+   public static final String color = "blue";
+  
+   public  void getArea();
+}
+]]]
+
+[[[
+interface Polygon {
+  String color = "blue";
+  
+  void getArea();
+}
+]]]
+
+${slide:title=Example}$
+
+[[[
+class Rectangle implements Polygon {
+	... 
+    public void getArea() {
+        System.out.println("The area of the rectangle is " + (length * width));
+    }
+}
+]]]
+
+Any class implementing an interface MUST defined the methods specified in the interface,
+
+${slide:title=Classes - Interfaces}$
+
+- A class can implement many interfaces
+- A class inherits from a single superclass
+
+- An interface can "inherit" from multiple interfaces
+-- compose interfaces
+
+${slide:title=Interfaces: step back}$
+
+ A nice mechanism for statically check language
+- defined what is expected
+- let the system evolve
+
+When you use a class as a type
+- You freeze the possible instances
+- You will only be able to have instances of type or subtypes
+
+When you use an interface as a type
+- You will be able to use any instance of classes implementing the interface
+
+
+
+${slide:title=Outline...}$
 
 ${slide:title=Super well which one...}$
 Java is confusing at wish:
 
-- super in accessing super same named superclass fields (Duh! Ugly)
-- super in method to invoke overridden super method (super is the receiver see Lecture)
-- super in constructor 
+- ==super== in accessing super same named superclass fields (Duh! Ugly)
+-- Syntactically: ==super.x==
+- ==super== in method to invoke overridden super method (super is the receiver see Lecture)
+-- Syntactically: ==super.method();==
+- ==super== in constructor 
+-- Syntactically: ==super(x)==
 -- first line represents the superclass and looks for constructor function based on argument
 -- in any for the other line, represents the newly created object but changes lookup and in plain method.
+- ==static <T> void copy(List<? super T> dest, List<? extends T> src)==
+-- to say any super type of T.
+-- well
 
 ${slide:title=Super : accessing super same named superclass fields}$
-
 
 [[[
 class Vehicle { 
@@ -415,6 +546,64 @@ class Test {
 ]]]
 - Do not redefine fields in subclass with the same name... 
 - The language should not let you do that!
+
+${slide:title=super in constructors}$
+
+- means look in superclass and invoke the constructor with the same signature as the super call
+
+[[[
+public Meal {
+    public Meal(String flavour) {
+       this.flavour = flavour;
+    }
+}
+]]]
+
+[[[
+public Crisps(String flavour, int quantity) {
+    super(flavour); // pass flavour to the super class constructor
+    this.quantity = quantity;
+}
+]]]
+
+${slide:title=super in constructor: II }$
+
+[[[
+public Meal {
+	public void setFlavour(String flavour) {
+	    this.flavour = flavour;
+	}
+]]]
+
+[[[
+public Crisps(String flavour, int quantity) {
+    this.quantity = quantity;
+    super.setFlavour(flavour);
+}
+]]]
+
+Clearly not good style. But super here is not the superclass but the instance. 
+
+
+
+${slide:title=About main and command line}$
+
+- one single parameter: a table of strings
+- argv.length 
+[[[
+public class Echo {
+	public static void main(String[] argv) { 
+		for (int i=0; i<argv.length; i++)
+			System.out.print(argv[i]+" ");
+			System.out.println(); }
+	}
+>>>java Echo OOP is COOL, Java less
+>>>OOP is COOL, Java less
+]]]
+
+
+
+
 
 
 ${slide:title=What you should know}$
