@@ -439,6 +439,7 @@ class Circle {
 ${slide:title=Interfaces}$
 
 - Group of method signatures
+-- and since Java 80 default methods...
 - Used by the type checker 
 - Support the manipulation of instances of classes not in subtype relation (i.e. not in the same hierachy)
 
@@ -480,15 +481,25 @@ class Rectangle implements Polygon {
 }
 ]]]
 
-Any class implementing an interface MUST defined the methods specified in the interface,
+
 
 ${slide:title=Classes - Interfaces}$
 
+Any class implementing an interface MUST defined the methods specified in the interface.
 - A class can implement many interfaces
 - A class inherits from a single superclass
 
 - An interface can "inherit" from multiple interfaces
--- compose interfaces
+
+[[[
+interface Line {
+   //members of Line interface
+}
+
+interface Polygon extends Line {
+   //members of Polygon interface and Line interface
+}
+]]]
 
 ${slide:title=Interfaces: step back}$
 
