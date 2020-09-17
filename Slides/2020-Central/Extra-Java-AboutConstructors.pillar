@@ -160,3 +160,6 @@ public class Sub extends Super {
     	Sub s = new Sub(); }
 }
 ]]]
+
+
+
