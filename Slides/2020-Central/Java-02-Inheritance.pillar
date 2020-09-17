@@ -1,0 +1,370 @@
+{
+	"title":"Inheritance and lookup",
+	"slidesid":"",
+	"author":"S. Ducasse"
+}
+
+
+${slide:title=Remember Inheritance}$
+
+${columns}$
+
+${column:width=60}$
+
+a subclass
+- can add state and behavior:
+-- ==color==, ==borderColor==, ...
+- can use superclass behavior and state
+- can specialize and redefine superclass behavior
+
+${column:width=40}$
+
++>file://figures/InheritanceDiagram.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=Example: state}$
+
+[[[
+public class Rectangle {
+	protected int length;
+    protected int width;
+	
+	public int getArea() {
+		return length * width;
+	}
+]]]
+
+[[[
+class Box extends Rectangle{ 
+	protected int height;
+
+}
+]]]
+
+${slide:title=Box constructors}$
+
+[[[
+class Box extends Rectangle{ 
+	public Box(){
+        super();
+        height = 0;
+    }
+]]]
+
+[[[
+  public Box(int length, int width, int height) {
+      super(length, width);
+      this.height = height;
+	}
+]]]
+
+
+${slide:title=Constructors and inheritance}$
+
+- Each subclass should call its superclass constructor explicitly 
+-- as a first line of the constructor
+- The call to the default constructor can be omitted (but the compiler does it for you)
+- ==super== in that case indicates the superclass.
+
+A constructor is a static function not a method
+- There is NO LOOKUP/Inheritance of constructors
+
+
+${slide:title=Simple Lookup}$
+
+Methods of the superclass can be invoked on subclass instances
+
+[[[
+    Box b = new Box (10,20,20);
+    System.out.println(b.getArea());
+]]]
+
+${slide:title=Subclass can enrich its API}$
+
+[[[
+public class Box extends Rectangle {	
+	...
+	public double getVolume() {
+        return getArea() * height;
+    }
+]]]
+
+
+
+
+
+${slide:title=Lookup}$
+
+[[[
+class A {
+    public int bar() { return foo();}
+    public int foo() {
+        System.out.println("A");
+        return 1;
+    }
+}
+class B extends A {
+    public int foo() {
+        System.out.println("B");
+        return 2;
+    }
+}
+
+class Runner {
+    public static void main(String[] args) {
+        A a = new A();
+        B b = new B();
+        a.bar();
+        b.bar();
+    }
+}
+]]]
+
+We will revisit it in the self (this)/super lecture...
+
+${slide:title=Subclass may want to access hidden superclass}$
+
+
+[[[
+public class Box extends Rectangle {	
+	...
+	public double getArea() {
+	   return (super.getArea() + height * length + width * height) * 2;
+	}
+]]]
+
+- ==super.getArea()== executes the method rectangle.getArea on the box instance
+
+
+${slide:title=Lookup with Super}$
+
+[[[
+class A {
+  public void bar() { foo(); }
+  public void foo() { print("A"); }
+}
+class B extends A {
+  public void bar() { super.bar(); }
+  public void foo() { print("B"); }
+}
+]]]
+[[[
+(new A()).bar();
+(new B()).bar();
+]]]
+
+${slide:title=super in super.myMethod(); }$
+
+- super refers to the object the receiver of the message
+-- super \=\= this
+- super changes the method lookup to start in the superclass of the class using super. 
+- super does not start lookup in the superclass of the class of the receiver
+
+
+
+
+
+${slide:title=Static variables or methods }$
+
+- Modifier 'static'
+- Linked to the class
+- No lookup for static methods
+- Variable unique and shared between all instances of the class
+- Kind of global since the class is a global too
+
+[[[
+class Circle {
+	static int PI = 3.14159265; 
+	int rayon; //instance level
+	int circonference() {
+		return 2*PI*rayon; // or Circle.PI
+		}
+	}
+]]]
+
+
+
+
+
+${slide:title=Interfaces}$
+
+- Group of method signatures
+-- and since Java 80 default methods...
+- Used by the type checker 
+- Support the manipulation of instances of classes not in subtype relation (i.e. not in the same hierachy)
+
+[[[
+interface {
+	//methods
+}
+]]]
+
+
+
+${slide:title=Example}$
+
+All methods are implicitly public and all fields are public static final.
+[[[
+interface Polygon {
+   public static final String color = "blue";
+  
+   public  void getArea();
+}
+]]]
+
+[[[
+interface Polygon {
+  String color = "blue";
+  
+  void getArea();
+}
+]]]
+
+${slide:title=Example}$
+
+[[[
+class Rectangle implements Polygon {
+	... 
+    public void getArea() {
+        return length * width;
+    }
+}
+]]]
+
+
+
+${slide:title=Classes - Interfaces}$
+
+Any class implementing an interface MUST defined the methods specified in the interface.
+- A class can implement many interfaces
+- A class inherits from a single superclass
+
+- An interface can "inherit" from multiple interfaces
+
+[[[
+interface Line {
+   //members of Line interface
+}
+
+interface Polygon extends Line {
+   //members of Polygon interface and Line interface
+}
+]]]
+
+${slide:title=Interfaces: step back}$
+
+ A nice mechanism for statically check language
+- defined what is expected
+- let the system evolve
+
+When you use a class as a type
+- You freeze the possible instances
+- You will only be able to have instances of type or subtypes
+
+When you use an interface as a type
+- You will be able to use any instance of classes implementing the interface
+
+
+
+${slide:title=Outline...}$
+
+${slide:title=Super well which one...}$
+Java is confusing at wish:
+
+- ==super== in accessing super same named superclass fields (Duh! Ugly)
+-- Syntactically: ==super.x==
+- ==super== in method to invoke overridden super method (super is the receiver see Lecture)
+-- Syntactically: ==super.method();==
+- ==super== in constructor 
+-- Syntactically: ==super(x)==
+-- first line represents the superclass and looks for constructor function based on argument
+-- in any for the other line, represents the newly created object but changes lookup and in plain method.
+- ==static <T> void copy(List<? super T> dest, List<? extends T> src)==
+-- to say any super type of T.
+-- well
+
+${slide:title=Super : accessing super same named superclass fields}$
+
+[[[
+class Vehicle { 
+    int maxSpeed = 120; 
+} 
+
+class Car extends Vehicle { 
+    int maxSpeed = 180; 
+  
+    void display() { 
+        System.out.println("Maximum Speed: " + super.maxSpeed); 
+    } 
+}
+class Test { 
+    public static void main(String[] args) { 
+        Car small = new Car(); 
+        small.display(); 
+    } 
+} 
+>>> 120  
+]]]
+- Do not redefine fields in subclass with the same name... 
+- The language should not let you do that!
+
+${slide:title=super in constructors}$
+
+- means look in superclass and invoke the constructor with the same signature as the super call
+
+[[[
+public Meal {
+    public Meal(String flavour) {
+       this.flavour = flavour;
+    }
+}
+]]]
+
+[[[
+public Crisps(String flavour, int quantity) {
+    super(flavour); // pass flavour to the super class constructor
+    this.quantity = quantity;
+}
+]]]
+
+${slide:title=super in constructor: II }$
+
+[[[
+public Meal {
+	public void setFlavour(String flavour) {
+	    this.flavour = flavour;
+	}
+]]]
+
+[[[
+public Crisps(String flavour, int quantity) {
+    this.quantity = quantity;
+    super.setFlavour(flavour);
+}
+]]]
+
+Clearly not good style. But super here is not the superclass but the instance. 
+
+
+
+${slide:title=About main and command line}$
+
+- one single parameter: a table of strings
+- argv.length 
+[[[
+public class Echo {
+	public static void main(String[] argv) { 
+		for (int i=0; i<argv.length; i++)
+			System.out.print(argv[i]+" ");
+			System.out.println(); }
+	}
+>>>java Echo OOP is COOL, Java less
+>>>OOP is COOL, Java less
+]]]
+
+
+
+
+
