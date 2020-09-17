@@ -67,7 +67,7 @@ ${slide:title=Influence of static type}$
 [[[
 Person p = new Person();
 Acceptable r = p;
-r.agree();
+r.agree(); >>> BREAK!
 ]]]
 
 [[[
@@ -78,9 +78,32 @@ java: cannot find symbol
 
 - At compile time, the typechecker does not use the dynamic type of the object.
 - Within the static type Acceptable there is no method ==agree()==.
-- A typechecker can reject programs that would execute without problems to make sure that it can find execution that would fail.
-- An interface provide a view on the object behavior
 
+${slide:title=Same without Interface}$
+
+[[[
+public class Machine {
+    public void accept(){System.out.println("accept");}}
+public class Robot extends Machine {
+    public void accept(){System.out.println("accept");}
+    public void agree(){System.out.println("agree");}}
+]]]
+
+[[[
+Robot r = new Robot();
+r.accept();
+r.agree();
+Machine m = r;
+m.accept();
+m.agree(); >>> BREAK!
+((Machine)r).agree(); >>> BREAK!
+]]]
+
+- A typechecker rejects programs that would execute without problems to make sure that it can find execution that would fail.
+
+
+
+- An interface provides a view on the object behavior
 
 ${slide:title=Nominal Typing and Typecheking}$
 
