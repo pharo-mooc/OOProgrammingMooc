@@ -29,7 +29,7 @@ ${slide:title=Example: state}$
 [[[
 public class Rectangle {
 	protected int length;
-    protected int width;
+	protected int width;
 	
 	public int getArea() {
 		return length * width;
@@ -39,7 +39,6 @@ public class Rectangle {
 [[[
 class Box extends Rectangle{ 
 	protected int height;
-
 }
 ]]]
 
@@ -48,15 +47,15 @@ ${slide:title=Box constructors}$
 [[[
 class Box extends Rectangle{ 
 	public Box(){
-        super();
-        height = 0;
-    }
+		super();
+		height = 0;
+	}
 ]]]
 
 [[[
-  public Box(int length, int width, int height) {
-      super(length, width);
-      this.height = height;
+	public Box(int length, int width, int height) {
+		super(length, width);
+		this.height = height;
 	}
 ]]]
 
@@ -77,8 +76,8 @@ ${slide:title=Simple Lookup}$
 Methods of the superclass can be invoked on subclass instances
 
 [[[
-    Box b = new Box (10,20,20);
-    System.out.println(b.getArea());
+	Box b = new Box (10,20,20);
+	System.out.println(b.getArea());
 ]]]
 
 ${slide:title=Subclass can enrich its API}$
@@ -87,38 +86,29 @@ ${slide:title=Subclass can enrich its API}$
 public class Box extends Rectangle {	
 	...
 	public double getVolume() {
-        return getArea() * height;
-    }
+		return getArea() * height;
+	}
 ]]]
-
-
-
 
 
 ${slide:title=Lookup}$
 
 [[[
 class A {
-    public int bar() { return foo();}
-    public int foo() {
-        System.out.println("A");
-        return 1;
-    }
+	public int bar() { return foo();}
+	public int foo() { System.out.println("A"); return 1;}
 }
 class B extends A {
-    public int foo() {
-        System.out.println("B");
-        return 2;
-    }
+	public int foo() { System.out.println("B"); return 2; }
 }
 
 class Runner {
-    public static void main(String[] args) {
-        A a = new A();
-        B b = new B();
-        a.bar();
-        b.bar();
-    }
+	public static void main(String[] args) {
+		A a = new A();
+		B b = new B();
+		a.bar();
+		b.bar();
+	}
 }
 ]]]
 
@@ -131,7 +121,7 @@ ${slide:title=Subclass may want to access hidden superclass}$
 public class Box extends Rectangle {	
 	...
 	public double getArea() {
-	   return (super.getArea() + height * length + width * height) * 2;
+		return (super.getArea() + height * length + width * height) * 2;
 	}
 ]]]
 
@@ -142,12 +132,12 @@ ${slide:title=Lookup with Super}$
 
 [[[
 class A {
-  public void bar() { foo(); }
-  public void foo() { print("A"); }
+	public void bar() { foo(); }
+	public void foo() { print("A"); }
 }
 class B extends A {
-  public void bar() { super.bar(); }
-  public void foo() { print("B"); }
+	public void bar() { super.bar(); }
+	public void foo() { print("B"); }
 }
 ]]]
 [[[
@@ -161,9 +151,6 @@ ${slide:title=super in super.myMethod(); }$
 -- super \=\= this
 - super changes the method lookup to start in the superclass of the class using super. 
 - super does not start lookup in the superclass of the class of the receiver
-
-
-
 
 
 ${slide:title=Static variables or methods }$
@@ -185,92 +172,6 @@ class Circle {
 ]]]
 
 
-
-
-
-${slide:title=Interfaces}$
-
-- Group of method signatures
--- and since Java 80 default methods...
-- Used by the type checker 
-- Support the manipulation of instances of classes not in subtype relation (i.e. not in the same hierachy)
-
-[[[
-interface {
-	//methods
-}
-]]]
-
-
-
-${slide:title=Example}$
-
-All methods are implicitly public and all fields are public static final.
-[[[
-interface Polygon {
-   public static final String color = "blue";
-  
-   public  void getArea();
-}
-]]]
-
-[[[
-interface Polygon {
-  String color = "blue";
-  
-  void getArea();
-}
-]]]
-
-${slide:title=Example}$
-
-[[[
-class Rectangle implements Polygon {
-	... 
-    public void getArea() {
-        return length * width;
-    }
-}
-]]]
-
-
-
-${slide:title=Classes - Interfaces}$
-
-Any class implementing an interface MUST defined the methods specified in the interface.
-- A class can implement many interfaces
-- A class inherits from a single superclass
-
-- An interface can "inherit" from multiple interfaces
-
-[[[
-interface Line {
-   //members of Line interface
-}
-
-interface Polygon extends Line {
-   //members of Polygon interface and Line interface
-}
-]]]
-
-${slide:title=Interfaces: step back}$
-
- A nice mechanism for statically check language
-- defined what is expected
-- let the system evolve
-
-When you use a class as a type
-- You freeze the possible instances
-- You will only be able to have instances of type or subtypes
-
-When you use an interface as a type
-- You will be able to use any instance of classes implementing the interface
-
-
-
-
-
-
 ${slide:title=About main and command line}$
 
 - one single parameter: a table of strings
@@ -285,8 +186,5 @@ public class Echo {
 >>>java Echo OOP is COOL, Java less
 >>>OOP is COOL, Java less
 ]]]
-
-
-
 
 

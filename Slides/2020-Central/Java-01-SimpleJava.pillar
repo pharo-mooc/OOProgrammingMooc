@@ -1,6 +1,6 @@
 {
 	"title":"Key OO concepts in Java",
-	"slidesid":"",
+	"slidesid":"Core",
 	"author":"S. Ducasse"
 }
 
@@ -15,23 +15,18 @@ Thanks Alexandre Bergel for parts of the materials used in this lecture!
 
 ${slide:title=Quotes of the day}$
 
-"Perfection is attained, not when no more can be added, but when no more can be removed." Antoine de Saint-Exupéry
+- "Perfection is attained, not when no more can be added, but when no more can be removed." Antoine de Saint-Exupéry
 
-"I invented the term 'Object-Oriented', and I can tell you I did not have C\+\+ in mind." Alan Kay
-(nor Java :))
+- "I invented the term 'Object-Oriented', and I can tell you I did not have C\+\+ in mind." Alan Kay (nor Java :))
 
 
-${slide:title=What we will not cover}$
-
-Simple Java is an oxymoron.
+${slide:title=Simple Java is an oxymoron}$
 
 - Java is gigantic and even more... (looks more and more like an old verbose language)
 - Full of conceptual glitches (public fields, strange protected semantics, overloading...)
-- Java mixes physical representation (files) with concepts 
--- there is not need to have files to have classes
--- class definitions can be saved in databases
 
-This lecture will not cover: packaging  enums, lambdas, generics, inner classes, modules, private methods, visibility, synchronised, meta data, overloading, primitives vs. boxed....
+
+This lecture will not cover: packaging,  enums, lambdas, generics, inner classes, modules, private methods, visibility, synchronised, meta data, overloading, primitives vs. boxed....
 - But we will provide extras slides on more advanced topics
 
 ${slide:title=Java}$
@@ -40,6 +35,9 @@ Not pure object-oriented programming language
 - Static methods are not looked up
 - Primitive types are not objects: int and Integer....
 - Classes are not first class: cannot send messages to classes
+- Mixing physical representation (files) with concepts 
+-- there is not need to have files to have classes
+-- class definitions can be saved in databases
 
 ${slide:title=Outline}$
 
@@ -47,16 +45,20 @@ ${slide:title=Outline}$
 - Classes / instance variables
 - Methods
 - Inheritance (single)
+- Method lookup
+- this / super
+- Constructor
+- Dynamic type vs. static types 
 - Interface
 - Cast
-- Dynamic type vs. static types 
-- Constructor
+
 
 
 ${slide:title=Instances}$
 
-- Created using ==new== construct
 - Remember: one state, identity, behavior
+- Created using ==new== construct
+
 
 [[[
 new Tomagotchi()
@@ -73,11 +75,10 @@ ${slide:title=Class}$
 - Mold/Generators of instances
 
 [[[
-public class Rectangle
-	{
-	    protected int length;
-	    protected int width;
-		...
+public class Rectangle {
+	protected int length;
+	protected int width;
+	...
 ]]]
 
 [[[
@@ -88,22 +89,24 @@ public class Box extends Rectangle {
 
 ${slide:title=Class}$
 
-- One public class per file
-- File name should have the name of the public class
 - Class import packages (group of classes)
+
+ O_o
+- One public class per file (well)
+- File name should have the name of the public class
 
 
 ${slide:title=Instance variables}$
 
 - Describe instance structure
-- Have a visibility: Avoid public, private and final :)
-- Better use protected (see companion extra lectures)
+- Have a visibility: Avoid ==public==, ==private== and ==final== :)
+- Better use ==protected== (see companion extra lectures)
 
 [[[
 public class Rectangle {
-	    protected int length;
-	    protected int width;
-		...
+	protected int length;
+	protected int width;
+	...
 ]]]
 
 - Accessible by method of the class and subclasses
@@ -111,7 +114,7 @@ public class Rectangle {
 ${slide:title=Methods}$
 
 - ==this== represents the receiver
-- the lookup of methods at runtime starts in the class of the receiver.
+- The lookup of methods at runtime starts in the class of the receiver.
 
 [[[
 public class Rectangle{	
@@ -131,18 +134,18 @@ ${slide:title=Constructor (I)}$
 
 [[[
 	public Rectangle() {
-       length = 0;
-       width = 0;
-    }
+		length = 0;
+		width = 0;
+	}
 ]]]
 
 Multiple constructors in a class
 
 [[[
-    public Rectangle(int length, int width) {
-        this.length = length;
-        this.width = width;
-    }
+	public Rectangle(int length, int width) {
+		this.length = length;
+		this.width = width;
+	}
 ]]]
 
 

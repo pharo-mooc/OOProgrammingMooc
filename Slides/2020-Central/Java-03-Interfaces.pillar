@@ -25,17 +25,17 @@ ${slide:title=Example}$
 All methods are implicitly public and all fields are public static final.
 [[[
 interface Polygon {
-   public static final String color = "blue";
-  
-   public  void getArea();
+	public static final String color = "blue";
+
+	public  void getArea();
 }
 ]]]
 
 [[[
 interface Polygon {
-  String color = "blue";
-  
-  void getArea();
+	String color = "blue";
+
+	void getArea();
 }
 ]]]
 
@@ -44,9 +44,9 @@ ${slide:title=Example}$
 [[[
 class Rectangle implements Polygon {
 	... 
-    public void getArea() {
-        return length * width;
-    }
+	public void getArea() {
+		return length * width;
+	}
 }
 ]]]
 
@@ -61,11 +61,11 @@ Any class implementing an interface MUST defined the methods specified in the in
 
 [[[
 interface Line {
-   //members of Line interface
+	//members of Line interface
 }
 
 interface Polygon extends Line {
-   //members of Polygon interface and Line interface
+	//members of Polygon interface and Line interface
 }
 ]]]
 
@@ -90,4 +90,6 @@ ${slide:title=Interfaces support evolution}$
 - This cannot be done if you use a class. 
 - With a class you can only pass a subclass.
 
+${slide:title=Interfaces and nominal types}$
 
+Pay attention two interfaces with different names but the same contents are not compatible
