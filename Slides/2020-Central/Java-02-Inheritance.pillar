@@ -153,11 +153,10 @@ ${slide:title=super in super.myMethod(); }$
 - super does not start lookup in the superclass of the class of the receiver
 
 
-${slide:title=Static variables or methods }$
+${slide:title=Static variables}$
 
 - Modifier 'static'
 - Linked to the class
-- No lookup for static methods
 - Variable unique and shared between all instances of the class
 - Kind of global since the class is a global too
 
@@ -171,6 +170,13 @@ class Circle {
 	}
 ]]]
 
+${slide:title=Static methods}$
+
+- They are not methods! Just functions
+- No dynamic binding!
+- No possibility to use classes are registration mechanisms
+-- for the same you need a singleton and a factory
+- check Class Method at Work from http://mooc.pharo.org (W4S6)
 
 ${slide:title=About main and command line}$
 
