@@ -89,7 +89,7 @@ Box b = new Box();
 ==b== can only contain instances of ==Box== and its subclasses
 
 [[[
-class MyBox extend Object {}
+class MyBox extend Object {...}
 Box b = new MyBox()
 >>>> BREAK!!!
 ]]]
@@ -107,22 +107,26 @@ interface IBox {
 ]]]
 
 [[[
-class MyBox extend Object implement IBox
+class MyBox extend Object implement IBox {...}
 IBox b = new MyBox();
 >>> Valid
 ]]]
 
 [[[
-class Box extend Rectangle implement Ibox
+class Box extend Rectangle implement Ibox {...}
 IBox b = new Box();
 >>> Valid
 ]]]
 
 [[[
-class MyBox2 extend ZKZ implement IBox
+class MyBox2 extend ZKZ implement IBox {...}
 IBox b = new MyBox2();
 >>> Valid
 ]]]
+
+
+
+
 
 
 ${slide:title=Interfaces support evolution}$
@@ -132,9 +136,30 @@ ${slide:title=Interfaces support evolution}$
 - This cannot be done if you use a class. 
 - With a class you can only pass a subclass.
 
+${slide:title=An interface can be composed of interface}$
+
+[[[
+interface IRectangle { double getArea() }
+interface IBox extend IRectangle { double getVolume() }
+class BBox extend Object implement IBox {}
+]]]
+
+[[[
+IRectangle r = new BBox()
+>>> Valid
+]]]
+
+[[[
+IBox r = new BBox()
+>>> Valid
+]]]
+
+
+
 ${slide:title=Interfaces and nominal types}$
 
-- Pay attention two interfaces with different names but the same contents are not compatible
+- Pay attention two interfaces with different names but the same contents are NOT compatible
+
 - You will not be able to substitute instances of a class using one interface by instances of another class using another interface with the same contents
 
 
