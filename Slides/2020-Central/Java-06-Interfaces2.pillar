@@ -26,15 +26,13 @@ All methods are implicitly public and all fields are public static final
 [[[
 interface Polygon {
 	public static final String color = "blue";
-
-	public  void getArea();
+	public  double getArea();
 }
 ]]]
 
 [[[
 interface Polygon {
 	String color = "blue";
-
 	void getArea();
 }
 ]]]
@@ -44,7 +42,7 @@ ${slide:title=class A Implements I}$
 [[[
 class Rectangle implements Polygon {
 	... 
-	public void getArea() {
+	public double getArea() {
 		return length * width;
 	}
 }
@@ -81,6 +79,10 @@ When you use a class as a type:
 
 When you use an interface as a type:
 - You will be able to use any instance of classes implementing the interface
+
+
+${slide:title=Illustrations}$
+
 
 
 ${slide:title=Interfaces support evolution}$
