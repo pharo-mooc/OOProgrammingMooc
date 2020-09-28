@@ -1,13 +1,13 @@
 {
 	"title":"Interfaces",
-	"slidesid":"",
+	"slidesid":"Core",
 	"author":"S. Ducasse"
 }
 
 
 ${slide:title=Interfaces}$
 
-- The only good part of Java :)
+- A good element of Java :)
 - Group of method signatures
 -- and since Java 80 default methods...
 - Used by the type checker 
@@ -22,7 +22,7 @@ interface {
 
 ${slide:title=Example}$
 
-All methods are implicitly public and all fields are public static final.
+All methods are implicitly public and all fields are public static final
 [[[
 interface Polygon {
 	public static final String color = "blue";
@@ -39,7 +39,7 @@ interface Polygon {
 }
 ]]]
 
-${slide:title=Example}$
+${slide:title=class A Implements I}$
 
 [[[
 class Rectangle implements Polygon {
@@ -57,7 +57,7 @@ Any class implementing an interface MUST defined the methods specified in the in
 - A class can implement many interfaces
 - A class inherits from a single superclass
 
-- An interface can "inherit" from multiple interfaces
+- An interface can implement from multiple interfaces
 
 [[[
 interface Line {
@@ -72,14 +72,14 @@ interface Polygon extends Line {
 ${slide:title=Interfaces: step back}$
 
  A nice mechanism for statically checked languages
-- defined what is expected
+- defines what is expected
 - lets the system evolve
 
-When you use a class as a type
+When you use a class as a type:
 - You freeze the possible instances
 - You will only be able to have instances of type or subtypes
 
-When you use an interface as a type
+When you use an interface as a type:
 - You will be able to use any instance of classes implementing the interface
 
 
@@ -92,4 +92,8 @@ ${slide:title=Interfaces support evolution}$
 
 ${slide:title=Interfaces and nominal types}$
 
-Pay attention two interfaces with different names but the same contents are not compatible
+- Pay attention two interfaces with different names but the same contents are not compatible
+- You will not be able to substitute instances of a class using one interface by instances of another class using another interface with the same contents
+
+
+
