@@ -27,7 +27,7 @@ All methods are implicitly public and all fields are public static final
 interface Polygon {
 	public static final String color = "blue";
 
-	public  void getArea();
+	public double getArea();
 }
 ]]]
 
@@ -35,7 +35,7 @@ interface Polygon {
 interface Polygon {
 	String color = "blue";
 
-	void getArea();
+	double getArea();
 }
 ]]]
 
@@ -44,7 +44,7 @@ ${slide:title=class A Implements I}$
 [[[
 class Rectangle implements Polygon {
 	... 
-	public void getArea() {
+	public double getArea() {
 		return length * width;
 	}
 }

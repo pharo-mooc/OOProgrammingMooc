@@ -162,9 +162,9 @@ ${slide:title=Static variables}$
 
 [[[
 class Circle {
-	static int PI = 3.14159265; 
-	int rayon; //instance level
-	int circonference() {
+	static float PI = 3.14159265f; 
+	float rayon; //instance level
+	float circonference() {
 		return 2*PI*rayon; // or Circle.PI
 		}
 	}
