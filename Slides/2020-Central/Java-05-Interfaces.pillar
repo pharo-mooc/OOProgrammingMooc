@@ -26,7 +26,6 @@ All methods are implicitly public and all fields are public static final
 [[[
 interface Polygon {
 	public static final String color = "blue";
-
 	public double getArea();
 }
 ]]]
@@ -34,7 +33,6 @@ interface Polygon {
 [[[
 interface Polygon {
 	String color = "blue";
-
 	double getArea();
 }
 ]]]

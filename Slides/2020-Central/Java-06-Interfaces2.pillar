@@ -33,7 +33,7 @@ interface Polygon {
 [[[
 interface Polygon {
 	String color = "blue";
-	void getArea();
+	double getArea();
 }
 ]]]
 
@@ -81,8 +81,48 @@ When you use an interface as a type:
 - You will be able to use any instance of classes implementing the interface
 
 
-${slide:title=Illustrations}$
+${slide:title=Remember}$
 
+[[[
+Box b = new Box();
+]]]
+==b== can only contain instances of ==Box== and its subclasses
+
+[[[
+class MyBox extend Object {}
+Box b = new MyBox()
+>>>> BREAK!!!
+]]]
+
+Because there is no type relationship between ==MyBox== and ==Box==
+
+
+${slide:title=Now with interfaces}$
+
+[[[
+interface IBox { 
+	double getArea()
+	double volume()
+	}
+]]]
+
+[[[
+class MyBox extend Object implement IBox
+IBox b = new MyBox();
+>>> Valid
+]]]
+
+[[[
+class Box extend Rectangle implement Ibox
+IBox b = new Box();
+>>> Valid
+]]]
+
+[[[
+class MyBox2 extend ZKZ implement IBox
+IBox b = new MyBox2();
+>>> Valid
+]]]
 
 
 ${slide:title=Interfaces support evolution}$
