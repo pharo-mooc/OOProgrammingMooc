@@ -17,69 +17,7 @@ A a = new B();
 -- The dynamic type may change throughout the program.
 
 
-${slide:title=Setting the stage}$
-
-[[[
-public interface Acceptable {
-    public void accept();
-}
-]]]
-
-[[[
-public class Person implements Acceptable {
-    public void accept(){
-        System.out.println("accept");
-    }
-    public void agree(){
-        System.out.println("agree");
-    }
-}
-]]]
-
-${slide:title=Normal}$
-
-[[[
-Person p = new Person();
-p.accept();
-p.agree();
-]]]
-
-[[[
-accept
-agree
-]]]
-
-
-${slide:title=Normal too}$
-
-[[[
-Person p = new Person();
-Acceptable r = p;
-r.accept;
-]]]
-
-[[[
-accept
-]]]
-
-${slide:title=Influence of static type}$
-
-[[[
-Person p = new Person();
-Acceptable r = p;
-r.agree(); >>> BREAK!
-]]]
-
-[[[
-java: cannot find symbol
-  symbol:   method agree()
-  location: variable a of type designCorner.Acceptable
-]]]
-
-- At compile time, the typechecker does not use the dynamic type of the object.
-- Within the static type Acceptable there is no method ==agree()==.
-
-${slide:title=Same without Interface}$
+${slide:title=Two simple classes}$
 
 [[[
 public class Machine {
@@ -89,32 +27,25 @@ public class Robot extends Machine {
     public void agree(){System.out.println("agree");}}
 ]]]
 
+${slide:title=Valid and invalid}$
+
 [[[
 Robot r = new Robot();
 r.accept();
 r.agree();
+]]]
+
+[[[
 Machine m = r;
 m.accept();
+]]]
+
+[[[
 m.agree(); >>> BREAK!
 ((Machine)r).agree(); >>> BREAK!
 ]]]
 
 - A typechecker rejects programs that would execute without problems to make sure that it can find execution that would fail.
-
-
-
-- An interface provides a view on the object behavior
-
-${slide:title=Nominal Typing and Typecheking}$
-
-- Nominal = name
-- The type checker look for name of the Type and not inside the API
-- The type checker has a static view of the world. 
-
-Even if your class implements the exact same interface
-- If you do not have a type relationship between your classes, they are incompatible
-- This is true for classes and interfaces
-
 
 
 ${slide:title=What you should know}$
